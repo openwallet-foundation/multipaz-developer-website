@@ -73,10 +73,28 @@ const config = {
         },
         items: [
           // {
-          //   href: 'https://github.com/facebook/docusaurus',
-          //   label: 'GitHub',
-          //   position: 'right',
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'left',
+          //   label: 'Overview',
           // },
+          // {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/docs/getting-started', label: 'Get Started', position: 'left'},
+          {
+            label: 'API Reference',
+            to: '/kdocs',
+            position: 'left',
+          },
+          {
+            label: 'Codelabs',
+            to: '/docs/codelabs',
+            position: 'left',
+          },          
+          {
+            href: 'https://github.com/facebook/docusaurus',
+            label: 'GitHub',
+            position: 'right',
+          },
         ],
       },
       footer: {
@@ -91,7 +109,7 @@ const config = {
               },
               {
                 label: 'API Reference',
-                to: '/docs/kdocs',
+                to: '/kdocs',
               },
               {
                 label: 'Codelabs',
