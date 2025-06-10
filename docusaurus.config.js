@@ -79,7 +79,7 @@ const config = {
           //   label: 'Overview',
           // },
           // {to: '/blog', label: 'Blog', position: 'left'},
-          {to: '/docs/getting-started', label: 'Get Started', position: 'left'},
+          {to: '/docs/overview/getting-started', label: 'Get Started', position: 'left'},
           {
             label: 'API Reference',
             to: '/kdocs',
@@ -87,9 +87,14 @@ const config = {
           },
           {
             label: 'Codelabs',
-            to: '/docs/codelabs',
+            to: '/docs/codelabs/intro',
             position: 'left',
-          },          
+          },
+          {
+            label: 'Contributing',
+            to: '/docs/contributing',
+            position: 'left',
+          },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
