@@ -1,0 +1,401 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CloudSecureArea</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/commonMain" data-filter=":multipaz:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz::org.multipaz.securearea.cloud/CloudSecureArea///PointingToDeclaration//-311180413">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.securearea.cloud</a><span class="delimiter">/</span><span class="current">CloudSecureArea</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cloud</span><wbr><span>Secure</span><wbr><span><span>Area</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">CloudSecureArea</a> : <a href="../../org.multipaz.securearea/-secure-area/index.html">SecureArea</a></div><p class="paragraph">An implementation of <a href="../../org.multipaz.securearea/-secure-area/index.html">SecureArea</a> using a Secure Area managed by an external server.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="235876138%2FClasslikes%2F-311180413" anchor-label="Companion" id="235876138%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="235876138%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1191557782%2FProperties%2F-311180413" anchor-label="displayName" id="1191557782%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="display-name.html"><span>display</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1191557782%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="display-name.html">displayName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The name of the Secure Area, suitable for displaying to the end user.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1530716622%2FProperties%2F-311180413" anchor-label="identifier" id="1530716622%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="identifier.html"><span><span>identifier</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1530716622%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">override </span><span class="token keyword">val </span><a href="identifier.html">identifier</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">A stable identifier for the Secure Area.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1483808245%2FProperties%2F-311180413" anchor-label="isRegistered" id="-1483808245%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-registered.html"><span>is</span><wbr><span><span>Registered</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1483808245%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="is-registered.html">isRegistered</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="564763328%2FProperties%2F-311180413" anchor-label="platformSecureArea" id="564763328%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-secure-area.html"><span>platform</span><wbr><span>Secure</span><wbr><span><span>Area</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="564763328%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">lateinit </span><span class="token keyword">var </span><a href="platform-secure-area.html">platformSecureArea</a><span class="token operator">: </span><a href="../../org.multipaz.securearea/-secure-area/index.html">SecureArea</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-694102985%2FProperties%2F-311180413" anchor-label="serverUrl" id="-694102985%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="server-url.html"><span>server</span><wbr><span><span>Url</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-694102985%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="server-url.html">serverUrl</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2097104527%2FProperties%2F-311180413" anchor-label="supportedAlgorithms" id="-2097104527%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="supported-algorithms.html"><span>supported</span><wbr><span><span>Algorithms</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2097104527%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="supported-algorithms.html">supportedAlgorithms</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">The list of algorithms the Secure Area supports.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="358826417%2FFunctions%2F-311180413" anchor-label="batchCreateKey" id="358826417%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.multipaz.securearea/-secure-area/batch-create-key.html"><span>batch</span><wbr><span>Create</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="358826417%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../../org.multipaz.securearea/-secure-area/batch-create-key.html"><span class="token function">batchCreateKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">numKeys<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">createKeySettings<span class="token operator">: </span><a href="../../org.multipaz.securearea/-create-key-settings/index.html">CreateKeySettings</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../org.multipaz.securearea/-batch-create-key-result/index.html">BatchCreateKeyResult</a></div><div class="brief "><p class="paragraph">Creates a batch of new keys.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1889204823%2FFunctions%2F-311180413" anchor-label="communicateLowlevel" id="1889204823%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="communicate-lowlevel.html"><span>communicate</span><wbr><span><span>Lowlevel</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1889204823%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="communicate-lowlevel.html"><span class="token function">communicateLowlevel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">endpointUri<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">requestData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="373102514%2FFunctions%2F-311180413" anchor-label="createKey" id="373102514%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-key.html"><span>create</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="373102514%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="create-key.html"><span class="token function">createKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">createKeySettings<span class="token operator">: </span><a href="../../org.multipaz.securearea/-create-key-settings/index.html">CreateKeySettings</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-cloud-key-info/index.html">CloudKeyInfo</a></div><div class="brief "><p class="paragraph">Creates a new key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1687047755%2FFunctions%2F-311180413" anchor-label="deleteKey" id="-1687047755%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-key.html"><span>delete</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1687047755%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="delete-key.html"><span class="token function">deleteKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Deletes a previously created key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1795538364%2FFunctions%2F-311180413" anchor-label="getKeyInfo" id="-1795538364%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-key-info.html"><span>get</span><wbr><span>Key</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1795538364%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="get-key-info.html"><span class="token function">getKeyInfo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-cloud-key-info/index.html">CloudKeyInfo</a></div><div class="brief "><p class="paragraph">Gets information about a key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="402658721%2FFunctions%2F-311180413" anchor-label="getKeyInvalidated" id="402658721%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-key-invalidated.html"><span>get</span><wbr><span>Key</span><wbr><span><span>Invalidated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="402658721%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="get-key-invalidated.html"><span class="token function">getKeyInvalidated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Checks whether the key has been invalidated.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1768367743%2FFunctions%2F-311180413" anchor-label="getPassphraseConstraints" id="-1768367743%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-passphrase-constraints.html"><span>get</span><wbr><span>Passphrase</span><wbr><span><span>Constraints</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1768367743%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-passphrase-constraints.html"><span class="token function">getPassphraseConstraints</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../org.multipaz.securearea/-passphrase-constraints/index.html">PassphraseConstraints</a></div><div class="brief "><p class="paragraph">The <a href="../../org.multipaz.securearea/-passphrase-constraints/index.html">PassphraseConstraints</a> configured at registration time.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1862850171%2FFunctions%2F-311180413" anchor-label="keyAgreement" id="1862850171%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="key-agreement.html"><span>key</span><wbr><span><span>Agreement</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1862850171%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="key-agreement.html"><span class="token function">keyAgreement</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">otherKey<span class="token operator">: </span><a href="../../org.multipaz.crypto/-ec-public-key/index.html">EcPublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">keyUnlockData<span class="token operator">: </span><a href="../../org.multipaz.securearea/-key-unlock-data/index.html">KeyUnlockData</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Performs Key Agreement.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2082569912%2FFunctions%2F-311180413" anchor-label="register" id="2082569912%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register.html"><span><span>register</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2082569912%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="register.html"><span class="token function">register</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">passphrase<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">passphraseConstraints<span class="token operator">: </span><a href="../../org.multipaz.securearea/-passphrase-constraints/index.html">PassphraseConstraints</a><span class="token punctuation">, </span></span><span class="parameter ">onAuthorizeRootOfTrust<span class="token operator">: </span><span class="token punctuation">(</span>cloudSecureAreaRootOfTrust<span class="token operator">: </span><a href="../../org.multipaz.crypto/-x509-cert/index.html">X509Cert</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Registers with the cloud secure area.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1224342266%2FFunctions%2F-311180413" anchor-label="sign" id="-1224342266%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sign.html"><span><span>sign</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1224342266%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="sign.html"><span class="token function">sign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">dataToSign<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">keyUnlockData<span class="token operator">: </span><a href="../../org.multipaz.securearea/-key-unlock-data/index.html">KeyUnlockData</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../org.multipaz.crypto/-ec-signature/index.html">EcSignature</a></div><div class="brief "><p class="paragraph">Signs data with a key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1927440997%2FFunctions%2F-311180413" anchor-label="unregister" id="-1927440997%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unregister.html"><span><span>unregister</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1927440997%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="unregister.html"><span class="token function">unregister</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

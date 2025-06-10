@@ -1,0 +1,316 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>AndroidKeystoreCreateKeySettings</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/androidMain">android</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/androidMain" data-filter=":multipaz:dokkaHtmlPartial/androidMain">
+                                <span class="checkbox--icon"></span>
+                                android
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz::org.multipaz.securearea/AndroidKeystoreCreateKeySettings///PointingToDeclaration//-968842761">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.securearea</a><span class="delimiter">/</span><span class="current">AndroidKeystoreCreateKeySettings</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Android</span><wbr><span>Keystore</span><wbr><span>Create</span><wbr><span>Key</span><wbr><span><span>Settings</span></span></h1>
+    <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+      <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">AndroidKeystoreCreateKeySettings</a> : <a href="../-create-key-settings/index.html">CreateKeySettings</a></div><p class="paragraph">Class for holding Android Keystore-specific settings related to key creation.</p></div>    </div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-1012561864%2FClasslikes%2F-968842761" anchor-label="Builder" id="-1012561864%2FClasslikes%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-builder/index.html"><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1012561864%2FClasslikes%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-builder/index.html">Builder</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">attestationChallenge<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A builder for <a href="../-create-key-settings/index.html">CreateKeySettings</a>.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1652431026%2FProperties%2F-968842761" anchor-label="algorithm" id="-1652431026%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-create-key-settings/algorithm.html"><span><span>algorithm</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1652431026%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../-create-key-settings/algorithm.html">algorithm</a><span class="token operator">: </span><a href="../../org.multipaz.crypto/-algorithm/index.html">Algorithm</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1302618265%2FProperties%2F-968842761" anchor-label="attestationChallenge" id="-1302618265%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="attestation-challenge.html"><span>attestation</span><wbr><span><span>Challenge</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1302618265%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="attestation-challenge.html">attestationChallenge</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">The attestation challenge.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="963566692%2FProperties%2F-968842761" anchor-label="attestKeyAlias" id="963566692%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="attest-key-alias.html"><span>attest</span><wbr><span>Key</span><wbr><span><span>Alias</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="963566692%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="attest-key-alias.html">attestKeyAlias</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The attest key alias, if any.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1829168078%2FProperties%2F-968842761" anchor-label="nonce" id="1829168078%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-create-key-settings/nonce.html"><span><span>nonce</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1829168078%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../-create-key-settings/nonce.html">nonce</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-60221416%2FProperties%2F-968842761" anchor-label="userAuthenticationRequired" id="-60221416%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-authentication-required.html"><span>user</span><wbr><span>Authentication</span><wbr><span><span>Required</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-60221416%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="user-authentication-required.html">userAuthenticationRequired</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Gets whether user authentication is required.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1076296772%2FProperties%2F-968842761" anchor-label="userAuthenticationTimeoutMillis" id="-1076296772%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-authentication-timeout-millis.html"><span>user</span><wbr><span>Authentication</span><wbr><span>Timeout</span><wbr><span><span>Millis</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1076296772%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="user-authentication-timeout-millis.html">userAuthenticationTimeoutMillis</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph">The user authentication timeout, or 0 if authentication is required on every use.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1735253130%2FProperties%2F-968842761" anchor-label="userAuthenticationTypes" id="1735253130%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-authentication-types.html"><span>user</span><wbr><span>Authentication</span><wbr><span><span>Types</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1735253130%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="user-authentication-types.html">userAuthenticationTypes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="../-user-authentication-type/index.html">UserAuthenticationType</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">User authentication types for the key.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="460864301%2FProperties%2F-968842761" anchor-label="useStrongBox" id="460864301%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="use-strong-box.html"><span>use</span><wbr><span>Strong</span><wbr><span><span>Box</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="460864301%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="use-strong-box.html">useStrongBox</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Whether StrongBox is used.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1792588058%2FProperties%2F-968842761" anchor-label="validFrom" id="1792588058%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="valid-from.html"><span>valid</span><wbr><span><span>From</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1792588058%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="valid-from.html">validFrom</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The point in time before which the key is not valid, if set.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1951902008%2FProperties%2F-968842761" anchor-label="validUntil" id="1951902008%2FProperties%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="valid-until.html"><span>valid</span><wbr><span><span>Until</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1951902008%2FProperties%2F-968842761"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="valid-until.html">validUntil</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The point in time after which the key is not valid, if set.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

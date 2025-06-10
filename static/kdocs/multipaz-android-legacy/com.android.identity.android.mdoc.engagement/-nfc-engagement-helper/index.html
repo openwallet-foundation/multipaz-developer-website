@@ -1,0 +1,296 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>NfcEngagementHelper</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz-android-legacy:dokkaHtmlPartial/release">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filter=":multipaz-android-legacy:dokkaHtmlPartial/release">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz-android-legacy::com.android.identity.android.mdoc.engagement/NfcEngagementHelper///PointingToDeclaration//-1012618143">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz-android-legacy</a><span class="delimiter">/</span><a href="../index.html">com.android.identity.android.mdoc.engagement</a><span class="delimiter">/</span><span class="current">NfcEngagementHelper</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Nfc</span><wbr><span>Engagement</span><wbr><span><span>Helper</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">NfcEngagementHelper</a></div><p class="paragraph">Helper used for NFC engagement.</p><p class="paragraph">This implements NFC engagement as defined in ISO/IEC 18013-5:2021.</p><p class="paragraph">Applications can instantiate a <a href="index.html">NfcEngagementHelper</a> using <a href="-builder/index.html">NfcEngagementHelper.Builder</a> to specify the NFC engagement type (static or negotiated) and other details, such as which device retrieval methods to offer with static handover.</p><p class="paragraph">If negotiated handover is used, <a href="-listener/on-two-way-engagement-detected.html">Listener.onTwoWayEngagementDetected</a> is called when the NFC tag reader has selected the connection handover service.</p><p class="paragraph">When a remote mdoc reader connects to either one of the transports advertised via static handover or one of the transports offered by the reader via negotiated handover, <a href="-listener/on-device-connected.html">Listener.onDeviceConnected</a> is called and the application can use the passed-in <a href="../../com.android.identity.android.mdoc.transport/-data-transport/index.html">DataTransport</a> to create a <a href="../../com.android.identity.android.mdoc.deviceretrieval/-device-retrieval-helper/index.html">com.android.identity.android.mdoc.deviceretrieval.DeviceRetrievalHelper</a> to start the transaction.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-813929796%2FClasslikes%2F-1012618143" anchor-label="Builder" id="-813929796%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-builder/index.html"><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-813929796%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-builder/index.html">Builder</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">eDeviceKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-ec-public-key/index.html">EcPublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">options<span class="token operator">: </span><a href="../../com.android.identity.android.mdoc.transport/-data-transport-options/index.html">DataTransportOptions</a><span class="token punctuation">, </span></span><span class="parameter ">listener<span class="token operator">: </span><a href="-listener/index.html">NfcEngagementHelper.Listener</a><span class="token punctuation">, </span></span><span class="parameter ">executor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/concurrent/Executor.html">Executor</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A builder for <a href="index.html">NfcEngagementHelper</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="297185003%2FClasslikes%2F-1012618143" anchor-label="Companion" id="297185003%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="297185003%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="798272759%2FClasslikes%2F-1012618143" anchor-label="Listener" id="798272759%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-listener/index.html"><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="798272759%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-listener/index.html">Listener</a></div><div class="brief "><p class="paragraph">Listener for <a href="index.html">NfcEngagementHelper</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1280704927%2FProperties%2F-1012618143" anchor-label="deviceEngagement" id="-1280704927%2FProperties%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="device-engagement.html"><span>device</span><wbr><span><span>Engagement</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1280704927%2FProperties%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="device-engagement.html">deviceEngagement</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Gets the bytes of the <code class="lang-kotlin">DeviceEngagement</code> CBOR.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-821504877%2FProperties%2F-1012618143" anchor-label="handover" id="-821504877%2FProperties%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="handover.html"><span><span>handover</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-821504877%2FProperties%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">lateinit </span><span class="token keyword">var </span><a href="handover.html">handover</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Gets the bytes of the <code class="lang-kotlin">Handover</code> CBOR.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="620638764%2FFunctions%2F-1012618143" anchor-label="close" id="620638764%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="close.html"><span><span>close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="620638764%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Close all transports currently being listened on.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2055624402%2FFunctions%2F-1012618143" anchor-label="nfcOnDeactivated" id="-2055624402%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="nfc-on-deactivated.html"><span>nfc</span><wbr><span>On</span><wbr><span><span>Deactivated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2055624402%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="nfc-on-deactivated.html"><span class="token function">nfcOnDeactivated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">reason<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Method to call when link has been lost or if a different NFC AID has been selected.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-408017639%2FFunctions%2F-1012618143" anchor-label="nfcProcessCommandApdu" id="-408017639%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="nfc-process-command-apdu.html"><span>nfc</span><wbr><span>Process</span><wbr><span>Command</span><wbr><span><span>Apdu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-408017639%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="nfc-process-command-apdu.html"><span class="token function">nfcProcessCommandApdu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">apdu<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Method to call when a command APDU has been received.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2015424829%2FFunctions%2F-1012618143" anchor-label="peerHasConnected" id="-2015424829%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peer-has-connected.html"><span>peer</span><wbr><span>Has</span><wbr><span><span>Connected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2015424829%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peer-has-connected.html"><span class="token function">peerHasConnected</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">transport<span class="token operator">: </span><a href="../../com.android.identity.android.mdoc.transport/-data-transport/index.html">DataTransport</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1653091830%2FFunctions%2F-1012618143" anchor-label="peerIsConnecting" id="1653091830%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peer-is-connecting.html"><span>peer</span><wbr><span>Is</span><wbr><span><span>Connecting</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1653091830%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peer-is-connecting.html"><span class="token function">peerIsConnecting</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">transport<span class="token operator">: </span><a href="../../com.android.identity.android.mdoc.transport/-data-transport/index.html">DataTransport</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="451268912%2FFunctions%2F-1012618143" anchor-label="testingDoNotStartTransports" id="451268912%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="testing-do-not-start-transports.html"><span>testing</span><wbr><span>Do</span><wbr><span>Not</span><wbr><span>Start</span><wbr><span><span>Transports</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="451268912%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="testing-do-not-start-transports.html"><span class="token function">testingDoNotStartTransports</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

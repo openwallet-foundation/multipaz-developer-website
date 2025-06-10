@@ -1,0 +1,686 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>ByteDataReader</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/commonMain" data-filter=":multipaz:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz::org.multipaz.util/ByteDataReader///PointingToDeclaration//-311180413">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.util</a><span class="delimiter">/</span><span class="current">ByteDataReader</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Byte</span><wbr><span>Data</span><wbr><span><span>Reader</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">ByteDataReader</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>byteArray<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><p class="paragraph">This class provides methods for reading various data types from a byte array <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a>.</p><p class="paragraph">It maintains an internal cursor that indicates the current reading position within the byte array. The <code class="lang-kotlin">peek...()</code> methods allow reading data without moving the cursor, while the <code class="lang-kotlin">get...()</code> methods read and advance the cursor.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>byte</span><wbr><span><span>Array</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The byte array to read from.</p></div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1391232127%2FConstructors%2F-311180413" anchor-label="ByteDataReader" id="-1391232127%2FConstructors%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-byte-data-reader.html"><span>Byte</span><wbr><span>Data</span><wbr><span><span>Reader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1391232127%2FConstructors%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">byteString<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Creates a ByteDataReader with a given ByteString.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">byteArray<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Creates a ByteDataReader with a given byte array.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1806109267%2FProperties%2F-311180413" anchor-label="byteArray" id="-1806109267%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="byte-array.html"><span>byte</span><wbr><span><span>Array</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1806109267%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="byte-array.html">byteArray</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="74426261%2FFunctions%2F-311180413" anchor-label="exhausted" id="74426261%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="exhausted.html"><span><span>exhausted</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="74426261%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="exhausted.html"><span class="token function">exhausted</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Checks if the end of the byte array has been reached.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1878808371%2FFunctions%2F-311180413" anchor-label="getByteString" id="-1878808371%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-byte-string.html"><span>get</span><wbr><span>Byte</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1878808371%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-byte-string.html"><span class="token function">getByteString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">numBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">Reads a ByteString from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1120020034%2FFunctions%2F-311180413" anchor-label="getInt16" id="-1120020034%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-int16.html"><span>get</span><wbr><span><span>Int16</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1120020034%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-int16.html"><span class="token function">getInt16</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-short/index.html">Short</a></div><div class="brief "><p class="paragraph">Reads an Int16 value from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="995566085%2FFunctions%2F-311180413" anchor-label="getInt16Le" id="995566085%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-int16-le.html"><span>get</span><wbr><span><span>Int16Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="995566085%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-int16-le.html"><span class="token function">getInt16Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-short/index.html">Short</a></div><div class="brief "><p class="paragraph">Reads an Int16 value in little-endian order from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="679128772%2FFunctions%2F-311180413" anchor-label="getInt32" id="679128772%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-int32.html"><span>get</span><wbr><span><span>Int32</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="679128772%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-int32.html"><span class="token function">getInt32</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Reads an Int32 value from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-894251637%2FFunctions%2F-311180413" anchor-label="getInt32Le" id="-894251637%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-int32-le.html"><span>get</span><wbr><span><span>Int32Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-894251637%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-int32-le.html"><span class="token function">getInt32Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Reads an Int32 value in little-endian order from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-668956859%2FFunctions%2F-311180413" anchor-label="getInt64" id="-668956859%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-int64.html"><span>get</span><wbr><span><span>Int64</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-668956859%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-int64.html"><span class="token function">getInt64</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph">Reads an Int64 value from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="675580364%2FFunctions%2F-311180413" anchor-label="getInt64Le" id="675580364%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-int64-le.html"><span>get</span><wbr><span><span>Int64Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="675580364%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-int64-le.html"><span class="token function">getInt64Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph">Reads an Int64 value in little-endian order from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1854091583%2FFunctions%2F-311180413" anchor-label="getInt8" id="1854091583%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-int8.html"><span>get</span><wbr><span><span>Int8</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1854091583%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-int8.html"><span class="token function">getInt8</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a></div><div class="brief "><p class="paragraph">Reads an Int8 value from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="125771381%2FFunctions%2F-311180413" anchor-label="getString" id="125771381%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-string.html"><span>get</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="125771381%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-string.html"><span class="token function">getString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">numBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Reads a String from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1455125879%2FFunctions%2F-311180413" anchor-label="getUInt16" id="-1455125879%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-int16.html"><span>get</span><wbr><span><span>UInt16</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1455125879%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-u-int16.html"><span class="token function">getUInt16</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-short/index.html">UShort</a></div><div class="brief "><p class="paragraph">Reads a UInt16 value from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1081396240%2FFunctions%2F-311180413" anchor-label="getUInt16Le" id="1081396240%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-int16-le.html"><span>get</span><wbr><span><span>UInt16Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1081396240%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-u-int16-le.html"><span class="token function">getUInt16Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-short/index.html">UShort</a></div><div class="brief "><p class="paragraph">Reads a UInt16 value in little-endian order from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="344022927%2FFunctions%2F-311180413" anchor-label="getUInt32" id="344022927%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-int32.html"><span>get</span><wbr><span><span>UInt32</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="344022927%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-u-int32.html"><span class="token function">getUInt32</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a></div><div class="brief "><p class="paragraph">Reads a UInt32 value from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-808421482%2FFunctions%2F-311180413" anchor-label="getUInt32Le" id="-808421482%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-int32-le.html"><span>get</span><wbr><span><span>UInt32Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-808421482%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-u-int32-le.html"><span class="token function">getUInt32Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a></div><div class="brief "><p class="paragraph">Reads a UInt32 value in little-endian order from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1004062704%2FFunctions%2F-311180413" anchor-label="getUInt64" id="-1004062704%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-int64.html"><span>get</span><wbr><span><span>UInt64</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1004062704%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-u-int64.html"><span class="token function">getUInt64</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-long/index.html">ULong</a></div><div class="brief "><p class="paragraph">Reads a UInt64 value from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="761410519%2FFunctions%2F-311180413" anchor-label="getUInt64Le" id="761410519%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-int64-le.html"><span>get</span><wbr><span><span>UInt64Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="761410519%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-u-int64-le.html"><span class="token function">getUInt64Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-long/index.html">ULong</a></div><div class="brief "><p class="paragraph">Reads a UInt64 value in little-endian order from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="734903060%2FFunctions%2F-311180413" anchor-label="getUInt8" id="734903060%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-int8.html"><span>get</span><wbr><span><span>UInt8</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="734903060%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-u-int8.html"><span class="token function">getUInt8</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-byte/index.html">UByte</a></div><div class="brief "><p class="paragraph">Reads a UInt8 value from the byte array and advances the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1535010835%2FFunctions%2F-311180413" anchor-label="numBytesRemaining" id="-1535010835%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="num-bytes-remaining.html"><span>num</span><wbr><span>Bytes</span><wbr><span><span>Remaining</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1535010835%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="num-bytes-remaining.html"><span class="token function">numBytesRemaining</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Gets the number of bytes remaining to be read from the current cursor position.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2006564730%2FFunctions%2F-311180413" anchor-label="peekByteString" id="-2006564730%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-byte-string.html"><span>peek</span><wbr><span>Byte</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2006564730%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-byte-string.html"><span class="token function">peekByteString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">numBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">Reads a ByteString from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1601181915%2FFunctions%2F-311180413" anchor-label="peekInt16" id="-1601181915%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-int16.html"><span>peek</span><wbr><span><span>Int16</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1601181915%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-int16.html"><span class="token function">peekInt16</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-short/index.html">Short</a></div><div class="brief "><p class="paragraph">Reads an Int16 value from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1839500884%2FFunctions%2F-311180413" anchor-label="peekInt16Le" id="-1839500884%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-int16-le.html"><span>peek</span><wbr><span><span>Int16Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1839500884%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-int16-le.html"><span class="token function">peekInt16Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-short/index.html">Short</a></div><div class="brief "><p class="paragraph">Reads an Int16 value in little-endian order from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="197966891%2FFunctions%2F-311180413" anchor-label="peekInt32" id="197966891%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-int32.html"><span>peek</span><wbr><span><span>Int32</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="197966891%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-int32.html"><span class="token function">peekInt32</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Reads an Int32 value from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="565648690%2FFunctions%2F-311180413" anchor-label="peekInt32Le" id="565648690%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-int32-le.html"><span>peek</span><wbr><span><span>Int32Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="565648690%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-int32-le.html"><span class="token function">peekInt32Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Reads an Int32 value in little-endian order from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1150118740%2FFunctions%2F-311180413" anchor-label="peekInt64" id="-1150118740%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-int64.html"><span>peek</span><wbr><span><span>Int64</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1150118740%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-int64.html"><span class="token function">peekInt64</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph">Reads an Int64 value from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2135480691%2FFunctions%2F-311180413" anchor-label="peekInt64Le" id="2135480691%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-int64-le.html"><span>peek</span><wbr><span><span>Int64Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2135480691%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-int64-le.html"><span class="token function">peekInt64Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph">Reads an Int64 value in little-endian order from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1838570232%2FFunctions%2F-311180413" anchor-label="peekInt8" id="1838570232%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-int8.html"><span>peek</span><wbr><span><span>Int8</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1838570232%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-int8.html"><span class="token function">peekInt8</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a></div><div class="brief "><p class="paragraph">Reads an Int8 value from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1523350190%2FFunctions%2F-311180413" anchor-label="peekString" id="1523350190%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-string.html"><span>peek</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1523350190%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-string.html"><span class="token function">peekString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">numBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Reads a String from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="808724994%2FFunctions%2F-311180413" anchor-label="peekUInt16" id="808724994%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-u-int16.html"><span>peek</span><wbr><span><span>UInt16</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="808724994%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-u-int16.html"><span class="token function">peekUInt16</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-short/index.html">UShort</a></div><div class="brief "><p class="paragraph">Reads a UInt16 value from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-906333879%2FFunctions%2F-311180413" anchor-label="peekUInt16Le" id="-906333879%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-u-int16-le.html"><span>peek</span><wbr><span><span>UInt16Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-906333879%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-u-int16-le.html"><span class="token function">peekUInt16Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-short/index.html">UShort</a></div><div class="brief "><p class="paragraph">Reads a UInt16 value in little-endian order from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1687093496%2FFunctions%2F-311180413" anchor-label="peekUInt32" id="-1687093496%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-u-int32.html"><span>peek</span><wbr><span><span>UInt32</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1687093496%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-u-int32.html"><span class="token function">peekUInt32</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a></div><div class="brief "><p class="paragraph">Reads a UInt32 value from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1498815695%2FFunctions%2F-311180413" anchor-label="peekUInt32Le" id="1498815695%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-u-int32-le.html"><span>peek</span><wbr><span><span>UInt32Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1498815695%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-u-int32-le.html"><span class="token function">peekUInt32Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a></div><div class="brief "><p class="paragraph">Reads a UInt32 value in little-endian order from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1259788169%2FFunctions%2F-311180413" anchor-label="peekUInt64" id="1259788169%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-u-int64.html"><span>peek</span><wbr><span><span>UInt64</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1259788169%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-u-int64.html"><span class="token function">peekUInt64</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-long/index.html">ULong</a></div><div class="brief "><p class="paragraph">Reads a UInt64 value from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1226319600%2FFunctions%2F-311180413" anchor-label="peekUInt64Le" id="-1226319600%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-u-int64-le.html"><span>peek</span><wbr><span><span>UInt64Le</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1226319600%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-u-int64-le.html"><span class="token function">peekUInt64Le</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-long/index.html">ULong</a></div><div class="brief "><p class="paragraph">Reads a UInt64 value in little-endian order from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="253741179%2FFunctions%2F-311180413" anchor-label="peekUInt8" id="253741179%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="peek-u-int8.html"><span>peek</span><wbr><span><span>UInt8</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="253741179%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="peek-u-int8.html"><span class="token function">peekUInt8</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-byte/index.html">UByte</a></div><div class="brief "><p class="paragraph">Reads a UInt8 value from the byte array without advancing the cursor.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-459747109%2FFunctions%2F-311180413" anchor-label="skip" id="-459747109%2FFunctions%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="skip.html"><span><span>skip</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-459747109%2FFunctions%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="skip.html"><span class="token function">skip</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">numBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">ByteDataReader</a></div><div class="brief "><p class="paragraph">Skips a specified number of bytes in the byte array.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

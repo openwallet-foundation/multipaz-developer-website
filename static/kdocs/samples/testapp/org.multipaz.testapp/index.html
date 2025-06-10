@@ -1,0 +1,1138 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>org.multipaz.testapp</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":samples:testapp:dokkaHtmlPartial/androidMain">android</button>
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":samples:testapp:dokkaHtmlPartial/commonMain">common</button>
+                <button class="platform-tag platform-selector native-like" data-active="" data-filter=":samples:testapp:dokkaHtmlPartial/iosArm64Main">iosArm64</button>
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button>
+                <button class="platform-tag platform-selector native-like" data-active="" data-filter=":samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main">iosSimulatorArm64</button>
+                <button class="platform-tag platform-selector native-like" data-active="" data-filter=":samples:testapp:dokkaHtmlPartial/iosX64Main">iosX64</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":samples:testapp:dokkaHtmlPartial/androidMain" data-filter=":samples:testapp:dokkaHtmlPartial/androidMain">
+                                <span class="checkbox--icon"></span>
+                                android
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":samples:testapp:dokkaHtmlPartial/commonMain" data-filter=":samples:testapp:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option native-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":samples:testapp:dokkaHtmlPartial/iosArm64Main" data-filter=":samples:testapp:dokkaHtmlPartial/iosArm64Main">
+                                <span class="checkbox--icon"></span>
+                                iosArm64
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":samples:testapp:dokkaHtmlPartial/iosMain" data-filter=":samples:testapp:dokkaHtmlPartial/iosMain">
+                                <span class="checkbox--icon"></span>
+                                ios
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option native-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main" data-filter=":samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main">
+                                <span class="checkbox--icon"></span>
+                                iosSimulatorArm64
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option native-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":samples:testapp:dokkaHtmlPartial/iosX64Main" data-filter=":samples:testapp:dokkaHtmlPartial/iosX64Main">
+                                <span class="checkbox--icon"></span>
+                                iosX64
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="testapp::org.multipaz.testapp////PointingToDeclaration//1927894290">
+  <div class="breadcrumbs"><a href="../index.html">testapp</a><span class="delimiter">/</span><span class="current">org.multipaz.testapp</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-2057110308%2FClasslikes%2F848597063" anchor-label="AboutDestination" id="-2057110308%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-about-destination/index.html"><span>About</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2057110308%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-about-destination/index.html">AboutDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="560410692%2FClasslikes%2F848597063" anchor-label="AndroidKeystoreSecureAreaDestination" id="560410692%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-android-keystore-secure-area-destination/index.html"><span>Android</span><wbr><span>Keystore</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="560410692%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-android-keystore-secure-area-destination/index.html">AndroidKeystoreSecureAreaDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1841689116%2FClasslikes%2F848597063" anchor-label="App" id="-1841689116%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-app/index.html"><span><span>App</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1841689116%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-app/index.html">App</a></div><div class="brief "><p class="paragraph">Application singleton.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-309977696%2FClasslikes%2F848597063" anchor-label="BarcodeScanningDestination" id="-309977696%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-barcode-scanning-destination/index.html"><span>Barcode</span><wbr><span>Scanning</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-309977696%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-barcode-scanning-destination/index.html">BarcodeScanningDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="406017628%2FClasslikes%2F848597063" anchor-label="CameraDestination" id="406017628%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-camera-destination/index.html"><span>Camera</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="406017628%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-camera-destination/index.html">CameraDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1533511054%2FClasslikes%2F848597063" anchor-label="CertificatesViewerExamplesDestination" id="1533511054%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-certificates-viewer-examples-destination/index.html"><span>Certificates</span><wbr><span>Viewer</span><wbr><span>Examples</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1533511054%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-certificates-viewer-examples-destination/index.html">CertificatesViewerExamplesDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1381610536%2FClasslikes%2F848597063" anchor-label="CertificateViewerDestination" id="-1381610536%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-certificate-viewer-destination/index.html"><span>Certificate</span><wbr><span>Viewer</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1381610536%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-certificate-viewer-destination/index.html">CertificateViewerDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="3419400%2FClasslikes%2F848597063" anchor-label="CloudSecureAreaDestination" id="3419400%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cloud-secure-area-destination/index.html"><span>Cloud</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="3419400%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-cloud-secure-area-destination/index.html">CloudSecureAreaDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1345132144%2FClasslikes%2F848597063" anchor-label="ConsentModalBottomSheetDestination" id="-1345132144%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-consent-modal-bottom-sheet-destination/index.html"><span>Consent</span><wbr><span>Modal</span><wbr><span>Bottom</span><wbr><span>Sheet</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1345132144%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-consent-modal-bottom-sheet-destination/index.html">ConsentModalBottomSheetDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1556314318%2FClasslikes%2F848597063" anchor-label="ConsentModalBottomSheetListDestination" id="1556314318%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-consent-modal-bottom-sheet-list-destination/index.html"><span>Consent</span><wbr><span>Modal</span><wbr><span>Bottom</span><wbr><span>Sheet</span><wbr><span>List</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1556314318%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-consent-modal-bottom-sheet-list-destination/index.html">ConsentModalBottomSheetListDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1565119575%2FClasslikes%2F848597063" anchor-label="CredentialClaimsViewerDestination" id="1565119575%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-credential-claims-viewer-destination/index.html"><span>Credential</span><wbr><span>Claims</span><wbr><span>Viewer</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1565119575%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-credential-claims-viewer-destination/index.html">CredentialClaimsViewerDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-256993032%2FClasslikes%2F848597063" anchor-label="CredentialInfo" id="-256993032%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-credential-info/index.html"><span>Credential</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-256993032%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-credential-info/index.html">CredentialInfo</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>credential<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.credential/-credential/index.html">Credential</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>keyInfo<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.securearea/-key-info/index.html">KeyInfo</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>keyInvalidated<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="928213376%2FClasslikes%2F848597063" anchor-label="CredentialViewerDestination" id="928213376%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-credential-viewer-destination/index.html"><span>Credential</span><wbr><span>Viewer</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="928213376%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-credential-viewer-destination/index.html">CredentialViewerDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="255422113%2FClasslikes%2F-1624167245" anchor-label="CredmanPresentmentActivity" id="255422113%2FClasslikes%2F-1624167245" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-credman-presentment-activity/index.html"><span>Credman</span><wbr><span>Presentment</span><wbr><span><span>Activity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="255422113%2FClasslikes%2F-1624167245"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-credman-presentment-activity/index.html">CredmanPresentmentActivity</a> : <a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1437557911%2FClasslikes%2F848597063" anchor-label="Destination" id="1437557911%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-destination/index.html"><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1437557911%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">interface </span><a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="104257972%2FClasslikes%2F848597063" anchor-label="DocumentInfo" id="104257972%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-document-info/index.html"><span>Document</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="104257972%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-document-info/index.html">DocumentInfo</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>document<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.document/-document/index.html">Document</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>cardArt<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ImageBitmap.html">ImageBitmap</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>credentialInfos<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-credential-info/index.html">CredentialInfo</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1139593001%2FClasslikes%2F848597063" anchor-label="DocumentModel" id="-1139593001%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-document-model/index.html"><span>Document</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1139593001%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-document-model/index.html">DocumentModel</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>scope<span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentStore<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.document/-document-store/index.html">DocumentStore</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1194543787%2FClasslikes%2F848597063" anchor-label="DocumentStoreDestination" id="-1194543787%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-document-store-destination/index.html"><span>Document</span><wbr><span>Store</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1194543787%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-document-store-destination/index.html">DocumentStoreDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1340917180%2FClasslikes%2F848597063" anchor-label="DocumentViewerDestination" id="-1340917180%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-document-viewer-destination/index.html"><span>Document</span><wbr><span>Viewer</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1340917180%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-document-viewer-destination/index.html">DocumentViewerDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-988215177%2FClasslikes%2F848597063" anchor-label="FaceDetectionDestination" id="-988215177%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-face-detection-destination/index.html"><span>Face</span><wbr><span>Detection</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-988215177%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-face-detection-destination/index.html">FaceDetectionDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1676813152%2FClasslikes%2F848597063" anchor-label="IsoMdocMultiDeviceTestingDestination" id="1676813152%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-iso-mdoc-multi-device-testing-destination/index.html"><span>Iso</span><wbr><span>Mdoc</span><wbr><span>Multi</span><wbr><span>Device</span><wbr><span>Testing</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1676813152%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-iso-mdoc-multi-device-testing-destination/index.html">IsoMdocMultiDeviceTestingDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1340893364%2FClasslikes%2F848597063" anchor-label="IsoMdocProximityReadingDestination" id="-1340893364%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-iso-mdoc-proximity-reading-destination/index.html"><span>Iso</span><wbr><span>Mdoc</span><wbr><span>Proximity</span><wbr><span>Reading</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1340893364%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-iso-mdoc-proximity-reading-destination/index.html">IsoMdocProximityReadingDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1864880540%2FClasslikes%2F848597063" anchor-label="IsoMdocProximitySharingDestination" id="1864880540%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-iso-mdoc-proximity-sharing-destination/index.html"><span>Iso</span><wbr><span>Mdoc</span><wbr><span>Proximity</span><wbr><span>Sharing</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1864880540%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-iso-mdoc-proximity-sharing-destination/index.html">IsoMdocProximitySharingDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1588263147%2FClasslikes%2F-1624167245" anchor-label="MainActivity" id="-1588263147%2FClasslikes%2F-1624167245" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-main-activity/index.html"><span>Main</span><wbr><span><span>Activity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1588263147%2FClasslikes%2F-1624167245"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-main-activity/index.html">MainActivity</a> : <a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1586483677%2FClasslikes%2F-1624167245" anchor-label="MdocNfcDataTransferService" id="1586483677%2FClasslikes%2F-1624167245" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mdoc-nfc-data-transfer-service/index.html"><span>Mdoc</span><wbr><span>Nfc</span><wbr><span>Data</span><wbr><span>Transfer</span><wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1586483677%2FClasslikes%2F-1624167245"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-mdoc-nfc-data-transfer-service/index.html">MdocNfcDataTransferService</a> : <a href="https://developer.android.com/reference/kotlin/android/nfc/cardemulation/HostApduService.html">HostApduService</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1830275271%2FClasslikes%2F-1624167245" anchor-label="NdefService" id="1830275271%2FClasslikes%2F-1624167245" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ndef-service/index.html"><span>Ndef</span><wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1830275271%2FClasslikes%2F-1624167245"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-ndef-service/index.html">NdefService</a> : <a href="https://developer.android.com/reference/kotlin/android/nfc/cardemulation/HostApduService.html">HostApduService</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-855683334%2FClasslikes%2F848597063" anchor-label="NfcDestination" id="-855683334%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-nfc-destination/index.html"><span>Nfc</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-855683334%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-nfc-destination/index.html">NfcDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1824732544%2FClasslikes%2F-1624167245" anchor-label="NfcPresentmentActivity" id="-1824732544%2FClasslikes%2F-1624167245" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-nfc-presentment-activity/index.html"><span>Nfc</span><wbr><span>Presentment</span><wbr><span><span>Activity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1824732544%2FClasslikes%2F-1624167245"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-nfc-presentment-activity/index.html">NfcPresentmentActivity</a> : <a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="719818935%2FClasslikes%2F848597063" anchor-label="NotificationsDestination" id="719818935%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-notifications-destination/index.html"><span>Notifications</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="719818935%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-notifications-destination/index.html">NotificationsDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1985519369%2FClasslikes%2F848597063" anchor-label="PassphraseEntryFieldDestination" id="1985519369%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-passphrase-entry-field-destination/index.html"><span>Passphrase</span><wbr><span>Entry</span><wbr><span>Field</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1985519369%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-passphrase-entry-field-destination/index.html">PassphraseEntryFieldDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-899282491%2FClasslikes%2F848597063" anchor-label="PassphrasePromptDestination" id="-899282491%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-passphrase-prompt-destination/index.html"><span>Passphrase</span><wbr><span>Prompt</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-899282491%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-passphrase-prompt-destination/index.html">PassphrasePromptDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1495360790%2FClasslikes%2F848597063" anchor-label="Platform" id="-1495360790%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-platform/index.html"><span><span>Platform</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1495360790%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-platform/index.html">Platform</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-platform/index.html">Platform</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2086964504%2FClasslikes%2F848597063" anchor-label="PresentmentDestination" id="-2086964504%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-presentment-destination/index.html"><span>Presentment</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2086964504%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-presentment-destination/index.html">PresentmentDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="722393686%2FClasslikes%2F848597063" anchor-label="ProvisioningTestDestination" id="722393686%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-provisioning-test-destination/index.html"><span>Provisioning</span><wbr><span>Test</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="722393686%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-provisioning-test-destination/index.html">ProvisioningTestDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1552992044%2FClasslikes%2F848597063" anchor-label="QrCodesDestination" id="-1552992044%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-qr-codes-destination/index.html"><span>Qr</span><wbr><span>Codes</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1552992044%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-qr-codes-destination/index.html">QrCodesDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-326330272%2FClasslikes%2F848597063" anchor-label="RichTextDestination" id="-326330272%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rich-text-destination/index.html"><span>Rich</span><wbr><span>Text</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-326330272%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-rich-text-destination/index.html">RichTextDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-510321682%2FClasslikes%2F848597063" anchor-label="ScreenLockDestination" id="-510321682%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-screen-lock-destination/index.html"><span>Screen</span><wbr><span>Lock</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-510321682%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-screen-lock-destination/index.html">ScreenLockDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="343181978%2FClasslikes%2F848597063" anchor-label="SecureEnclaveSecureAreaDestination" id="343181978%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-secure-enclave-secure-area-destination/index.html"><span>Secure</span><wbr><span>Enclave</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="343181978%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-secure-enclave-secure-area-destination/index.html">SecureEnclaveSecureAreaDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-603518118%2FClasslikes%2F848597063" anchor-label="SettingsDestination" id="-603518118%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-settings-destination/index.html"><span>Settings</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-603518118%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-settings-destination/index.html">SettingsDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-757202974%2FClasslikes%2F848597063" anchor-label="SoftwareSecureAreaDestination" id="-757202974%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-software-secure-area-destination/index.html"><span>Software</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-757202974%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-software-secure-area-destination/index.html">SoftwareSecureAreaDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1723569969%2FClasslikes%2F848597063" anchor-label="StartDestination" id="1723569969%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-start-destination/index.html"><span>Start</span><wbr><span><span>Destination</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1723569969%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">object </span><a href="-start-destination/index.html">StartDestination</a> : <a href="-destination/index.html">Destination</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-787801780%2FClasslikes%2F848597063" anchor-label="TestAppDocumentMetadata" id="-787801780%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-test-app-document-metadata/index.html"><span>Test</span><wbr><span>App</span><wbr><span>Document</span><wbr><span><span>Metadata</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-787801780%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-test-app-document-metadata/index.html">TestAppDocumentMetadata</a> : <a href="../../../multipaz/org.multipaz.document/-document-metadata/index.html">DocumentMetadata</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1311331848%2FClasslikes%2F848597063" anchor-label="TestAppPresentmentSource" id="-1311331848%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-test-app-presentment-source/index.html"><span>Test</span><wbr><span>App</span><wbr><span>Presentment</span><wbr><span><span>Source</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1311331848%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-test-app-presentment-source/index.html">TestAppPresentmentSource</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>app<span class="token operator">: </span><a href="-app/index.html">App</a></span></span><span class="token punctuation">)</span> : <a href="../../../multipaz-models/org.multipaz.models.presentment/-presentment-source/index.html">PresentmentSource</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-676998517%2FClasslikes%2F-1624167245" anchor-label="TestAppQuickAccessWalletService" id="-676998517%2FClasslikes%2F-1624167245" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-test-app-quick-access-wallet-service/index.html"><span>Test</span><wbr><span>App</span><wbr><span>Quick</span><wbr><span>Access</span><wbr><span>Wallet</span><wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-676998517%2FClasslikes%2F-1624167245"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/RequiresApi.html"><span class="token annotation builtin">RequiresApi</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">30</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">class </span><a href="-test-app-quick-access-wallet-service/index.html">TestAppQuickAccessWalletService</a> : <a href="https://developer.android.com/reference/kotlin/android/service/quickaccesswallet/QuickAccessWalletService.html">QuickAccessWalletService</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1204935418%2FClasslikes%2F848597063" anchor-label="TestAppSettingsModel" id="-1204935418%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-test-app-settings-model/index.html"><span>Test</span><wbr><span>App</span><wbr><span>Settings</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1204935418%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-test-app-settings-model/index.html">TestAppSettingsModel</a></div><div class="brief "><p class="paragraph">A model for settings for samples/testapp.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-802080133%2FClasslikes%2F848597063" anchor-label="TestAppUtils" id="-802080133%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-test-app-utils/index.html"><span>Test</span><wbr><span>App</span><wbr><span><span>Utils</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-802080133%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-test-app-utils/index.html">TestAppUtils</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1930149554%2FProperties%2F848597063" anchor-label="appDestinations" id="1930149554%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="app-destinations.html"><span>app</span><wbr><span><span>Destinations</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1930149554%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="app-destinations.html">appDestinations</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-destination/index.html">Destination</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1714717713%2FProperties%2F1443081681" anchor-label="platform" id="-1714717713%2FProperties%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform.html"><span><span>platform</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1714717713%2FProperties%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform.html">platform</a><span class="token operator">: </span><a href="-platform/index.html">Platform</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="platform.html">platform</a><span class="token operator">: </span><a href="-platform/index.html">Platform</a></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform.html">platform</a><span class="token operator">: </span><a href="../../../samples/testapp/org.multipaz.testapp/-platform/index.html">Platform</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1104906639%2FProperties%2F1443081681" anchor-label="platformAppIcon" id="-1104906639%2FProperties%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-app-icon.html"><span>platform</span><wbr><span>App</span><wbr><span><span>Icon</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1104906639%2FProperties%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-app-icon.html">platformAppIcon</a><span class="token operator">: </span><span data-unresolved-link="org.jetbrains.compose.resources/DrawableResource///PointingToDeclaration/">DrawableResource</span></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="platform-app-icon.html">platformAppIcon</a><span class="token operator">: </span><span data-unresolved-link="org.jetbrains.compose.resources/DrawableResource///PointingToDeclaration/">DrawableResource</span></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-app-icon.html">platformAppIcon</a><span class="token operator">: </span><span data-unresolved-link="org.jetbrains.compose.resources/DrawableResource///PointingToDeclaration/">DrawableResource</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="667668639%2FProperties%2F1443081681" anchor-label="platformAppName" id="667668639%2FProperties%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-app-name.html"><span>platform</span><wbr><span>App</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="667668639%2FProperties%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-app-name.html">platformAppName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="platform-app-name.html">platformAppName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-app-name.html">platformAppName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1938609200%2FProperties%2F-703197009" anchor-label="platformIsEmulator" id="-1938609200%2FProperties%2F-703197009" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosArm64Main,:samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main,:samples:testapp:dokkaHtmlPartial/iosX64Main"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosArm64Main,:samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main,:samples:testapp:dokkaHtmlPartial/iosX64Main" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosArm64Main,:samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main,:samples:testapp:dokkaHtmlPartial/iosX64Main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-is-emulator.html"><span>platform</span><wbr><span>Is</span><wbr><span><span>Emulator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1938609200%2FProperties%2F-703197009"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosArm64Main" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosArm64Main" data-toggle=":samples:testapp:dokkaHtmlPartial/iosArm64Main">iosArm64</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main" data-toggle=":samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main">iosSimulatorArm64</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosX64Main" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosX64Main" data-toggle=":samples:testapp:dokkaHtmlPartial/iosX64Main">iosX64</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-is-emulator.html">platformIsEmulator</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="platform-is-emulator.html">platformIsEmulator</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosArm64Main"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-is-emulator.html">platformIsEmulator</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosSimulatorArm64Main"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-is-emulator.html">platformIsEmulator</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosX64Main"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-is-emulator.html">platformIsEmulator</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1096164906%2FProperties%2F1443081681" anchor-label="platformSecureAreaHasKeyAgreement" id="1096164906%2FProperties%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-secure-area-has-key-agreement.html"><span>platform</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span>Has</span><wbr><span>Key</span><wbr><span><span>Agreement</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1096164906%2FProperties%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-secure-area-has-key-agreement.html">platformSecureAreaHasKeyAgreement</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="platform-secure-area-has-key-agreement.html">platformSecureAreaHasKeyAgreement</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">val </span><a href="platform-secure-area-has-key-agreement.html">platformSecureAreaHasKeyAgreement</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1223103195%2FProperties%2F848597063" anchor-label="testMetadata" id="1223103195%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="test-metadata.html"><span>test</span><wbr><span><span>Metadata</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1223103195%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../../../multipaz/org.multipaz.document/-document/index.html">Document</a><span class="token punctuation">.</span><a href="test-metadata.html">testMetadata</a><span class="token operator">: </span><a href="-test-app-document-metadata/index.html">TestAppDocumentMetadata</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-843732760%2FFunctions%2F848597063" anchor-label="AppBar" id="-843732760%2FFunctions%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-app-bar.html"><span>App</span><wbr><span><span>Bar</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-843732760%2FFunctions%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Composable.html"><span class="token annotation builtin">Composable</span></a></div></div><span class="token keyword">fun </span><a href="-app-bar.html"><span class="token function">AppBar</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">currentDestination<span class="token operator">: </span><a href="-destination/index.html">Destination</a><span class="token punctuation">, </span></span><span class="parameter ">canNavigateBack<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">navigateUp<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">navigateToSettings<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">includeSettingsIcon<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier.html">Modifier</a><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Composable that displays the topBar and displays back button if back navigation is possible.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-380084096%2FFunctions%2F1443081681" anchor-label="getLocalIpAddress" id="-380084096%2FFunctions%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-local-ip-address.html"><span>get</span><wbr><span>Local</span><wbr><span>Ip</span><wbr><span><span>Address</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-380084096%2FFunctions%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="get-local-ip-address.html"><span class="token function">getLocalIpAddress</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">fun </span><a href="get-local-ip-address.html"><span class="token function">getLocalIpAddress</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="get-local-ip-address.html"><span class="token function">getLocalIpAddress</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1550867021%2FFunctions%2F1842802671" anchor-label="HandleUrl" id="-1550867021%2FFunctions%2F1842802671" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-handle-url.html"><span>Handle</span><wbr><span><span>Url</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1550867021%2FFunctions%2F1842802671"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="-handle-url.html"><span class="token function">HandleUrl</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="968601000%2FFunctions%2F1842802671" anchor-label="MainViewController" id="968601000%2FFunctions%2F1842802671" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-main-view-controller.html"><span>Main</span><wbr><span>View</span><wbr><span><span>Controller</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="968601000%2FFunctions%2F1842802671"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="-main-view-controller.html"><span class="token function">MainViewController</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1084031551%2FFunctions%2F1443081681" anchor-label="platformCreateKeySettings" id="-1084031551%2FFunctions%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain,:samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain,:samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain,:samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-create-key-settings.html"><span>platform</span><wbr><span>Create</span><wbr><span>Key</span><wbr><span><span>Settings</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1084031551%2FFunctions%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="platform-create-key-settings.html"><span class="token function">platformCreateKeySettings</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">challenge<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token punctuation">, </span></span><span class="parameter ">algorithm<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token punctuation">, </span></span><span class="parameter ">userAuthenticationRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">validFrom<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token punctuation">, </span></span><span class="parameter ">validUntil<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.securearea/-create-key-settings/index.html">CreateKeySettings</a></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">fun </span><a href="platform-create-key-settings.html"><span class="token function">platformCreateKeySettings</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">challenge<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token punctuation">, </span></span><span class="parameter ">algorithm<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token punctuation">, </span></span><span class="parameter ">userAuthenticationRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">validFrom<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token punctuation">, </span></span><span class="parameter ">validUntil<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.securearea/-create-key-settings/index.html">CreateKeySettings</a></div><div class="brief "><p class="paragraph">Gets a <a href="../../../multipaz/org.multipaz.securearea/-create-key-settings/index.html">CreateKeySettings</a> object for creating auth-bound keys that works with the <a href="../../../multipaz/org.multipaz.securearea/-secure-area/index.html">SecureArea</a> returned returned by <a href="platform-secure-area-provider.html">platformSecureAreaProvider</a>.</p></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="platform-create-key-settings.html"><span class="token function">platformCreateKeySettings</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">challenge<span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">algorithm<span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">userAuthenticationRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">validFrom<span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">validUntil<span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-520061866%2FFunctions%2F1443081681" anchor-label="platformHttpClientEngineFactory" id="-520061866%2FFunctions%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-http-client-engine-factory.html"><span>platform</span><wbr><span>Http</span><wbr><span>Client</span><wbr><span>Engine</span><wbr><span><span>Factory</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-520061866%2FFunctions%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="platform-http-client-engine-factory.html"><span class="token function">platformHttpClientEngineFactory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.ktor.client.engine/HttpClientEngineFactory///PointingToDeclaration/">HttpClientEngineFactory</span><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">fun </span><a href="platform-http-client-engine-factory.html"><span class="token function">platformHttpClientEngineFactory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.ktor.client.engine/HttpClientEngineFactory///PointingToDeclaration/">HttpClientEngineFactory</span><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="platform-http-client-engine-factory.html"><span class="token function">platformHttpClientEngineFactory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.ktor.client.engine/HttpClientEngineFactory///PointingToDeclaration/">HttpClientEngineFactory</span><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-382537793%2FFunctions%2F1443081681" anchor-label="platformInit" id="-382537793%2FFunctions%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-init.html"><span>platform</span><wbr><span><span>Init</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-382537793%2FFunctions%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="platform-init.html"><span class="token function">platformInit</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="platform-init.html"><span class="token function">platformInit</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="platform-init.html"><span class="token function">platformInit</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="897789498%2FFunctions%2F1443081681" anchor-label="platformSecureAreaProvider" id="897789498%2FFunctions%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-secure-area-provider.html"><span>platform</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Provider</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="897789498%2FFunctions%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="platform-secure-area-provider.html"><span class="token function">platformSecureAreaProvider</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.securearea/-secure-area-provider/index.html">SecureAreaProvider</a><span class="token operator">&lt;</span><a href="../../../multipaz/org.multipaz.securearea/-secure-area/index.html">SecureArea</a><span class="token operator">&gt;</span></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">fun </span><a href="platform-secure-area-provider.html"><span class="token function">platformSecureAreaProvider</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.securearea/-secure-area-provider/index.html">SecureAreaProvider</a><span class="token operator">&lt;</span><a href="../../../multipaz/org.multipaz.securearea/-secure-area/index.html">SecureArea</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Gets a provider for the preferred <a href="../../../multipaz/org.multipaz.securearea/-secure-area/index.html">SecureArea</a> implementation for the platform.</p></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="platform-secure-area-provider.html"><span class="token function">platformSecureAreaProvider</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.securearea/-secure-area-provider/index.html">SecureAreaProvider</a><span class="token operator">&lt;</span><a href="../../../multipaz/org.multipaz.securearea/-secure-area/index.html">SecureArea</a><span class="token operator">&gt;</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2055438000%2FFunctions%2F1443081681" anchor-label="platformStorage" id="-2055438000%2FFunctions%2F1443081681" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain,:samples:testapp:dokkaHtmlPartial/androidMain,:samples:testapp:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="platform-storage.html"><span>platform</span><wbr><span><span>Storage</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2055438000%2FFunctions%2F1443081681"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/androidMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/androidMain" data-active="" data-toggle=":samples:testapp:dokkaHtmlPartial/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain" data-toggle=":samples:testapp:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":samples:testapp:dokkaHtmlPartial/iosMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/iosMain" data-toggle=":samples:testapp:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="platform-storage.html"><span class="token function">platformStorage</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.storage/-storage/index.html">Storage</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">fun </span><a href="platform-storage.html"><span class="token function">platformStorage</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.storage/-storage/index.html">Storage</a></div></div><div class="content sourceset-dependent-content" data-togglable=":samples:testapp:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="platform-storage.html"><span class="token function">platformStorage</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.storage/-storage/index.html">Storage</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

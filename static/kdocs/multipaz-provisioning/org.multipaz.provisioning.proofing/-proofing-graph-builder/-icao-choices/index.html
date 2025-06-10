@@ -1,0 +1,251 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>IcaoChoices</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz-provisioning:dokkaHtmlPartial/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-provisioning:dokkaHtmlPartial/main" data-filter=":multipaz-provisioning:dokkaHtmlPartial/main">
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz-provisioning::org.multipaz.provisioning.proofing/ProofingGraphBuilder.IcaoChoices///PointingToDeclaration//713048912">
+  <div class="breadcrumbs"><a href="../../../index.html">multipaz-provisioning</a><span class="delimiter">/</span><a href="../../index.html">org.multipaz.provisioning.proofing</a><span class="delimiter">/</span><a href="../index.html">ProofingGraphBuilder</a><span class="delimiter">/</span><span class="current">IcaoChoices</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Icao</span><wbr><span><span>Choices</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">IcaoChoices</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1500862857%2FConstructors%2F713048912" anchor-label="IcaoChoices" id="-1500862857%2FConstructors%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-icao-choices.html"><span>Icao</span><wbr><span><span>Choices</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1500862857%2FConstructors%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-744785839%2FProperties%2F713048912" anchor-label="activeAuthenticationGraph" id="-744785839%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="active-authentication-graph.html"><span>active</span><wbr><span>Authentication</span><wbr><span><span>Graph</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-744785839%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="active-authentication-graph.html">activeAuthenticationGraph</a><span class="token operator">: </span><a href="../index.html">ProofingGraphBuilder</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-391002729%2FProperties%2F713048912" anchor-label="chipAuthenticationGraph" id="-391002729%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="chip-authentication-graph.html"><span>chip</span><wbr><span>Authentication</span><wbr><span><span>Graph</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-391002729%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="chip-authentication-graph.html">chipAuthenticationGraph</a><span class="token operator">: </span><a href="../index.html">ProofingGraphBuilder</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="350645388%2FProperties%2F713048912" anchor-label="noAuthenticationGraph" id="350645388%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="no-authentication-graph.html"><span>no</span><wbr><span>Authentication</span><wbr><span><span>Graph</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="350645388%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="no-authentication-graph.html">noAuthenticationGraph</a><span class="token operator">: </span><a href="../index.html">ProofingGraphBuilder</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1653845047%2FFunctions%2F713048912" anchor-label="whenActiveAuthenticated" id="1653845047%2FFunctions%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="when-active-authenticated.html"><span>when</span><wbr><span>Active</span><wbr><span><span>Authenticated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1653845047%2FFunctions%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="when-active-authenticated.html"><span class="token function">whenActiveAuthenticated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">init<span class="token operator">: </span><a href="../index.html">ProofingGraphBuilder</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Configures the branch that should be used when Active Authentication succeeded.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="613701789%2FFunctions%2F713048912" anchor-label="whenAuthenticated" id="613701789%2FFunctions%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="when-authenticated.html"><span>when</span><wbr><span><span>Authenticated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="613701789%2FFunctions%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="when-authenticated.html"><span class="token function">whenAuthenticated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">init<span class="token operator">: </span><a href="../index.html">ProofingGraphBuilder</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Configures the branch that should be used when some form of authentication succeeded beyond basic authentication (either Active Authentication or Chip Authentication).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-104997967%2FFunctions%2F713048912" anchor-label="whenChipAuthenticated" id="-104997967%2FFunctions%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="when-chip-authenticated.html"><span>when</span><wbr><span>Chip</span><wbr><span><span>Authenticated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-104997967%2FFunctions%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="when-chip-authenticated.html"><span class="token function">whenChipAuthenticated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">init<span class="token operator">: </span><a href="../index.html">ProofingGraphBuilder</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Configures the branch that should be used when Chip Authentication succeeded.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="443885446%2FFunctions%2F713048912" anchor-label="whenNotAuthenticated" id="443885446%2FFunctions%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="when-not-authenticated.html"><span>when</span><wbr><span>Not</span><wbr><span><span>Authenticated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="443885446%2FFunctions%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="when-not-authenticated.html"><span class="token function">whenNotAuthenticated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">init<span class="token operator">: </span><a href="../index.html">ProofingGraphBuilder</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Configures the branch that should be used when MRTD only supports basic authentication and does not support any authentication that can verify that MRTD was not cloned.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

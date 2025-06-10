@@ -1,0 +1,435 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Openid4VciProofingState</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz-provisioning:dokkaHtmlPartial/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-provisioning:dokkaHtmlPartial/main" data-filter=":multipaz-provisioning:dokkaHtmlPartial/main">
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz-provisioning::org.multipaz.provisioning.openid4vci/Openid4VciProofingState///PointingToDeclaration//713048912">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz-provisioning</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.provisioning.openid4vci</a><span class="delimiter">/</span><span class="current">Openid4VciProofingState</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Openid4Vci</span><wbr><span>Proofing</span><wbr><span><span>State</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Openid4VciProofingState</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>credentialIssuerUri<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>credentialConfigurationId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>clientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>issuanceClientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>applicationCapabilities<span class="token operator">: </span><a href="../../../multipaz-provisioning-api/org.multipaz.provisioning/-wallet-application-capabilities/index.html">WalletApplicationCapabilities</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>proofingInfo<span class="token operator">: </span><a href="../-proofing-info/index.html">ProofingInfo</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>access<span class="token operator">: </span><a href="../-openid-access/index.html">OpenidAccess</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>secureAreaIdentifier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>secureAreaSetupDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>tosAcknowleged<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>notificationPermissonRequested<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>openid4VpRequest<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>txCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>credentialOffer<span class="token operator">: </span><a href="../../../multipaz-provisioning-api/org.multipaz.provisioning.evidence/-openid4-vci-credential-offer/index.html">Openid4VciCredentialOffer</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span> : <a href="../../../multipaz-provisioning-api/org.multipaz.provisioning/-proofing/index.html">Proofing</a>, <a href="../../../multipaz/org.multipaz.rpc.handler/-rpc-auth-inspector/index.html">RpcAuthInspector</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="974784283%2FConstructors%2F713048912" anchor-label="Openid4VciProofingState" id="974784283%2FConstructors%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-openid4-vci-proofing-state.html"><span>Openid4Vci</span><wbr><span>Proofing</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="974784283%2FConstructors%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">credentialIssuerUri<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">credentialConfigurationId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">clientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">issuanceClientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">documentId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">applicationCapabilities<span class="token operator">: </span><a href="../../../multipaz-provisioning-api/org.multipaz.provisioning/-wallet-application-capabilities/index.html">WalletApplicationCapabilities</a><span class="token punctuation">, </span></span><span class="parameter ">proofingInfo<span class="token operator">: </span><a href="../-proofing-info/index.html">ProofingInfo</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">access<span class="token operator">: </span><a href="../-openid-access/index.html">OpenidAccess</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">secureAreaIdentifier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">secureAreaSetupDone<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">tosAcknowleged<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">notificationPermissonRequested<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">openid4VpRequest<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">txCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">credentialOffer<span class="token operator">: </span><a href="../../../multipaz-provisioning-api/org.multipaz.provisioning.evidence/-openid4-vci-credential-offer/index.html">Openid4VciCredentialOffer</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="340967042%2FClasslikes%2F713048912" anchor-label="Companion" id="340967042%2FClasslikes%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="340967042%2FClasslikes%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1600544283%2FProperties%2F713048912" anchor-label="access" id="1600544283%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="access.html"><span><span>access</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1600544283%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="access.html">access</a><span class="token operator">: </span><a href="../-openid-access/index.html">OpenidAccess</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-317915563%2FProperties%2F713048912" anchor-label="applicationCapabilities" id="-317915563%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="application-capabilities.html"><span>application</span><wbr><span><span>Capabilities</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-317915563%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="application-capabilities.html">applicationCapabilities</a><span class="token operator">: </span><a href="../../../multipaz-provisioning-api/org.multipaz.provisioning/-wallet-application-capabilities/index.html">WalletApplicationCapabilities</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1397000455%2FProperties%2F713048912" anchor-label="clientId" id="-1397000455%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="client-id.html"><span>client</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1397000455%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="client-id.html">clientId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1875835681%2FProperties%2F713048912" anchor-label="credentialConfigurationId" id="1875835681%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="credential-configuration-id.html"><span>credential</span><wbr><span>Configuration</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1875835681%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="credential-configuration-id.html">credentialConfigurationId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1731316191%2FProperties%2F713048912" anchor-label="credentialIssuerUri" id="1731316191%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="credential-issuer-uri.html"><span>credential</span><wbr><span>Issuer</span><wbr><span><span>Uri</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1731316191%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="credential-issuer-uri.html">credentialIssuerUri</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1682955798%2FProperties%2F713048912" anchor-label="credentialOffer" id="1682955798%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="credential-offer.html"><span>credential</span><wbr><span><span>Offer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1682955798%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="credential-offer.html">credentialOffer</a><span class="token operator">: </span><a href="../../../multipaz-provisioning-api/org.multipaz.provisioning.evidence/-openid4-vci-credential-offer/index.html">Openid4VciCredentialOffer</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="685317929%2FProperties%2F713048912" anchor-label="documentId" id="685317929%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="document-id.html"><span>document</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="685317929%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="document-id.html">documentId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-6064162%2FProperties%2F713048912" anchor-label="issuanceClientId" id="-6064162%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="issuance-client-id.html"><span>issuance</span><wbr><span>Client</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-6064162%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="issuance-client-id.html">issuanceClientId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="543254718%2FProperties%2F713048912" anchor-label="notificationPermissonRequested" id="543254718%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="notification-permisson-requested.html"><span>notification</span><wbr><span>Permisson</span><wbr><span><span>Requested</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="543254718%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="notification-permisson-requested.html">notificationPermissonRequested</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1020933127%2FProperties%2F713048912" anchor-label="openid4VpRequest" id="-1020933127%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="openid4-vp-request.html"><span>openid4Vp</span><wbr><span><span>Request</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1020933127%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="openid4-vp-request.html">openid4VpRequest</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-852094701%2FProperties%2F713048912" anchor-label="proofingInfo" id="-852094701%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="proofing-info.html"><span>proofing</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-852094701%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="proofing-info.html">proofingInfo</a><span class="token operator">: </span><a href="../-proofing-info/index.html">ProofingInfo</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2076470194%2FProperties%2F713048912" anchor-label="secureAreaIdentifier" id="2076470194%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="secure-area-identifier.html"><span>secure</span><wbr><span>Area</span><wbr><span><span>Identifier</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2076470194%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="secure-area-identifier.html">secureAreaIdentifier</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1968946368%2FProperties%2F713048912" anchor-label="secureAreaSetupDone" id="1968946368%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="secure-area-setup-done.html"><span>secure</span><wbr><span>Area</span><wbr><span>Setup</span><wbr><span><span>Done</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1968946368%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="secure-area-setup-done.html">secureAreaSetupDone</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-933680937%2FProperties%2F713048912" anchor-label="tosAcknowleged" id="-933680937%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="tos-acknowleged.html"><span>tos</span><wbr><span><span>Acknowleged</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-933680937%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="tos-acknowleged.html">tosAcknowleged</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1016954482%2FProperties%2F713048912" anchor-label="txCode" id="-1016954482%2FProperties%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="tx-code.html"><span>tx</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1016954482%2FProperties%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="tx-code.html">txCode</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-2102009221%2FFunctions%2F713048912" anchor-label="authCheck" id="-2102009221%2FFunctions%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.multipaz.provisioning.wallet/-provisioning-backend-state/index.html#-2102009221%2FFunctions%2F713048912"><span>auth</span><wbr><span><span>Check</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2102009221%2FFunctions%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="../../org.multipaz.provisioning.wallet/-provisioning-backend-state/index.html#-2102009221%2FFunctions%2F713048912"><span class="token function">authCheck</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">target<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">method<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.cbor/-bstr/index.html">Bstr</a><span class="token punctuation">, </span></span><span class="parameter ">authMessage<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.cbor/-data-item/index.html">DataItem</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/index.html">CoroutineContext</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1469963818%2FFunctions%2F713048912" anchor-label="getEvidenceRequests" id="1469963818%2FFunctions%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-evidence-requests.html"><span>get</span><wbr><span>Evidence</span><wbr><span><span>Requests</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1469963818%2FFunctions%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="get-evidence-requests.html"><span class="token function">getEvidenceRequests</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../../multipaz-provisioning-api/org.multipaz.provisioning.evidence/-evidence-request/index.html">EvidenceRequest</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1247840640%2FFunctions%2F713048912" anchor-label="sendEvidence" id="-1247840640%2FFunctions%2F713048912" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-provisioning:dokkaHtmlPartial/main" data-filterable-set=":multipaz-provisioning:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="send-evidence.html"><span>send</span><wbr><span><span>Evidence</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1247840640%2FFunctions%2F713048912"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-provisioning:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="send-evidence.html"><span class="token function">sendEvidence</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">evidenceResponse<span class="token operator">: </span><a href="../../../multipaz-provisioning-api/org.multipaz.provisioning.evidence/-evidence-response/index.html">EvidenceResponse</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

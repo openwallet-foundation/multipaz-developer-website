@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>getEntries</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz-android-legacy:dokkaHtmlPartial/release">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filter=":multipaz-android-legacy:dokkaHtmlPartial/release">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="member" id="content" pageids="multipaz-android-legacy::com.android.identity.android.legacy/IdentityCredential/getEntries/#byte[]#java.util.Map<java.lang.String,java.util.Collection<java.lang.String>>#byte[]/PointingToDeclaration//-1012618143">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz-android-legacy</a><span class="delimiter">/</span><a href="../index.html">com.android.identity.android.legacy</a><span class="delimiter">/</span><a href="index.html">IdentityCredential</a><span class="delimiter">/</span><span class="current">getEntries</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>get</span><wbr><span><span>Entries</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a></div></div><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-entries.html"><span class="token function"><strike>getEntries</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>requestMessage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/NonNull.html"><span class="token annotation builtin">NonNull</span></a>&nbsp;</span>entriesToRequest<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/Map.html">Map</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span><a href="https://developer.android.com/reference/kotlin/java/util/Collection.html">Collection</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>readerSignature<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/index.html">Byte</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-result-data/index.html">ResultData</a></div><div class="deprecation-content"><h3 class="">Deprecated</h3><p class="paragraph"></p><p class="paragraph"></p><p class="paragraph">Use <a href="../-presentation-session/index.html">PresentationSession</a> instead.</p><p></p><p></p></div><p class="paragraph">Retrieve data entries and associated data from this <code class="lang-kotlin">IdentityCredential</code>. </p><p class="paragraph">If an access control check fails for one of the requested entries or if the entry doesn't exist, the entry is simply not returned. The application can detect this by using the <a href="../-result-data/get-status.html">getStatus</a> method on each of the requested entries. </p><p class="paragraph">It is permissible to call this method multiple times using the same instance. If this is done the same auth-key will be used. </p><p class="paragraph">The application should not make any assumptions on whether user authentication is needed. Instead, the application should request the data elements values first and then examine the returned <a href="../-result-data/index.html">ResultData</a>. If <a href="../-result-data/-s-t-a-t-u-s_-u-s-e-r_-a-u-t-h-e-n-t-i-c-a-t-i-o-n_-f-a-i-l-e-d.html">STATUS_USER_AUTHENTICATION_FAILED</a> is returned the application should call <a href="get-crypto-object.html">getCryptoObject</a> and use the returned <a href="https://developer.android.com/reference/kotlin/androidx/biometric/BiometricPrompt.CryptoObject.html">androidx.biometric.BiometricPrompt.CryptoObject</a> with a <a href="https://developer.android.com/reference/kotlin/androidx/biometric/BiometricPrompt.html">androidx.biometric.BiometricPrompt</a>. Upon successful authentication the application may call <a href="get-entries.html">getEntries</a> again. </p><p class="paragraph">If not <code class="lang-kotlin">null</code> the <code class="lang-kotlin">requestMessage</code> parameter must contain data for the request from the verifier. The content can be defined in the way appropriate for the credential, but there are three requirements that must be met to work with this API: </p><ul><li>The content must be a CBOR-encoded structure.</li><li>The CBOR structure must be a map.</li><li>The map must contain a tstr key "nameSpaces" whose value contains a map, as described in the example below.</li></ul><p class="paragraph">If these requirements are not met the <a href="../-invalid-request-message-exception/index.html">InvalidRequestMessageException</a> exception is thrown. </p><p class="paragraph">Here's an example of CBOR which conforms to this requirement: </p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">  ItemsRequest = {
+    ? "docType" : DocType,
+    "nameSpaces" : NameSpaces,
+    ? "RequestInfo" : {* tstr =&gt; any} ; Additional info the reader wants to provide
+  }
+
+  DocType = tstr
+
+  NameSpaces = {
+    + NameSpace =&gt; DataElements    ; Requested data elements for each NameSpace
+  }
+
+  NameSpace = tstr
+
+  DataElements = {
+    + DataElement =&gt; IntentToRetain
+  }
+
+  DataElement = tstr
+  IntentToRetain = bool
+</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">If mdoc session encryption is used (e.g. if <a href="create-ephemeral-key-pair.html">createEphemeralKeyPair</a> has been called) and if <a href="set-session-transcript.html">setSessionTranscript</a> was called, the X and Y coordinates of the public part of the key-pair previously generated by <a href="create-ephemeral-key-pair.html">createEphemeralKeyPair</a> must appear somewhere in the bytes of the CBOR. Each of these coordinates must appear encoded with the most significant bits first and use the exact amount of bits indicated by the key size of the ephemeral keys. For example, if the ephemeral key is using the P-256 curve then the 32 bytes for the X coordinate encoded with the most significant bits first must appear somewhere in the CBOR and ditto for the 32 bytes for the Y coordinate. </p><p class="paragraph">If <code class="lang-kotlin">readerAuth</code> is not <code class="lang-kotlin">null</code> it must be the bytes of a <code class="lang-kotlin">COSE_Sign1</code> structure as defined in RFC 8152. For the payload nil shall be used and the detached payload is the ReaderAuthenticationBytes CBOR described below. </p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">    ReaderAuthentication = [
+      "ReaderAuthentication",
+      SessionTranscript,
+      ItemsRequestBytes
+    ]
+
+    ItemsRequestBytes = #6.24(bstr .cbor ItemsRequest)
+
+    ReaderAuthenticationBytes = #6.24(bstr .cbor ReaderAuthentication)
+</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">where <code class="lang-kotlin">ItemsRequestBytes</code> are the bytes in the <code class="lang-kotlin">requestMessage</code> parameter. </p><p class="paragraph">The public key corresponding to the key used to make the signature, can be found in the <code class="lang-kotlin">x5chain</code> unprotected header element of the <code class="lang-kotlin">COSE_Sign1</code> structure (as as described in <a href="https://tools.ietf.org/html/draft-ietf-cose-x509-04">draft-ietf-cose-x509-04</a>). There will be at least one certificate in said element and there may be more (and if so, each certificate must be signed by its successor). </p><p class="paragraph">Data elements protected by reader authentication are returned if, and only if, they are mentioned in <code class="lang-kotlin">requestMessage</code>, <code class="lang-kotlin">requestMessage</code> is signed by the top-most certificate in the reader's certificate chain, and the data element is configured with an <a href="../-access-control-profile/index.html">AccessControlProfile</a> configured with an X.509 certificate which appears in the certificate chain. </p><p class="paragraph">Note that only items referenced in <code class="lang-kotlin">entriesToRequest</code> are returned - the <code class="lang-kotlin">requestMessage</code> parameter is used only for enforcing reader authentication. </p><p class="paragraph">The reason for having <code class="lang-kotlin">requestMessage</code> and <code class="lang-kotlin">entriesToRequest</code> as separate parameters is that the former represents a request from the remote verifier device (optionally signed) and this allows the application to filter the request to not include data elements which the user has not consented to sharing.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">A <a href="../-result-data/index.html">ResultData</a> object containing entry data organized by namespace and a cryptographically authenticated representation of the same data.</p></span><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>request</span><wbr><span><span>Message</span></span></u></div></span></div><div><div class="title"><p class="paragraph">If not <code class="lang-kotlin">null</code>, must contain CBOR data conforming to the schema mentioned above.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>entries</span><wbr><span>To</span><wbr><span><span>Request</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The entries to request, organized as a map of namespace names with each value being a collection of data elements in the given namespace.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>reader</span><wbr><span><span>Signature</span></span></u></div></span></div><div><div class="title"><p class="paragraph">A <code class="lang-kotlin">COSE_Sign1</code> structure as described above or <code class="lang-kotlin">null</code> if reader authentication is not being used.</p></div></div></div></div></div><h4 class="">Throws</h4><div class="table"><div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-no-authentication-key-available-exception/index.html"><span>No</span><wbr><span>Authentication</span><wbr><span>Key</span><wbr><span>Available</span><wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">is thrown if authentication keys were never provisioned, none are available, or the available ones are all exhausted and <a href="set-allow-using-exhausted-keys.html">setAllowUsingExhaustedKeys</a> was called with <code class="lang-kotlin">false</code>.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-invalid-reader-signature-exception/index.html"><span>Invalid</span><wbr><span>Reader</span><wbr><span>Signature</span><wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if the reader signature is invalid, or it doesn't contain a certificate chain, or if the signature failed to validate.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-invalid-request-message-exception/index.html"><span>Invalid</span><wbr><span>Request</span><wbr><span>Message</span><wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if the requestMessage is malformed.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-ephemeral-public-key-not-found-exception/index.html"><span>Ephemeral</span><wbr><span>Public</span><wbr><span>Key</span><wbr><span>Not</span><wbr><span>Found</span><wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if the ephemeral public key was not found in the session transcript.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-credential-invalidated-exception/index.html"><span>Credential</span><wbr><span>Invalidated</span><wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if the credential has been invalidated</p></div></div></div></div></div></div></div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

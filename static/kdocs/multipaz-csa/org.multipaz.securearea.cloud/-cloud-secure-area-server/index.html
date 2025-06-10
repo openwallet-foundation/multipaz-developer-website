@@ -1,0 +1,251 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CloudSecureAreaServer</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz-csa:dokkaHtmlPartial/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-csa:dokkaHtmlPartial/main" data-filter=":multipaz-csa:dokkaHtmlPartial/main">
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz-csa::org.multipaz.securearea.cloud/CloudSecureAreaServer///PointingToDeclaration//1631437588">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz-csa</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.securearea.cloud</a><span class="delimiter">/</span><span class="current">CloudSecureAreaServer</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cloud</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Server</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">CloudSecureAreaServer</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">serverSecureAreaBoundKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">attestationKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-ec-private-key/index.html">EcPrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">attestationKeySignatureAlgorithm<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token punctuation">, </span></span><span class="parameter ">attestationKeyIssuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">attestationKeyCertification<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">, </span></span><span class="parameter ">cloudRootAttestationKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-ec-private-key/index.html">EcPrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">cloudRootAttestationKeySignatureAlgorithm<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token punctuation">, </span></span><span class="parameter ">cloudRootAttestationKeyIssuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cloudRootAttestationKeyCertification<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">, </span></span><span class="parameter ">e2eeKeyLimitSeconds<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">iosReleaseBuild<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">iosAppIdentifier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">androidGmsAttestation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">androidVerifiedBootGreen<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">androidAppSignatureCertificateDigests<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">passphraseFailureEnforcer<span class="token operator">: </span><a href="../-passphrase-failure-enforcer/index.html">PassphraseFailureEnforcer</a></span></span><span class="token punctuation">)</span></div><p class="paragraph">A reference implementation of the Cloud Secure Area server.</p><p class="paragraph">This code is not intended for production use.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>server</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span>Bound</span><wbr><span><span>Key</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the secret key used to encrypt/decrypt state externally stored.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>attestation</span><wbr><span><span>Key</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the private key used to sign attestations for keys created by clients.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>attestation</span><wbr><span>Key</span><wbr><span><span>Certification</span></span></u></div></span></div><div><div class="title"><p class="paragraph">a certification of the attestation key.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>cloud</span><wbr><span>Root</span><wbr><span>Attestation</span><wbr><span><span>Key</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the private key used to sign attestations for <code class="lang-kotlin">CloudBindingKey</code>.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>cloud</span><wbr><span>Root</span><wbr><span>Attestation</span><wbr><span>Key</span><wbr><span><span>Certification</span></span></u></div></span></div><div><div class="title"><p class="paragraph">a certification of the attestation key for <code class="lang-kotlin">CloudBindingKey</code>.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>e2ee</span><wbr><span>Key</span><wbr><span>Limit</span><wbr><span><span>Seconds</span></span></u></div></span></div><div><div class="title"><p class="paragraph">Re-keying interval for end-to-end encryption.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>ios</span><wbr><span>Release</span><wbr><span><span>Build</span></span></u></div></span></div><div><div class="title"><p class="paragraph">Whether a release build is required on iOS. When <code class="lang-kotlin">false</code>, both debug and release builds are accepted.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>ios</span><wbr><span>App</span><wbr><span><span>Identifier</span></span></u></div></span></div><div><div class="title"><p class="paragraph">iOS app identifier that consists of a team id followed by a dot and app bundle name. If <code class="lang-kotlin">null</code>, any app identifier is accepted. It must not be <code class="lang-kotlin">null</code> if <span data-unresolved-link="org.multipaz.securearea.cloud/CloudSecureAreaServer/iosReleaseBuild/#/PointingToDeclaration/">iosReleaseBuild</span> is <code class="lang-kotlin">true</code></p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>android</span><wbr><span>Gms</span><wbr><span><span>Attestation</span></span></u></div></span></div><div><div class="title"><p class="paragraph">whether to require attestations made for local key on clients is using the Google root.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>android</span><wbr><span>Verified</span><wbr><span>Boot</span><wbr><span><span>Green</span></span></u></div></span></div><div><div class="title"><p class="paragraph">whether to require clients are in verified boot state green.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>android</span><wbr><span>App</span><wbr><span>Signature</span><wbr><span>Certificate</span><wbr><span><span>Digests</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the allowed list of applications that can use the service. Each element is the bytes of the SHA-256 of a signing certificate, see the <a href="https://developer.android.com/reference/android/content/pm/Signature">Signature</a> class in the Android SDK for details. If empty, allow any app.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>passphrase</span><wbr><span>Failure</span><wbr><span><span>Enforcer</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the <a href="../-passphrase-failure-enforcer/index.html">PassphraseFailureEnforcer</a> to use.</p></div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1083514317%2FConstructors%2F1631437588" anchor-label="CloudSecureAreaServer" id="-1083514317%2FConstructors%2F1631437588" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cloud-secure-area-server.html"><span>Cloud</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1083514317%2FConstructors%2F1631437588"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">serverSecureAreaBoundKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">attestationKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-ec-private-key/index.html">EcPrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">attestationKeySignatureAlgorithm<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token punctuation">, </span></span><span class="parameter ">attestationKeyIssuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">attestationKeyCertification<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">, </span></span><span class="parameter ">cloudRootAttestationKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-ec-private-key/index.html">EcPrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">cloudRootAttestationKeySignatureAlgorithm<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token punctuation">, </span></span><span class="parameter ">cloudRootAttestationKeyIssuer<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cloudRootAttestationKeyCertification<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">, </span></span><span class="parameter ">e2eeKeyLimitSeconds<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">iosReleaseBuild<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">iosAppIdentifier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">androidGmsAttestation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">androidVerifiedBootGreen<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">androidAppSignatureCertificateDigests<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">passphraseFailureEnforcer<span class="token operator">: </span><a href="../-passphrase-failure-enforcer/index.html">PassphraseFailureEnforcer</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-422995033%2FClasslikes%2F1631437588" anchor-label="Companion" id="-422995033%2FClasslikes%2F1631437588" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-422995033%2FClasslikes%2F1631437588"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="584695201%2FClasslikes%2F1631437588" anchor-label="CreateKeyState" id="584695201%2FClasslikes%2F1631437588" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-create-key-state/index.html"><span>Create</span><wbr><span>Key</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="584695201%2FClasslikes%2F1631437588"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-create-key-state/index.html">CreateKeyState</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>challenge<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>cloudChallenge<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>algorithm<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token operator"> = </span>Algorithm.ESP256<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>validFromMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span><span class="token constant">0</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>validUntilMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span><span class="token constant">0</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>passphraseRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>userAuthenticationRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>userAuthenticationTypes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span><span class="token constant">0</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>cloudKeyStorage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>localKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="265608943%2FClasslikes%2F1631437588" anchor-label="E2EEState" id="265608943%2FClasslikes%2F1631437588" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e2-e-e-state/index.html"><span><span>E2EEState</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="265608943%2FClasslikes%2F1631437588"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-e2-e-e-state/index.html">E2EEState</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>context<span class="token operator">: </span><a href="-register-state/index.html">CloudSecureAreaServer.RegisterState</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>cloudNonce<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>skDevice<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>skCloud<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>encryptedCounter<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>decryptedCounter<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>derivationTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span><span class="token constant">0</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1468806413%2FClasslikes%2F1631437588" anchor-label="KeyAgreementState" id="1468806413%2FClasslikes%2F1631437588" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-key-agreement-state/index.html"><span>Key</span><wbr><span>Agreement</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1468806413%2FClasslikes%2F1631437588"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-key-agreement-state/index.html">KeyAgreementState</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>keyContext<span class="token operator">: </span><a href="-create-key-state/index.html">CloudSecureAreaServer.CreateKeyState</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>otherPublicKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>cloudNonce<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1913883579%2FClasslikes%2F1631437588" anchor-label="RegisterState" id="-1913883579%2FClasslikes%2F1631437588" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-register-state/index.html"><span>Register</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1913883579%2FClasslikes%2F1631437588"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-register-state/index.html">RegisterState</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>clientVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">""</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>attestationChallenge<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>cloudChallenge<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>cloudBindingKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>deviceBindingKey<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>clientPassphraseSalt<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator"> = </span>byteArrayOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>clientSaltedPassphrase<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator"> = </span>byteArrayOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>registrationComplete<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>clientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>deviceAttestation<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.device/-device-attestation/index.html">DeviceAttestation</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-526677281%2FClasslikes%2F1631437588" anchor-label="SignState" id="-526677281%2FClasslikes%2F1631437588" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sign-state/index.html"><span>Sign</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-526677281%2FClasslikes%2F1631437588"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-sign-state/index.html">SignState</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>keyContext<span class="token operator">: </span><a href="-create-key-state/index.html">CloudSecureAreaServer.CreateKeyState</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>dataToSign<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>cloudNonce<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1655369346%2FFunctions%2F1631437588" anchor-label="handleCommand" id="-1655369346%2FFunctions%2F1631437588" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-csa:dokkaHtmlPartial/main" data-filterable-set=":multipaz-csa:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="handle-command.html"><span>handle</span><wbr><span><span>Command</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1655369346%2FFunctions%2F1631437588"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-csa:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="handle-command.html"><span class="token function">handleCommand</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">requestData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">remoteHost<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

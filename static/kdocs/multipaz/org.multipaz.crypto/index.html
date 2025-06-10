@@ -1,0 +1,586 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>org.multipaz.crypto</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/commonMain">common</button>
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/iosMain">ios</button>
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/commonMain" data-filter=":multipaz:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/iosMain" data-filter=":multipaz:dokkaHtmlPartial/iosMain">
+                                <span class="checkbox--icon"></span>
+                                ios
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filter=":multipaz:dokkaHtmlPartial/javaSharedMain">
+                                <span class="checkbox--icon"></span>
+                                javaShared
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="multipaz::org.multipaz.crypto////PointingToDeclaration//-1350219205">
+  <div class="breadcrumbs"><a href="../index.html">multipaz</a><span class="delimiter">/</span><span class="current">org.multipaz.crypto</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1321730172%2FClasslikes%2F-311180413" anchor-label="Algorithm" id="1321730172%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-algorithm/index.html"><span><span>Algorithm</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1321730172%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-algorithm/index.html">Algorithm</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-algorithm/index.html">Algorithm</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Algorithm identifiers.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-661497098%2FClasslikes%2F-1350219205" anchor-label="Crypto" id="-661497098%2FClasslikes%2F-1350219205" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-crypto/index.html"><span><span>Crypto</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-661497098%2FClasslikes%2F-1350219205"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/commonMain">common</button><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz:dokkaHtmlPartial/iosMain" data-toggle=":multipaz:dokkaHtmlPartial/iosMain">ios</button><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">object </span><a href="-crypto/index.html">Crypto</a></div><div class="brief "><p class="paragraph">Cryptographic support routines.</p></div></div><div class="content sourceset-dependent-content" data-togglable=":multipaz:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">object </span><a href="-crypto/index.html">Crypto</a></div></div><div class="content sourceset-dependent-content" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">object </span><a href="-crypto/index.html">Crypto</a></div><div class="brief "><p class="paragraph">Cryptographic support routines.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1266033338%2FClasslikes%2F-311180413" anchor-label="EcCurve" id="1266033338%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ec-curve/index.html"><span>Ec</span><wbr><span><span>Curve</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1266033338%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-ec-curve/index.html">EcCurve</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-ec-curve/index.html">EcCurve</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Elliptic curve identifiers.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1010588611%2FClasslikes%2F-311180413" anchor-label="EcPrivateKey" id="-1010588611%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ec-private-key/index.html"><span>Ec</span><wbr><span>Private</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1010588611%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-ec-private-key/index.html">EcPrivateKey</a></div><div class="brief "><p class="paragraph">An EC private key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1459781612%2FClasslikes%2F-311180413" anchor-label="EcPrivateKeyDoubleCoordinate" id="-1459781612%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ec-private-key-double-coordinate/index.html"><span>Ec</span><wbr><span>Private</span><wbr><span>Key</span><wbr><span>Double</span><wbr><span><span>Coordinate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1459781612%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-ec-private-key-double-coordinate/index.html">EcPrivateKeyDoubleCoordinate</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>curve<span class="token operator">: </span><a href="-ec-curve/index.html">EcCurve</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>d<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>x<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>y<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-ec-private-key/index.html">EcPrivateKey</a></div><div class="brief "><p class="paragraph">EC Private Key with two coordinates.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-580689615%2FClasslikes%2F-311180413" anchor-label="EcPrivateKeyOkp" id="-580689615%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ec-private-key-okp/index.html"><span>Ec</span><wbr><span>Private</span><wbr><span>Key</span><wbr><span><span>Okp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-580689615%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-ec-private-key-okp/index.html">EcPrivateKeyOkp</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>curve<span class="token operator">: </span><a href="-ec-curve/index.html">EcCurve</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>d<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>x<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-ec-private-key/index.html">EcPrivateKey</a></div><div class="brief "><p class="paragraph">EC Private Key with Octet Key Pairs.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1656424877%2FClasslikes%2F-311180413" anchor-label="EcPublicKey" id="-1656424877%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ec-public-key/index.html"><span>Ec</span><wbr><span>Public</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1656424877%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-ec-public-key/index.html">EcPublicKey</a></div><div class="brief "><p class="paragraph">An EC Public Key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1204558294%2FClasslikes%2F-311180413" anchor-label="EcPublicKeyDoubleCoordinate" id="-1204558294%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ec-public-key-double-coordinate/index.html"><span>Ec</span><wbr><span>Public</span><wbr><span>Key</span><wbr><span>Double</span><wbr><span><span>Coordinate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1204558294%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-ec-public-key-double-coordinate/index.html">EcPublicKeyDoubleCoordinate</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>curve<span class="token operator">: </span><a href="-ec-curve/index.html">EcCurve</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>x<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>y<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-ec-public-key/index.html">EcPublicKey</a></div><div class="brief "><p class="paragraph">EC Public Key with two coordinates.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="764596059%2FClasslikes%2F-311180413" anchor-label="EcPublicKeyOkp" id="764596059%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ec-public-key-okp/index.html"><span>Ec</span><wbr><span>Public</span><wbr><span>Key</span><wbr><span><span>Okp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="764596059%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-ec-public-key-okp/index.html">EcPublicKeyOkp</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>curve<span class="token operator">: </span><a href="-ec-curve/index.html">EcCurve</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>x<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-ec-public-key/index.html">EcPublicKey</a></div><div class="brief "><p class="paragraph">EC Public Key with Octet Key Pairs.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1084334865%2FClasslikes%2F-311180413" anchor-label="EcSignature" id="1084334865%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ec-signature/index.html"><span>Ec</span><wbr><span><span>Signature</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1084334865%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-ec-signature/index.html">EcSignature</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>r<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>s<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">An Elliptic Curve Cryptography signature.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="504516860%2FClasslikes%2F-311180413" anchor-label="JsonWebEncryption" id="504516860%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-json-web-encryption/index.html"><span>Json</span><wbr><span>Web</span><wbr><span><span>Encryption</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="504516860%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-json-web-encryption/index.html">JsonWebEncryption</a></div><div class="brief "><p class="paragraph">JSON Web Encryption (JWE) support routines</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2061632971%2FClasslikes%2F-311180413" anchor-label="JsonWebSignature" id="2061632971%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-json-web-signature/index.html"><span>Json</span><wbr><span>Web</span><wbr><span><span>Signature</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2061632971%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-json-web-signature/index.html">JsonWebSignature</a></div><div class="brief "><p class="paragraph">JSON Web Signature support</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1478120964%2FClasslikes%2F-311180413" anchor-label="SecurityException" id="-1478120964%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-security-exception/index.html"><span>Security</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1478120964%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-security-exception/index.html">SecurityException</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-exception/index.html">Exception</a></div><div class="brief "><p class="paragraph">Base class for all security exceptions.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="6853499%2FClasslikes%2F-311180413" anchor-label="SignatureVerificationException" id="6853499%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-signature-verification-exception/index.html"><span>Signature</span><wbr><span>Verification</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="6853499%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-signature-verification-exception/index.html">SignatureVerificationException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cause<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span> : <a href="-security-exception/index.html">SecurityException</a></div><div class="brief "><p class="paragraph">Exception thrown when a cryptographic signature fails to validate.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1631783535%2FClasslikes%2F-311180413" anchor-label="X500Name" id="1631783535%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-x500-name/index.html"><span><span>X500Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1631783535%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-x500-name/index.html">X500Name</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>components<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="../org.multipaz.asn1/-a-s-n1-string/index.html">ASN1String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">This represents a X.501 Name as used for X.509 certificates.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1636068979%2FClasslikes%2F-311180413" anchor-label="X509Cert" id="-1636068979%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-x509-cert/index.html"><span><span>X509Cert</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1636068979%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-x509-cert/index.html">X509Cert</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>encodedCertificate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A data type for a X509 certificate.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-983632684%2FClasslikes%2F-311180413" anchor-label="X509CertChain" id="-983632684%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-x509-cert-chain/index.html"><span>X509Cert</span><wbr><span><span>Chain</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-983632684%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>certificates<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-x509-cert/index.html">X509Cert</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A chain of certificates.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="792492498%2FClasslikes%2F-311180413" anchor-label="X509Extension" id="792492498%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-x509-extension/index.html"><span><span>X509Extension</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="792492498%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-x509-extension/index.html">X509Extension</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>oid<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>isCritical<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>data<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A data type representing an X.509 certificate extension information.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="924585711%2FClasslikes%2F-311180413" anchor-label="X509KeyUsage" id="924585711%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-x509-key-usage/index.html"><span>X509Key</span><wbr><span><span>Usage</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="924585711%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-x509-key-usage/index.html">X509KeyUsage</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-x509-key-usage/index.html">X509KeyUsage</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="EXTENSION_PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-902532034%2FProperties%2F1692825347" anchor-label="javaKeyAlgorithm" id="-902532034%2FProperties%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="java-key-algorithm.html"><span>java</span><wbr><span>Key</span><wbr><span><span>Algorithm</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-902532034%2FProperties%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-ec-curve/index.html">EcCurve</a><span class="token punctuation">.</span><a href="java-key-algorithm.html">javaKeyAlgorithm</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1761199619%2FProperties%2F1692825347" anchor-label="javaPrivateKey" id="-1761199619%2FProperties%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="java-private-key.html"><span>java</span><wbr><span>Private</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1761199619%2FProperties%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-ec-private-key/index.html">EcPrivateKey</a><span class="token punctuation">.</span><a href="java-private-key.html">javaPrivateKey</a><span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2046684707%2FProperties%2F1692825347" anchor-label="javaPublicKey" id="-2046684707%2FProperties%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="java-public-key.html"><span>java</span><wbr><span>Public</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2046684707%2FProperties%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-ec-public-key/index.html">EcPublicKey</a><span class="token punctuation">.</span><a href="java-public-key.html">javaPublicKey</a><span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1281385030%2FProperties%2F1692825347" anchor-label="javaX509Certificate" id="1281385030%2FProperties%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="java-x509-certificate.html"><span>java</span><wbr><span><span>X509Certificate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1281385030%2FProperties%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-x509-cert/index.html">X509Cert</a><span class="token punctuation">.</span><a href="java-x509-certificate.html">javaX509Certificate</a><span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></div><div class="brief "><p class="paragraph">The Java X509 certificate from the encoded certificate data.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1712310346%2FProperties%2F1692825347" anchor-label="javaX509Certificates" id="-1712310346%2FProperties%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="java-x509-certificates.html"><span>java</span><wbr><span><span>X509Certificates</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1712310346%2FProperties%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">.</span><a href="java-x509-certificates.html">javaX509Certificates</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Converts the certificate chain to a list of Java X.509 certificates.</p></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-413637157%2FProperties%2F1692825347" anchor-label="requireBouncyCastle" id="-413637157%2FProperties%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="require-bouncy-castle.html"><span>require</span><wbr><span>Bouncy</span><wbr><span><span>Castle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-413637157%2FProperties%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-ec-curve/index.html">EcCurve</a><span class="token punctuation">.</span><a href="require-bouncy-castle.html">requireBouncyCastle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="EXTENSION_FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="101153924%2FFunctions%2F1692825347" anchor-label="fromJavaX509Certificates" id="101153924%2FFunctions%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="from-java-x509-certificates.html"><span>from</span><wbr><span>Java</span><wbr><span><span>X509Certificates</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="101153924%2FFunctions%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="-x509-cert-chain/-companion/index.html">X509CertChain.Companion</a><span class="token punctuation">.</span><a href="from-java-x509-certificates.html"><span class="token function">fromJavaX509Certificates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">javaX509Certificates<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-x509-cert-chain/index.html">X509CertChain</a></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="-x509-cert-chain/-companion/index.html">X509CertChain.Companion</a><span class="token punctuation">.</span><a href="from-java-x509-certificates.html"><span class="token function">fromJavaX509Certificates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">javaX509Certificates<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-x509-cert-chain/index.html">X509CertChain</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1529512690%2FFunctions%2F1692825347" anchor-label="toEcPrivateKey" id="1529512690%2FFunctions%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-ec-private-key.html"><span>to</span><wbr><span>Ec</span><wbr><span>Private</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1529512690%2FFunctions%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">fun </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">.</span><a href="to-ec-private-key.html"><span class="token function">toEcPrivateKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">publicKey<span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">curve<span class="token operator">: </span><a href="-ec-curve/index.html">EcCurve</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-ec-private-key/index.html">EcPrivateKey</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1841147931%2FFunctions%2F1692825347" anchor-label="toEcPublicKey" id="1841147931%2FFunctions%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-ec-public-key.html"><span>to</span><wbr><span>Ec</span><wbr><span>Public</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1841147931%2FFunctions%2F1692825347"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain" data-active="" data-toggle=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/javaSharedMain"><div class="symbol monospace"><span class="token keyword">fun </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">.</span><a href="to-ec-public-key.html"><span class="token function">toEcPublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">curve<span class="token operator">: </span><a href="-ec-curve/index.html">EcCurve</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-ec-public-key/index.html">EcPublicKey</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

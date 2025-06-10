@@ -1,0 +1,1101 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>multipaz</title>
+<link href="../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../scripts/sourceset_dependencies.js" async></script>
+<link href="../styles/style.css" rel="Stylesheet">
+<link href="../styles/main.css" rel="Stylesheet">
+<link href="../styles/prism.css" rel="Stylesheet">
+<link href="../styles/logo-styles.css" rel="Stylesheet">
+<link href="../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../scripts/main.js" defer></script>
+<script type="text/javascript" src="../scripts/prism.js" async></script>
+<script type="text/javascript" src="../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/androidMain">android</button>
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/commonMain">common</button>
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/iosMain">ios</button>
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/javaSharedMain">javaShared</button>
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/jvmMain">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/androidMain" data-filter=":multipaz:dokkaHtmlPartial/androidMain">
+                                <span class="checkbox--icon"></span>
+                                android
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/commonMain" data-filter=":multipaz:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/iosMain" data-filter=":multipaz:dokkaHtmlPartial/iosMain">
+                                <span class="checkbox--icon"></span>
+                                ios
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filter=":multipaz:dokkaHtmlPartial/javaSharedMain">
+                                <span class="checkbox--icon"></span>
+                                javaShared
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/jvmMain" data-filter=":multipaz:dokkaHtmlPartial/jvmMain">
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" id="content" pageids="multipaz::////PointingToDeclaration//-1700923977">
+  <div class="breadcrumbs"></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>multipaz</span></span></h1>
+  </div>
+  <h2 class="">Packages</h2>
+  <div class="table"><a data-name="2119023342%2FPackages%2F-968842761" anchor-label="org.multipaz.applinks" id="2119023342%2FPackages%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.applinks/index.html">org.multipaz.applinks</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2119023342%2FPackages%2F-968842761"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">android</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="95724971%2FPackages%2F-311180413" anchor-label="org.multipaz.asn1" id="95724971%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.asn1/index.html">org.multipaz.asn1</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="95724971%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-953804616%2FPackages%2F-311180413" anchor-label="org.multipaz.cbor" id="-953804616%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.cbor/index.html">org.multipaz.cbor</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-953804616%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1981794583%2FPackages%2F-311180413" anchor-label="org.multipaz.cbor.annotation" id="-1981794583%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.cbor.annotation/index.html">org.multipaz.cbor.annotation</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1981794583%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-910808886%2FPackages%2F-311180413" anchor-label="org.multipaz.claim" id="-910808886%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.claim/index.html">org.multipaz.claim</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-910808886%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1721237885%2FPackages%2F-968842761" anchor-label="org.multipaz.context" id="1721237885%2FPackages%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.context/index.html">org.multipaz.context</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1721237885%2FPackages%2F-968842761"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">android</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1168443660%2FPackages%2F-311180413" anchor-label="org.multipaz.cose" id="-1168443660%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.cose/index.html">org.multipaz.cose</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1168443660%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-264567987%2FPackages%2F-311180413" anchor-label="org.multipaz.credential" id="-264567987%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.credential/index.html">org.multipaz.credential</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-264567987%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-2092006089%2FPackages%2F-1350219205" anchor-label="org.multipaz.crypto" id="-2092006089%2FPackages%2F-1350219205" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.crypto/index.html">org.multipaz.crypto</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2092006089%2FPackages%2F-1350219205"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+              <div class="platform-tag common-like">ios</div>
+              <div class="platform-tag common-like">javaShared</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1551603313%2FPackages%2F-1350219205" anchor-label="org.multipaz.datetime" id="1551603313%2FPackages%2F-1350219205" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.datetime/index.html">org.multipaz.datetime</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1551603313%2FPackages%2F-1350219205"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+              <div class="platform-tag common-like">ios</div>
+              <div class="platform-tag common-like">javaShared</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1653919092%2FPackages%2F-916069818" anchor-label="org.multipaz.device" id="-1653919092%2FPackages%2F-916069818" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/jvmMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/jvmMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/jvmMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.device/index.html">org.multipaz.device</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1653919092%2FPackages%2F-916069818"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">android</div>
+              <div class="platform-tag common-like">common</div>
+              <div class="platform-tag common-like">ios</div>
+              <div class="platform-tag jvm-like">jvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="607708177%2FPackages%2F-311180413" anchor-label="org.multipaz.document" id="607708177%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.document/index.html">org.multipaz.document</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="607708177%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="555831115%2FPackages%2F-311180413" anchor-label="org.multipaz.documenttype" id="555831115%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.documenttype/index.html">org.multipaz.documenttype</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="555831115%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-761568208%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.connectionmethod" id="-761568208%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.connectionmethod/index.html">org.multipaz.mdoc.connectionmethod</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-761568208%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1861416072%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.credential" id="1861416072%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.credential/index.html">org.multipaz.mdoc.credential</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1861416072%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1814418032%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.engagement" id="1814418032%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.engagement/index.html">org.multipaz.mdoc.engagement</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1814418032%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="658040326%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.issuersigned" id="658040326%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.issuersigned/index.html">org.multipaz.mdoc.issuersigned</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="658040326%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-2122885124%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.mso" id="-2122885124%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.mso/index.html">org.multipaz.mdoc.mso</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2122885124%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1067641954%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.nfc" id="-1067641954%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.nfc/index.html">org.multipaz.mdoc.nfc</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1067641954%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1747105083%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.origininfo" id="-1747105083%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.origininfo/index.html">org.multipaz.mdoc.origininfo</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1747105083%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="837056258%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.request" id="837056258%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.request/index.html">org.multipaz.mdoc.request</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="837056258%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1905858638%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.response" id="-1905858638%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.response/index.html">org.multipaz.mdoc.response</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1905858638%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-844494041%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.role" id="-844494041%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.role/index.html">org.multipaz.mdoc.role</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-844494041%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="710641996%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.sessionencryption" id="710641996%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.sessionencryption/index.html">org.multipaz.mdoc.sessionencryption</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="710641996%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="400342748%2FPackages%2F-371408502" anchor-label="org.multipaz.mdoc.transport" id="400342748%2FPackages%2F-371408502" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/jvmMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/jvmMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/jvmMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.transport/index.html">org.multipaz.mdoc.transport</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="400342748%2FPackages%2F-371408502"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+              <div class="platform-tag jvm-like">jvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1560535987%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.util" id="1560535987%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.util/index.html">org.multipaz.mdoc.util</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1560535987%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="635205102%2FPackages%2F-311180413" anchor-label="org.multipaz.mdoc.vical" id="635205102%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.mdoc.vical/index.html">org.multipaz.mdoc.vical</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="635205102%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1201662073%2FPackages%2F-916069818" anchor-label="org.multipaz.nfc" id="1201662073%2FPackages%2F-916069818" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/jvmMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/jvmMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/jvmMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.nfc/index.html">org.multipaz.nfc</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1201662073%2FPackages%2F-916069818"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">android</div>
+              <div class="platform-tag common-like">common</div>
+              <div class="platform-tag common-like">ios</div>
+              <div class="platform-tag jvm-like">jvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1180997658%2FPackages%2F-1314003393" anchor-label="org.multipaz.prompt" id="1180997658%2FPackages%2F-1314003393" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.prompt/index.html">org.multipaz.prompt</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1180997658%2FPackages%2F-1314003393"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">android</div>
+              <div class="platform-tag common-like">common</div>
+              <div class="platform-tag common-like">ios</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-5544355%2FPackages%2F-311180413" anchor-label="org.multipaz.request" id="-5544355%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.request/index.html">org.multipaz.request</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-5544355%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1426703411%2FPackages%2F1692825347" anchor-label="org.multipaz.rpc" id="1426703411%2FPackages%2F1692825347" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/javaSharedMain" data-filterable-set=":multipaz:dokkaHtmlPartial/javaSharedMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.rpc/index.html">org.multipaz.rpc</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1426703411%2FPackages%2F1692825347"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">javaShared</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-605151090%2FPackages%2F-311180413" anchor-label="org.multipaz.rpc.annotation" id="-605151090%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.rpc.annotation/index.html">org.multipaz.rpc.annotation</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-605151090%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1088727463%2FPackages%2F-311180413" anchor-label="org.multipaz.rpc.backend" id="-1088727463%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.rpc.backend/index.html">org.multipaz.rpc.backend</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1088727463%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="180716714%2FPackages%2F-311180413" anchor-label="org.multipaz.rpc.client" id="180716714%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.rpc.client/index.html">org.multipaz.rpc.client</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="180716714%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1605799823%2FPackages%2F-311180413" anchor-label="org.multipaz.rpc.handler" id="1605799823%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.rpc.handler/index.html">org.multipaz.rpc.handler</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1605799823%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-435444239%2FPackages%2F-311180413" anchor-label="org.multipaz.rpc.test" id="-435444239%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.rpc.test/index.html">org.multipaz.rpc.test</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-435444239%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1626380782%2FPackages%2F-311180413" anchor-label="org.multipaz.rpc.transport" id="1626380782%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.rpc.transport/index.html">org.multipaz.rpc.transport</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1626380782%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1129460964%2FPackages%2F-311180413" anchor-label="org.multipaz.sdjwt" id="1129460964%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.sdjwt/index.html">org.multipaz.sdjwt</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1129460964%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="658465381%2FPackages%2F-311180413" anchor-label="org.multipaz.sdjwt.credential" id="658465381%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.sdjwt.credential/index.html">org.multipaz.sdjwt.credential</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="658465381%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1102338758%2FPackages%2F-1314003393" anchor-label="org.multipaz.securearea" id="-1102338758%2FPackages%2F-1314003393" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain,:multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.securearea/index.html">org.multipaz.securearea</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1102338758%2FPackages%2F-1314003393"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">android</div>
+              <div class="platform-tag common-like">common</div>
+              <div class="platform-tag common-like">ios</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1537780927%2FPackages%2F-311180413" anchor-label="org.multipaz.securearea.cloud" id="-1537780927%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.securearea.cloud/index.html">org.multipaz.securearea.cloud</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1537780927%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1949521530%2FPackages%2F-311180413" anchor-label="org.multipaz.securearea.config" id="1949521530%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.securearea.config/index.html">org.multipaz.securearea.config</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1949521530%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-950897889%2FPackages%2F-311180413" anchor-label="org.multipaz.securearea.software" id="-950897889%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.securearea.software/index.html">org.multipaz.securearea.software</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-950897889%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2035991865%2FPackages%2F203229203" anchor-label="org.multipaz.server" id="2035991865%2FPackages%2F203229203" data-filterable-set=":multipaz:dokkaHtmlPartial/jvmMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/jvmMain" data-filterable-set=":multipaz:dokkaHtmlPartial/jvmMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.server/index.html">org.multipaz.server</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2035991865%2FPackages%2F203229203"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">jvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="28534601%2FPackages%2F-311180413" anchor-label="org.multipaz.storage" id="28534601%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.storage/index.html">org.multipaz.storage</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="28534601%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1922713482%2FPackages%2F-968842761" anchor-label="org.multipaz.storage.android" id="1922713482%2FPackages%2F-968842761" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/androidMain" data-filterable-set=":multipaz:dokkaHtmlPartial/androidMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.storage.android/index.html">org.multipaz.storage.android</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1922713482%2FPackages%2F-968842761"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">android</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-111746534%2FPackages%2F-311180413" anchor-label="org.multipaz.storage.base" id="-111746534%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.storage.base/index.html">org.multipaz.storage.base</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-111746534%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-860318984%2FPackages%2F-311180413" anchor-label="org.multipaz.storage.ephemeral" id="-860318984%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.storage.ephemeral/index.html">org.multipaz.storage.ephemeral</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-860318984%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="170413508%2FPackages%2F203229203" anchor-label="org.multipaz.storage.jdbc" id="170413508%2FPackages%2F203229203" data-filterable-set=":multipaz:dokkaHtmlPartial/jvmMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/jvmMain" data-filterable-set=":multipaz:dokkaHtmlPartial/jvmMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.storage.jdbc/index.html">org.multipaz.storage.jdbc</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="170413508%2FPackages%2F203229203"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag jvm-like">jvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1495004715%2FPackages%2F-1073987541" anchor-label="org.multipaz.storage.sqlite" id="-1495004715%2FPackages%2F-1073987541" data-filterable-set=":multipaz:dokkaHtmlPartial/iosMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz:dokkaHtmlPartial/iosMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.storage.sqlite/index.html">org.multipaz.storage.sqlite</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1495004715%2FPackages%2F-1073987541"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">ios</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1209268585%2FPackages%2F-311180413" anchor-label="org.multipaz.trustmanagement" id="1209268585%2FPackages%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.trustmanagement/index.html">org.multipaz.trustmanagement</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1209268585%2FPackages%2F-311180413"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1105483208%2FPackages%2F1552606274" anchor-label="org.multipaz.util" id="-1105483208%2FPackages%2F1552606274" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain,:multipaz:dokkaHtmlPartial/jvmMain"></a>
+    <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain,:multipaz:dokkaHtmlPartial/jvmMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain,:multipaz:dokkaHtmlPartial/iosMain,:multipaz:dokkaHtmlPartial/javaSharedMain,:multipaz:dokkaHtmlPartial/jvmMain">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.multipaz.util/index.html">org.multipaz.util</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1105483208%2FPackages%2F1552606274"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right">
+            <div class="platform-tags no-gutters">
+              <div class="platform-tag common-like">common</div>
+              <div class="platform-tag common-like">ios</div>
+              <div class="platform-tag common-like">javaShared</div>
+              <div class="platform-tag jvm-like">jvm</div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

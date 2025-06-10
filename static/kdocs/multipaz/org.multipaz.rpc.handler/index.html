@@ -1,0 +1,527 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>org.multipaz.rpc.handler</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/commonMain" data-filter=":multipaz:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="multipaz::org.multipaz.rpc.handler////PointingToDeclaration//-311180413">
+  <div class="breadcrumbs"><a href="../index.html">multipaz</a><span class="delimiter">/</span><span class="current">org.multipaz.rpc.handler</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-1906690398%2FClasslikes%2F-311180413" anchor-label="AesGcmCipher" id="-1906690398%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-aes-gcm-cipher/index.html"><span>Aes</span><wbr><span>Gcm</span><wbr><span><span>Cipher</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1906690398%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-aes-gcm-cipher/index.html">AesGcmCipher</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-simple-cipher/index.html">SimpleCipher</a></div><div class="brief "><p class="paragraph">SimpleCipher implementation for AES/GCM with 128/192/256 bit keys.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-913332527%2FClasslikes%2F-311180413" anchor-label="HttpHandler" id="-913332527%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-http-handler/index.html"><span>Http</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-913332527%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-http-handler/index.html">HttpHandler</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dispatcher<span class="token operator">: </span><a href="-rpc-dispatcher/index.html">RpcDispatcher</a><span class="token punctuation">, </span></span><span class="parameter ">rpcPoll<span class="token operator">: </span><a href="-rpc-poll/index.html">RpcPoll</a></span></span><span class="token punctuation">)</span> : <a href="../org.multipaz.rpc.transport/-http-transport/index.html">HttpTransport</a></div><div class="brief "><p class="paragraph">Implements <a href="../org.multipaz.rpc.transport/-http-transport/index.html">HttpTransport</a> based on the given <a href="-rpc-dispatcher/index.html">RpcDispatcher</a> and <a href="-rpc-poll/index.html">RpcPoll</a>. Useful to route incoming HTTP requests on the server.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1387800700%2FClasslikes%2F-311180413" anchor-label="InvalidRequestException" id="1387800700%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-invalid-request-exception/index.html"><span>Invalid</span><wbr><span>Request</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1387800700%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-invalid-request-exception/index.html">InvalidRequestException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1012155010%2FClasslikes%2F-311180413" anchor-label="NoopCipher" id="1012155010%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-noop-cipher/index.html"><span>Noop</span><wbr><span><span>Cipher</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1012155010%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-noop-cipher/index.html">NoopCipher</a> : <a href="-simple-cipher/index.html">SimpleCipher</a></div><div class="brief "><p class="paragraph"><a href="-simple-cipher/index.html">SimpleCipher</a> that does not encrypt or decrypt messages.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-317057519%2FClasslikes%2F-311180413" anchor-label="RpcAuthClientSession" id="-317057519%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-client-session/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span>Client</span><wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-317057519%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-auth-client-session/index.html">RpcAuthClientSession</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/-element/index.html">CoroutineContext.Element</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2052508013%2FClasslikes%2F-311180413" anchor-label="RpcAuthContext" id="2052508013%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-context/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span><span>Context</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2052508013%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-auth-context/index.html">RpcAuthContext</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">sessionId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">nextNonce<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-coroutine-context/-element/index.html">CoroutineContext.Element</a></div><div class="brief "><p class="paragraph">An object added to the current coroutine context based on the successful processing of RPC call authorization.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1991940596%2FClasslikes%2F-311180413" anchor-label="RpcAuthError" id="1991940596%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-error/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span><span>Error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1991940596%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-rpc-auth-error/index.html">RpcAuthError</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-rpc-auth-error/index.html">RpcAuthError</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">RPC authorization error codes. See <a href="-rpc-auth-exception/index.html">RpcAuthException</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1830941683%2FClasslikes%2F-311180413" anchor-label="RpcAuthException" id="-1830941683%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-exception/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1830941683%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-auth-exception/index.html">RpcAuthException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>rpcAuthError<span class="token operator">: </span><a href="-rpc-auth-error/index.html">RpcAuthError</a></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a></div><div class="brief "><p class="paragraph">RPC authorization failure.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1600426395%2FClasslikes%2F-311180413" anchor-label="RpcAuthInspector" id="-1600426395%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-inspector/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span><span>Inspector</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1600426395%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-rpc-auth-inspector/index.html">RpcAuthInspector</a></div><div class="brief "><p class="paragraph">RPC call authorization.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="649667547%2FClasslikes%2F-311180413" anchor-label="RpcAuthInspectorAssertion" id="649667547%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-inspector-assertion/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span>Inspector</span><wbr><span><span>Assertion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="649667547%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-auth-inspector-assertion/index.html">RpcAuthInspectorAssertion</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>timeout<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-duration/index.html">Duration</a><span class="token operator"> = </span>10.minutes<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>nonceChecker<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>clientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>nonce<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token punctuation">, </span>expiration<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="-rpc-auth-inspector-assertion/-nonce-and-session/index.html">RpcAuthInspectorAssertion.NonceAndSession</a><span class="token operator"> = </span>Companion::checkNonce<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>clientLookup<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token punctuation">(</span>clientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="../org.multipaz.device/-device-attestation/index.html">DeviceAttestation</a><span class="token operator">?</span><span class="token operator"> = </span>Companion::getClientDeviceAttestation</span></span><span class="token punctuation">)</span> : <a href="-rpc-auth-inspector/index.html">RpcAuthInspector</a></div><div class="brief "><p class="paragraph">Implementation of <a href="-rpc-auth-inspector/index.html">RpcAuthInspector</a> that requires each RPC call to be authorized with <a href="../org.multipaz.device/-assertion-rpc-auth/index.html">AssertionRpcAuth</a> object signed by a secure device key (see <a href="../org.multipaz.device/-device-assertion/index.html">DeviceAssertion</a>). Authorization is only trusted by <a href="-rpc-auth-inspector-assertion/timeout.html">timeout</a> duration. Nonce <a href="../org.multipaz.device/-assertion-rpc-auth/nonce.html">AssertionRpcAuth.nonce</a> uniqueness is checked by <a href="-rpc-auth-inspector-assertion/nonce-checker.html">nonceChecker</a> and <a href="../org.multipaz.device/-device-attestation/index.html">DeviceAttestation</a> that is used to validate <a href="../org.multipaz.device/-assertion-rpc-auth/index.html">AssertionRpcAuth</a> is looked up by the client id using <a href="-rpc-auth-inspector-assertion/client-lookup.html">clientLookup</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1823370707%2FClasslikes%2F-311180413" anchor-label="RpcAuthIssuer" id="-1823370707%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-issuer/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span><span>Issuer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1823370707%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-rpc-auth-issuer/index.html">RpcAuthIssuer</a></div><div class="brief "><p class="paragraph">Interface to issue and add authentication data to RPC messages.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-996490989%2FClasslikes%2F-311180413" anchor-label="RpcAuthIssuerAssertion" id="-996490989%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-issuer-assertion/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span>Issuer</span><wbr><span><span>Assertion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-996490989%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-auth-issuer-assertion/index.html">RpcAuthIssuerAssertion</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clientId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">secureArea<span class="token operator">: </span><a href="../org.multipaz.securearea/-secure-area/index.html">SecureArea</a><span class="token punctuation">, </span></span><span class="parameter ">deviceAttestationId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-rpc-auth-issuer/index.html">RpcAuthIssuer</a></div><div class="brief "><p class="paragraph"><a href="-rpc-auth-issuer/index.html">RpcAuthIssuer</a> implementation that authorizes each call with using <a href="../org.multipaz.device/-assertion-rpc-auth/index.html">AssertionRpcAuth</a> object signed by a secure device key. In addition to <code class="lang-kotlin">payload</code> field in in authorization Cbor map it adds an <code class="lang-kotlin">assertion</code> field that holds <a href="../org.multipaz.device/-device-assertion/index.html">DeviceAssertion</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1716657318%2FClasslikes%2F-311180413" anchor-label="RpcAuthNonceException" id="1716657318%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-auth-nonce-exception/index.html"><span>Rpc</span><wbr><span>Auth</span><wbr><span>Nonce</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1716657318%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-auth-nonce-exception/index.html">RpcAuthNonceException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>nonce<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a></div><div class="brief "><p class="paragraph">RPC authorization failure with nonce for retry.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-722686777%2FClasslikes%2F-311180413" anchor-label="RpcDispatcher" id="-722686777%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-dispatcher/index.html"><span>Rpc</span><wbr><span><span>Dispatcher</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-722686777%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-rpc-dispatcher/index.html">RpcDispatcher</a></div><div class="brief "><p class="paragraph">Generated flow interface implementations use this interface to dispatch method calls to the flow implementations, potentially across the network.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1914031873%2FClasslikes%2F-311180413" anchor-label="RpcDispatcherAuth" id="-1914031873%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-dispatcher-auth/index.html"><span>Rpc</span><wbr><span>Dispatcher</span><wbr><span><span>Auth</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1914031873%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-dispatcher-auth/index.html">RpcDispatcherAuth</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>base<span class="token operator">: </span><a href="-rpc-dispatcher/index.html">RpcDispatcher</a><span class="token punctuation">, </span></span><span class="parameter ">rpcAuthIssuer<span class="token operator">: </span><a href="-rpc-auth-issuer/index.html">RpcAuthIssuer</a></span></span><span class="token punctuation">)</span> : <a href="-rpc-dispatcher/index.html">RpcDispatcher</a></div><div class="brief "><p class="paragraph"><a href="-rpc-dispatcher/index.html">RpcDispatcher</a> implementation that dispatches RPC call to a <a href="-rpc-dispatcher-auth/base.html">base</a> dispatcher after adding RPC method authorization to it.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-854392289%2FClasslikes%2F-311180413" anchor-label="RpcDispatcherHttp" id="-854392289%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-dispatcher-http/index.html"><span>Rpc</span><wbr><span>Dispatcher</span><wbr><span><span>Http</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-854392289%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-dispatcher-http/index.html">RpcDispatcherHttp</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">transport<span class="token operator">: </span><a href="../org.multipaz.rpc.transport/-http-transport/index.html">HttpTransport</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>exceptionMap<span class="token operator">: </span><a href="-rpc-exception-map/index.html">RpcExceptionMap</a></span></span><span class="token punctuation">)</span> : <a href="-rpc-dispatcher/index.html">RpcDispatcher</a></div><div class="brief "><p class="paragraph"><a href="-rpc-dispatcher/index.html">RpcDispatcher</a> implementation that dispatches flow method calls through HTTP.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1643644816%2FClasslikes%2F-311180413" anchor-label="RpcDispatcherLocal" id="-1643644816%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-dispatcher-local/index.html"><span>Rpc</span><wbr><span>Dispatcher</span><wbr><span><span>Local</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1643644816%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-dispatcher-local/index.html">RpcDispatcherLocal</a> : <a href="-rpc-dispatcher/index.html">RpcDispatcher</a></div><div class="brief "><p class="paragraph"><a href="-rpc-dispatcher/index.html">RpcDispatcher</a> implementation that dispatches RPC method calls to to backend ("state") object calls. This is for use in server environment and for testing.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="22686817%2FClasslikes%2F-311180413" anchor-label="RpcExceptionMap" id="22686817%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-exception-map/index.html"><span>Rpc</span><wbr><span>Exception</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="22686817%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-exception-map/index.html">RpcExceptionMap</a></div><div class="brief "><p class="paragraph">An object that serializes and deserializes exceptions marked with FlowException annotations. All exceptions must be registered using generated ExceptionName.register method both on the client and on the server.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1407354316%2FClasslikes%2F-311180413" anchor-label="RpcNotifications" id="1407354316%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-notifications/index.html"><span>Rpc</span><wbr><span><span>Notifications</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1407354316%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-rpc-notifications/index.html">RpcNotifications</a></div><div class="brief "><p class="paragraph">A low-level interface to convey notifications to registered clients.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2074477941%2FClasslikes%2F-311180413" anchor-label="RpcNotificationsLocal" id="-2074477941%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-notifications-local/index.html"><span>Rpc</span><wbr><span>Notifications</span><wbr><span><span>Local</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2074477941%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-notifications-local/index.html">RpcNotificationsLocal</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cipher<span class="token operator">: </span><a href="-simple-cipher/index.html">SimpleCipher</a></span></span><span class="token punctuation">)</span> : <a href="-rpc-notifications/index.html">RpcNotifications</a>, <a href="-rpc-notifier/index.html">RpcNotifier</a></div><div class="brief "><p class="paragraph">Implementation for <a href="-rpc-notifications/index.html">RpcNotifications</a> that can also serve as <a href="-rpc-notifier/index.html">RpcNotifier</a> for testing/developing in local environment.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="173537932%2FClasslikes%2F-311180413" anchor-label="RpcNotificationsLocalPoll" id="173537932%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-notifications-local-poll/index.html"><span>Rpc</span><wbr><span>Notifications</span><wbr><span>Local</span><wbr><span><span>Poll</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="173537932%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-notifications-local-poll/index.html">RpcNotificationsLocalPoll</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cipher<span class="token operator">: </span><a href="-simple-cipher/index.html">SimpleCipher</a></span></span><span class="token punctuation">)</span> : <a href="-rpc-notifications/index.html">RpcNotifications</a>, <a href="-rpc-poll/index.html">RpcPoll</a></div><div class="brief "><p class="paragraph">Implementation for <a href="-rpc-notifications/index.html">RpcNotifications</a> that also implements <a href="-rpc-poll/index.html">RpcPoll</a> interface to handle long poll method for notification propagation.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1135620632%2FClasslikes%2F-311180413" anchor-label="RpcNotifier" id="-1135620632%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-notifier/index.html"><span>Rpc</span><wbr><span><span>Notifier</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1135620632%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-rpc-notifier/index.html">RpcNotifier</a></div><div class="brief "><p class="paragraph">A low-level interface to register and unregister for notifications on the client.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-498411671%2FClasslikes%2F-311180413" anchor-label="RpcNotifierPoll" id="-498411671%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-notifier-poll/index.html"><span>Rpc</span><wbr><span>Notifier</span><wbr><span><span>Poll</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-498411671%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-notifier-poll/index.html">RpcNotifierPoll</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">poll<span class="token operator">: </span><a href="-rpc-poll/index.html">RpcPoll</a></span></span><span class="token punctuation">)</span> : <a href="-rpc-notifier/index.html">RpcNotifier</a></div><div class="brief "><p class="paragraph"><a href="-rpc-notifier/index.html">RpcNotifier</a> implementation based on <a href="-rpc-poll/index.html">RpcPoll</a> interface.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1076321169%2FClasslikes%2F-311180413" anchor-label="RpcPoll" id="-1076321169%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-poll/index.html"><span>Rpc</span><wbr><span><span>Poll</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1076321169%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-rpc-poll/index.html">RpcPoll</a></div><div class="brief "><p class="paragraph">An interface to represent a long poll.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-328538681%2FClasslikes%2F-311180413" anchor-label="RpcPollHttp" id="-328538681%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-poll-http/index.html"><span>Rpc</span><wbr><span>Poll</span><wbr><span><span>Http</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-328538681%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-rpc-poll-http/index.html">RpcPollHttp</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">transport<span class="token operator">: </span><a href="../org.multipaz.rpc.transport/-http-transport/index.html">HttpTransport</a></span></span><span class="token punctuation">)</span> : <a href="-rpc-poll/index.html">RpcPoll</a></div><div class="brief "><p class="paragraph"><a href="-rpc-poll/index.html">RpcPoll</a> implementation that works through HTTP.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="551204081%2FClasslikes%2F-311180413" anchor-label="RpcReturnCode" id="551204081%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rpc-return-code/index.html"><span>Rpc</span><wbr><span>Return</span><wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="551204081%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-rpc-return-code/index.html">RpcReturnCode</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-rpc-return-code/index.html">RpcReturnCode</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Constants to determine the result kind in Cbor serialization of the method call response.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1295613618%2FClasslikes%2F-311180413" anchor-label="SimpleCipher" id="1295613618%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-simple-cipher/index.html"><span>Simple</span><wbr><span><span>Cipher</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1295613618%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-simple-cipher/index.html">SimpleCipher</a></div><div class="brief "><p class="paragraph">Interface that is used by the server to (1) protect its data from the client and (2) serve as authentication mechanism (as the client should not be able to generate valid encrypted data). Thus it is important that encryption algorithm provides both data authenticity and confidentiality.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

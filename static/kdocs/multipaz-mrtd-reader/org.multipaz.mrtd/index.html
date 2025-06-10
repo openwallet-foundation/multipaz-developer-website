@@ -1,0 +1,460 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>org.multipaz.mrtd</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz-mrtd-reader:dokkaHtmlPartial/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filter=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="multipaz-mrtd-reader::org.multipaz.mrtd////PointingToDeclaration//2074911626">
+  <div class="breadcrumbs"><a href="../index.html">multipaz-mrtd-reader</a><span class="delimiter">/</span><span class="current">org.multipaz.mrtd</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1810391848%2FClasslikes%2F2074911626" anchor-label="MrtdAccessData" id="1810391848%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-access-data/index.html"><span>Mrtd</span><wbr><span>Access</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1810391848%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-mrtd-access-data/index.html">MrtdAccessData</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1591676970%2FClasslikes%2F2074911626" anchor-label="MrtdAccessDataCan" id="1591676970%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-access-data-can/index.html"><span>Mrtd</span><wbr><span>Access</span><wbr><span>Data</span><wbr><span><span>Can</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1591676970%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-mrtd-access-data-can/index.html">MrtdAccessDataCan</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>canCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-mrtd-access-data/index.html">MrtdAccessData</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1415881691%2FClasslikes%2F2074911626" anchor-label="MrtdAccessDataMrz" id="-1415881691%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-access-data-mrz/index.html"><span>Mrtd</span><wbr><span>Access</span><wbr><span>Data</span><wbr><span><span>Mrz</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1415881691%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-mrtd-access-data-mrz/index.html">MrtdAccessDataMrz</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>documentNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dateOfBirth<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dateOfExpiration<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-mrtd-access-data/index.html">MrtdAccessData</a></div><div class="brief "><p class="paragraph">Represents a small set of data that is typically captured by OCR from Machine Readable Zone (MRZ) on a passport (or other MRTD).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1678046725%2FClasslikes%2F2074911626" anchor-label="MrtdAccessDataPin" id="1678046725%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-access-data-pin/index.html"><span>Mrtd</span><wbr><span>Access</span><wbr><span>Data</span><wbr><span><span>Pin</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1678046725%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-mrtd-access-data-pin/index.html">MrtdAccessDataPin</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>pinCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-mrtd-access-data/index.html">MrtdAccessData</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1453491860%2FClasslikes%2F2074911626" anchor-label="MrtdDecodedData" id="-1453491860%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-decoded-data/index.html"><span>Mrtd</span><wbr><span>Decoded</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1453491860%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-mrtd-decoded-data/index.html">MrtdDecodedData</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>firstName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>firstNameComponents<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>lastName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>issuingState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>nationality<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>gender<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dateOfBirth<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dateOfExpiry<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>personalNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>optionalData1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>optionalData2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>photoMediaType<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>photo<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signatureMediaType<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signature<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Data read from the passport or ID card.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1195818556%2FClasslikes%2F2074911626" anchor-label="MrtdMrzChecksumValidator" id="1195818556%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-mrz-checksum-validator/index.html"><span>Mrtd</span><wbr><span>Mrz</span><wbr><span>Checksum</span><wbr><span><span>Validator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1195818556%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-mrtd-mrz-checksum-validator/index.html">MrtdMrzChecksumValidator</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">checksumRanges<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-mrtd-mrz-checksum-validator/-range/index.html">MrtdMrzChecksumValidator.Range</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">checksumDigitIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Validates that a data field in Machine Readable Zone (MRZ) was scanned and OCRed correctly from an ICAO Machine-readable Travel Document (MRTD).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="397887009%2FClasslikes%2F2074911626" anchor-label="MrtdNfc" id="397887009%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-nfc/index.html"><span>Mrtd</span><wbr><span><span>Nfc</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="397887009%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-mrtd-nfc/index.html">MrtdNfc</a></div><div class="brief "><p class="paragraph">A class that provides a namespace for <a href="-mrtd-nfc/-status/index.html">Status</a> and its subclasses (which act a bit like an enum).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1988321073%2FClasslikes%2F2074911626" anchor-label="MrtdNfcChipAccess" id="1988321073%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-nfc-chip-access/index.html"><span>Mrtd</span><wbr><span>Nfc</span><wbr><span>Chip</span><wbr><span><span>Access</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1988321073%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-mrtd-nfc-chip-access/index.html">MrtdNfcChipAccess</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">shouldCheckMac<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Implements Chip Access Procedure (see ICAO 9303 part 11, Section 4.2), establishing encrypted connection to the chip. Emits <a href="-mrtd-nfc/-status/index.html">MrtdNfc.Status</a> as the reading progresses.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1801347479%2FClasslikes%2F2074911626" anchor-label="MrtdNfcData" id="1801347479%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-nfc-data/index.html"><span>Mrtd</span><wbr><span>Nfc</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1801347479%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-mrtd-nfc-data/index.html">MrtdNfcData</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>dataGroups<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>sod<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Raw data read from the passport or ID card.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1494726759%2FClasslikes%2F2074911626" anchor-label="MrtdNfcDataDecoder" id="1494726759%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-nfc-data-decoder/index.html"><span>Mrtd</span><wbr><span>Nfc</span><wbr><span>Data</span><wbr><span><span>Decoder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1494726759%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-mrtd-nfc-data-decoder/index.html">MrtdNfcDataDecoder</a></div><div class="brief "><p class="paragraph">Decoder that validates <a href="-mrtd-nfc-data/index.html">MrtdNfcData</a> and converts it to <a href="-mrtd-decoded-data/index.html">MrtdDecodedData</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1677415020%2FClasslikes%2F2074911626" anchor-label="MrtdNfcDataReader" id="-1677415020%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-nfc-data-reader/index.html"><span>Mrtd</span><wbr><span>Nfc</span><wbr><span>Data</span><wbr><span><span>Reader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1677415020%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-mrtd-nfc-data-reader/index.html">MrtdNfcDataReader</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dataGroups<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-mrtd-nfc-reader/index.html">MrtdNfcReader</a><span class="token operator">&lt;</span><a href="-mrtd-nfc-data/index.html">MrtdNfcData</a><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="926843550%2FClasslikes%2F2074911626" anchor-label="MrtdNfcReader" id="926843550%2FClasslikes%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-mrtd-nfc-reader/index.html"><span>Mrtd</span><wbr><span>Nfc</span><wbr><span><span>Reader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="926843550%2FClasslikes%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-mrtd-nfc-reader/index.html">MrtdNfcReader</a><span class="token operator">&lt;</span><a href="-mrtd-nfc-reader/index.html">ResultT</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-568807826%2FProperties%2F2074911626" anchor-label="LOG_DEBUG" id="-568807826%2FProperties%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-d-e-b-u-g.html"><span>LOG_</span><wbr><span>DEBUG</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-568807826%2FProperties%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-l-o-g_-d-e-b-u-g.html">LOG_DEBUG</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">3</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1051420583%2FProperties%2F2074911626" anchor-label="LOG_ERROR" id="-1051420583%2FProperties%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-e-r-r-o-r.html"><span>LOG_</span><wbr><span>ERROR</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1051420583%2FProperties%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-l-o-g_-e-r-r-o-r.html">LOG_ERROR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">6</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-40784693%2FProperties%2F2074911626" anchor-label="LOG_INFO" id="-40784693%2FProperties%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-i-n-f-o.html"><span>LOG_</span><wbr><span>INFO</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-40784693%2FProperties%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-l-o-g_-i-n-f-o.html">LOG_INFO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">4</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1287241229%2FProperties%2F2074911626" anchor-label="LOG_WARN" id="-1287241229%2FProperties%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-g_-w-a-r-n.html"><span>LOG_</span><wbr><span>WARN</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1287241229%2FProperties%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-l-o-g_-w-a-r-n.html">LOG_WARN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">5</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1130382631%2FFunctions%2F2074911626" anchor-label="extractMrtdMrzData" id="-1130382631%2FFunctions%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="extract-mrtd-mrz-data.html"><span>extract</span><wbr><span>Mrtd</span><wbr><span>Mrz</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1130382631%2FFunctions%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="extract-mrtd-mrz-data.html"><span class="token function">extractMrtdMrzData</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-mrtd-access-data-mrz/index.html">MrtdAccessDataMrz</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Extracts <a href="-mrtd-access-data-mrz/index.html">MrtdAccessDataMrz</a> from text that was captured by OCR of a passport page.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1159962751%2FFunctions%2F2074911626" anchor-label="mrtdLogD" id="-1159962751%2FFunctions%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mrtd-log-d.html"><span>mrtd</span><wbr><span>Log</span><wbr><span><span>D</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1159962751%2FFunctions%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="mrtd-log-d.html"><span class="token function">mrtdLogD</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tag<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">err<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1643638078%2FFunctions%2F2074911626" anchor-label="mrtdLogE" id="-1643638078%2FFunctions%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mrtd-log-e.html"><span>mrtd</span><wbr><span>Log</span><wbr><span><span>E</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1643638078%2FFunctions%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="mrtd-log-e.html"><span class="token function">mrtdLogE</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tag<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">err<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="716627910%2FFunctions%2F2074911626" anchor-label="mrtdLogI" id="716627910%2FFunctions%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mrtd-log-i.html"><span>mrtd</span><wbr><span>Log</span><wbr><span><span>I</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="716627910%2FFunctions%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="mrtd-log-i.html"><span class="token function">mrtdLogI</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tag<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">err<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1759859372%2FFunctions%2F2074911626" anchor-label="mrtdLogW" id="-1759859372%2FFunctions%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mrtd-log-w.html"><span>mrtd</span><wbr><span>Log</span><wbr><span><span>W</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1759859372%2FFunctions%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="mrtd-log-w.html"><span class="token function">mrtdLogW</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tag<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">err<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1847359523%2FFunctions%2F2074911626" anchor-label="mrtdSetLogger" id="1847359523%2FFunctions%2F2074911626" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mrtd-reader:dokkaHtmlPartial/main" data-filterable-set=":multipaz-mrtd-reader:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mrtd-set-logger.html"><span>mrtd</span><wbr><span>Set</span><wbr><span><span>Logger</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1847359523%2FFunctions%2F2074911626"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mrtd-reader:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="mrtd-set-logger.html"><span class="token function">mrtdSetLogger</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">externalLogger<span class="token operator">: </span><span class="token punctuation">(</span>level<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>tag<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>msg<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>err<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

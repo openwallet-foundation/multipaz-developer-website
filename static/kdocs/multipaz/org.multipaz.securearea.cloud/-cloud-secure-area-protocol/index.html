@@ -1,0 +1,577 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CloudSecureAreaProtocol</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/commonMain" data-filter=":multipaz:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz::org.multipaz.securearea.cloud/CloudSecureAreaProtocol///PointingToDeclaration//-311180413">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.securearea.cloud</a><span class="delimiter">/</span><span class="current">CloudSecureAreaProtocol</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cloud</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Protocol</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">CloudSecureAreaProtocol</a></div><p class="paragraph">This describes the protocol (messages and constants) between the device and the server for the Cloud Secure Area.</p><p class="paragraph">Throughout, the term <i>device</i> or <i>client</i> is used to refer to an Mobile Application (usually a so-called Wallet App) and using a SecureArea implementation which is implementing this protocol, for example the <a href="../-cloud-secure-area/index.html">CloudSecureArea</a> class.</p><p class="paragraph">Similarly, the term <i>server</i> or <i>cloud</i> is used to refer to server-side of the Cloud Secure Area and  <i>Secure Area</i> is used to refer to the part of this server-side which may be implemented in an isolated execution environment with additional protections.</p><p class="paragraph">All messages in the protocol are encoded using <a href="https://datatracker.ietf.org/doc/html/rfc8949">CBOR</a> and is described here according to <a href="https://datatracker.ietf.org/doc/rfc8610/">CDDL</a>. Messages are exchanged using the HTTP protocol (HTTPS), using HTTP POST. It is not required that the client supports HTTP cookies.</p><p class="paragraph">One trait shared by all messages is that they are all maps and the <code class="lang-kotlin">"type"</code> key has a <code class="lang-kotlin">tstr</code> value used to identify which message it is, for example <code class="lang-kotlin">"RegisterRequest0"</code> or <code class="lang-kotlin">"E2EEResponse"</code>.</p><p class="paragraph">The protocol consists of several flows</p><ul><li><p class="paragraph">Client Registration</p></li><li><p class="paragraph">This includes the client and the server exchanging keys (<code class="lang-kotlin">DeviceBindingKey</code> and     <code class="lang-kotlin">CloudBindingKey</code>) to be used to bootstrap end-to-end encryption between the two parties.     Each key has an attestation to allow both parties to authenticate each other.</p></li><li><p class="paragraph">The server authenticates the device using     <a href="https://developer.android.com/privacy-and-security/security-key-attestation">Android Keystore Attestation</a>     on Android and     <a href="https://developer.apple.com/documentation/devicecheck/dcappattestservice">DCAppAttestService</a>     on iOS. This enables restricting the service to only authorized     mobile applications that hasn't been tampered with and is running a known good environment.</p></li><li><p class="paragraph">The device authenticates the server by inspecting the root certificate of the     attestation and making sure it trusts the public key in the root certificate.</p></li><li><p class="paragraph">Detailed description in <a href="-register-request0/index.html">RegisterRequest0</a>, <a href="-register-response0/index.html">RegisterResponse0</a>, <a href="-register-request1/index.html">RegisterRequest1</a>,     and <a href="-register-response1/index.html">RegisterResponse1</a> messages below.</p></li><li><p class="paragraph">E2EE Setup</p></li><li><p class="paragraph">This involves the device and the server exchanging ephemeral keys (<code class="lang-kotlin">EDeviceKey</code>     and <code class="lang-kotlin">ECloudKey</code>) which are signed by <code class="lang-kotlin">DeviceBindingKey</code> and <code class="lang-kotlin">CloudBindingKey</code>.     These keys are used to derive symmetric encryption keys (<code class="lang-kotlin">SKDevice</code> and <code class="lang-kotlin">SKCloud</code>)     used for AES-GCM-128 encryption.</p></li><li><p class="paragraph">The derived symmetric encryption keys are intended to only valid for a finite amount     of time, 10 minutes for example. This is enforced by the server asking the device     to go through the E2EE Setup flow again.</p></li><li><p class="paragraph">Detailed description for the E2EE setup flow is in <a href="-e2-e-e-setup-request0/index.html">E2EESetupRequest0</a>,     <a href="-e2-e-e-setup-response0/index.html">E2EESetupResponse0</a>, <a href="-e2-e-e-setup-request1/index.html">E2EESetupRequest1</a>, and <a href="-e2-e-e-setup-response1/index.html">E2EESetupResponse1</a>. See <a href="-e2-e-e-request/index.html">E2EERequest</a>     and <a href="-e2-e-e-response/index.html">E2EEResponse</a> for how the symmetric encryption keys are used.</p></li><li><p class="paragraph">Stage 2 registration</p></li><li><p class="paragraph">This runs after E2EE has been set up and allows for exchange of registration-related     data which needs to be kept confidential. Currently this only includes the passphrase     used to protect keys.</p></li><li><p class="paragraph">Detailed description in <a href="-register-stage2-request0/index.html">RegisterStage2Request0</a> and <a href="-register-stage2-response0/index.html">RegisterStage2Response0</a>.</p></li></ul><p class="paragraph">The following flows are all implemented on top of E2EE and requires stage 2 registration to be complete.</p><ul><li><p class="paragraph">Create Key</p></li><li><p class="paragraph">For every key created on the server, a companion key on the local device will     be created in Secure Hardware (Android Keystore or iOS Secure Enclave). The local     key is used to enforce User Authentication requirements using the native device     unlock mechanism (e.g. biometric and passcodes).</p></li><li><p class="paragraph">See <a href="-create-key-request0/index.html">CreateKeyRequest0</a>, <a href="-create-key-response0/index.html">CreateKeyResponse0</a>, <a href="-create-key-request1/index.html">CreateKeyRequest1</a>, <a href="-create-key-response1/index.html">CreateKeyResponse1</a>     for a detailed description of this flow.</p></li><li><p class="paragraph">Sign with Key</p></li><li><p class="paragraph">See <a href="-sign-request0/index.html">SignRequest0</a>, <a href="-sign-response0/index.html">SignResponse0</a>, <a href="-sign-request1/index.html">SignRequest1</a>, <a href="-sign-response1/index.html">SignResponse1</a> for a detailed     description of this flow.</p></li><li><p class="paragraph">Key Agreement with Key</p></li><li><p class="paragraph">See <a href="-key-agreement-request0/index.html">KeyAgreementRequest0</a>, <a href="-key-agreement-response0/index.html">KeyAgreementResponse0</a>, <a href="-key-agreement-request1/index.html">KeyAgreementRequest1</a>,     <a href="-key-agreement-response1/index.html">KeyAgreementResponse1</a> for a detailed description of this flow.</p></li><li><p class="paragraph">Passphrase check</p></li><ul><li><p class="paragraph">The purpose of this is for the device to check ahead of time if the passphrase       the user entered will work. This is useful for UX/UI flows where the client       wishes to collect the passphrase before checking biometrics.</p></li><li><p class="paragraph">See <a href="-check-passphrase-request/index.html">CheckPassphraseRequest</a> and <a href="-check-passphrase-response/index.html">CheckPassphraseResponse</a></p></li></ul></ul><p class="paragraph">The protocol is designed so it's possible to implement a 100% stateless server except that the server needs to possess a symmetric encryption key which never leaves the Secure Area of the server. This key is used to encrypt/decrypt state shipped back and forth to the client.</p><p class="paragraph">Messages shall be sent from the device to the server as the body of a HTTP POST request and messages from the server to the device shall be in the body of the response. The server shall use HTTP status 200 for responses unless otherwise specified.</p><p class="paragraph">The following data types are used in the protocol:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">; A chain of X.509 certificates.<br>;<br>; If the chain only contains a single certificate, a bstr with the encoded<br>; certificate is used. Otherwise an array of encoded certificates is used.<br>;<br>X509CertChain = bstr / [ bstr]<br><br>; A signature made with a Elliptic Curve Cryptography key.<br>;<br>EcSignature = {<br>  "r" : bstr,<br>  "s" : bstr<br>}</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-520107225%2FClasslikes%2F-311180413" anchor-label="CheckPassphraseRequest" id="-520107225%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-check-passphrase-request/index.html"><span>Check</span><wbr><span>Passphrase</span><wbr><span><span>Request</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-520107225%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-check-passphrase-request/index.html">CheckPassphraseRequest</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>passphrase<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">Checks if the given passphrase matches the registered passphrase.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-160679669%2FClasslikes%2F-311180413" anchor-label="CheckPassphraseResponse" id="-160679669%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-check-passphrase-response/index.html"><span>Check</span><wbr><span>Passphrase</span><wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-160679669%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-check-passphrase-response/index.html">CheckPassphraseResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>result<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">Response for <a href="-check-passphrase-request/index.html">CheckPassphraseRequest</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="395764307%2FClasslikes%2F-311180413" anchor-label="Command" id="395764307%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-command/index.html"><span><span>Command</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="395764307%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-command/index.html">Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1323822874%2FClasslikes%2F-311180413" anchor-label="CreateKeyRequest0" id="1323822874%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-create-key-request0/index.html"><span>Create</span><wbr><span>Key</span><wbr><span><span>Request0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1323822874%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-create-key-request0/index.html">CreateKeyRequest0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>algorithm<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>validFromMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>validUntilMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>passphraseRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>userAuthenticationRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>userAuthenticationTypes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>challenge<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1354842681%2FClasslikes%2F-311180413" anchor-label="CreateKeyRequest1" id="1354842681%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-create-key-request1/index.html"><span>Create</span><wbr><span>Key</span><wbr><span><span>Request1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1354842681%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-create-key-request1/index.html">CreateKeyRequest1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>localKey<span class="token operator">: </span><a href="../../org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>localKeyAttestation<span class="token operator">: </span><a href="../../org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-631589640%2FClasslikes%2F-311180413" anchor-label="CreateKeyResponse0" id="-631589640%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-create-key-response0/index.html"><span>Create</span><wbr><span>Key</span><wbr><span><span>Response0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-631589640%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-create-key-response0/index.html">CreateKeyResponse0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>cloudChallenge<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-600569833%2FClasslikes%2F-311180413" anchor-label="CreateKeyResponse1" id="-600569833%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-create-key-response1/index.html"><span>Create</span><wbr><span>Key</span><wbr><span><span>Response1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-600569833%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-create-key-response1/index.html">CreateKeyResponse1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>remoteKeyAttestation<span class="token operator">: </span><a href="../../org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="337523452%2FClasslikes%2F-311180413" anchor-label="E2EERequest" id="337523452%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e2-e-e-request/index.html"><span><span>E2EERequest</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="337523452%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-e2-e-e-request/index.html">E2EERequest</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>encryptedRequest<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>e2eeContext<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="656067542%2FClasslikes%2F-311180413" anchor-label="E2EEResponse" id="656067542%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e2-e-e-response/index.html"><span><span>E2EEResponse</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="656067542%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-e2-e-e-response/index.html">E2EEResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>encryptedResponse<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>e2eeContext<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1347002419%2FClasslikes%2F-311180413" anchor-label="E2EESetupRequest0" id="-1347002419%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e2-e-e-setup-request0/index.html"><span>E2EESetup</span><wbr><span><span>Request0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1347002419%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-e2-e-e-setup-request0/index.html">E2EESetupRequest0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>registrationContext<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">This message is sent when the device wishes to set up end-to-end encryption to the Secure Area of the server.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1315982612%2FClasslikes%2F-311180413" anchor-label="E2EESetupRequest1" id="-1315982612%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e2-e-e-setup-request1/index.html"><span>E2EESetup</span><wbr><span><span>Request1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1315982612%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-e2-e-e-setup-request1/index.html">E2EESetupRequest1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>eDeviceKey<span class="token operator">: </span><a href="../../org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>deviceNonce<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signature<span class="token operator">: </span><a href="../../org.multipaz.crypto/-ec-signature/index.html">EcSignature</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>deviceAssertion<span class="token operator">: </span><a href="../../org.multipaz.device/-device-assertion/index.html">DeviceAssertion</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">This is sent by the device in response to the <a href="-e2-e-e-setup-response0/index.html">E2EESetupResponse0</a>:</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1822795099%2FClasslikes%2F-311180413" anchor-label="E2EESetupResponse0" id="-1822795099%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e2-e-e-setup-response0/index.html"><span>E2EESetup</span><wbr><span><span>Response0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1822795099%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-e2-e-e-setup-response0/index.html">E2EESetupResponse0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>cloudNonce<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">This is sent in response to <a href="-e2-e-e-setup-request0/index.html">E2EESetupRequest0</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1791775292%2FClasslikes%2F-311180413" anchor-label="E2EESetupResponse1" id="-1791775292%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e2-e-e-setup-response1/index.html"><span>E2EESetup</span><wbr><span><span>Response1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1791775292%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-e2-e-e-setup-response1/index.html">E2EESetupResponse1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>eCloudKey<span class="token operator">: </span><a href="../../org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signature<span class="token operator">: </span><a href="../../org.multipaz.crypto/-ec-signature/index.html">EcSignature</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">This is sent in response to <a href="-e2-e-e-setup-request1/index.html">E2EESetupRequest1</a>:</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="878710968%2FClasslikes%2F-311180413" anchor-label="KeyAgreementRequest0" id="878710968%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-key-agreement-request0/index.html"><span>Key</span><wbr><span>Agreement</span><wbr><span><span>Request0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="878710968%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-key-agreement-request0/index.html">KeyAgreementRequest0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>otherPublicKey<span class="token operator">: </span><a href="../../org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>keyContext<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="909730775%2FClasslikes%2F-311180413" anchor-label="KeyAgreementRequest1" id="909730775%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-key-agreement-request1/index.html"><span>Key</span><wbr><span>Agreement</span><wbr><span><span>Request1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="909730775%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-key-agreement-request1/index.html">KeyAgreementRequest1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>signature<span class="token operator">: </span><a href="../../org.multipaz.crypto/-ec-signature/index.html">EcSignature</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>passphrase<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1545156838%2FClasslikes%2F-311180413" anchor-label="KeyAgreementResponse0" id="-1545156838%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-key-agreement-response0/index.html"><span>Key</span><wbr><span>Agreement</span><wbr><span><span>Response0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1545156838%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-key-agreement-response0/index.html">KeyAgreementResponse0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>cloudNonce<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1514137031%2FClasslikes%2F-311180413" anchor-label="KeyAgreementResponse1" id="-1514137031%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-key-agreement-response1/index.html"><span>Key</span><wbr><span>Agreement</span><wbr><span><span>Response1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1514137031%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-key-agreement-response1/index.html">KeyAgreementResponse1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>result<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>zab<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>waitDurationMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1044273408%2FClasslikes%2F-311180413" anchor-label="RegisterRequest0" id="1044273408%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-register-request0/index.html"><span>Register</span><wbr><span><span>Request0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1044273408%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-register-request0/index.html">RegisterRequest0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>clientVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">Sent by device a server it has never communicated with before and it wishes to establish communications.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1075293215%2FClasslikes%2F-311180413" anchor-label="RegisterRequest1" id="1075293215%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-register-request1/index.html"><span>Register</span><wbr><span><span>Request1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1075293215%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-register-request1/index.html">RegisterRequest1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>deviceChallenge<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>deviceAttestation<span class="token operator">: </span><a href="../../org.multipaz.device/-device-attestation/index.html">DeviceAttestation</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>deviceBindingKey<span class="token operator">: </span><a href="../../org.multipaz.cose/-cose-key/index.html">CoseKey</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>deviceBindingKeyAttestation<span class="token operator">: </span><a href="../../org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">Message sent by the client to the server in response to <a href="-register-response0/index.html">RegisterResponse0</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-707688494%2FClasslikes%2F-311180413" anchor-label="RegisterResponse0" id="-707688494%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-register-response0/index.html"><span>Register</span><wbr><span><span>Response0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-707688494%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-register-response0/index.html">RegisterResponse0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>attestationChallenge<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>cloudChallenge<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">Message sent by the server to the device sent in response to <a href="-register-request0/index.html">RegisterRequest0</a>:</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-676668687%2FClasslikes%2F-311180413" anchor-label="RegisterResponse1" id="-676668687%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-register-response1/index.html"><span>Register</span><wbr><span><span>Response1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-676668687%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-register-response1/index.html">RegisterResponse1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>cloudBindingKeyAttestation<span class="token operator">: </span><a href="../../org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div><div class="brief "><p class="paragraph">Message sent by the server to the device in response to <a href="-register-request1/index.html">RegisterRequest1</a>:</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1956349548%2FClasslikes%2F-311180413" anchor-label="RegisterStage2Request0" id="1956349548%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-register-stage2-request0/index.html"><span>Register</span><wbr><span><span>Stage2Request0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1956349548%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-register-stage2-request0/index.html">RegisterStage2Request0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>passphrase<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1796868070%2FClasslikes%2F-311180413" anchor-label="RegisterStage2Response0" id="1796868070%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-register-stage2-response0/index.html"><span>Register</span><wbr><span><span>Stage2Response0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1796868070%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-register-stage2-response0/index.html">RegisterStage2Response0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1855207078%2FClasslikes%2F-311180413" anchor-label="SignRequest0" id="1855207078%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sign-request0/index.html"><span>Sign</span><wbr><span><span>Request0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1855207078%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-sign-request0/index.html">SignRequest0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>dataToSign<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>keyContext<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1886226885%2FClasslikes%2F-311180413" anchor-label="SignRequest1" id="1886226885%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sign-request1/index.html"><span>Sign</span><wbr><span><span>Request1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1886226885%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-sign-request1/index.html">SignRequest1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>signature<span class="token operator">: </span><a href="../../org.multipaz.crypto/-ec-signature/index.html">EcSignature</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>passphrase<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1338548500%2FClasslikes%2F-311180413" anchor-label="SignResponse0" id="-1338548500%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sign-response0/index.html"><span>Sign</span><wbr><span><span>Response0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1338548500%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-sign-response0/index.html">SignResponse0</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>cloudNonce<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverState<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1307528693%2FClasslikes%2F-311180413" anchor-label="SignResponse1" id="-1307528693%2FClasslikes%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sign-response1/index.html"><span>Sign</span><wbr><span><span>Response1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1307528693%2FClasslikes%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-sign-response1/index.html">SignResponse1</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>result<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signature<span class="token operator">: </span><a href="../../org.multipaz.crypto/-ec-signature/index.html">EcSignature</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>waitDurationMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span> : <a href="-command/index.html">CloudSecureAreaProtocol.Command</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1618733485%2FProperties%2F-311180413" anchor-label="RESULT_OK" id="1618733485%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-u-l-t_-o-k.html"><span>RESULT_</span><wbr><span>OK</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1618733485%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-u-l-t_-o-k.html">RESULT_OK</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1179014947%2FProperties%2F-311180413" anchor-label="RESULT_TOO_MANY_PASSPHRASE_ATTEMPTS" id="1179014947%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-u-l-t_-t-o-o_-m-a-n-y_-p-a-s-s-p-h-r-a-s-e_-a-t-t-e-m-p-t-s.html"><span>RESULT_</span><wbr><span>TOO_</span><wbr><span>MANY_</span><wbr><span>PASSPHRASE_</span><wbr><span>ATTEMPTS</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1179014947%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-u-l-t_-t-o-o_-m-a-n-y_-p-a-s-s-p-h-r-a-s-e_-a-t-t-e-m-p-t-s.html">RESULT_TOO_MANY_PASSPHRASE_ATTEMPTS</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">2</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="727150221%2FProperties%2F-311180413" anchor-label="RESULT_WRONG_PASSPHRASE" id="727150221%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-u-l-t_-w-r-o-n-g_-p-a-s-s-p-h-r-a-s-e.html"><span>RESULT_</span><wbr><span>WRONG_</span><wbr><span>PASSPHRASE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="727150221%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-u-l-t_-w-r-o-n-g_-p-a-s-s-p-h-r-a-s-e.html">RESULT_WRONG_PASSPHRASE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">1</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

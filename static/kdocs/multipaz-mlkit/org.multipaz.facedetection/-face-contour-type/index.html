@@ -1,0 +1,461 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>FaceContourType</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz-mlkit:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filter=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz-mlkit::org.multipaz.facedetection/FaceContourType///PointingToDeclaration//237823417">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz-mlkit</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.facedetection</a><span class="delimiter">/</span><span class="current">FaceContourType</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Face</span><wbr><span>Contour</span><wbr><span><span>Type</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">FaceContourType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">FaceContourType</a><span class="token operator">&gt; </span></div><p class="paragraph">Facial contour types detectable by MLKit. (common IDs to support different Android and iOS implementation of them in MLKit).</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="ENTRY">Entries</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="ENTRY">
+        <h2 class="">Entries</h2>
+        <div class="table"><a data-name="1512788867%2FClasslikes%2F237823417" anchor-label="FACE" id="1512788867%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-f-a-c-e/index.html">FACE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1512788867%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-f-a-c-e/index.html">FACE</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeFace - A set of points that outline the face oval.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1334533075%2FClasslikes%2F237823417" anchor-label="LEFT_EYEBROW_TOP" id="-1334533075%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-f-t_-e-y-e-b-r-o-w_-t-o-p/index.html">LEFT_EYEBROW_TOP</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1334533075%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-e-f-t_-e-y-e-b-r-o-w_-t-o-p/index.html">LEFT_EYEBROW_TOP</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeLeftEyebrowTop - A set of points that outline the top of the left eyebrow.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-634149925%2FClasslikes%2F237823417" anchor-label="LEFT_EYEBROW_BOTTOM" id="-634149925%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-f-t_-e-y-e-b-r-o-w_-b-o-t-t-o-m/index.html">LEFT_EYEBROW_BOTTOM</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-634149925%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-e-f-t_-e-y-e-b-r-o-w_-b-o-t-t-o-m/index.html">LEFT_EYEBROW_BOTTOM</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeLeftEyebrowBottom - A set of points that outline the bottom of the left eyebrow.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2103258242%2FClasslikes%2F237823417" anchor-label="RIGHT_EYEBROW_TOP" id="-2103258242%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-i-g-h-t_-e-y-e-b-r-o-w_-t-o-p/index.html">RIGHT_EYEBROW_TOP</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2103258242%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-i-g-h-t_-e-y-e-b-r-o-w_-t-o-p/index.html">RIGHT_EYEBROW_TOP</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeRightEyebrowTop - A set of points that outline the top of the right eyebrow.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-959977750%2FClasslikes%2F237823417" anchor-label="RIGHT_EYEBROW_BOTTOM" id="-959977750%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-i-g-h-t_-e-y-e-b-r-o-w_-b-o-t-t-o-m/index.html">RIGHT_EYEBROW_BOTTOM</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-959977750%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-i-g-h-t_-e-y-e-b-r-o-w_-b-o-t-t-o-m/index.html">RIGHT_EYEBROW_BOTTOM</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeRightEyebrowBottom A set of points that outline the bottom of the right eyebrow.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1453558529%2FClasslikes%2F237823417" anchor-label="LEFT_EYE" id="-1453558529%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-f-t_-e-y-e/index.html">LEFT_EYE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1453558529%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-e-f-t_-e-y-e/index.html">LEFT_EYE</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeLeftEye - A set of points that outline the left eye.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-772569776%2FClasslikes%2F237823417" anchor-label="RIGHT_EYE" id="-772569776%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-i-g-h-t_-e-y-e/index.html">RIGHT_EYE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-772569776%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-i-g-h-t_-e-y-e/index.html">RIGHT_EYE</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeRightEye - A set of points that outline the right eye.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-829086930%2FClasslikes%2F237823417" anchor-label="UPPER_LIP_TOP" id="-829086930%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-p-p-e-r_-l-i-p_-t-o-p/index.html">UPPER_LIP_TOP</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-829086930%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-u-p-p-e-r_-l-i-p_-t-o-p/index.html">UPPER_LIP_TOP</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeUpperLipTop - A set of points that outline the top of the upper lip.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1043384006%2FClasslikes%2F237823417" anchor-label="UPPER_LIP_BOTTOM" id="-1043384006%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-p-p-e-r_-l-i-p_-b-o-t-t-o-m/index.html">UPPER_LIP_BOTTOM</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1043384006%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-u-p-p-e-r_-l-i-p_-b-o-t-t-o-m/index.html">UPPER_LIP_BOTTOM</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeUpperLipBottom - A set of points that outline the bottom of the upper lip.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2085585485%2FClasslikes%2F237823417" anchor-label="LOWER_LIP_TOP" id="2085585485%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-w-e-r_-l-i-p_-t-o-p/index.html">LOWER_LIP_TOP</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2085585485%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-o-w-e-r_-l-i-p_-t-o-p/index.html">LOWER_LIP_TOP</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeLowerLipTop - A set of points that outline the top of the lower lip.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1391291973%2FClasslikes%2F237823417" anchor-label="LOWER_LIP_BOTTOM" id="-1391291973%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-o-w-e-r_-l-i-p_-b-o-t-t-o-m/index.html">LOWER_LIP_BOTTOM</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1391291973%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-o-w-e-r_-l-i-p_-b-o-t-t-o-m/index.html">LOWER_LIP_BOTTOM</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeLowerLipBottom - A set of points that outline the bottom of the lower lip.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1584648119%2FClasslikes%2F237823417" anchor-label="NOSE_BRIDGE" id="1584648119%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-o-s-e_-b-r-i-d-g-e/index.html">NOSE_BRIDGE</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1584648119%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-n-o-s-e_-b-r-i-d-g-e/index.html">NOSE_BRIDGE</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeNoseBridge - A set of points that outline the nose bridge.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="896263897%2FClasslikes%2F237823417" anchor-label="NOSE_BOTTOM" id="896263897%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-o-s-e_-b-o-t-t-o-m/index.html">NOSE_BOTTOM</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="896263897%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-n-o-s-e_-b-o-t-t-o-m/index.html">NOSE_BOTTOM</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeNoseBottom - A set of points that outline the bottom of the nose.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1390175956%2FClasslikes%2F237823417" anchor-label="LEFT_CHEEK" id="1390175956%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-l-e-f-t_-c-h-e-e-k/index.html">LEFT_CHEEK</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1390175956%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-l-e-f-t_-c-h-e-e-k/index.html">LEFT_CHEEK</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeLeftCheek - A center point on the left cheek.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1309628699%2FClasslikes%2F237823417" anchor-label="RIGHT_CHEEK" id="-1309628699%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-i-g-h-t_-c-h-e-e-k/index.html">RIGHT_CHEEK</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1309628699%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-r-i-g-h-t_-c-h-e-e-k/index.html">RIGHT_CHEEK</a></div></div><div class="brief "><p class="paragraph">MLKFaceContourTypeRightCheek - A center point on the right cheek.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="559660716%2FClasslikes%2F237823417" anchor-label="UNKNOWN" id="559660716%2FClasslikes%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="ENTRY" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-n-k-n-o-w-n/index.html">UNKNOWN</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="559660716%2FClasslikes%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><div class="block"><a href="-u-n-k-n-o-w-n/index.html">UNKNOWN</a></div></div><div class="brief "><p class="paragraph">Unknown contour type value (indicates an error unless MLKit extends the list of types in the future).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1696269312%2FProperties%2F237823417" anchor-label="entries" id="1696269312%2FProperties%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="entries.html"><span><span>entries</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1696269312%2FProperties%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="entries.html">entries</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.enums/-enum-entries/index.html">EnumEntries</a><span class="token operator">&lt;</span><a href="index.html">FaceContourType</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns a representation of an immutable list of all enum entries, in the order they're declared.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-372974862%2FProperties%2F237823417" anchor-label="name" id="-372974862%2FProperties%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-face-landmark-type/-u-n-k-n-o-w-n/index.html#-372974862%2FProperties%2F237823417"><span><span>name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-372974862%2FProperties%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../-face-landmark-type/-u-n-k-n-o-w-n/index.html#-372974862%2FProperties%2F237823417">name</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-739389684%2FProperties%2F237823417" anchor-label="ordinal" id="-739389684%2FProperties%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-face-landmark-type/-u-n-k-n-o-w-n/index.html#-739389684%2FProperties%2F237823417"><span><span>ordinal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-739389684%2FProperties%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="../-face-landmark-type/-u-n-k-n-o-w-n/index.html#-739389684%2FProperties%2F237823417">ordinal</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2066591792%2FProperties%2F237823417" anchor-label="type" id="-2066591792%2FProperties%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="type.html"><span><span>type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2066591792%2FProperties%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="type.html">type</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The common type ID of the contour.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1941395868%2FFunctions%2F237823417" anchor-label="valueOf" id="1941395868%2FFunctions%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="value-of.html"><span>value</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1941395868%2FFunctions%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="value-of.html"><span class="token function">valueOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">FaceContourType</a></div><div class="brief "><p class="paragraph">Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1545214040%2FFunctions%2F237823417" anchor-label="values" id="-1545214040%2FFunctions%2F237823417" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-mlkit:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-mlkit:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="values.html"><span><span>values</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1545214040%2FFunctions%2F237823417"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-mlkit:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="values.html"><span class="token function">values</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="index.html">FaceContourType</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns an array containing the constants of this enum type, in the order they're declared.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

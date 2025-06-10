@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>DirectAccess</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":wallet:dokkaHtmlPartial/upstreamRelease">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":wallet:dokkaHtmlPartial/upstreamRelease" data-filter=":wallet:dokkaHtmlPartial/upstreamRelease">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="wallet::org.multipaz.android.direct_access/DirectAccess///PointingToDeclaration//-668909217">
+  <div class="breadcrumbs"><a href="../../index.html">wallet</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.android.direct_access</a><span class="delimiter">/</span><span class="current">DirectAccess</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Direct</span><wbr><span><span>Access</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/RequiresApi.html"><span class="token annotation builtin">RequiresApi</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token constant">28</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">object </span><a href="index.html">DirectAccess</a></div><p class="paragraph">A class which handles common operations related to the DirectAccess applet.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-349306880%2FProperties%2F-668909217" anchor-label="isDirectAccessSupported" id="-349306880%2FProperties%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-direct-access-supported.html"><span>is</span><wbr><span>Direct</span><wbr><span>Access</span><wbr><span><span>Supported</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-349306880%2FProperties%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">val </span><a href="is-direct-access-supported.html">isDirectAccessSupported</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns true if direct access is supported on the device, false otherwise.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-869059617%2FProperties%2F-668909217" anchor-label="maximumCredentialSize" id="-869059617%2FProperties%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="maximum-credential-size.html"><span>maximum</span><wbr><span>Credential</span><wbr><span><span>Size</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-869059617%2FProperties%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">val </span><a href="maximum-credential-size.html">maximumCredentialSize</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph">Returns the maximum size, in bytes, of <code class="lang-kotlin">credentialData</code> which can be used in credentials.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-156788722%2FProperties%2F-668909217" anchor-label="transport" id="-156788722%2FProperties%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="transport.html"><span><span>transport</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-156788722%2FProperties%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">val </span><a href="transport.html">transport</a><span class="token operator">: </span><a href="../-direct-access-omapi-transport/index.html">DirectAccessOmapiTransport</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-45961513%2FFunctions%2F-668909217" anchor-label="allocateDocumentSlot" id="-45961513%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="allocate-document-slot.html"><span>allocate</span><wbr><span>Document</span><wbr><span><span>Slot</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-45961513%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="allocate-document-slot.html"><span class="token function">allocateDocumentSlot</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">docType<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Allocates space (a slot) in the Direct Access applet for a document to be provisioned to.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-227992922%2FFunctions%2F-668909217" anchor-label="certifyCredential" id="-227992922%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="certify-credential.html"><span>certify</span><wbr><span><span>Credential</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-227992922%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="certify-credential.html"><span class="token function">certifyCredential</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">documentSlot<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">credentialData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">encryptedPresentationData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Certifies the credential with the given encryptedPresentationData and returns the updated encryptedPresentationData.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="386413859%2FFunctions%2F-668909217" anchor-label="clearCredentialUsageCount" id="386413859%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-credential-usage-count.html"><span>clear</span><wbr><span>Credential</span><wbr><span>Usage</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="386413859%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="clear-credential-usage-count.html"><span class="token function">clearCredentialUsageCount</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">documentSlot<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Resets the usage count of the credential in the slot to 0.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-242707569%2FFunctions%2F-668909217" anchor-label="clearDocumentSlot" id="-242707569%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-document-slot.html"><span>clear</span><wbr><span>Document</span><wbr><span><span>Slot</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-242707569%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="clear-document-slot.html"><span class="token function">clearDocumentSlot</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">documentSlot<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Clears a slot.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-481250898%2FFunctions%2F-668909217" anchor-label="createCredential" id="-481250898%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-credential.html"><span>create</span><wbr><span><span>Credential</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-481250898%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="create-credential.html"><span class="token function">createCredential</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">documentSlot<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><a href="../../../multipaz/org.multipaz.crypto/-x509-cert-chain/index.html">X509CertChain</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Creates a credential at the given slot.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1428463781%2FFunctions%2F-668909217" anchor-label="enumerateAllocatedSlots" id="1428463781%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="enumerate-allocated-slots.html"><span>enumerate</span><wbr><span>Allocated</span><wbr><span><span>Slots</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1428463781%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="enumerate-allocated-slots.html"><span class="token function">enumerateAllocatedSlots</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Enumerates slots which have already been allocated.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="552801402%2FFunctions%2F-668909217" anchor-label="getCredentialUsageCount" id="552801402%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-credential-usage-count.html"><span>get</span><wbr><span>Credential</span><wbr><span>Usage</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="552801402%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-credential-usage-count.html"><span class="token function">getCredentialUsageCount</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">documentSlot<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Returns the number of times the credential in the slot has been used in a presentation since it was set as the active credential or since the usage count was reset with <a href="clear-credential-usage-count.html">clearCredentialUsageCount</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-137981250%2FFunctions%2F-668909217" anchor-label="setActiveCredential" id="-137981250%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-active-credential.html"><span>set</span><wbr><span>Active</span><wbr><span><span>Credential</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-137981250%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-active-credential.html"><span class="token function">setActiveCredential</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">documentSlot<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">encryptedPresentationData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the credential represented by the encryptedPresentationData as the active credential in the slot (ie. it would be the one used during presentation). If encryptedPresentationData is null, clears active credential.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1708669810%2FFunctions%2F-668909217" anchor-label="warmupTransport" id="-1708669810%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="warmup-transport.html"><span>warmup</span><wbr><span><span>Transport</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1708669810%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="warmup-transport.html"><span class="token function">warmupTransport</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Use this function to ensure the transport is initialized (since Kotlin singletons are initialized on first access) so that the app can begin connecting to the applet in the background.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

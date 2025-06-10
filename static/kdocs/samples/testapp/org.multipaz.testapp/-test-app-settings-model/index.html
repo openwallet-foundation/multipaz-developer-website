@@ -1,0 +1,431 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>TestAppSettingsModel</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":samples:testapp:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":samples:testapp:dokkaHtmlPartial/commonMain" data-filter=":samples:testapp:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="testapp::org.multipaz.testapp/TestAppSettingsModel///PointingToDeclaration//848597063">
+  <div class="breadcrumbs"><a href="../../index.html">testapp</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.testapp</a><span class="delimiter">/</span><span class="current">TestAppSettingsModel</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Test</span><wbr><span>App</span><wbr><span>Settings</span><wbr><span><span>Model</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">TestAppSettingsModel</a></div><p class="paragraph">A model for settings for samples/testapp.</p><p class="paragraph">TODO: Port <a href="../../org.multipaz.testapp.ui/-provisioning-test-screen.html">org.multipaz.testapp.ui.ProvisioningTestScreen</a> to use this.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-2067615224%2FClasslikes%2F848597063" anchor-label="Companion" id="-2067615224%2FClasslikes%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2067615224%2FClasslikes%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1057566211%2FProperties%2F848597063" anchor-label="cloudSecureAreaUrl" id="1057566211%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cloud-secure-area-url.html"><span>cloud</span><wbr><span>Secure</span><wbr><span>Area</span><wbr><span><span>Url</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1057566211%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="cloud-secure-area-url.html">cloudSecureAreaUrl</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1130862987%2FProperties%2F848597063" anchor-label="presentmentAllowMultipleRequests" id="-1130862987%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-allow-multiple-requests.html"><span>presentment</span><wbr><span>Allow</span><wbr><span>Multiple</span><wbr><span><span>Requests</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1130862987%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-allow-multiple-requests.html">presentmentAllowMultipleRequests</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="263081657%2FProperties%2F848597063" anchor-label="presentmentBleCentralClientModeEnabled" id="263081657%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-ble-central-client-mode-enabled.html"><span>presentment</span><wbr><span>Ble</span><wbr><span>Central</span><wbr><span>Client</span><wbr><span>Mode</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="263081657%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-ble-central-client-mode-enabled.html">presentmentBleCentralClientModeEnabled</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1881190146%2FProperties%2F848597063" anchor-label="presentmentBleL2CapEnabled" id="1881190146%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-ble-l2-cap-enabled.html"><span>presentment</span><wbr><span>Ble</span><wbr><span>L2Cap</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1881190146%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-ble-l2-cap-enabled.html">presentmentBleL2CapEnabled</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-498145276%2FProperties%2F848597063" anchor-label="presentmentBlePeripheralServerModeEnabled" id="-498145276%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-ble-peripheral-server-mode-enabled.html"><span>presentment</span><wbr><span>Ble</span><wbr><span>Peripheral</span><wbr><span>Server</span><wbr><span>Mode</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-498145276%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-ble-peripheral-server-mode-enabled.html">presentmentBlePeripheralServerModeEnabled</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-181284686%2FProperties%2F848597063" anchor-label="presentmentNegotiatedHandoverPreferredOrder" id="-181284686%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-negotiated-handover-preferred-order.html"><span>presentment</span><wbr><span>Negotiated</span><wbr><span>Handover</span><wbr><span>Preferred</span><wbr><span><span>Order</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-181284686%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-negotiated-handover-preferred-order.html">presentmentNegotiatedHandoverPreferredOrder</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="670293479%2FProperties%2F848597063" anchor-label="presentmentNfcDataTransferEnabled" id="670293479%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-nfc-data-transfer-enabled.html"><span>presentment</span><wbr><span>Nfc</span><wbr><span>Data</span><wbr><span>Transfer</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="670293479%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-nfc-data-transfer-enabled.html">presentmentNfcDataTransferEnabled</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1825687236%2FProperties%2F848597063" anchor-label="presentmentPreferSignatureToKeyAgreement" id="1825687236%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-prefer-signature-to-key-agreement.html"><span>presentment</span><wbr><span>Prefer</span><wbr><span>Signature</span><wbr><span>To</span><wbr><span>Key</span><wbr><span><span>Agreement</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1825687236%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-prefer-signature-to-key-agreement.html">presentmentPreferSignatureToKeyAgreement</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="645805717%2FProperties%2F848597063" anchor-label="presentmentRequireAuthentication" id="645805717%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-require-authentication.html"><span>presentment</span><wbr><span>Require</span><wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="645805717%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-require-authentication.html">presentmentRequireAuthentication</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-654485006%2FProperties%2F848597063" anchor-label="presentmentSessionEncryptionCurve" id="-654485006%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-session-encryption-curve.html"><span>presentment</span><wbr><span>Session</span><wbr><span>Encryption</span><wbr><span><span>Curve</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-654485006%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-session-encryption-curve.html">presentmentSessionEncryptionCurve</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="../../../../multipaz/org.multipaz.crypto/-ec-curve/index.html">EcCurve</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1269761359%2FProperties%2F848597063" anchor-label="presentmentShowConsentPrompt" id="-1269761359%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-show-consent-prompt.html"><span>presentment</span><wbr><span>Show</span><wbr><span>Consent</span><wbr><span><span>Prompt</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1269761359%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-show-consent-prompt.html">presentmentShowConsentPrompt</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1202093506%2FProperties%2F848597063" anchor-label="presentmentUseNegotiatedHandover" id="1202093506%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-use-negotiated-handover.html"><span>presentment</span><wbr><span>Use</span><wbr><span>Negotiated</span><wbr><span><span>Handover</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1202093506%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-use-negotiated-handover.html">presentmentUseNegotiatedHandover</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1903856985%2FProperties%2F848597063" anchor-label="readerAllowMultipleRequests" id="-1903856985%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reader-allow-multiple-requests.html"><span>reader</span><wbr><span>Allow</span><wbr><span>Multiple</span><wbr><span><span>Requests</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1903856985%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="reader-allow-multiple-requests.html">readerAllowMultipleRequests</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="705105420%2FProperties%2F848597063" anchor-label="readerAutomaticallySelectTransport" id="705105420%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reader-automatically-select-transport.html"><span>reader</span><wbr><span>Automatically</span><wbr><span>Select</span><wbr><span><span>Transport</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="705105420%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="reader-automatically-select-transport.html">readerAutomaticallySelectTransport</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="463072619%2FProperties%2F848597063" anchor-label="readerBleCentralClientModeEnabled" id="463072619%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reader-ble-central-client-mode-enabled.html"><span>reader</span><wbr><span>Ble</span><wbr><span>Central</span><wbr><span>Client</span><wbr><span>Mode</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="463072619%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="reader-ble-central-client-mode-enabled.html">readerBleCentralClientModeEnabled</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1259292852%2FProperties%2F848597063" anchor-label="readerBleL2CapEnabled" id="1259292852%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reader-ble-l2-cap-enabled.html"><span>reader</span><wbr><span>Ble</span><wbr><span>L2Cap</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1259292852%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="reader-ble-l2-cap-enabled.html">readerBleL2CapEnabled</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="312964114%2FProperties%2F848597063" anchor-label="readerBlePeripheralServerModeEnabled" id="312964114%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reader-ble-peripheral-server-mode-enabled.html"><span>reader</span><wbr><span>Ble</span><wbr><span>Peripheral</span><wbr><span>Server</span><wbr><span>Mode</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="312964114%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="reader-ble-peripheral-server-mode-enabled.html">readerBlePeripheralServerModeEnabled</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1817683979%2FProperties%2F848597063" anchor-label="readerNfcDataTransferEnabled" id="-1817683979%2FProperties%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reader-nfc-data-transfer-enabled.html"><span>reader</span><wbr><span>Nfc</span><wbr><span>Data</span><wbr><span>Transfer</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1817683979%2FProperties%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="reader-nfc-data-transfer-enabled.html">readerNfcDataTransferEnabled</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableStateFlow///PointingToDeclaration/">MutableStateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1494325137%2FFunctions%2F848597063" anchor-label="resetSettings" id="-1494325137%2FFunctions%2F848597063" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":samples:testapp:dokkaHtmlPartial/commonMain" data-filterable-set=":samples:testapp:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reset-settings.html"><span>reset</span><wbr><span><span>Settings</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1494325137%2FFunctions%2F848597063"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":samples:testapp:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="reset-settings.html"><span class="token function">resetSettings</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

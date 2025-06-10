@@ -1,0 +1,603 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Nfc</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/commonMain" data-filter=":multipaz:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz::org.multipaz.nfc/Nfc///PointingToDeclaration//-311180413">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.nfc</a><span class="delimiter">/</span><span class="current">Nfc</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Nfc</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">Nfc</a></div><p class="paragraph">Constants and utilities related to NFC.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1125790918%2FProperties%2F-311180413" anchor-label="CLA_CHAIN_LAST" id="1125790918%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-l-a_-c-h-a-i-n_-l-a-s-t.html"><span>CLA_</span><wbr><span>CHAIN_</span><wbr><span>LAST</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1125790918%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-c-l-a_-c-h-a-i-n_-l-a-s-t.html">CLA_CHAIN_LAST</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></div><div class="brief "><p class="paragraph">Command chaining control flag indicating this is the last or only part of a chain.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-235794246%2FProperties%2F-311180413" anchor-label="CLA_CHAIN_NOT_LAST" id="-235794246%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-c-l-a_-c-h-a-i-n_-n-o-t_-l-a-s-t.html"><span>CLA_</span><wbr><span>CHAIN_</span><wbr><span>NOT_</span><wbr><span>LAST</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-235794246%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-c-l-a_-c-h-a-i-n_-n-o-t_-l-a-s-t.html">CLA_CHAIN_NOT_LAST</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">16</span></div><div class="brief "><p class="paragraph">Command chaining control flag indicating this is not the last part of a chain.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="811547031%2FProperties%2F-311180413" anchor-label="EXTERNAL_TYPE_ISO_18013_5_NFC" id="811547031%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-e-x-t-e-r-n-a-l_-t-y-p-e_-i-s-o_18013_5_-n-f-c.html"><span>EXTERNAL_</span><wbr><span>TYPE_</span><wbr><span>ISO_</span><wbr><span>18013_</span><wbr><span>5_</span><wbr><span>NFC</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="811547031%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-e-x-t-e-r-n-a-l_-t-y-p-e_-i-s-o_18013_5_-n-f-c.html">EXTERNAL_TYPE_ISO_18013_5_NFC</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The external type for NFC data transfer.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-820252032%2FProperties%2F-311180413" anchor-label="INS_ENVELOPE" id="-820252032%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-e-n-v-e-l-o-p-e.html"><span>INS_</span><wbr><span>ENVELOPE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-820252032%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-e-n-v-e-l-o-p-e.html">INS_ENVELOPE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">195</span></div><div class="brief "><p class="paragraph">ENVELOPE command.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1998924518%2FProperties%2F-311180413" anchor-label="INS_GET_RESPONSE" id="1998924518%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-g-e-t_-r-e-s-p-o-n-s-e.html"><span>INS_</span><wbr><span>GET_</span><wbr><span>RESPONSE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1998924518%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-g-e-t_-r-e-s-p-o-n-s-e.html">INS_GET_RESPONSE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">192</span></div><div class="brief "><p class="paragraph">GET RESPONSE command.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1249284800%2FProperties%2F-311180413" anchor-label="INS_READ_BINARY" id="1249284800%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-r-e-a-d_-b-i-n-a-r-y.html"><span>INS_</span><wbr><span>READ_</span><wbr><span>BINARY</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1249284800%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-r-e-a-d_-b-i-n-a-r-y.html">INS_READ_BINARY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">176</span></div><div class="brief "><p class="paragraph">READ_BINARY command.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1036139412%2FProperties%2F-311180413" anchor-label="INS_SELECT" id="1036139412%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-s-e-l-e-c-t.html"><span>INS_</span><wbr><span>SELECT</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1036139412%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-s-e-l-e-c-t.html">INS_SELECT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">164</span></div><div class="brief "><p class="paragraph">SELECT command.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1830502859%2FProperties%2F-311180413" anchor-label="INS_SELECT_P1_APPLICATION" id="-1830502859%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-s-e-l-e-c-t_-p1_-a-p-p-l-i-c-a-t-i-o-n.html"><span>INS_</span><wbr><span>SELECT_</span><wbr><span>P1_</span><wbr><span><span>APPLICATION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1830502859%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-s-e-l-e-c-t_-p1_-a-p-p-l-i-c-a-t-i-o-n.html">INS_SELECT_P1_APPLICATION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">4</span></div><div class="brief "><p class="paragraph">Parameter value 1 for SELECT when selecting an application.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1802426087%2FProperties%2F-311180413" anchor-label="INS_SELECT_P1_FILE" id="-1802426087%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-s-e-l-e-c-t_-p1_-f-i-l-e.html"><span>INS_</span><wbr><span>SELECT_</span><wbr><span>P1_</span><wbr><span>FILE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1802426087%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-s-e-l-e-c-t_-p1_-f-i-l-e.html">INS_SELECT_P1_FILE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></div><div class="brief "><p class="paragraph">Parameter value 1 for SELECT when selecting a file.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-197698860%2FProperties%2F-311180413" anchor-label="INS_SELECT_P2_APPLICATION" id="-197698860%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-s-e-l-e-c-t_-p2_-a-p-p-l-i-c-a-t-i-o-n.html"><span>INS_</span><wbr><span>SELECT_</span><wbr><span>P2_</span><wbr><span><span>APPLICATION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-197698860%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-s-e-l-e-c-t_-p2_-a-p-p-l-i-c-a-t-i-o-n.html">INS_SELECT_P2_APPLICATION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></div><div class="brief "><p class="paragraph">Parameter value 1 for SELECT when selecting an application.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1451626150%2FProperties%2F-311180413" anchor-label="INS_SELECT_P2_FILE" id="-1451626150%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-s-e-l-e-c-t_-p2_-f-i-l-e.html"><span>INS_</span><wbr><span>SELECT_</span><wbr><span>P2_</span><wbr><span>FILE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1451626150%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-s-e-l-e-c-t_-p2_-f-i-l-e.html">INS_SELECT_P2_FILE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">12</span></div><div class="brief "><p class="paragraph">Parameter value 2 for SELECT when selecting a file.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="575697587%2FProperties%2F-311180413" anchor-label="INS_UPDATE_BINARY" id="575697587%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-n-s_-u-p-d-a-t-e_-b-i-n-a-r-y.html"><span>INS_</span><wbr><span>UPDATE_</span><wbr><span>BINARY</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="575697587%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-i-n-s_-u-p-d-a-t-e_-b-i-n-a-r-y.html">INS_UPDATE_BINARY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">214</span></div><div class="brief "><p class="paragraph">UPDATE_BINARY command.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1721800798%2FProperties%2F-311180413" anchor-label="ISO_MDOC_NFC_DATA_TRANSFER_APPLICATION_ID" id="-1721800798%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-s-o_-m-d-o-c_-n-f-c_-d-a-t-a_-t-r-a-n-s-f-e-r_-a-p-p-l-i-c-a-t-i-o-n_-i-d.html"><span>ISO_</span><wbr><span>MDOC_</span><wbr><span>NFC_</span><wbr><span>DATA_</span><wbr><span>TRANSFER_</span><wbr><span>APPLICATION_</span><wbr><span>ID</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1721800798%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-i-s-o_-m-d-o-c_-n-f-c_-d-a-t-a_-t-r-a-n-s-f-e-r_-a-p-p-l-i-c-a-t-i-o-n_-i-d.html">ISO_MDOC_NFC_DATA_TRANSFER_APPLICATION_ID</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">The Application ID for ISO mdoc NFC data transfer.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1895391635%2FProperties%2F-311180413" anchor-label="MIME_TYPE_CONNECTION_HANDOVER_BLE" id="1895391635%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-m-i-m-e_-t-y-p-e_-c-o-n-n-e-c-t-i-o-n_-h-a-n-d-o-v-e-r_-b-l-e.html"><span>MIME_</span><wbr><span>TYPE_</span><wbr><span>CONNECTION_</span><wbr><span>HANDOVER_</span><wbr><span>BLE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1895391635%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-m-i-m-e_-t-y-p-e_-c-o-n-n-e-c-t-i-o-n_-h-a-n-d-o-v-e-r_-b-l-e.html">MIME_TYPE_CONNECTION_HANDOVER_BLE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The MIME type for BLE connection handover.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="295407559%2FProperties%2F-311180413" anchor-label="NDEF_APPLICATION_ID" id="295407559%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-d-e-f_-a-p-p-l-i-c-a-t-i-o-n_-i-d.html"><span>NDEF_</span><wbr><span>APPLICATION_</span><wbr><span>ID</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="295407559%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-n-d-e-f_-a-p-p-l-i-c-a-t-i-o-n_-i-d.html">NDEF_APPLICATION_ID</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">The Application ID for the Type 4 Tag NDEF application.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-811345736%2FProperties%2F-311180413" anchor-label="NDEF_CAPABILITY_CONTAINER_FILE_ID" id="-811345736%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-n-d-e-f_-c-a-p-a-b-i-l-i-t-y_-c-o-n-t-a-i-n-e-r_-f-i-l-e_-i-d.html"><span>NDEF_</span><wbr><span>CAPABILITY_</span><wbr><span>CONTAINER_</span><wbr><span>FILE_</span><wbr><span>ID</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-811345736%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-n-d-e-f_-c-a-p-a-b-i-l-i-t-y_-c-o-n-t-a-i-n-e-r_-f-i-l-e_-i-d.html">NDEF_CAPABILITY_CONTAINER_FILE_ID</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">57603</span></div><div class="brief "><p class="paragraph">The File Identifier for the NDEF Capability Container file.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1307538134%2FProperties%2F-311180413" anchor-label="RESPONSE_STATUS_CHAINING_RESPONSE_BYTES_STILL_AVAILABLE" id="-1307538134%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-c-h-a-i-n-i-n-g_-r-e-s-p-o-n-s-e_-b-y-t-e-s_-s-t-i-l-l_-a-v-a-i-l-a-b-l-e.html"><span>RESPONSE_</span><wbr><span>STATUS_</span><wbr><span>CHAINING_</span><wbr><span>RESPONSE_</span><wbr><span>BYTES_</span><wbr><span>STILL_</span><wbr><span>AVAILABLE</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1307538134%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-c-h-a-i-n-i-n-g_-r-e-s-p-o-n-s-e_-b-y-t-e-s_-s-t-i-l-l_-a-v-a-i-l-a-b-l-e.html">RESPONSE_STATUS_CHAINING_RESPONSE_BYTES_STILL_AVAILABLE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">24832</span></div><div class="brief "><p class="paragraph">The <a href="../-response-apdu/status.html">ResponseApdu.status</a> for indicating that bytes are are still available.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-101246959%2FProperties%2F-311180413" anchor-label="RESPONSE_STATUS_ERROR_FILE_OR_APPLICATION_NOT_FOUND" id="-101246959%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-e-r-r-o-r_-f-i-l-e_-o-r_-a-p-p-l-i-c-a-t-i-o-n_-n-o-t_-f-o-u-n-d.html"><span>RESPONSE_</span><wbr><span>STATUS_</span><wbr><span>ERROR_</span><wbr><span>FILE_</span><wbr><span>OR_</span><wbr><span>APPLICATION_</span><wbr><span>NOT_</span><wbr><span>FOUND</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-101246959%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-e-r-r-o-r_-f-i-l-e_-o-r_-a-p-p-l-i-c-a-t-i-o-n_-n-o-t_-f-o-u-n-d.html">RESPONSE_STATUS_ERROR_FILE_OR_APPLICATION_NOT_FOUND</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">27266</span></div><div class="brief "><p class="paragraph">The <a href="../-response-apdu/status.html">ResponseApdu.status</a> for indicating a file or application was not found.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-879693326%2FProperties%2F-311180413" anchor-label="RESPONSE_STATUS_ERROR_INSTRUCTION_NOT_SUPPORTED_OR_INVALID" id="-879693326%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-e-r-r-o-r_-i-n-s-t-r-u-c-t-i-o-n_-n-o-t_-s-u-p-p-o-r-t-e-d_-o-r_-i-n-v-a-l-i-d.html"><span>RESPONSE_</span><wbr><span>STATUS_</span><wbr><span>ERROR_</span><wbr><span>INSTRUCTION_</span><wbr><span>NOT_</span><wbr><span>SUPPORTED_</span><wbr><span>OR_</span><wbr><span>INVALID</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-879693326%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-e-r-r-o-r_-i-n-s-t-r-u-c-t-i-o-n_-n-o-t_-s-u-p-p-o-r-t-e-d_-o-r_-i-n-v-a-l-i-d.html">RESPONSE_STATUS_ERROR_INSTRUCTION_NOT_SUPPORTED_OR_INVALID</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">27904</span></div><div class="brief "><p class="paragraph">The <a href="../-response-apdu/status.html">ResponseApdu.status</a> for indicating an instruction is not supported</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1305015700%2FProperties%2F-311180413" anchor-label="RESPONSE_STATUS_ERROR_NO_PRECISE_DIAGNOSIS" id="-1305015700%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-e-r-r-o-r_-n-o_-p-r-e-c-i-s-e_-d-i-a-g-n-o-s-i-s.html"><span>RESPONSE_</span><wbr><span>STATUS_</span><wbr><span>ERROR_</span><wbr><span>NO_</span><wbr><span>PRECISE_</span><wbr><span>DIAGNOSIS</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1305015700%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-e-r-r-o-r_-n-o_-p-r-e-c-i-s-e_-d-i-a-g-n-o-s-i-s.html">RESPONSE_STATUS_ERROR_NO_PRECISE_DIAGNOSIS</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">28416</span></div><div class="brief "><p class="paragraph">The <a href="../-response-apdu/status.html">ResponseApdu.status</a> for indicating a command was aborted.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-346771803%2FProperties%2F-311180413" anchor-label="RESPONSE_STATUS_SUCCESS" id="-346771803%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-s-u-c-c-e-s-s.html"><span>RESPONSE_</span><wbr><span>STATUS_</span><wbr><span>SUCCESS</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-346771803%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-r-e-s-p-o-n-s-e_-s-t-a-t-u-s_-s-u-c-c-e-s-s.html">RESPONSE_STATUS_SUCCESS</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">36864</span></div><div class="brief "><p class="paragraph">The <a href="../-response-apdu/status.html">ResponseApdu.status</a> for indicating a request was successful.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1973282288%2FProperties%2F-311180413" anchor-label="RTD_ALTERNATIVE_CARRIER" id="1973282288%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-a-l-t-e-r-n-a-t-i-v-e_-c-a-r-r-i-e-r.html"><span>RTD_</span><wbr><span>ALTERNATIVE_</span><wbr><span>CARRIER</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1973282288%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-a-l-t-e-r-n-a-t-i-v-e_-c-a-r-r-i-e-r.html">RTD_ALTERNATIVE_CARRIER</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD Alternative Carrier type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="522959336%2FProperties%2F-311180413" anchor-label="RTD_HANDOVER_CARRIER" id="522959336%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-h-a-n-d-o-v-e-r_-c-a-r-r-i-e-r.html"><span>RTD_</span><wbr><span>HANDOVER_</span><wbr><span>CARRIER</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="522959336%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-h-a-n-d-o-v-e-r_-c-a-r-r-i-e-r.html">RTD_HANDOVER_CARRIER</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD Handover Carrier type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1271074353%2FProperties%2F-311180413" anchor-label="RTD_HANDOVER_REQUEST" id="1271074353%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-h-a-n-d-o-v-e-r_-r-e-q-u-e-s-t.html"><span>RTD_</span><wbr><span>HANDOVER_</span><wbr><span>REQUEST</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1271074353%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-h-a-n-d-o-v-e-r_-r-e-q-u-e-s-t.html">RTD_HANDOVER_REQUEST</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD Handover Request type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1325276194%2FProperties%2F-311180413" anchor-label="RTD_HANDOVER_SELECT" id="-1325276194%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-h-a-n-d-o-v-e-r_-s-e-l-e-c-t.html"><span>RTD_</span><wbr><span>HANDOVER_</span><wbr><span>SELECT</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1325276194%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-h-a-n-d-o-v-e-r_-s-e-l-e-c-t.html">RTD_HANDOVER_SELECT</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD Handover Select type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="106500119%2FProperties%2F-311180413" anchor-label="RTD_SERVICE_PARAMETER" id="106500119%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-s-e-r-v-i-c-e_-p-a-r-a-m-e-t-e-r.html"><span>RTD_</span><wbr><span>SERVICE_</span><wbr><span>PARAMETER</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="106500119%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-s-e-r-v-i-c-e_-p-a-r-a-m-e-t-e-r.html">RTD_SERVICE_PARAMETER</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD Service Parameter type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1337870686%2FProperties%2F-311180413" anchor-label="RTD_SERVICE_SELECT" id="1337870686%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-s-e-r-v-i-c-e_-s-e-l-e-c-t.html"><span>RTD_</span><wbr><span>SERVICE_</span><wbr><span>SELECT</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1337870686%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-s-e-r-v-i-c-e_-s-e-l-e-c-t.html">RTD_SERVICE_SELECT</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD Service Select type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1316966145%2FProperties%2F-311180413" anchor-label="RTD_SMART_POSTER" id="1316966145%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-s-m-a-r-t_-p-o-s-t-e-r.html"><span>RTD_</span><wbr><span>SMART_</span><wbr><span>POSTER</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1316966145%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-s-m-a-r-t_-p-o-s-t-e-r.html">RTD_SMART_POSTER</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD Smart Poster type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1042884791%2FProperties%2F-311180413" anchor-label="RTD_TEXT" id="1042884791%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-t-e-x-t.html"><span>RTD_</span><wbr><span>TEXT</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1042884791%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-t-e-x-t.html">RTD_TEXT</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD Text type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1885563638%2FProperties%2F-311180413" anchor-label="RTD_TNEP_STATUS" id="-1885563638%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-t-n-e-p_-s-t-a-t-u-s.html"><span>RTD_</span><wbr><span>TNEP_</span><wbr><span>STATUS</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1885563638%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-t-n-e-p_-s-t-a-t-u-s.html">RTD_TNEP_STATUS</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD TNEP Status Record type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1921100406%2FProperties%2F-311180413" anchor-label="RTD_URI" id="-1921100406%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-d_-u-r-i.html"><span>RTD_</span><wbr><span>URI</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1921100406%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="-r-t-d_-u-r-i.html">RTD_URI</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div><div class="brief "><p class="paragraph">RTD URI type, for use with <a href="../-ndef-record/-tnf/-w-e-l-l_-k-n-o-w-n/index.html">Tnf.WELL_KNOWN</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-885815545%2FProperties%2F-311180413" anchor-label="SERVICE_NAME_CONNECTION_HANDOVER" id="-885815545%2FProperties%2F-311180413" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-s-e-r-v-i-c-e_-n-a-m-e_-c-o-n-n-e-c-t-i-o-n_-h-a-n-d-o-v-e-r.html"><span>SERVICE_</span><wbr><span>NAME_</span><wbr><span>CONNECTION_</span><wbr><span>HANDOVER</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-885815545%2FProperties%2F-311180413"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-s-e-r-v-i-c-e_-n-a-m-e_-c-o-n-n-e-c-t-i-o-n_-h-a-n-d-o-v-e-r.html">SERVICE_NAME_CONNECTION_HANDOVER</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">The service name for connection handover.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

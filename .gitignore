@@ -160,6 +160,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-static/kdocs
+# static/kdocs
 
 # End of https://www.toptal.com/developers/gitignore/api/docusaurus

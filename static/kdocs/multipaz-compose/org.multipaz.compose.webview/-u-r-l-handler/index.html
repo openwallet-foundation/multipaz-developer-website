@@ -1,0 +1,592 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>URLHandler</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filter=":multipaz-compose:dokkaHtmlPartial/iosMain">
+                                <span class="checkbox--icon"></span>
+                                ios
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz-compose::org.multipaz.compose.webview/URLHandler///PointingToDeclaration//1209617094">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz-compose</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.compose.webview</a><span class="delimiter">/</span><span class="current">URLHandler</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>URLHandler</span></span></h1>
+    <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+      <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">URLHandler</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">assets<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">coroutineScopeIO<span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="platform.darwin/NSObject///PointingToDeclaration/">NSObject</span>, <span data-unresolved-link="platform.WebKit/WKURLSchemeHandlerProtocol///PointingToDeclaration/">WKURLSchemeHandlerProtocol</span></div></div>    </div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-777573454%2FConstructors%2F1209617094" anchor-label="URLHandler" id="-777573454%2FConstructors%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-u-r-l-handler.html"><span><span>URLHandler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-777573454%2FConstructors%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">assets<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">coroutineScopeIO<span class="token operator">: </span><span data-unresolved-link="/<Error class: unknown class>///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span></span></span><span class="token punctuation">)</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="228684334%2FProperties%2F1209617094" anchor-label="debugDescription" id="228684334%2FProperties%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#228684334%2FFunctions%2F1209617094"><span>debug</span><wbr><span><span>Description</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="228684334%2FProperties%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="../-script-handler/index.html#228684334%2FFunctions%2F1209617094">debugDescription</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1692238585%2FProperties%2F1209617094" anchor-label="description" id="-1692238585%2FProperties%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-1692238585%2FProperties%2F1209617094"><span><span>description</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1692238585%2FProperties%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="../-script-handler/index.html#-1692238585%2FProperties%2F1209617094">description</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-331073687%2FProperties%2F1209617094" anchor-label="hash" id="-331073687%2FProperties%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-331073687%2FProperties%2F1209617094"><span><span>hash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-331073687%2FProperties%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="../-script-handler/index.html#-331073687%2FProperties%2F1209617094">hash</a><span class="token operator">: </span><span data-unresolved-link="platform.darwin/NSUInteger///PointingToDeclaration/">NSUInteger</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="487587066%2FProperties%2F1209617094" anchor-label="superclass" id="487587066%2FProperties%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#487587066%2FProperties%2F1209617094"><span><span>superclass</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="487587066%2FProperties%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">val </span><a href="../-script-handler/index.html#487587066%2FProperties%2F1209617094">superclass</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-class/index.html">ObjCClass</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1619767229%2FFunctions%2F1209617094" anchor-label="class" id="-1619767229%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-1619767229%2FFunctions%2F1209617094"><span><span>class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1619767229%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#-1619767229%2FFunctions%2F1209617094"><span class="token function">class</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-class/index.html">ObjCClass</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2062711434%2FFunctions%2F1209617094" anchor-label="conformsToProtocol" id="-2062711434%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-2062711434%2FFunctions%2F1209617094"><span>conforms</span><wbr><span>To</span><wbr><span><span>Protocol</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2062711434%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#-2062711434%2FFunctions%2F1209617094"><span class="token function">conformsToProtocol</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aProtocol<span class="token operator">: </span><span data-unresolved-link="objcnames.classes/Protocol///PointingToDeclaration/">Protocol</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="719895338%2FFunctions%2F1209617094" anchor-label="copy" id="719895338%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#719895338%2FFunctions%2F1209617094"><span><span>copy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="719895338%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#719895338%2FFunctions%2F1209617094"><span class="token function">copy</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="228684334%2FFunctions%2F1209617094" anchor-label="debugDescription" id="228684334%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#228684334%2FFunctions%2F1209617094"><span>debug</span><wbr><span><span>Description</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="228684334%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#228684334%2FFunctions%2F1209617094"><span class="token function">debugDescription</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-400237633%2FFunctions%2F1209617094" anchor-label="description" id="-400237633%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-400237633%2FFunctions%2F1209617094"><span><span>description</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-400237633%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#-400237633%2FFunctions%2F1209617094"><span class="token function">description</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-622522961%2FFunctions%2F1209617094" anchor-label="doesNotRecognizeSelector" id="-622522961%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-622522961%2FFunctions%2F1209617094"><span>does</span><wbr><span>Not</span><wbr><span>Recognize</span><wbr><span><span>Selector</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-622522961%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#-622522961%2FFunctions%2F1209617094"><span class="token function">doesNotRecognizeSelector</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aSelector<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-c-opaque-pointer/index.html">COpaquePointer</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-776372831%2FFunctions%2F1209617094" anchor-label="finalize" id="-776372831%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-776372831%2FFunctions%2F1209617094"><span><span>finalize</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-776372831%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#-776372831%2FFunctions%2F1209617094"><span class="token function">finalize</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="870119066%2FFunctions%2F1209617094" anchor-label="forwardingTargetForSelector" id="870119066%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#870119066%2FFunctions%2F1209617094"><span>forwarding</span><wbr><span>Target</span><wbr><span>For</span><wbr><span><span>Selector</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="870119066%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#870119066%2FFunctions%2F1209617094"><span class="token function">forwardingTargetForSelector</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aSelector<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-c-opaque-pointer/index.html">COpaquePointer</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="895393388%2FFunctions%2F1209617094" anchor-label="forwardInvocation" id="895393388%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#895393388%2FFunctions%2F1209617094"><span>forward</span><wbr><span><span>Invocation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="895393388%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#895393388%2FFunctions%2F1209617094"><span class="token function">forwardInvocation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">anInvocation<span class="token operator">: </span><span data-unresolved-link="objcnames.classes/NSInvocation///PointingToDeclaration/">NSInvocation</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1519286193%2FFunctions%2F1209617094" anchor-label="hash" id="1519286193%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#1519286193%2FFunctions%2F1209617094"><span><span>hash</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1519286193%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#1519286193%2FFunctions%2F1209617094"><span class="token function">hash</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="platform.darwin/NSUInteger///PointingToDeclaration/">NSUInteger</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1753155089%2FFunctions%2F1209617094" anchor-label="init" id="-1753155089%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-1753155089%2FFunctions%2F1209617094"><span><span>init</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1753155089%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#-1753155089%2FFunctions%2F1209617094"><span class="token function"><strike>init</strike></span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="platform.darwin/NSObject///PointingToDeclaration/">NSObject</span><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="400700689%2FFunctions%2F1209617094" anchor-label="isEqual" id="400700689%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#400700689%2FFunctions%2F1209617094"><span>is</span><wbr><span><span>Equal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="400700689%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#400700689%2FFunctions%2F1209617094"><span class="token function">isEqual</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">object<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1107006214%2FFunctions%2F1209617094" anchor-label="isKindOfClass" id="-1107006214%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-1107006214%2FFunctions%2F1209617094"><span>is</span><wbr><span>Kind</span><wbr><span>Of</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1107006214%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#-1107006214%2FFunctions%2F1209617094"><span class="token function">isKindOfClass</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-class/index.html">ObjCClass</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1261237300%2FFunctions%2F1209617094" anchor-label="isMemberOfClass" id="1261237300%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#1261237300%2FFunctions%2F1209617094"><span>is</span><wbr><span>Member</span><wbr><span>Of</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1261237300%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#1261237300%2FFunctions%2F1209617094"><span class="token function">isMemberOfClass</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-class/index.html">ObjCClass</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="874970199%2FFunctions%2F1209617094" anchor-label="isProxy" id="874970199%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#874970199%2FFunctions%2F1209617094"><span>is</span><wbr><span><span>Proxy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="874970199%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#874970199%2FFunctions%2F1209617094"><span class="token function">isProxy</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1508216455%2FFunctions%2F1209617094" anchor-label="methodForSelector" id="1508216455%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#1508216455%2FFunctions%2F1209617094"><span>method</span><wbr><span>For</span><wbr><span><span>Selector</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1508216455%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#1508216455%2FFunctions%2F1209617094"><span class="token function">methodForSelector</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aSelector<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-c-opaque-pointer/index.html">COpaquePointer</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="platform.darwin/IMP///PointingToDeclaration/">IMP</span><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1366135821%2FFunctions%2F1209617094" anchor-label="methodSignatureForSelector" id="1366135821%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#1366135821%2FFunctions%2F1209617094"><span>method</span><wbr><span>Signature</span><wbr><span>For</span><wbr><span><span>Selector</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1366135821%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#1366135821%2FFunctions%2F1209617094"><span class="token function">methodSignatureForSelector</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aSelector<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-c-opaque-pointer/index.html">COpaquePointer</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="objcnames.classes/NSMethodSignature///PointingToDeclaration/">NSMethodSignature</span><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1810377952%2FFunctions%2F1209617094" anchor-label="mutableCopy" id="1810377952%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#1810377952%2FFunctions%2F1209617094"><span>mutable</span><wbr><span><span>Copy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1810377952%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#1810377952%2FFunctions%2F1209617094"><span class="token function">mutableCopy</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="963103057%2FFunctions%2F1209617094" anchor-label="performSelector" id="963103057%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#1013303680%2FFunctions%2F1209617094"><span>perform</span><wbr><span><span>Selector</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="963103057%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#1013303680%2FFunctions%2F1209617094"><span class="token function">performSelector</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aSelector<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-c-opaque-pointer/index.html">COpaquePointer</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#367831459%2FFunctions%2F1209617094"><span class="token function">performSelector</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aSelector<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-c-opaque-pointer/index.html">COpaquePointer</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">withObject<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#403533126%2FFunctions%2F1209617094"><span class="token function">performSelector</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aSelector<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-c-opaque-pointer/index.html">COpaquePointer</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">withObject<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">_withObject<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2027637748%2FFunctions%2F1209617094" anchor-label="respondsToSelector" id="2027637748%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#2027637748%2FFunctions%2F1209617094"><span>responds</span><wbr><span>To</span><wbr><span><span>Selector</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2027637748%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#2027637748%2FFunctions%2F1209617094"><span class="token function">respondsToSelector</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aSelector<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-c-opaque-pointer/index.html">COpaquePointer</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1687492798%2FFunctions%2F1209617094" anchor-label="superclass" id="-1687492798%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-script-handler/index.html#-1687492798%2FFunctions%2F1209617094"><span><span>superclass</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1687492798%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-script-handler/index.html#-1687492798%2FFunctions%2F1209617094"><span class="token function">superclass</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-class/index.html">ObjCClass</a><span class="token operator">?</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1846397453%2FFunctions%2F1209617094" anchor-label="webView" id="-1846397453%2FFunctions%2F1209617094" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="web-view.html"><span>web</span><wbr><span><span>View</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1846397453%2FFunctions%2F1209617094"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":multipaz-compose:dokkaHtmlPartial/iosMain" data-filterable-set=":multipaz-compose:dokkaHtmlPartial/iosMain" data-active="" data-toggle=":multipaz-compose:dokkaHtmlPartial/iosMain">ios</button></div>
+<div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-compose:dokkaHtmlPartial/iosMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="web-view.html"><span class="token function">webView</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">webView<span class="token operator">: </span><span data-unresolved-link="platform.WebKit/WKWebView///PointingToDeclaration/">WKWebView</span><span class="token punctuation">, </span></span><span class="parameter ">startURLSchemeTask<span class="token operator">: </span><span data-unresolved-link="platform.WebKit/WKURLSchemeTaskProtocol///PointingToDeclaration/">WKURLSchemeTaskProtocol</span></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="web-view.html"><span class="token function">webView</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">webView<span class="token operator">: </span><span data-unresolved-link="platform.WebKit/WKWebView///PointingToDeclaration/">WKWebView</span><span class="token punctuation">, </span></span><span class="parameter ">stopURLSchemeTask<span class="token operator">: </span><span data-unresolved-link="platform.WebKit/WKURLSchemeTaskProtocol///PointingToDeclaration/">WKURLSchemeTaskProtocol</span></span></span><span class="token punctuation">)</span></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

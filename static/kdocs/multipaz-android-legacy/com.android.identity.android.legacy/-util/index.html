@@ -1,0 +1,1158 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Util</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz-android-legacy:dokkaHtmlPartial/release">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filter=":multipaz-android-legacy:dokkaHtmlPartial/release">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz-android-legacy::com.android.identity.android.legacy/Util///PointingToDeclaration//-1012618143">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz-android-legacy</a><span class="delimiter">/</span><a href="../index.html">com.android.identity.android.legacy</a><span class="delimiter">/</span><span class="current">Util</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Util</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">Util</a></div><p class="paragraph">Utility functions.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1108363193%2FFunctions%2F-1012618143" anchor-label="base16" id="1108363193%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="base16.html"><span><span>base16</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1108363193%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="base16.html"><span class="token function">base16</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">bytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-656508848%2FFunctions%2F-1012618143" anchor-label="bleCalculateAttributeValueSize" id="-656508848%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ble-calculate-attribute-value-size.html"><span>ble</span><wbr><span>Calculate</span><wbr><span>Attribute</span><wbr><span>Value</span><wbr><span><span>Size</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-656508848%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="ble-calculate-attribute-value-size.html"><span class="token function">bleCalculateAttributeValueSize</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mtuSize<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-640542666%2FFunctions%2F-1012618143" anchor-label="buildSessionTranscript" id="-640542666%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-session-transcript.html"><span>build</span><wbr><span>Session</span><wbr><span><span>Transcript</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-640542666%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="build-session-transcript.html"><span class="token function">buildSessionTranscript</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ephemeralKeyPair<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/KeyPair.html">KeyPair</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-585761407%2FFunctions%2F-1012618143" anchor-label="calcEMacKeyForReader" id="-585761407%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="calc-e-mac-key-for-reader.html"><span>calc</span><wbr><span>EMac</span><wbr><span>Key</span><wbr><span>For</span><wbr><span><span>Reader</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-585761407%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="calc-e-mac-key-for-reader.html"><span class="token function">calcEMacKeyForReader</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authenticationPublicKey<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PublicKey.html">PublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">ephemeralReaderPrivateKey<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">encodedSessionTranscript<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/javax/crypto/SecretKey.html">SecretKey</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="803382253%2FFunctions%2F-1012618143" anchor-label="canonicalizeCbor" id="803382253%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="canonicalize-cbor.html"><span>canonicalize</span><wbr><span><span>Cbor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="803382253%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="canonicalize-cbor.html"><span class="token function">canonicalizeCbor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedCbor<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1661551771%2FFunctions%2F-1012618143" anchor-label="cborBuildCoseKey" id="1661551771%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-build-cose-key.html"><span>cbor</span><wbr><span>Build</span><wbr><span>Cose</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1661551771%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-build-cose-key.html"><span class="token function">cborBuildCoseKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PublicKey.html">PublicKey</a><span class="token punctuation">, </span></span><span class="parameter ">curve<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-ec-curve/index.html">EcCurve</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1171382978%2FFunctions%2F-1012618143" anchor-label="cborBuildCoseKeyWithMalformedYPoint" id="-1171382978%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-build-cose-key-with-malformed-y-point.html"><span>cbor</span><wbr><span>Build</span><wbr><span>Cose</span><wbr><span>Key</span><wbr><span>With</span><wbr><span>Malformed</span><wbr><span><span>YPoint</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1171382978%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-build-cose-key-with-malformed-y-point.html"><span class="token function">cborBuildCoseKeyWithMalformedYPoint</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1073006286%2FFunctions%2F-1012618143" anchor-label="cborBuildDateTime" id="1073006286%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-build-date-time.html"><span>cbor</span><wbr><span>Build</span><wbr><span>Date</span><wbr><span><span>Time</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1073006286%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-build-date-time.html"><span class="token function">cborBuildDateTime</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timestamp<span class="token operator">: </span><a href="../-timestamp/index.html">Timestamp</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div><div class="brief "><p class="paragraph">Returns #6.0(tstr) where tstr is the ISO 8601 encoding of the given point in time. Only supports UTC times.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-912318350%2FFunctions%2F-1012618143" anchor-label="cborBuildTaggedByteString" id="-912318350%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-build-tagged-byte-string.html"><span>cbor</span><wbr><span>Build</span><wbr><span>Tagged</span><wbr><span>Byte</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-912318350%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-build-tagged-byte-string.html"><span class="token function">cborBuildTaggedByteString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedCbor<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div><div class="brief "><p class="paragraph">Returns #6.24(bstr) of the given already encoded CBOR</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="974840735%2FFunctions%2F-1012618143" anchor-label="cborDecode" id="974840735%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-decode.html"><span>cbor</span><wbr><span><span>Decode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="974840735%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-decode.html"><span class="token function">cborDecode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1613382219%2FFunctions%2F-1012618143" anchor-label="cborDecodeBoolean" id="1613382219%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-decode-boolean.html"><span>cbor</span><wbr><span>Decode</span><wbr><span><span>Boolean</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1613382219%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-decode-boolean.html"><span class="token function">cborDecodeBoolean</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1109649178%2FFunctions%2F-1012618143" anchor-label="cborDecodeByteString" id="-1109649178%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-decode-byte-string.html"><span>cbor</span><wbr><span>Decode</span><wbr><span>Byte</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1109649178%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-decode-byte-string.html"><span class="token function">cborDecodeByteString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="892256839%2FFunctions%2F-1012618143" anchor-label="cborDecodeDateTime" id="892256839%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-decode-date-time.html"><span>cbor</span><wbr><span>Decode</span><wbr><span>Date</span><wbr><span><span>Time</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="892256839%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-decode-date-time.html"><span class="token function">cborDecodeDateTime</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">di<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-timestamp/index.html">Timestamp</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-decode-date-time.html"><span class="token function">cborDecodeDateTime</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-timestamp/index.html">Timestamp</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-443288189%2FFunctions%2F-1012618143" anchor-label="cborDecodeLong" id="-443288189%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-decode-long.html"><span>cbor</span><wbr><span>Decode</span><wbr><span><span>Long</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-443288189%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-decode-long.html"><span class="token function">cborDecodeLong</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1823386098%2FFunctions%2F-1012618143" anchor-label="cborDecodeString" id="-1823386098%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-decode-string.html"><span>cbor</span><wbr><span>Decode</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1823386098%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-decode-string.html"><span class="token function">cborDecodeString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1616158718%2FFunctions%2F-1012618143" anchor-label="cborEncode" id="-1616158718%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-encode.html"><span>cbor</span><wbr><span><span>Encode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1616158718%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-encode.html"><span class="token function">cborEncode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dataItem<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1222663332%2FFunctions%2F-1012618143" anchor-label="cborEncodeBoolean" id="-1222663332%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-encode-boolean.html"><span>cbor</span><wbr><span>Encode</span><wbr><span><span>Boolean</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1222663332%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-encode-boolean.html"><span class="token function">cborEncodeBoolean</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1650600994%2FFunctions%2F-1012618143" anchor-label="cborEncodeBytestring" id="-1650600994%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-encode-bytestring.html"><span>cbor</span><wbr><span>Encode</span><wbr><span><span>Bytestring</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1650600994%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-encode-bytestring.html"><span class="token function">cborEncodeBytestring</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1200788238%2FFunctions%2F-1012618143" anchor-label="cborEncodeDateTime" id="1200788238%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-encode-date-time.html"><span>cbor</span><wbr><span>Encode</span><wbr><span>Date</span><wbr><span><span>Time</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1200788238%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-encode-date-time.html"><span class="token function">cborEncodeDateTime</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timestamp<span class="token operator">: </span><a href="../-timestamp/index.html">Timestamp</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1298611047%2FFunctions%2F-1012618143" anchor-label="cborEncodeNumber" id="1298611047%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-encode-number.html"><span>cbor</span><wbr><span>Encode</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1298611047%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-encode-number.html"><span class="token function">cborEncodeNumber</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-121942918%2FFunctions%2F-1012618143" anchor-label="cborEncodeString" id="-121942918%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-encode-string.html"><span>cbor</span><wbr><span>Encode</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-121942918%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-encode-string.html"><span class="token function">cborEncodeString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-505995449%2FFunctions%2F-1012618143" anchor-label="cborExtractFirstDataItem" id="-505995449%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-extract-first-data-item.html"><span>cbor</span><wbr><span>Extract</span><wbr><span>First</span><wbr><span>Data</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-505995449%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-extract-first-data-item.html"><span class="token function">cborExtractFirstDataItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">pendingDataBaos<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/ByteArrayOutputStream.html">ByteArrayOutputStream</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Extracts the first CBOR data item from a stream of bytes.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1175870378%2FFunctions%2F-1012618143" anchor-label="cborExtractTaggedAndEncodedCbor" id="1175870378%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-extract-tagged-and-encoded-cbor.html"><span>cbor</span><wbr><span>Extract</span><wbr><span>Tagged</span><wbr><span>And</span><wbr><span>Encoded</span><wbr><span><span>Cbor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1175870378%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-extract-tagged-and-encoded-cbor.html"><span class="token function">cborExtractTaggedAndEncodedCbor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">item<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div><div class="brief "><p class="paragraph">For a #6.24(bstr), extracts the bytes and decodes it and returns the decoded CBOR as a DataItem.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1402582826%2FFunctions%2F-1012618143" anchor-label="cborExtractTaggedCbor" id="-1402582826%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-extract-tagged-cbor.html"><span>cbor</span><wbr><span>Extract</span><wbr><span>Tagged</span><wbr><span><span>Cbor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1402582826%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-extract-tagged-cbor.html"><span class="token function">cborExtractTaggedCbor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedTaggedBytestring<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">For a #6.24(bstr), extracts the bytes.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1440413446%2FFunctions%2F-1012618143" anchor-label="cborGetLength" id="-1440413446%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-get-length.html"><span>cbor</span><wbr><span>Get</span><wbr><span><span>Length</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1440413446%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-get-length.html"><span class="token function">cborGetLength</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Helper to determine the length of a single encoded CBOR data item.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1605552360%2FFunctions%2F-1012618143" anchor-label="cborMapExtract" id="-1605552360%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract.html"><span>cbor</span><wbr><span>Map</span><wbr><span><span>Extract</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1605552360%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract.html"><span class="token function">cborMapExtract</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1989081687%2FFunctions%2F-1012618143" anchor-label="cborMapExtractArray" id="1989081687%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-array.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span><span>Array</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1989081687%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-array.html"><span class="token function">cborMapExtractArray</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-array.html"><span class="token function">cborMapExtractArray</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1568231561%2FFunctions%2F-1012618143" anchor-label="cborMapExtractBoolean" id="-1568231561%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-boolean.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span><span>Boolean</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1568231561%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-boolean.html"><span class="token function">cborMapExtractBoolean</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-boolean.html"><span class="token function">cborMapExtractBoolean</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1667900633%2FFunctions%2F-1012618143" anchor-label="cborMapExtractByteString" id="-1667900633%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-byte-string.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span>Byte</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1667900633%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-byte-string.html"><span class="token function">cborMapExtractByteString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-byte-string.html"><span class="token function">cborMapExtractByteString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="444933117%2FFunctions%2F-1012618143" anchor-label="cborMapExtractDateTime" id="444933117%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-date-time.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span>Date</span><wbr><span><span>Time</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="444933117%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-date-time.html"><span class="token function">cborMapExtractDateTime</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-timestamp/index.html">Timestamp</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1674180702%2FFunctions%2F-1012618143" anchor-label="cborMapExtractMap" id="1674180702%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-map.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1674180702%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-map.html"><span class="token function">cborMapExtractMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1769769316%2FFunctions%2F-1012618143" anchor-label="cborMapExtractMapNumberKeys" id="-1769769316%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-map-number-keys.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span>Map</span><wbr><span>Number</span><wbr><span><span>Keys</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1769769316%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-map-number-keys.html"><span class="token function">cborMapExtractMapNumberKeys</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1579374892%2FFunctions%2F-1012618143" anchor-label="cborMapExtractMapStringKeys" id="-1579374892%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-map-string-keys.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span>Map</span><wbr><span>String</span><wbr><span><span>Keys</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1579374892%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-map-string-keys.html"><span class="token function">cborMapExtractMapStringKeys</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1655773703%2FFunctions%2F-1012618143" anchor-label="cborMapExtractNumber" id="1655773703%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-number.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1655773703%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-number.html"><span class="token function">cborMapExtractNumber</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-number.html"><span class="token function">cborMapExtractNumber</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1790857847%2FFunctions%2F-1012618143" anchor-label="cborMapExtractString" id="1790857847%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-extract-string.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Extract</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1790857847%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-string.html"><span class="token function">cborMapExtractString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-extract-string.html"><span class="token function">cborMapExtractString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-411214921%2FFunctions%2F-1012618143" anchor-label="cborMapHasKey" id="-411214921%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-map-has-key.html"><span>cbor</span><wbr><span>Map</span><wbr><span>Has</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-411214921%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-has-key.html"><span class="token function">cborMapHasKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-map-has-key.html"><span class="token function">cborMapHasKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">map<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1563948831%2FFunctions%2F-1012618143" anchor-label="cborPrettyPrint" id="-1563948831%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cbor-pretty-print.html"><span>cbor</span><wbr><span>Pretty</span><wbr><span><span>Print</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1563948831%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-pretty-print.html"><span class="token function">cborPrettyPrint</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dataItem<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cbor-pretty-print.html"><span class="token function">cborPrettyPrint</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1323654388%2FFunctions%2F-1012618143" anchor-label="checkedLongValue" id="-1323654388%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="checked-long-value.html"><span>checked</span><wbr><span>Long</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1323654388%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="checked-long-value.html"><span class="token function">checkedLongValue</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">item<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div><div class="brief "><p class="paragraph">Accepts a <code class="lang-kotlin">DataItem</code>, attempts to cast it to a <code class="lang-kotlin">Number</code>, then returns the value Throws <code class="lang-kotlin">IllegalArgumentException</code> if the <code class="lang-kotlin">DataItem</code> is not a <code class="lang-kotlin">Number</code>. This method also checks bounds, and if the given data item is too large to fit in a long, it throws <code class="lang-kotlin">ArithmeticException</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-282799455%2FFunctions%2F-1012618143" anchor-label="checkedStringValue" id="-282799455%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="checked-string-value.html"><span>checked</span><wbr><span>String</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-282799455%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="checked-string-value.html"><span class="token function">checkedStringValue</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">item<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Accepts a <code class="lang-kotlin">DataItem</code>, attempts to cast it to a <code class="lang-kotlin">UnicodeString</code>, then returns the value. Throws <code class="lang-kotlin">IllegalArgumentException</code> if the <code class="lang-kotlin">DataItem</code> is not a <code class="lang-kotlin">UnicodeString</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2095170197%2FFunctions%2F-1012618143" anchor-label="computeHkdf" id="-2095170197%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="compute-hkdf.html"><span>compute</span><wbr><span><span>Hkdf</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2095170197%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="compute-hkdf.html"><span class="token function">computeHkdf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">macAlgorithm<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">ikm<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">salt<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">info<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">size<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Computes an HKDF.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="292376223%2FFunctions%2F-1012618143" anchor-label="coseKeyDecode" id="292376223%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cose-key-decode.html"><span>cose</span><wbr><span>Key</span><wbr><span><span>Decode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="292376223%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-key-decode.html"><span class="token function">coseKeyDecode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">coseKey<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PublicKey.html">PublicKey</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1590400652%2FFunctions%2F-1012618143" anchor-label="coseKeyGetCurve" id="-1590400652%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cose-key-get-curve.html"><span>cose</span><wbr><span>Key</span><wbr><span>Get</span><wbr><span><span>Curve</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1590400652%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-key-get-curve.html"><span class="token function">coseKeyGetCurve</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">coseKey<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-ec-curve/index.html">EcCurve</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2084093258%2FFunctions%2F-1012618143" anchor-label="coseMac0" id="2084093258%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cose-mac0.html"><span>cose</span><wbr><span><span>Mac0</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2084093258%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-mac0.html"><span class="token function">coseMac0</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/javax/crypto/SecretKey.html">SecretKey</a><span class="token punctuation">, </span></span><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">detachedContent<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-332622921%2FFunctions%2F-1012618143" anchor-label="coseMac0GetTag" id="-332622921%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cose-mac0-get-tag.html"><span>cose</span><wbr><span>Mac0Get</span><wbr><span><span>Tag</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-332622921%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-mac0-get-tag.html"><span class="token function">coseMac0GetTag</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">coseMac0<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1083189183%2FFunctions%2F-1012618143" anchor-label="coseSign1CheckSignature" id="1083189183%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cose-sign1-check-signature.html"><span>cose</span><wbr><span>Sign1Check</span><wbr><span><span>Signature</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1083189183%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-sign1-check-signature.html"><span class="token function">coseSign1CheckSignature</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">coseSign1<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span><span class="token punctuation">, </span></span><span class="parameter ">detachedContent<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PublicKey.html">PublicKey</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Currently only ECDSA signatures are supported.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1544911024%2FFunctions%2F-1012618143" anchor-label="coseSign1GetData" id="1544911024%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cose-sign1-get-data.html"><span>cose</span><wbr><span>Sign1Get</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1544911024%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-sign1-get-data.html"><span class="token function">coseSign1GetData</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">coseSign1<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Returns the empty byte-array if no data is included in the structure.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1641898090%2FFunctions%2F-1012618143" anchor-label="coseSign1GetX5Chain" id="1641898090%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cose-sign1-get-x5-chain.html"><span>cose</span><wbr><span>Sign1Get</span><wbr><span><span>X5Chain</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1641898090%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-sign1-get-x5-chain.html"><span class="token function">coseSign1GetX5Chain</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">coseSign1<span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns the empty collection if no x5chain is included in the structure.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2010223025%2FFunctions%2F-1012618143" anchor-label="coseSign1Sign" id="-2010223025%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cose-sign1-sign.html"><span>cose</span><wbr><span><span>Sign1Sign</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2010223025%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-sign1-sign.html"><span class="token function">coseSign1Sign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">s<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/Signature.html">Signature</a><span class="token punctuation">, </span></span><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">detachedContent<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">certificateChain<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div><br><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="cose-sign1-sign.html"><span class="token function">coseSign1Sign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PrivateKey.html">PrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">algorithm<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">data<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">additionalData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">certificateChain<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="co.nstant.in.cbor.model/DataItem///PointingToDeclaration/">DataItem</span></div><div class="brief "><p class="paragraph">Note: this uses the default JCA provider which may not support a lot of curves, for example it doesn't support Brainpool curves. If you need to use such curves, use .coseSign1Sign instead with a Signature created using a provider that does have support.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-704334225%2FFunctions%2F-1012618143" anchor-label="createEphemeralKeyPair" id="-704334225%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-ephemeral-key-pair.html"><span>create</span><wbr><span>Ephemeral</span><wbr><span>Key</span><wbr><span><span>Pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-704334225%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="create-ephemeral-key-pair.html"><span class="token function">createEphemeralKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">curve<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.crypto/-ec-curve/index.html">EcCurve</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/KeyPair.html">KeyPair</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="578076660%2FFunctions%2F-1012618143" anchor-label="createItemsRequest" id="578076660%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-items-request.html"><span>create</span><wbr><span>Items</span><wbr><span><span>Request</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="578076660%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="create-items-request.html"><span class="token function">createItemsRequest</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">entriesToRequest<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">docType<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Helper function to create a CBOR data for requesting data items. The IntentToRetain value will be set to false for all elements.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1367881554%2FFunctions%2F-1012618143" anchor-label="extractDeviceRetrievalMethods" id="-1367881554%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="extract-device-retrieval-methods.html"><span>extract</span><wbr><span>Device</span><wbr><span>Retrieval</span><wbr><span><span>Methods</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1367881554%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="extract-device-retrieval-methods.html"><span class="token function">extractDeviceRetrievalMethods</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedDeviceEngagement<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="596895246%2FFunctions%2F-1012618143" anchor-label="fromHex" id="596895246%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="from-hex.html"><span>from</span><wbr><span><span>Hex</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="596895246%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="from-hex.html"><span class="token function">fromHex</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stringWithHex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1453316756%2FFunctions%2F-1012618143" anchor-label="getDeviceRetrievalMethodType" id="-1453316756%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-device-retrieval-method-type.html"><span>get</span><wbr><span>Device</span><wbr><span>Retrieval</span><wbr><span>Method</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1453316756%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-device-retrieval-method-type.html"><span class="token function">getDeviceRetrievalMethodType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodeDeviceRetrievalMethod<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1191204753%2FFunctions%2F-1012618143" anchor-label="getPopSha256FromAuthKeyCert" id="-1191204753%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-pop-sha256-from-auth-key-cert.html"><span>get</span><wbr><span>Pop</span><wbr><span>Sha256From</span><wbr><span>Auth</span><wbr><span>Key</span><wbr><span><span>Cert</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1191204753%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="get-pop-sha256-from-auth-key-cert.html"><span class="token function">getPopSha256FromAuthKeyCert</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cert<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-681237703%2FFunctions%2F-1012618143" anchor-label="getPrivateKeyFromInteger" id="-681237703%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-private-key-from-integer.html"><span>get</span><wbr><span>Private</span><wbr><span>Key</span><wbr><span>From</span><wbr><span><span>Integer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-681237703%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="get-private-key-from-integer.html"><span class="token function">getPrivateKeyFromInteger</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">s<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PrivateKey.html">PrivateKey</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2103325461%2FFunctions%2F-1012618143" anchor-label="getPublicKeyFromIntegers" id="-2103325461%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-public-key-from-integers.html"><span>get</span><wbr><span>Public</span><wbr><span>Key</span><wbr><span>From</span><wbr><span><span>Integers</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2103325461%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="get-public-key-from-integers.html"><span class="token function">getPublicKeyFromIntegers</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">x<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a><span class="token punctuation">, </span></span><span class="parameter ">y<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/PublicKey.html">PublicKey</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="203387395%2FFunctions%2F-1012618143" anchor-label="hasSubByteArray" id="203387395%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-sub-byte-array.html"><span>has</span><wbr><span>Sub</span><wbr><span>Byte</span><wbr><span><span>Array</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="203387395%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="has-sub-byte-array.html"><span class="token function">hasSubByteArray</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">haystack<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">needle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Brute-force but good enough since users will only pass relatively small amounts of data.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="589316355%2FFunctions%2F-1012618143" anchor-label="issuerSignedItemClearValue" id="589316355%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="issuer-signed-item-clear-value.html"><span>issuer</span><wbr><span>Signed</span><wbr><span>Item</span><wbr><span>Clear</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="589316355%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="issuer-signed-item-clear-value.html"><span class="token function">issuerSignedItemClearValue</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedIssuerSignedItem<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Clears elementValue in IssuerSignedItemBytes CBOR.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="394193347%2FFunctions%2F-1012618143" anchor-label="issuerSignedItemSetValue" id="394193347%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="issuer-signed-item-set-value.html"><span>issuer</span><wbr><span>Signed</span><wbr><span>Item</span><wbr><span>Set</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="394193347%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="issuer-signed-item-set-value.html"><span class="token function">issuerSignedItemSetValue</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedIssuerSignedItem<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">encodedElementValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div><div class="brief "><p class="paragraph">Sets elementValue in IssuerSignedItem CBOR.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="171789806%2FFunctions%2F-1012618143" anchor-label="mdocVersionCompare" id="171789806%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mdoc-version-compare.html"><span>mdoc</span><wbr><span>Version</span><wbr><span><span>Compare</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="171789806%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="mdoc-version-compare.html"><span class="token function">mdocVersionCompare</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">a<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">b<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Version comparison method for mdoc versions.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1096681221%2FFunctions%2F-1012618143" anchor-label="readBytes" id="-1096681221%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="read-bytes.html"><span>read</span><wbr><span><span>Bytes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1096681221%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="read-bytes.html"><span class="token function">readBytes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inputStream<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/InputStream.html">InputStream</a><span class="token punctuation">, </span></span><span class="parameter ">numBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/nio/ByteBuffer.html">ByteBuffer</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="650881949%2FFunctions%2F-1012618143" anchor-label="replaceLine" id="650881949%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="replace-line.html"><span>replace</span><wbr><span><span>Line</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="650881949%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="replace-line.html"><span class="token function">replaceLine</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">lineNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">replacementLine<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1782890037%2FFunctions%2F-1012618143" anchor-label="sec1EncodeFieldElementAsOctetString" id="-1782890037%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sec1-encode-field-element-as-octet-string.html"><span>sec1Encode</span><wbr><span>Field</span><wbr><span>Element</span><wbr><span>As</span><wbr><span>Octet</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1782890037%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="sec1-encode-field-element-as-octet-string.html"><span class="token function">sec1EncodeFieldElementAsOctetString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">octetStringSize<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">fieldValue<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/math/BigInteger.html">BigInteger</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1863284483%2FFunctions%2F-1012618143" anchor-label="signPublicKeyWithPrivateKey" id="-1863284483%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sign-public-key-with-private-key.html"><span>sign</span><wbr><span>Public</span><wbr><span>Key</span><wbr><span>With</span><wbr><span>Private</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1863284483%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="sign-public-key-with-private-key.html"><span class="token function">signPublicKeyWithPrivateKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">keyToSignAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">keyToSignWithAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="777890667%2FFunctions%2F-1012618143" anchor-label="stripLeadingZeroes" id="777890667%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="strip-leading-zeroes.html"><span>strip</span><wbr><span>Leading</span><wbr><span><span>Zeroes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="777890667%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="strip-leading-zeroes.html"><span class="token function">stripLeadingZeroes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2024879668%2FFunctions%2F-1012618143" anchor-label="toHex" id="-2024879668%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-hex.html"><span>to</span><wbr><span><span>Hex</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2024879668%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="to-hex.html"><span class="token function">toHex</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">bytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="to-hex.html"><span class="token function">toHex</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">bytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">from<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">to<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="846125213%2FFunctions%2F-1012618143" anchor-label="uuidFromBytes" id="846125213%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="uuid-from-bytes.html"><span>uuid</span><wbr><span>From</span><wbr><span><span>Bytes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="846125213%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="uuid-from-bytes.html"><span class="token function">uuidFromBytes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">bytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/UUID.html">UUID</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1934557527%2FFunctions%2F-1012618143" anchor-label="uuidToBytes" id="1934557527%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="uuid-to-bytes.html"><span>uuid</span><wbr><span>To</span><wbr><span><span>Bytes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1934557527%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="uuid-to-bytes.html"><span class="token function">uuidToBytes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">uuid<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/UUID.html">UUID</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-389174734%2FFunctions%2F-1012618143" anchor-label="validateCertificateChain" id="-389174734%2FFunctions%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="validate-certificate-chain.html"><span>validate</span><wbr><span>Certificate</span><wbr><span><span>Chain</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-389174734%2FFunctions%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-static/index.html"><span class="token annotation builtin">JvmStatic</span></a></div></div><span class="token keyword">fun </span><a href="validate-certificate-chain.html"><span class="token function">validateCertificateChain</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">certificateChain<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/security/cert/X509Certificate.html">X509Certificate</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Helper function to check if a given certificate chain is valid.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

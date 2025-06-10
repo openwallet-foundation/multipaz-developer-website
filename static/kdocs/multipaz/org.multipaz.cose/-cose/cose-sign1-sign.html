@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>coseSign1Sign</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz:dokkaHtmlPartial/commonMain" data-filter=":multipaz:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="member" id="content" pageids="multipaz::org.multipaz.cose/Cose/coseSign1Sign/#org.multipaz.securearea.SecureArea#kotlin.String#kotlin.ByteArray#kotlin.Boolean#kotlin.collections.Map[org.multipaz.cose.CoseLabel,org.multipaz.cbor.DataItem]#kotlin.collections.Map[org.multipaz.cose.CoseLabel,org.multipaz.cbor.DataItem]#org.multipaz.securearea.KeyUnlockData?/PointingToDeclaration//-311180413">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.cose</a><span class="delimiter">/</span><a href="index.html">Cose</a><span class="delimiter">/</span><span class="current">coseSign1Sign</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>cose</span><wbr><span><span>Sign1Sign</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="cose-sign1-sign.html"><span class="token function">coseSign1Sign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">secureArea<span class="token operator">: </span><a href="../../org.multipaz.securearea/-secure-area/index.html">SecureArea</a><span class="token punctuation">, </span></span><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">includeMessageInPayload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">protectedHeaders<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="../-cose-label/index.html">CoseLabel</a><span class="token punctuation">, </span><a href="../../org.multipaz.cbor/-data-item/index.html">DataItem</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">unprotectedHeaders<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="../-cose-label/index.html">CoseLabel</a><span class="token punctuation">, </span><a href="../../org.multipaz.cbor/-data-item/index.html">DataItem</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">keyUnlockData<span class="token operator">: </span><a href="../../org.multipaz.securearea/-key-unlock-data/index.html">KeyUnlockData</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-cose-sign1/index.html">CoseSign1</a></div><p class="paragraph">Creates a COSE_Sign1 signature.</p><p class="paragraph">By default, the <a href="-c-o-s-e_-l-a-b-e-l_-a-l-g.html">Cose.COSE_LABEL_ALG</a> header is included in the protected header with the non-fully-defined <a href="../../org.multipaz.crypto/-algorithm/index.html">Algorithm</a> set of the key. For example for a key with <a href="../../org.multipaz.crypto/-algorithm/-e-s-p256/index.html">Algorithm.ESP256</a>, the value <a href="../../org.multipaz.crypto/-algorithm/-e-s256/index.html">Algorithm.ES256</a> is included. If <a href="cose-sign1-sign.html">protectedHeaders</a> already contain <a href="-c-o-s-e_-l-a-b-e-l_-a-l-g.html">Cose.COSE_LABEL_ALG</a> it will not be replaced.</p><p class="paragraph">The app can include additional headers, for example if certification is needed, <a href="-c-o-s-e_-l-a-b-e-l_-x5-c-h-a-i-n.html">Cose.COSE_LABEL_X5CHAIN</a> can be included in either the unprotected or protected header.</p><p class="paragraph">This function signs with a key in a Secure Area, for signing with a software-based <a href="../../org.multipaz.crypto/-ec-private-key/index.html">EcPrivateKey</a>, see the other function with the same name but taking a <a href="../../org.multipaz.crypto/-ec-private-key/index.html">EcPrivateKey</a> instead.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>secure</span><wbr><span><span>Area</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the <a href="../../org.multipaz.securearea/-secure-area/index.html">SecureArea</a> holding the private key.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>alias</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the alias for the private key to use to sign with.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>message</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the data to sign.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>include</span><wbr><span>Message</span><wbr><span>In</span><wbr><span><span>Payload</span></span></u></div></span></div><div><div class="title"><p class="paragraph">whether to include the message in the COSE_Sign1 payload.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>protected</span><wbr><span><span>Headers</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the protected headers to include.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>unprotected</span><wbr><span><span>Headers</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the unprotected headers to include.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>key</span><wbr><span>Unlock</span><wbr><span><span>Data</span></span></u></div></span></div><div><div class="title"><p class="paragraph">a <a href="../../org.multipaz.securearea/-key-unlock-data/index.html">KeyUnlockData</a> for unlocking the key in the <a href="../../org.multipaz.securearea/-secure-area/index.html">SecureArea</a>.</p></div></div></div></div></div><hr><div class="symbol monospace"><span class="token keyword">fun </span><a href="cose-sign1-sign.html"><span class="token function">coseSign1Sign</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">key<span class="token operator">: </span><a href="../../org.multipaz.crypto/-ec-private-key/index.html">EcPrivateKey</a><span class="token punctuation">, </span></span><span class="parameter ">dataToSign<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">includeDataInPayload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">signatureAlgorithm<span class="token operator">: </span><a href="../../org.multipaz.crypto/-algorithm/index.html">Algorithm</a><span class="token punctuation">, </span></span><span class="parameter ">protectedHeaders<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="../-cose-label/index.html">CoseLabel</a><span class="token punctuation">, </span><a href="../../org.multipaz.cbor/-data-item/index.html">DataItem</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">unprotectedHeaders<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="../-cose-label/index.html">CoseLabel</a><span class="token punctuation">, </span><a href="../../org.multipaz.cbor/-data-item/index.html">DataItem</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-cose-sign1/index.html">CoseSign1</a></div><p class="paragraph">Creates a COSE_Sign1 signature.</p><p class="paragraph">By default, no headers are added. Applications likely want to include <a href="-c-o-s-e_-l-a-b-e-l_-a-l-g.html">Cose.COSE_LABEL_ALG</a> in the protected header and if certification is needed, <a href="-c-o-s-e_-l-a-b-e-l_-x5-c-h-a-i-n.html">Cose.COSE_LABEL_X5CHAIN</a> in either the unprotected or protected header.</p><p class="paragraph">This function signs with a software-based <a href="../../org.multipaz.crypto/-ec-private-key/index.html">EcPrivateKey</a>, for using a key in a Secure Area see the other function with the same name but taking a <a href="../../org.multipaz.securearea/-secure-area/index.html">SecureArea</a> and alias.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>key</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the private key to sign with.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>message</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the data to sign.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>include</span><wbr><span>Message</span><wbr><span>In</span><wbr><span><span>Payload</span></span></u></div></span></div><div><div class="title"><p class="paragraph">whether to include the message in the COSE_Sign1 payload.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>signature</span><wbr><span><span>Algorithm</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the signature algorithm to use.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>protected</span><wbr><span><span>Headers</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the protected headers to include.</p></div></div></div></div><div class="table-row" data-filterable-current=":multipaz:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz:dokkaHtmlPartial/commonMain"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>unprotected</span><wbr><span><span>Headers</span></span></u></div></span></div><div><div class="title"><p class="paragraph">the unprotected headers to include.</p></div></div></div></div></div></div></div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

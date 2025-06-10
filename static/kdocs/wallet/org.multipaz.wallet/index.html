@@ -1,0 +1,606 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>org.multipaz.wallet</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":wallet:dokkaHtmlPartial/upstreamRelease">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":wallet:dokkaHtmlPartial/upstreamRelease" data-filter=":wallet:dokkaHtmlPartial/upstreamRelease">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="wallet::org.multipaz.wallet////PointingToDeclaration//-668909217">
+  <div class="breadcrumbs"><a href="../index.html">wallet</a><span class="delimiter">/</span><span class="current">org.multipaz.wallet</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-1275954821%2FClasslikes%2F-668909217" anchor-label="AttributeDisplayInfo" id="-1275954821%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-attribute-display-info/index.html"><span>Attribute</span><wbr><span>Display</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1275954821%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-attribute-display-info/index.html">AttributeDisplayInfo</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1302237968%2FClasslikes%2F-668909217" anchor-label="AttributeDisplayInfoHtml" id="1302237968%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-attribute-display-info-html/index.html"><span>Attribute</span><wbr><span>Display</span><wbr><span>Info</span><wbr><span><span>Html</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1302237968%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-attribute-display-info-html/index.html">AttributeDisplayInfoHtml</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-attribute-display-info/index.html">AttributeDisplayInfo</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1097383860%2FClasslikes%2F-668909217" anchor-label="AttributeDisplayInfoImage" id="-1097383860%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-attribute-display-info-image/index.html"><span>Attribute</span><wbr><span>Display</span><wbr><span>Info</span><wbr><span><span>Image</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1097383860%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-attribute-display-info-image/index.html">AttributeDisplayInfoImage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>image<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Bitmap.html">Bitmap</a></span></span><span class="token punctuation">)</span> : <a href="-attribute-display-info/index.html">AttributeDisplayInfo</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="245455888%2FClasslikes%2F-668909217" anchor-label="AttributeDisplayInfoPlainText" id="245455888%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-attribute-display-info-plain-text/index.html"><span>Attribute</span><wbr><span>Display</span><wbr><span>Info</span><wbr><span>Plain</span><wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="245455888%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-attribute-display-info-plain-text/index.html">AttributeDisplayInfoPlainText</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="-attribute-display-info/index.html">AttributeDisplayInfo</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1533010998%2FClasslikes%2F-668909217" anchor-label="CredentialInfo" id="-1533010998%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-credential-info/index.html"><span>Credential</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1533010998%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable.html"><span class="token annotation builtin">Immutable</span></a></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-credential-info/index.html">CredentialInfo</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>format<span class="token operator">: </span><a href="../../multipaz-provisioning-api/org.multipaz.provisioning/-credential-format/index.html">CredentialFormat</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>description<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>usageCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>signedAt<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>validFrom<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>validUntil<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>expectedUpdate<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>replacementPending<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>details<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1700307060%2FClasslikes%2F-668909217" anchor-label="DocumentDetails" id="-1700307060%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-document-details/index.html"><span>Document</span><wbr><span><span>Details</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1700307060%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-document-details/index.html">DocumentDetails</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>attributes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="-attribute-display-info/index.html">AttributeDisplayInfo</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">A class containing human-readable information (mainly PII) about a document.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1206839558%2FClasslikes%2F-668909217" anchor-label="DocumentInfo" id="1206839558%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-document-info/index.html"><span>Document</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1206839558%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable.html"><span class="token annotation builtin">Immutable</span></a></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-document-info/index.html">DocumentInfo</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>documentId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>attentionNeeded<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>requireUserAuthenticationToViewDocument<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>typeName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentArtwork<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Bitmap.html">Bitmap</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>issuerName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>issuerDocumentDescription<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>issuerLogo<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Bitmap.html">Bitmap</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>lastRefresh<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>status<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>attributes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="-attribute-display-info/index.html">AttributeDisplayInfo</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>credentialInfos<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-credential-info/index.html">CredentialInfo</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1319302203%2FClasslikes%2F-668909217" anchor-label="DocumentModel" id="-1319302203%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-document-model/index.html"><span>Document</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1319302203%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-document-model/index.html">DocumentModel</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">settingsModel<span class="token operator">: </span><a href="-settings-model/index.html">SettingsModel</a><span class="token punctuation">, </span></span><span class="parameter ">documentStore<span class="token operator">: </span><a href="../../multipaz/org.multipaz.document/-document-store/index.html">DocumentStore</a><span class="token punctuation">, </span></span><span class="parameter ">secureAreaRepository<span class="token operator">: </span><a href="../../multipaz/org.multipaz.securearea/-secure-area-repository/index.html">SecureAreaRepository</a><span class="token punctuation">, </span></span><span class="parameter ">documentTypeRepository<span class="token operator">: </span><a href="../../multipaz/org.multipaz.documenttype/-document-type-repository/index.html">DocumentTypeRepository</a><span class="token punctuation">, </span></span><span class="parameter ">walletServerProvider<span class="token operator">: </span><a href="../org.multipaz.wallet.provisioning.remote/-wallet-server-provider/index.html">WalletServerProvider</a><span class="token punctuation">, </span></span><span class="parameter ">walletApplication<span class="token operator">: </span><a href="-wallet-application/index.html">WalletApplication</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1669878379%2FClasslikes%2F-668909217" anchor-label="EventInfo" id="1669878379%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-event-info/index.html"><span>Event</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1669878379%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-event-info/index.html">EventInfo</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>timestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>requesterInfo<span class="token operator">: </span><a href="../org.multipaz.wallet.logging/-event-logger/-requester-info/index.html">EventLogger.RequesterInfo</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>requestedFields<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1265821580%2FClasslikes%2F-668909217" anchor-label="FaceImageClassifier" id="-1265821580%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-face-image-classifier/index.html"><span>Face</span><wbr><span>Image</span><wbr><span><span>Classifier</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1265821580%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-face-image-classifier/index.html">FaceImageClassifier</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">onStateChange<span class="token operator">: </span><span class="token punctuation">(</span><a href="-face-image-classifier/-recognition-state/index.html">FaceImageClassifier.RecognitionState</a><span class="token punctuation">, </span><a href="../../multipaz-provisioning-api/org.multipaz.provisioning.evidence/-evidence-request-selfie-video/-poses/index.html">EvidenceRequestSelfieVideo.Poses</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/androidx/camera/core/ImageAnalysis.Analyzer.html">ImageAnalysis.Analyzer</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1308399998%2FClasslikes%2F-668909217" anchor-label="LogFileProvider" id="-1308399998%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-log-file-provider/index.html"><span>Log</span><wbr><span>File</span><wbr><span><span>Provider</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1308399998%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-log-file-provider/index.html">LogFileProvider</a> : <a href="https://developer.android.com/reference/kotlin/androidx/core/content/FileProvider.html">FileProvider</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-485681561%2FClasslikes%2F-668909217" anchor-label="MainActivity" id="-485681561%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-main-activity/index.html"><span>Main</span><wbr><span><span>Activity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-485681561%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-main-activity/index.html">MainActivity</a> : <a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="214689711%2FClasslikes%2F-668909217" anchor-label="NfcEngagementHandler" id="214689711%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-nfc-engagement-handler/index.html"><span>Nfc</span><wbr><span>Engagement</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="214689711%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-nfc-engagement-handler/index.html">NfcEngagementHandler</a> : <a href="https://developer.android.com/reference/kotlin/android/nfc/cardemulation/HostApduService.html">HostApduService</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-178467804%2FClasslikes%2F-668909217" anchor-label="NfcTunnelScanner" id="-178467804%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-nfc-tunnel-scanner/index.html"><span>Nfc</span><wbr><span>Tunnel</span><wbr><span><span>Scanner</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-178467804%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-nfc-tunnel-scanner/index.html">NfcTunnelScanner</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">provisioningViewModel<span class="token operator">: </span><a href="-provisioning-view-model/index.html">ProvisioningViewModel</a></span></span><span class="token punctuation">)</span> : <a href="../../multipaz-mrtd-reader/org.multipaz.mrtd/-mrtd-nfc-reader/index.html">MrtdNfcReader</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Reads from NFC-card serving commands that come from NFC tunnel.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1983588317%2FClasslikes%2F-668909217" anchor-label="NoMatchingDocumentException" id="1983588317%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-no-matching-document-exception/index.html"><span>No</span><wbr><span>Matching</span><wbr><span>Document</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1983588317%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-no-matching-document-exception/index.html">NoMatchingDocumentException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/java/lang/Exception.html">Exception</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-219250806%2FClasslikes%2F-668909217" anchor-label="PermissionTracker" id="-219250806%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-permission-tracker/index.html"><span>Permission</span><wbr><span><span>Tracker</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-219250806%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-permission-tracker/index.html">PermissionTracker</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity.html">ComponentActivity</a><span class="token punctuation">, </span></span><span class="parameter ">permissions<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">An object that tracks granted permissions and obtains required ones as needed.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1146588966%2FClasslikes%2F-668909217" anchor-label="PresentationActivity" id="1146588966%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-presentation-activity/index.html"><span>Presentation</span><wbr><span><span>Activity</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1146588966%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-presentation-activity/index.html">PresentationActivity</a> : <a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2020329060%2FClasslikes%2F-668909217" anchor-label="ProvisioningViewModel" id="-2020329060%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-provisioning-view-model/index.html"><span>Provisioning</span><wbr><span>View</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2020329060%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-provisioning-view-model/index.html">ProvisioningViewModel</a> : <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel.html">ViewModel</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="720625455%2FClasslikes%2F-668909217" anchor-label="QrEngagementViewModel" id="720625455%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-qr-engagement-view-model/index.html"><span>Qr</span><wbr><span>Engagement</span><wbr><span>View</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="720625455%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-qr-engagement-view-model/index.html">QrEngagementViewModel</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/app/Application.html">Application</a></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/androidx/lifecycle/AndroidViewModel.html">AndroidViewModel</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1480139140%2FClasslikes%2F-668909217" anchor-label="ReaderDataElement" id="1480139140%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-reader-data-element/index.html"><span>Reader</span><wbr><span>Data</span><wbr><span><span>Element</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1480139140%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-reader-data-element/index.html">ReaderDataElement</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>mdocDataElement<span class="token operator">: </span><a href="../../multipaz/org.multipaz.documenttype/-mdoc-data-element/index.html">MdocDataElement</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>value<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>bitmap<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Bitmap.html">Bitmap</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="345523345%2FClasslikes%2F-668909217" anchor-label="ReaderDocument" id="345523345%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-reader-document/index.html"><span>Reader</span><wbr><span><span>Document</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="345523345%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-reader-document/index.html">ReaderDocument</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>docType<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>msoValidFrom<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>msoValidUntil<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>msoSigned<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>msoExpectedUpdate<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>namespaces<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-reader-namespace/index.html">ReaderNamespace</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>infoTexts<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>warningTexts<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1871674861%2FClasslikes%2F-668909217" anchor-label="ReaderModel" id="1871674861%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-reader-model/index.html"><span>Reader</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1871674861%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-reader-model/index.html">ReaderModel</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentTypeRepository<span class="token operator">: </span><a href="../../multipaz/org.multipaz.documenttype/-document-type-repository/index.html">DocumentTypeRepository</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>settingsModel<span class="token operator">: </span><a href="-settings-model/index.html">SettingsModel</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1510296197%2FClasslikes%2F-668909217" anchor-label="ReaderNamespace" id="-1510296197%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-reader-namespace/index.html"><span>Reader</span><wbr><span><span>Namespace</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1510296197%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-reader-namespace/index.html">ReaderNamespace</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dataElements<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="-reader-data-element/index.html">ReaderDataElement</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1132349397%2FClasslikes%2F-668909217" anchor-label="ReaderResponse" id="-1132349397%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-reader-response/index.html"><span>Reader</span><wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1132349397%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-reader-response/index.html">ReaderResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>documents<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-reader-document/index.html">ReaderDocument</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1680082739%2FClasslikes%2F-668909217" anchor-label="SettingsModel" id="-1680082739%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-settings-model/index.html"><span>Settings</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1680082739%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-settings-model/index.html">SettingsModel</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">walletApplication<span class="token operator">: </span><a href="-wallet-application/index.html">WalletApplication</a><span class="token punctuation">, </span></span><span class="parameter ">sharedPreferences<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/SharedPreferences.html">SharedPreferences</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-457147188%2FClasslikes%2F-668909217" anchor-label="SizedResolutionFilter" id="-457147188%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sized-resolution-filter/index.html"><span>Sized</span><wbr><span>Resolution</span><wbr><span><span>Filter</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-457147188%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-sized-resolution-filter/index.html">SizedResolutionFilter</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">targetResolution<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/util/Size.html">Size</a></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/androidx/camera/core/resolutionselector/ResolutionFilter.html">ResolutionFilter</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="279088668%2FClasslikes%2F-668909217" anchor-label="WalletApplication" id="279088668%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-wallet-application/index.html"><span>Wallet</span><wbr><span><span>Application</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="279088668%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">class </span><a href="-wallet-application/index.html">WalletApplication</a> : <a href="https://developer.android.com/reference/kotlin/android/app/Application.html">Application</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1921717232%2FClasslikes%2F-668909217" anchor-label="WalletApplicationConfiguration" id="-1921717232%2FClasslikes%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="[android-jvm]-wallet-application-configuration/index.html"><span>Wallet</span><wbr><span>Application</span><wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1921717232%2FClasslikes%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">object </span><a href="[android-jvm]-wallet-application-configuration/index.html">WalletApplicationConfiguration</a></div><div class="symbol monospace"><span class="token keyword">object </span><a href="[android-jvm]-wallet-application-configuration/index.html">WalletApplicationConfiguration</a></div><div class="brief "><p class="paragraph">Configuration for the Wallet Application.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-725961202%2FFunctions%2F-668909217" anchor-label="createDrivingPrivilegesHtml" id="-725961202%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-driving-privileges-html.html"><span>create</span><wbr><span>Driving</span><wbr><span>Privileges</span><wbr><span><span>Html</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-725961202%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><a href="create-driving-privileges-html.html"><span class="token function">createDrivingPrivilegesHtml</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedElementValue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Creates a string with HTML that renders the Driving Privileges field in a more human-readable format.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-809271833%2FFunctions%2F-668909217" anchor-label="renderDocumentDetails" id="-809271833%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="render-document-details.html"><span>render</span><wbr><span>Document</span><wbr><span><span>Details</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-809271833%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="../../multipaz/org.multipaz.document/-document/index.html">Document</a><span class="token punctuation">.</span><a href="render-document-details.html"><span class="token function">renderDocumentDetails</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">documentTypeRepository<span class="token operator">: </span><a href="../../multipaz/org.multipaz.documenttype/-document-type-repository/index.html">DocumentTypeRepository</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-document-details/index.html">DocumentDetails</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="590934054%2FFunctions%2F-668909217" anchor-label="signWithUnlock" id="590934054%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="sign-with-unlock.html"><span>sign</span><wbr><span>With</span><wbr><span><span>Unlock</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="590934054%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="sign-with-unlock.html"><span class="token function">signWithUnlock</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">activity<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/fragment/app/FragmentActivity.html">FragmentActivity</a><span class="token punctuation">, </span></span><span class="parameter ">title<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">subtitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">secureArea<span class="token operator">: </span><a href="../../multipaz/org.multipaz.securearea/-secure-area/index.html">SecureArea</a><span class="token punctuation">, </span></span><span class="parameter ">alias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">messageToSign<span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.io.bytestring/ByteString///PointingToDeclaration/">ByteString</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1700066396%2FFunctions%2F-668909217" anchor-label="timedChunk" id="1700066396%2FFunctions%2F-668909217" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":wallet:dokkaHtmlPartial/upstreamRelease" data-filterable-set=":wallet:dokkaHtmlPartial/upstreamRelease">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="timed-chunk.html"><span>timed</span><wbr><span><span>Chunk</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1700066396%2FFunctions%2F-668909217"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":wallet:dokkaHtmlPartial/upstreamRelease"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="timed-chunk.html">T</a><span class="token operator">&gt; </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="timed-chunk.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="timed-chunk.html"><span class="token function">timedChunk</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">periodMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-duration/index.html">Duration</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="timed-chunk.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

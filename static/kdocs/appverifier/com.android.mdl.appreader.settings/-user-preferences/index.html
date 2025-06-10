@@ -1,0 +1,442 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>UserPreferences</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":appverifier:dokkaHtmlPartial/release">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":appverifier:dokkaHtmlPartial/release" data-filter=":appverifier:dokkaHtmlPartial/release">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="appverifier::com.android.mdl.appreader.settings/UserPreferences///PointingToDeclaration//-1162245746">
+  <div class="breadcrumbs"><a href="../../index.html">appverifier</a><span class="delimiter">/</span><a href="../index.html">com.android.mdl.appreader.settings</a><span class="delimiter">/</span><span class="current">UserPreferences</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>User</span><wbr><span><span>Preferences</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">UserPreferences</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">preferences<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/SharedPreferences.html">SharedPreferences</a></span></span><span class="token punctuation">)</span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-2135435468%2FConstructors%2F-1162245746" anchor-label="UserPreferences" id="-2135435468%2FConstructors%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-user-preferences.html"><span>User</span><wbr><span><span>Preferences</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2135435468%2FConstructors%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">preferences<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/SharedPreferences.html">SharedPreferences</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="2027335307%2FFunctions%2F-1162245746" anchor-label="getReaderAuthentication" id="2027335307%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-reader-authentication.html"><span>get</span><wbr><span>Reader</span><wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2027335307%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-reader-authentication.html"><span class="token function">getReaderAuthentication</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1596122470%2FFunctions%2F-1162245746" anchor-label="isAutoCloseConnectionEnabled" id="-1596122470%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-auto-close-connection-enabled.html"><span>is</span><wbr><span>Auto</span><wbr><span>Close</span><wbr><span>Connection</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1596122470%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-auto-close-connection-enabled.html"><span class="token function">isAutoCloseConnectionEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-325806003%2FFunctions%2F-1162245746" anchor-label="isBleCentralClientModeEnabled" id="-325806003%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-ble-central-client-mode-enabled.html"><span>is</span><wbr><span>Ble</span><wbr><span>Central</span><wbr><span>Client</span><wbr><span>Mode</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-325806003%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-ble-central-client-mode-enabled.html"><span class="token function">isBleCentralClientModeEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1420001405%2FFunctions%2F-1162245746" anchor-label="isBleClearCacheEnabled" id="-1420001405%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-ble-clear-cache-enabled.html"><span>is</span><wbr><span>Ble</span><wbr><span>Clear</span><wbr><span>Cache</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1420001405%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-ble-clear-cache-enabled.html"><span class="token function">isBleClearCacheEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="481406646%2FFunctions%2F-1162245746" anchor-label="isBleL2capEnabled" id="481406646%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-ble-l2cap-enabled.html"><span>is</span><wbr><span>Ble</span><wbr><span>L2cap</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="481406646%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-ble-l2cap-enabled.html"><span class="token function">isBleL2capEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1052613000%2FFunctions%2F-1162245746" anchor-label="isBlePeripheralClientModeEnabled" id="-1052613000%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-ble-peripheral-client-mode-enabled.html"><span>is</span><wbr><span>Ble</span><wbr><span>Peripheral</span><wbr><span>Client</span><wbr><span>Mode</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1052613000%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-ble-peripheral-client-mode-enabled.html"><span class="token function">isBlePeripheralClientModeEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1107052655%2FFunctions%2F-1162245746" anchor-label="isDebugLoggingEnabled" id="-1107052655%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-debug-logging-enabled.html"><span>is</span><wbr><span>Debug</span><wbr><span>Logging</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1107052655%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-debug-logging-enabled.html"><span class="token function">isDebugLoggingEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="353984152%2FFunctions%2F-1162245746" anchor-label="isHttpTransferEnabled" id="353984152%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-http-transfer-enabled.html"><span>is</span><wbr><span>Http</span><wbr><span>Transfer</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="353984152%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-http-transfer-enabled.html"><span class="token function">isHttpTransferEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1580533513%2FFunctions%2F-1162245746" anchor-label="isNfcTransferEnabled" id="1580533513%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-nfc-transfer-enabled.html"><span>is</span><wbr><span>Nfc</span><wbr><span>Transfer</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1580533513%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-nfc-transfer-enabled.html"><span class="token function">isNfcTransferEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-258258340%2FFunctions%2F-1162245746" anchor-label="isWifiAwareEnabled" id="-258258340%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-wifi-aware-enabled.html"><span>is</span><wbr><span>Wifi</span><wbr><span>Aware</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-258258340%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="is-wifi-aware-enabled.html"><span class="token function">isWifiAwareEnabled</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-614605435%2FFunctions%2F-1162245746" anchor-label="setAutoCloseConnectionEnabled" id="-614605435%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-auto-close-connection-enabled.html"><span>set</span><wbr><span>Auto</span><wbr><span>Close</span><wbr><span>Connection</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-614605435%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-auto-close-connection-enabled.html"><span class="token function">setAutoCloseConnectionEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1768478612%2FFunctions%2F-1162245746" anchor-label="setBleCentralClientModeEnabled" id="-1768478612%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-ble-central-client-mode-enabled.html"><span>set</span><wbr><span>Ble</span><wbr><span>Central</span><wbr><span>Client</span><wbr><span>Mode</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1768478612%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-ble-central-client-mode-enabled.html"><span class="token function">setBleCentralClientModeEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-743486674%2FFunctions%2F-1162245746" anchor-label="setBleClearCacheEnabled" id="-743486674%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-ble-clear-cache-enabled.html"><span>set</span><wbr><span>Ble</span><wbr><span>Clear</span><wbr><span>Cache</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-743486674%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-ble-clear-cache-enabled.html"><span class="token function">setBleClearCacheEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1294035477%2FFunctions%2F-1162245746" anchor-label="setBleL2capEnabled" id="1294035477%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-ble-l2cap-enabled.html"><span>set</span><wbr><span>Ble</span><wbr><span>L2cap</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1294035477%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-ble-l2cap-enabled.html"><span class="token function">setBleL2capEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="803277283%2FFunctions%2F-1162245746" anchor-label="setBlePeripheralClientModeEnabled" id="803277283%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-ble-peripheral-client-mode-enabled.html"><span>set</span><wbr><span>Ble</span><wbr><span>Peripheral</span><wbr><span>Client</span><wbr><span>Mode</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="803277283%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-ble-peripheral-client-mode-enabled.html"><span class="token function">setBlePeripheralClientModeEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1627290288%2FFunctions%2F-1162245746" anchor-label="setDebugLoggingEnabled" id="1627290288%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-debug-logging-enabled.html"><span>set</span><wbr><span>Debug</span><wbr><span>Logging</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1627290288%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-debug-logging-enabled.html"><span class="token function">setDebugLoggingEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-962344585%2FFunctions%2F-1162245746" anchor-label="setHttpTransferEnabled" id="-962344585%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-http-transfer-enabled.html"><span>set</span><wbr><span>Http</span><wbr><span>Transfer</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-962344585%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-http-transfer-enabled.html"><span class="token function">setHttpTransferEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="290087348%2FFunctions%2F-1162245746" anchor-label="setNfcTransferEnabled" id="290087348%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-nfc-transfer-enabled.html"><span>set</span><wbr><span>Nfc</span><wbr><span>Transfer</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="290087348%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-nfc-transfer-enabled.html"><span class="token function">setNfcTransferEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1991947299%2FFunctions%2F-1162245746" anchor-label="setReaderAuthentication" id="-1991947299%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-reader-authentication.html"><span>set</span><wbr><span>Reader</span><wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1991947299%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-reader-authentication.html"><span class="token function">setReaderAuthentication</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">authentication<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-794662585%2FFunctions%2F-1162245746" anchor-label="setWifiAwareEnabled" id="-794662585%2FFunctions%2F-1162245746" data-filterable-set=":appverifier:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":appverifier:dokkaHtmlPartial/release" data-filterable-set=":appverifier:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-wifi-aware-enabled.html"><span>set</span><wbr><span>Wifi</span><wbr><span>Aware</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-794662585%2FFunctions%2F-1162245746"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":appverifier:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-wifi-aware-enabled.html"><span class="token function">setWifiAwareEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

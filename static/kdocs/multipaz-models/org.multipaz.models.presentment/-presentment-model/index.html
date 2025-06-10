@@ -1,0 +1,480 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>PresentmentModel</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active="" data-filter=":multipaz-models:dokkaHtmlPartial/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-models:dokkaHtmlPartial/commonMain" data-filter=":multipaz-models:dokkaHtmlPartial/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="multipaz-models::org.multipaz.models.presentment/PresentmentModel///PointingToDeclaration//551006398">
+  <div class="breadcrumbs"><a href="../../index.html">multipaz-models</a><span class="delimiter">/</span><a href="../index.html">org.multipaz.models.presentment</a><span class="delimiter">/</span><span class="current">PresentmentModel</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Presentment</span><wbr><span><span>Model</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">PresentmentModel</a></div><p class="paragraph">A model used for credential presentment.</p><p class="paragraph">This model implements the entire UX/UI flow related to presentment, including</p><ul><li><p class="paragraph">Allowing the user to cancel at any time, including when the connection is being established.</p></li><li><p class="paragraph">Querying the user for which document to present, if multiple credentials can satisfy the request.</p></li><li><p class="paragraph">Showing a consent dialog.</p></li><li><p class="paragraph">Generating the response and sending it to the verifier, via the selected mechanism.</p></li><li><p class="paragraph">Support for multiple requests if both sides keep the connection open</p></li></ul></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1377564844%2FConstructors%2F551006398" anchor-label="PresentmentModel" id="-1377564844%2FConstructors%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-presentment-model.html"><span>Presentment</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1377564844%2FConstructors%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-245761251%2FClasslikes%2F551006398" anchor-label="Companion" id="-245761251%2FClasslikes%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-245761251%2FClasslikes%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="870521925%2FClasslikes%2F551006398" anchor-label="ConsentData" id="870521925%2FClasslikes%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-consent-data/index.html"><span>Consent</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="870521925%2FClasslikes%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-consent-data/index.html">ConsentData</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>document<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.document/-document/index.html">Document</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>request<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.request/-request/index.html">Request</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>trustPoint<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.trustmanagement/-trust-point/index.html">TrustPoint</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Data to include in the consent prompt.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1358332485%2FClasslikes%2F551006398" anchor-label="DismissType" id="1358332485%2FClasslikes%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-dismiss-type/index.html"><span>Dismiss</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1358332485%2FClasslikes%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-dismiss-type/index.html">DismissType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-dismiss-type/index.html">PresentmentModel.DismissType</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Three different ways the close/dismiss button can be triggered.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-364616392%2FClasslikes%2F551006398" anchor-label="State" id="-364616392%2FClasslikes%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-state/index.html"><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-364616392%2FClasslikes%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-state/index.html">State</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-state/index.html">PresentmentModel.State</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Possible states that the model can be in.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1147098443%2FProperties%2F551006398" anchor-label="availableDocuments" id="-1147098443%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="available-documents.html"><span>available</span><wbr><span><span>Documents</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1147098443%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="available-documents.html">availableDocuments</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../../multipaz/org.multipaz.document/-document/index.html">Document</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">The list of available documents to pick from.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-10532558%2FProperties%2F551006398" anchor-label="consentData" id="-10532558%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="consent-data.html"><span>consent</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-10532558%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="consent-data.html">consentData</a><span class="token operator">: </span><a href="-consent-data/index.html">PresentmentModel.ConsentData</a></div><div class="brief "><p class="paragraph">The data to show in the consent dialog.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1384817358%2FProperties%2F551006398" anchor-label="dismissable" id="-1384817358%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dismissable.html"><span><span>dismissable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1384817358%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="dismissable.html">dismissable</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/StateFlow///PointingToDeclaration/">StateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Returns whether the presentment can be dismissed/canceled.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-537647794%2FProperties%2F551006398" anchor-label="error" id="-537647794%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="error.html"><span><span>error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-537647794%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="error.html">error</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">If presentment fails, this will be set with a <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a> with more information about the failure.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1893004131%2FProperties%2F551006398" anchor-label="mechanism" id="-1893004131%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mechanism.html"><span><span>mechanism</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1893004131%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="mechanism.html">mechanism</a><span class="token operator">: </span><a href="../-presentment-mechanism/index.html">PresentmentMechanism</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The mechanism being used to communicate with the credential reader.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="76720247%2FProperties%2F551006398" anchor-label="numRequestsServed" id="76720247%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="num-requests-served.html"><span>num</span><wbr><span>Requests</span><wbr><span><span>Served</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="76720247%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="num-requests-served.html">numRequestsServed</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/StateFlow///PointingToDeclaration/">StateFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Number of requests served.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="415005353%2FProperties%2F551006398" anchor-label="presentmentScope" id="415005353%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="presentment-scope.html"><span>presentment</span><wbr><span><span>Scope</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="415005353%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="presentment-scope.html">presentmentScope</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span></div><div class="brief "><p class="paragraph">A <span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span> for the presentment process.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2002835593%2FProperties%2F551006398" anchor-label="source" id="2002835593%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="source.html"><span><span>source</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2002835593%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="source.html">source</a><span class="token operator">: </span><a href="../-presentment-source/index.html">PresentmentSource</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The source which provides data to present.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1152380645%2FProperties%2F551006398" anchor-label="state" id="1152380645%2FProperties%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="state.html"><span><span>state</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1152380645%2FProperties%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="state.html">state</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/StateFlow///PointingToDeclaration/">StateFlow</span><span class="token operator">&lt;</span><a href="-state/index.html">PresentmentModel.State</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">The current state.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1270832778%2FFunctions%2F551006398" anchor-label="consentReviewed" id="1270832778%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="consent-reviewed.html"><span>consent</span><wbr><span><span>Reviewed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1270832778%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="consent-reviewed.html"><span class="token function">consentReviewed</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">consentObtained<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The UI layer should call this when a user has reviewed the consent data.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1023212801%2FFunctions%2F551006398" anchor-label="dismiss" id="1023212801%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dismiss.html"><span><span>dismiss</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1023212801%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="dismiss.html"><span class="token function">dismiss</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dismissType<span class="token operator">: </span><a href="-dismiss-type/index.html">PresentmentModel.DismissType</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Should be called by the UI layer if the user hits the dismiss button.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1692345265%2FFunctions%2F551006398" anchor-label="documentSelected" id="-1692345265%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="document-selected.html"><span>document</span><wbr><span><span>Selected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1692345265%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="document-selected.html"><span class="token function">documentSelected</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">document<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.document/-document/index.html">Document</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The UI layer should call this when a user has selected a document.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2029828121%2FFunctions%2F551006398" anchor-label="reset" id="-2029828121%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reset.html"><span><span>reset</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2029828121%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="reset.html"><span class="token function">reset</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Resets the model to <a href="-state/-i-d-l-e/index.html">State.IDLE</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1120681627%2FFunctions%2F551006398" anchor-label="setCompleted" id="1120681627%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-completed.html"><span>set</span><wbr><span><span>Completed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1120681627%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-completed.html"><span class="token function">setCompleted</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">error<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throwable/index.html">Throwable</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the model to <a href="-state/-c-o-m-p-l-e-t-e-d/index.html">State.COMPLETED</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1220793820%2FFunctions%2F551006398" anchor-label="setConnecting" id="1220793820%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-connecting.html"><span>set</span><wbr><span><span>Connecting</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1220793820%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-connecting.html"><span class="token function">setConnecting</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the model to <a href="-state/-c-o-n-n-e-c-t-i-n-g/index.html">State.CONNECTING</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1084677992%2FFunctions%2F551006398" anchor-label="setMechanism" id="1084677992%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-mechanism.html"><span>set</span><wbr><span><span>Mechanism</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1084677992%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-mechanism.html"><span class="token function">setMechanism</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mechanism<span class="token operator">: </span><a href="../-presentment-mechanism/index.html">PresentmentMechanism</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the <a href="../-presentment-mechanism/index.html">PresentmentMechanism</a> to use.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-89624398%2FFunctions%2F551006398" anchor-label="setPromptModel" id="-89624398%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-prompt-model.html"><span>set</span><wbr><span>Prompt</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-89624398%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-prompt-model.html"><span class="token function">setPromptModel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">promptModel<span class="token operator">: </span><a href="../../../multipaz/org.multipaz.prompt/-prompt-model/index.html">PromptModel</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Provides <a href="../../../multipaz/org.multipaz.prompt/-prompt-model/index.html">PromptModel</a>, required if presentment involves popping up any prompts, such as biometrics or passphrase.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-300165446%2FFunctions%2F551006398" anchor-label="setSource" id="-300165446%2FFunctions%2F551006398" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain"></a>
+          <div class="table-row" data-filterable-current=":multipaz-models:dokkaHtmlPartial/commonMain" data-filterable-set=":multipaz-models:dokkaHtmlPartial/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-source.html"><span>set</span><wbr><span><span>Source</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-300165446%2FFunctions%2F551006398"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-models:dokkaHtmlPartial/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-source.html"><span class="token function">setSource</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">source<span class="token operator">: </span><a href="../-presentment-source/index.html">PresentmentSource</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the <a href="../-presentment-source/index.html">PresentmentSource</a> to use for presentment.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

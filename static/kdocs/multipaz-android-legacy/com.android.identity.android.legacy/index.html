@@ -1,0 +1,512 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.android.identity.android.legacy</title>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../index.html">
+                    MultipazProject
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":multipaz-android-legacy:dokkaHtmlPartial/release">androidJvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filter=":multipaz-android-legacy:dokkaHtmlPartial/release">
+                                <span class="checkbox--icon"></span>
+                                androidJvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    MultipazProject
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="multipaz-android-legacy::com.android.identity.android.legacy////PointingToDeclaration//-1012618143">
+  <div class="breadcrumbs"><a href="../index.html">multipaz-android-legacy</a><span class="delimiter">/</span><span class="current">com.android.identity.android.legacy</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-108816482%2FClasslikes%2F-1012618143" anchor-label="AccessControlProfile" id="-108816482%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-access-control-profile/index.html"><span>Access</span><wbr><span>Control</span><wbr><span><span>Profile</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-108816482%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-access-control-profile/index.html">AccessControlProfile</a></div><div class="brief ">A class used to specify access controls.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1992609917%2FClasslikes%2F-1012618143" anchor-label="AccessControlProfileId" id="-1992609917%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-access-control-profile-id/index.html"><span>Access</span><wbr><span>Control</span><wbr><span>Profile</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1992609917%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-access-control-profile-id/index.html">AccessControlProfileId</a></div><div class="brief ">A class used to wrap an access control profile identifiers.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1667554727%2FClasslikes%2F-1012618143" anchor-label="AlreadyPersonalizedException" id="1667554727%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-already-personalized-exception/index.html"><span>Already</span><wbr><span>Personalized</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1667554727%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-already-personalized-exception/index.html">AlreadyPersonalizedException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown if trying to create a credential which already exists.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1753004473%2FClasslikes%2F-1012618143" anchor-label="CipherSuiteNotSupportedException" id="-1753004473%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cipher-suite-not-supported-exception/index.html"><span>Cipher</span><wbr><span>Suite</span><wbr><span>Not</span><wbr><span>Supported</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1753004473%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cipher-suite-not-supported-exception/index.html">CipherSuiteNotSupportedException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown if trying to use a cipher suite which isn't supported.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="106745702%2FClasslikes%2F-1012618143" anchor-label="CredentialDataRequest" id="106745702%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-credential-data-request/index.html"><span>Credential</span><wbr><span>Data</span><wbr><span><span>Request</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="106745702%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-credential-data-request/index.html">CredentialDataRequest</a></div><div class="brief ">An object representing a request for credential data.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1960374448%2FClasslikes%2F-1012618143" anchor-label="CredentialDataResult" id="-1960374448%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-credential-data-result/index.html"><span>Credential</span><wbr><span>Data</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1960374448%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-credential-data-result/index.html">CredentialDataResult</a></div><div class="brief ">An object that contains the result of retrieving data from a credential.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1078880593%2FClasslikes%2F-1012618143" anchor-label="CredentialInvalidatedException" id="1078880593%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-credential-invalidated-exception/index.html"><span>Credential</span><wbr><span>Invalidated</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1078880593%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-credential-invalidated-exception/index.html">CredentialInvalidatedException</a> : <a href="https://developer.android.com/reference/kotlin/java/lang/IllegalStateException.html">IllegalStateException</a></div><div class="brief ">Thrown if underlying key material for a credential has been invalidated.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="913219820%2FClasslikes%2F-1012618143" anchor-label="DocTypeNotSupportedException" id="913219820%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-doc-type-not-supported-exception/index.html"><span>Doc</span><wbr><span>Type</span><wbr><span>Not</span><wbr><span>Supported</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="913219820%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-doc-type-not-supported-exception/index.html">DocTypeNotSupportedException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown if trying to create a credential with an unsupported document type.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1334047597%2FClasslikes%2F-1012618143" anchor-label="EphemeralPublicKeyNotFoundException" id="1334047597%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ephemeral-public-key-not-found-exception/index.html"><span>Ephemeral</span><wbr><span>Public</span><wbr><span>Key</span><wbr><span>Not</span><wbr><span>Found</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1334047597%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-ephemeral-public-key-not-found-exception/index.html">EphemeralPublicKeyNotFoundException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown if the ephemeral public key was not found in the session transcript passed to <a href="-identity-credential/get-entries.html">getEntries</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2005291136%2FClasslikes%2F-1012618143" anchor-label="HardwarePresentationSession" id="-2005291136%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-hardware-presentation-session/index.html"><span>Hardware</span><wbr><span>Presentation</span><wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2005291136%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/RequiresApi.html"><span class="token annotation builtin">RequiresApi</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/android/os/Build.VERSION_CODES.html">Build.VERSION_CODES.TIRAMISU</a></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">open </span><span class="token keyword">class </span><a href="-hardware-presentation-session/index.html">HardwarePresentationSession</a> : <a href="-presentation-session/index.html">PresentationSession</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1791890137%2FClasslikes%2F-1012618143" anchor-label="IdentityCredential" id="1791890137%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-identity-credential/index.html"><span>Identity</span><wbr><span><span>Credential</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1791890137%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-identity-credential/index.html">IdentityCredential</a></div><div class="brief ">Class used to read data from a previously provisioned credential.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1474210106%2FClasslikes%2F-1012618143" anchor-label="IdentityCredentialException" id="1474210106%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-identity-credential-exception/index.html"><span>Identity</span><wbr><span>Credential</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1474210106%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-identity-credential-exception/index.html">IdentityCredentialException</a> : <a href="https://developer.android.com/reference/kotlin/java/lang/Exception.html">Exception</a></div><div class="brief ">Base class for all Identity Credential exceptions.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1739397912%2FClasslikes%2F-1012618143" anchor-label="IdentityCredentialStore" id="-1739397912%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-identity-credential-store/index.html"><span>Identity</span><wbr><span>Credential</span><wbr><span><span>Store</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1739397912%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-identity-credential-store/index.html">IdentityCredentialStore</a></div><div class="brief ">An interface to a secure store for user identity documents.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1505492477%2FClasslikes%2F-1012618143" anchor-label="InvalidReaderSignatureException" id="-1505492477%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-invalid-reader-signature-exception/index.html"><span>Invalid</span><wbr><span>Reader</span><wbr><span>Signature</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1505492477%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-invalid-reader-signature-exception/index.html">InvalidReaderSignatureException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown if the reader signature is invalid, or it doesn't contain a certificate chain, or if the signature failed to validate.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1105751890%2FClasslikes%2F-1012618143" anchor-label="InvalidRequestMessageException" id="-1105751890%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-invalid-request-message-exception/index.html"><span>Invalid</span><wbr><span>Request</span><wbr><span>Message</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1105751890%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-invalid-request-message-exception/index.html">InvalidRequestMessageException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown if message with the request doesn't satisfy the requirements documented in <a href="-identity-credential/get-entries.html">getEntries</a>.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1150671073%2FClasslikes%2F-1012618143" anchor-label="MessageDecryptionException" id="1150671073%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-decryption-exception/index.html"><span>Message</span><wbr><span>Decryption</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1150671073%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-message-decryption-exception/index.html">MessageDecryptionException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown when failing to decrypt a message from the reader device.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-464489816%2FClasslikes%2F-1012618143" anchor-label="NoAuthenticationKeyAvailableException" id="-464489816%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-no-authentication-key-available-exception/index.html"><span>No</span><wbr><span>Authentication</span><wbr><span>Key</span><wbr><span>Available</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-464489816%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-no-authentication-key-available-exception/index.html">NoAuthenticationKeyAvailableException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown if no dynamic authentication keys are available.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2024106266%2FClasslikes%2F-1012618143" anchor-label="PersonalizationData" id="-2024106266%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-personalization-data/index.html"><span>Personalization</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2024106266%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-personalization-data/index.html">PersonalizationData</a></div><div class="brief ">An object that holds personalization data.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-189912931%2FClasslikes%2F-1012618143" anchor-label="PlatformCredentialDataResult" id="-189912931%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-platform-credential-data-result/index.html"><span>Platform</span><wbr><span>Credential</span><wbr><span>Data</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-189912931%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/RequiresApi.html"><span class="token annotation builtin">RequiresApi</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/android/os/Build.VERSION_CODES.html">Build.VERSION_CODES.TIRAMISU</a></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">open </span><span class="token keyword">class </span><a href="-platform-credential-data-result/index.html">PlatformCredentialDataResult</a> : <a href="-credential-data-result/index.html">CredentialDataResult</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-401357704%2FClasslikes%2F-1012618143" anchor-label="PresentationSession" id="-401357704%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-presentation-session/index.html"><span>Presentation</span><wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-401357704%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-presentation-session/index.html">PresentationSession</a></div><div class="brief ">Class for presenting multiple documents to a remote verifier.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1225823847%2FClasslikes%2F-1012618143" anchor-label="ResultData" id="1225823847%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-result-data/index.html"><span>Result</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1225823847%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-result-data/index.html"><strike>ResultData</strike></a></div><div class="brief ">An object that contains the result of retrieving data from a credential.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1576108670%2FClasslikes%2F-1012618143" anchor-label="Timestamp" id="1576108670%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-timestamp/index.html"><span><span>Timestamp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1576108670%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-timestamp/index.html">Timestamp</a></div><div class="brief "><p class="paragraph">Represents a single instant in time. Ideally, we'd use <code class="lang-kotlin">java.time.Instant</code>, but we cannot do so until we move to API level 26.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="871504610%2FClasslikes%2F-1012618143" anchor-label="UnknownAuthenticationKeyException" id="871504610%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-unknown-authentication-key-exception/index.html"><span>Unknown</span><wbr><span>Authentication</span><wbr><span>Key</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="871504610%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-unknown-authentication-key-exception/index.html">UnknownAuthenticationKeyException</a> : <a href="-identity-credential-exception/index.html">IdentityCredentialException</a></div><div class="brief ">Thrown if trying to certify an unknown dynamic authentication key.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1607197164%2FClasslikes%2F-1012618143" anchor-label="Util" id="1607197164%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-util/index.html"><span><span>Util</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1607197164%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="-util/index.html">Util</a></div><div class="brief "><p class="paragraph">Utility functions.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="169726888%2FClasslikes%2F-1012618143" anchor-label="Utility" id="169726888%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-utility/index.html"><span><span>Utility</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="169726888%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-utility/index.html">Utility</a></div><div class="brief ">Miscellaneous utility functions that are useful when building mdoc applications.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="325899801%2FClasslikes%2F-1012618143" anchor-label="WritableIdentityCredential" id="325899801%2FClasslikes%2F-1012618143" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":multipaz-android-legacy:dokkaHtmlPartial/release" data-filterable-set=":multipaz-android-legacy:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-writable-identity-credential/index.html"><span>Writable</span><wbr><span>Identity</span><wbr><span><span>Credential</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="325899801%2FClasslikes%2F-1012618143"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":multipaz-android-legacy:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="-writable-identity-credential/index.html">WritableIdentityCredential</a></div><div class="brief ">Class used to personalize a new identity credential.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
