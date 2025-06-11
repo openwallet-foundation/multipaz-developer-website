@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# developer-multipaz-website
-Repo for Multipaz Developer Website
-=======
 # Website
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
@@ -43,4 +39,51 @@ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
->>>>>>> 9c1422d (initial commit)
+
+## CI Config
+
+### Overview
+This project uses two repositories with automated documentation integration:
+
+Kotlin Repo: Source code with KDocs
+Docusaurus Repo: Documentation site that displays the generated API docs
+
+```
+
+┌─────────────────────┐     ┌──────────────────────┐
+│  Kotlin Repository  │     │ Docusaurus Repository│
+│                     │     │                      │
+│  ┌───────────────┐  │     │  ┌───────────────┐   │
+│  │  Source Code  │  │     │  │  Markdown     │   │
+│  └───────┬───────┘  │     │  │  Documentation│   │
+│          │          │     │  └───────────────┘   │
+│  ┌───────▼───────┐  │     │                      │
+│  │  Dokka Tool   │  │     │  ┌───────────────┐   │
+│  └───────┬───────┘  │     │  │  Static Dir   │   │
+│          │          │     │  │  ┌─────────┐  │   │
+│  ┌───────▼───────┐  │     │  │  │ /api/   │◄─┼───┘
+│  │ Generated     │  │     │  │  └─────────┘  │   │
+│  │ API Docs      │──┼─────┼─►│               │   │
+│  └───────────────┘  │     │  └───────────────┘   │
+└─────────────────────┘     └──────────────────────┘
+
+```
+
+### Automation Workflow
+[Code Changes] → [Trigger Action] → [Build KDocs] → [Copy to Docusaurus] → [Deploy Site]
+
+GitHub Actions Setup
+
+1. In Kotlin Repository => [.github/workflows/trigger-docusaurus-update.yml](https://github.com/VishnuSanal/multipaz-identity-credential/blob/main/.github/workflows/trigger-docusaurus-update.yml)
+2. In Docusaurus Repository => [.github/workflows/docs.yml](https://github.com/openmobilehub/developer-multipaz-website/blob/main/.github/workflows/docs.yml)
+
+### Required Repository Settings
+
+Secrets:
+
+- In Kotlin repo: `DOCS_REPO_ACCESS_TOKEN` (GitHub PAT with repo scope)
+- In Docusaurus repo (if Kotlin repo is private): KOTLIN_REPO_ACCESS_TOKEN
+
+### GitHub Pages:
+
+In Docusaurus repo: Enable GitHub Pages with GitHub Actions as source
