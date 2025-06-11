@@ -47,16 +47,55 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: './sidebars.js'
         },
         theme: {
           customCss: './src/css/custom.css',
         },
       }),
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'overview', 
+        path: 'overview',
+        routeBasePath: 'overview',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'contributing', 
+        path: 'contributing',
+        routeBasePath: 'contributing',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'codelabs', 
+        path: 'codelabs',
+        routeBasePath: 'codelabs',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'showcase', 
+        path: 'showcase',
+        routeBasePath: 'showcase',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'changelog', 
+        path: 'changelog',
+        routeBasePath: 'changelog',
+      },
     ],
   ],
 
@@ -72,14 +111,7 @@ const config = {
           src: 'img/multipaz.png',
         },
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Overview',
-          // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
-          {to: '/docs/overview/getting-started', label: 'Get Started', position: 'left'},
+          {to: '/overview/getting-started', label: 'Get Started', position: 'left'},
           {
             label: 'API Reference',
             to: '/kdocs',
@@ -87,12 +119,22 @@ const config = {
           },
           {
             label: 'Codelabs',
-            to: '/docs/codelabs/intro',
+            to: '/codelabs/codelabs',
             position: 'left',
           },
           {
             label: 'Contributing',
-            to: '/docs/contributing',
+            to: '/contributing/contributing',
+            position: 'left',
+          },
+          {
+            label: 'Changelog',
+            to: '/changelog/changelog',
+            position: 'left',
+          },
+          {
+            label: 'Showcase',
+            to: '/showcase/showcase',
             position: 'left',
           },
           {

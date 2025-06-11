@@ -1,4 +1,4 @@
-# Google Open Source Community Guidelines
+# Contributing
 
 At Google, we recognize and celebrate the creativity and collaboration of open
 source contributors and the diversity of skills, experiences, cultures, and
