@@ -112,10 +112,15 @@ const config = {
           src: 'img/multipaz.png',
         },
         items: [
-          {to: '/overview/getting-started', label: 'Get Started', position: 'left'},
+          {
+            label: 'Get Started',
+            to: '/overview/getting-started',
+            position: 'left'
+          },
           {
             label: 'API Reference',
-            to: '/kdocs',
+            href: '/kdocs/index.html',
+            target: '_blank',
             position: 'left',
           },
           {
@@ -153,15 +158,16 @@ const config = {
             items: [
               {
                 label: 'Get Started',
-                to: '/docs/getting-started',
+                to: '/overview/getting-started',
               },
               {
                 label: 'API Reference',
-                to: '/kdocs',
+                target: '_blank',
+                href: '/kdocs/index.html',
               },
               {
                 label: 'Codelabs',
-                to: '/docs/codelabs',
+                to: '/codelabs/codelabs',
               },
             ],
           },
@@ -174,7 +180,7 @@ const config = {
               },
               {
                 label: 'Showcase',
-                href: '/showcase/',
+                href: '/showcase/showcase',
               },
             ],
           },
