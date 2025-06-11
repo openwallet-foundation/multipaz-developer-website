@@ -34,8 +34,11 @@ jobs:
       - name: Checkout Kotlin Repository
         uses: actions/checkout@v4
         with:
-          repository: openwallet-foundation-labs/identity-credential
+          repository: VishnuSanal/multipaz-identity-credential
           path: kotlin-repo
+          ref: 'kdocs'
+          fetch-depth: 0
+          fetch-tags: true
           # If your Kotlin repo is private, you'll need a token with access
           # token: ${{ secrets.KOTLIN_REPO_ACCESS_TOKEN }}
 
