@@ -1,9 +1,8 @@
 name: Build and Deploy Docusaurus with KDocs
 
 on:
-  # Trigger on pushes to main branch in Docusaurus repo
+  # Trigger on pushes to any branch in Docusaurus repo
   push:
-    branches: [main]
   # Also trigger on workflow dispatch for manual runs
   workflow_dispatch:
   # Optionally trigger when there are changes in the Kotlin repo
