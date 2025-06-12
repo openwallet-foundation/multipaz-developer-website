@@ -1,21 +1,16 @@
 name: Build and Deploy Docusaurus with KDocs
 
 on:
-  # Trigger on pushes to any branch in Docusaurus repo
   push:
-  # Also trigger on workflow dispatch for manual runs
   workflow_dispatch:
-  # Optionally trigger when there are changes in the Kotlin repo
   repository_dispatch:
     types: [kotlin-repo-updated]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -38,8 +33,6 @@ jobs:
           ref: 'kdocs'
           fetch-depth: 0
           fetch-tags: true
-          # If your Kotlin repo is private, you'll need a token with access
-          # token: ${{ secrets.KOTLIN_REPO_ACCESS_TOKEN }}
 
       - name: Set up JDK
         uses: actions/setup-java@v3
@@ -64,10 +57,8 @@ jobs:
       - name: Create API directory in Docusaurus static folder
         run: mkdir -p docusaurus-repo/static/kdocs
 
-      - name: Copy KDocs to Docusaurus
-        run: |
-          cp -R kotlin-repo/build/dokka/htmlMultiModule/* docusaurus-repo/static/kdocs/
-          echo "KDocs copied to Docusaurus static/api directory"
+      - name: Copy KDocs and markdown files to Docusaurus
+        run: ./copy_docs.sh
 
       - name: Install Docusaurus dependencies
         run: |
