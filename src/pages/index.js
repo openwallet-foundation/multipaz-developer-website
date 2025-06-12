@@ -33,8 +33,8 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`${siteConfig.title}`}
+      description="Multipaz is an identity framework designed to handle secure, real-world credential issuance and verification."
     >
       <HomepageHeader />
       <main>

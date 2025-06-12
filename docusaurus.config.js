@@ -13,7 +13,7 @@ require('dotenv').config();
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Multipaz',
-  tagline: 'Digital Identity Simplified!',
+  tagline: 'Multipaz is an identity framework designed to handle secure, real-world credential issuance and verification.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -112,12 +112,12 @@ const config = {
         },
         items: [
           {
-            label: 'Get Started',
-            to: '/overview/getting-started',
+            label: 'Overview',
+            to: '/overview/overview',
             position: 'left'
           },
           {
-            label: 'API Reference',
+            label: 'API Reference ↗',
             href: '/kdocs/index.html',
             target: '_blank',
             position: 'left',
@@ -143,7 +143,7 @@ const config = {
             position: 'left',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/openwallet-foundation-labs/identity-credential',
             label: 'GitHub',
             position: 'right',
           },
@@ -160,7 +160,7 @@ const config = {
                 to: '/overview/getting-started',
               },
               {
-                label: 'API Reference',
+                label: 'API Reference ↗',
                 target: '_blank',
                 href: '/kdocs/index.html',
               },

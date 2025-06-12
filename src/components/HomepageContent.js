@@ -1,30 +1,32 @@
 import React from 'react';
 import styles from './HomepageContent.module.css';
+import Link from '@docusaurus/Link';
 
 const cards = [
   {
     title: 'API Reference',
     description: 'Explore comprehensive documentation for every API endpoint.',
     icon: '📘',
-    link: '/docs/api-reference',
+    link: 'kdocs/index.html',
+    target: '_blank',
   },
   {
     title: 'Codelabs',
     description: 'Hands-on tutorials to guide you through key concepts.',
     icon: '🧪',
-    link: '/docs/codelabs',
+    link: 'codelabs/codelabs',
   },
   {
     title: 'Sample Apps',
     description: 'Review practical examples to help you build quickly.',
     icon: '💡',
-    link: '/docs/sample-apps',
+    link: '#',
   },
   {
     title: 'Showcase Apps',
     description: 'See real-world apps built with our platform.',
     icon: '🌟',
-    link: '/docs/showcase-apps',
+    link: 'showcase/showcase',
   },
 ];
 
@@ -32,11 +34,11 @@ export default function HomepageContent() {
   return (
     <div className={styles.container}>
       {cards.map((card) => (
-        <a key={card.title} href={card.link} className={styles.card}>
+        <Link key={card.title} to={card.link} target={card.target} className={styles.card}>
           <div className={styles.icon}>{card.icon}</div>
           <h3 className={styles.title}>{card.title}</h3>
           <p className={styles.description}>{card.description}</p>
-        </a>
+        </Link>
       ))}
     </div>
   );

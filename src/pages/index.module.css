@@ -21,10 +21,3 @@
   align-items: center;
   justify-content: center;
 }
-
-a[target="_blank"]::after {
-  content: " ↗";
-  font-size: 0.8em;
-  display: inline-block;
-  margin-left: 3px;
-}

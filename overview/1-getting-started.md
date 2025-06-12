@@ -1,4 +1,4 @@
-# Getting Started
+# Get Started
 
 Multipaz is an identity framework designed to handle secure, real-world credential issuance and
 verification. This guide helps developers to quickly get familiar with the APIs by walking you
@@ -7,7 +7,8 @@ through the end-to-end identity flow -- from issuing a digital ID to verifying i
 The guide follows the **Credential Lifecycle** – and the guidance to implement each of the steps
 using Multipaz.
 
-![Credential Lifecycle](https://github.com/user-attachments/assets/878890c1-bf5e-49b6-b739-039a0bfd888e)
+![Credential Lifecycle](/img/lifecycle.png#gh-light-mode-only)
+![Credential Lifecycle](/img/lifecycle-dark.png#gh-dark-mode-only)
 
 ## Installation of Dependencies
 
