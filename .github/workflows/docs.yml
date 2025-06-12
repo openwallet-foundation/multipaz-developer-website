@@ -34,6 +34,14 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
+      - name: Get Kotlin Repo Commit Hash
+        id: kotlin-commit
+        run: |
+          cd kotlin-repo
+          COMMIT_HASH=$(git rev-parse HEAD)
+          echo "commit_hash=$COMMIT_HASH" >> $GITHUB_OUTPUT
+          echo "Latest commit hash: $COMMIT_HASH"
+
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
@@ -41,7 +49,17 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
+      # Cache the Dokka output using the commit hash
+      - name: Cache KDocs
+        id: cache-kdocs
+        uses: actions/cache@v3
+        with:
+          path: kotlin-repo/build/dokka
+          key: kdocs-${{ steps.kotlin-commit.outputs.commit_hash }}
+
+      # Only run Dokka if there was a cache miss
       - name: Generate KDocs with Dokka
+        if: steps.cache-kdocs.outputs.cache-hit != 'true'
         run: |
           cd kotlin-repo
           ./gradlew dokkaHtmlMultiModule
