@@ -82,8 +82,8 @@ jobs:
           npm run build
         env:
           NODE_ENV: production
-          # Set your base URL if needed
-          # BASE_URL: '/your-repo-name/'
+          DOCUSAURUS_URL: https://${{ github.repository_owner }}.github.io
+          DOCUSAURUS_BASEURL: /${{ github.event.repository.name }}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
