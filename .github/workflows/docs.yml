@@ -30,7 +30,7 @@ jobs:
         with:
           repository: VishnuSanal/multipaz-identity-credential
           path: kotlin-repo
-          ref: 'kdocs'
+          ref: 'main'
           fetch-depth: 0
           fetch-tags: true
 
