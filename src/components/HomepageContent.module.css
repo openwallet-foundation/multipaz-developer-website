@@ -8,7 +8,7 @@
 }
 
 .card {
-  background: #fff;
+  background: var(--ifm-background-color);
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
@@ -37,5 +37,4 @@
 
 .description {
   font-size: 0.95rem;
-  color: #555;
 }
