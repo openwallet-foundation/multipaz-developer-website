@@ -58,7 +58,7 @@ jobs:
         run: mkdir -p docusaurus-repo/static/kdocs
 
       - name: Copy KDocs and markdown files to Docusaurus
-        run: ./copy_docs.sh
+        run: ./docusaurus-repo/copy_docs.sh
 
       - name: Install Docusaurus dependencies
         run: |
@@ -74,7 +74,7 @@ jobs:
         env:
           NODE_ENV: production
           DOCUSAURUS_URL: https://${{ github.repository_owner }}.github.io
-          DOCUSAURUS_BASEURL: /${{ github.event.repository.name }}/
+          DOCUSAURUS_BASEURL: ${{ github.event.repository.name }}/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
