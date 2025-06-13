@@ -117,6 +117,11 @@ const config = {
             position: 'left'
           },
           {
+            label: "Get Started",
+            to: "/overview/getting-started",
+            position: "left",
+          },
+          {
             label: 'API Reference ↗',
             href: '/kdocs/index.html',
             target: '_blank',
