@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const showcaseApps = [
   {
@@ -27,7 +28,7 @@ export default function ShowcaseGrid() {
     >
       {showcaseApps.map(app => (
         <div key={app.name} style={{ background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px rgba(0,0,0,0.06)', padding: 24, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={app.logo} alt={app.name + ' logo'} style={{ width: 96, height: 96, objectFit: 'contain', marginBottom: 16, borderRadius: 8 }} />
+          <img src={useBaseUrl(app.logo)} alt={app.name + ' logo'} style={{ width: 96, height: 96, objectFit: 'contain', marginBottom: 16, borderRadius: 8 }} />
           <h3 style={{ margin: '0 0 8px' }}>{app.name}</h3>
           <div style={{ fontSize: 14, color: '#888', marginBottom: 8 }}>
             {app.platforms.join(' • ')}

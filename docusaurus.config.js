@@ -163,15 +163,13 @@ const config = {
           },
           
           {
-            href: 'https://github.com/openwallet-foundation-labs/identity-credential',
+            type: 'html',
             position: 'right',
-            className: 'navbar-github-link',
-            'aria-label': 'GitHub repository',
-            icon: true,
-            html: `
-            <img src="/img/GitHub_Invertocat_Dark.svg" alt="GitHub" style="height:32px;vertical-align:middle;display:inline;" class="github-logo-dark" />
-            <img src="/img/GitHub_Invertocat_Light.svg" alt="GitHub" style="height:32px;vertical-align:middle;display:none;" class="github-logo-light" />
-           `,
+            value: `
+              <a href="https://github.com/openwallet-foundation-labs/identity-credential" target="_blank" aria-label="GitHub repository" style="display: flex; align-items: center;">
+                <img src="https://raw.githubusercontent.com/openmobilehub/developer-multipaz-website/refs/heads/main/static/img/GitHub_Invertocat_Dark.png" alt="GitHub" width="28" height="28" style="vertical-align: middle;" />
+              </a>
+            `,
           },
           {
             label: 'Community',
@@ -181,7 +179,7 @@ const config = {
                 type: 'html',
                 value: `
                   <a href="https://discord.com/channels/1022962884864643214/1179828955717574707" target="_blank" style="display: flex; align-items: center; gap: 0.5em; text-decoration: none; color: inherit;">
-                    <img src="/img/Discord-Symbol-Blurple.svg" alt="Discord" width="20" height="20" style="vertical-align: middle;" />
+                    <img src="https://raw.githubusercontent.com/openmobilehub/developer-multipaz-website/refs/heads/main/static/img/Discord-Symbol-Blurple.svg" alt="Discord" width="20" height="20" style="vertical-align: middle;" />
                     Discord
                   </a>
                 `,
@@ -190,7 +188,7 @@ const config = {
                 type: 'html',
                 value: `
                   <a href="https://x.com/TBD-MULTIPAZ" target="_blank" style="display: flex; align-items: center; gap: 0.5em; text-decoration: none; color: inherit;">
-                    <img src="/img/x-logo-black.png" alt="X" width="14" height="14" style="vertical-align: middle; border-radius: 4px;" />
+                    <img src="https://github.com/openmobilehub/developer-multipaz-website/blob/main/static/img/x-logo-black.png?raw=true" alt="X" width="14" height="14" style="vertical-align: middle; border-radius: 4px;" />
                     X
                   </a>
                 `,
