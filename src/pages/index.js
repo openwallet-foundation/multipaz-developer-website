@@ -12,6 +12,7 @@ function HomepageHeader() {
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
+        <img src="/img/multipaz.png" alt="Multipaz Logo" style={{ height: 192, marginBottom: 20 }} />
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
