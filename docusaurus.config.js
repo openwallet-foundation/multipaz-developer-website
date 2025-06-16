@@ -14,7 +14,7 @@ require('dotenv').config();
 const config = {
   title: 'Multipaz',
   tagline: 'Multipaz is an identity framework designed to handle secure, real-world credential issuance and verification.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/multipaz.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -46,8 +46,15 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
+        /* docs: {
           sidebarPath: './sidebars.js'
+        }, */
+        docs:false,
+        blog: {
+          showReadingTime: true,
+          blogTitle: 'Multipaz Blog',
+          blogDescription: 'News, updates, and stories from the Multipaz team.',
+          postsPerPage: 10,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -60,11 +67,13 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'overview', 
-        path: 'overview',
-        routeBasePath: 'overview',
+        // No id means this is the default docs instance
+        path: 'docs',
+        routeBasePath: 'docs', // or '/' for root
+        //sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
+
     [
       '@docusaurus/plugin-content-docs',
       {
@@ -76,17 +85,9 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'codelabs', 
+        id: 'codelabs',
         path: 'codelabs',
         routeBasePath: 'codelabs',
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'showcase', 
-        path: 'showcase',
-        routeBasePath: 'showcase',
       },
     ],
     [
@@ -112,45 +113,89 @@ const config = {
         },
         items: [
           {
-            label: 'Overview',
-            to: '/overview/overview',
-            position: 'left'
-          },
-          {
-            label: "Get Started",
-            to: "/overview/getting-started",
+            label: "Guides",
+            to: "/docs",
             position: "left",
           },
           {
-            label: 'API Reference ↗',
+            label: 'SDKs',
+            position: 'left',
+            className: 'navbar-sdks-dropdown',
+            items: [
+              {
+                type: 'html',
+                value: '<b class="dropdown-header" style="padding: 0 8px; color: var(--ifm-navbar-link-color);">Mobile KMP</b>',
+              },
+              { label: 'Multipaz Core SDK', to: '/docs/mobile/core-sdk' },
+              { label: 'Multipaz Compose SDK', to: '/docs/mobile/ui-kit' },
+              {
+                type: 'html',
+                value: '<b class="dropdown-header" style="padding: 0 8px; color: var(--ifm-navbar-link-color);">Server</b>',
+              },
+              { label: 'OpenID4VCI SDK', to: '/docs/server/core-sdk' },
+            ],
+          },
+          {
+            label: 'API ↗',
             href: '/kdocs/index.html',
             target: '_blank',
             position: 'left',
           },
           {
             label: 'Codelabs',
-            to: '/codelabs/codelabs',
+            to: '/codelabs',
             position: 'left',
           },
           {
             label: 'Contributing',
-            to: '/contributing/contributing',
-            position: 'left',
-          },
-          {
-            label: 'Changelog',
-            to: '/changelog/changelog',
+            to: '/contributing',
             position: 'left',
           },
           {
             label: 'Showcase',
-            to: '/showcase/showcase',
+            to: '/showcase',
             position: 'left',
           },
           {
+            label: 'Blog',
+            to: '/blog',
+            position: 'left',
+          },
+          
+          {
             href: 'https://github.com/openwallet-foundation-labs/identity-credential',
-            label: 'GitHub',
             position: 'right',
+            className: 'navbar-github-link',
+            'aria-label': 'GitHub repository',
+            icon: true,
+            html: `
+            <img src="/img/GitHub_Invertocat_Dark.svg" alt="GitHub" style="height:32px;vertical-align:middle;display:inline;" class="github-logo-dark" />
+            <img src="/img/GitHub_Invertocat_Light.svg" alt="GitHub" style="height:32px;vertical-align:middle;display:none;" class="github-logo-light" />
+           `,
+          },
+          {
+            label: 'Community',
+            position: 'right',
+            items: [
+              {
+                type: 'html',
+                value: `
+                  <a href="https://discord.com/channels/1022962884864643214/1179828955717574707" target="_blank" style="display: flex; align-items: center; gap: 0.5em; text-decoration: none; color: inherit;">
+                    <img src="/img/Discord-Symbol-Blurple.svg" alt="Discord" width="20" height="20" style="vertical-align: middle;" />
+                    Discord
+                  </a>
+                `,
+              },
+              {
+                type: 'html',
+                value: `
+                  <a href="https://x.com/TBD-MULTIPAZ" target="_blank" style="display: flex; align-items: center; gap: 0.5em; text-decoration: none; color: inherit;">
+                    <img src="/img/x-logo-black.png" alt="X" width="14" height="14" style="vertical-align: middle; border-radius: 4px;" />
+                    X
+                  </a>
+                `,
+              },
+            ],
           },
         ],
       },
@@ -162,7 +207,7 @@ const config = {
             items: [
               {
                 label: 'Get Started',
-                to: '/overview/getting-started',
+                to: '/docs/getting-started',
               },
               {
                 label: 'API Reference ↗',
@@ -171,7 +216,7 @@ const config = {
               },
               {
                 label: 'Codelabs',
-                to: '/codelabs/codelabs',
+                to: '/codelabs',
               },
             ],
           },
@@ -184,7 +229,7 @@ const config = {
               },
               {
                 label: 'Showcase',
-                href: '/showcase/showcase',
+                href: '/showcase',
               },
             ],
           },
@@ -198,11 +243,19 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Open Wallet Foundation. Built with <a href="https://github.com/facebook/docusaurus">Docusaurus</a>.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Open Wallet Foundation.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      announcementBar: {
+        id: 'multipaz-summit-2024',
+        content:
+          '🎉 Join us for the Global Digital Collaboration Conference! <a href="https://globaldigitalcollaboration.org/agenda?day=2025-07-02" style="color: #fff; text-decoration: underline;">Learn more</a>',
+        backgroundColor: 'var(--ifm-color-primary)',
+        textColor: '#fff',
+        isCloseable: true,
       },
     }),
 };

@@ -1,16 +1,9 @@
-# Get Started
+---
+title: Installation
+sidebar_position: 1
+---
 
-Multipaz is an identity framework designed to handle secure, real-world credential issuance and
-verification. This guide helps developers to quickly get familiar with the APIs by walking you
-through the end-to-end identity flow -- from issuing a digital ID to verifying it across devices.
-
-The guide follows the **Credential Lifecycle** – and the guidance to implement each of the steps
-using Multipaz.
-
-![Credential Lifecycle](/img/lifecycle.png#gh-light-mode-only)
-![Credential Lifecycle](/img/lifecycle-dark.png#gh-dark-mode-only)
-
-## Installation of Dependencies
+# Installation of Dependencies
 
 To get started with Multipaz, you need to add the necessary dependencies to your project. This guide
 assumes you are using Gradle as your build system.

@@ -33,3 +33,75 @@
 [data-theme='dark'] img[src$='#gh-light-mode-only'] {
   display: none;
 }
+
+.github-logo-light {
+  display: inline;
+}
+.github-logo-dark {
+  display: none;
+}
+[data-theme='dark'] .github-logo-light {
+  display: none;
+}
+[data-theme='dark'] .github-logo-dark {
+  display: inline;
+}
+[data-theme='light'] .github-logo-light {
+  display: inline;
+}
+[data-theme='light'] .github-logo-dark {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .showcase-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Make all doc cards the same height and improve spacing */
+.docCard {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Only extend the width of the SDKs navbar dropdown and prevent text wrapping for its items */
+.navbar__item.navbar-sdks-dropdown .navbar__dropdown {
+  min-width: 500px;
+  max-width: none;
+  width: auto;
+}
+.navbar__item.navbar-sdks-dropdown .navbar__dropdown .dropdown__link {
+  white-space: nowrap;
+}
+
+/* If you want to keep the global style, uncomment below:
+.navbar__dropdown {
+  min-width: 260px;
+}
+.navbar__dropdown .dropdown__link {
+  white-space: nowrap;
+}
+*/
+
+/* Prevent wrapping for SDKs dropdown section headers */
+.navbar__item.navbar-sdks-dropdown .dropdown-header {
+  white-space: nowrap;
+  display: block;
+  padding: 4px 8px;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+/* Force SDKs dropdown to never wrap section headers and remove all width limits */
+.navbar__item.navbar-sdks-dropdown .navbar__dropdown,
+.navbar__item.navbar-sdks-dropdown .navbar__dropdown * {
+  min-width: 500px !important;
+  max-width: none !important;
+  width: auto !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
