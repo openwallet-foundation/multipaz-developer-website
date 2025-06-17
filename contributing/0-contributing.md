@@ -1,4 +1,4 @@
 <!-- placeholder file -- do not edit -->
 <!-- will be replaced by the CI upon deployment -->
 
-# How to Contribute
+# Contributing
