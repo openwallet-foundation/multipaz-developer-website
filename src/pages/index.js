@@ -7,12 +7,16 @@ import Heading from "@theme/Heading";
 import styles from "./index.module.css";
 import HomepageContent from "../components/HomepageContent";
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
-        <img src="/img/multipaz.png" alt="Multipaz Logo" style={{ height: 192, marginBottom: 20 }} />
+        <img src={useBaseUrl("/img/multipaz.png")} alt="Multipaz Logo" style={{ height: 192, marginBottom: 20 }} />
+       
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
