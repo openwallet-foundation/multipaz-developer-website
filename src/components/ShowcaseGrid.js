@@ -6,14 +6,14 @@ const showcaseApps = [
   {
     name: 'Google Wallet',
     logo: '/img/google-wallet-alone.png',
-    platforms: ['Android', 'iOS'],
+    platforms: ['Android'],
     description: 'A digital wallet platform by Google that uses Multipaz for secure credential management.',
     link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.walletnfcrel',
   },
   {
     name: 'EU Digital Identity Wallet',
     logo: '/img/eudi-wallet-square.png',
-    platforms: ['Android', 'iOS'],
+    platforms: ['Android'],
     description: 'The official EU Digital Identity Wallet, leveraging Multipaz for digital identity.',
     link: 'https://github.com/eu-digital-identity-wallet',
   },
