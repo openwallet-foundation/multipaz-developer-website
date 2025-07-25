@@ -3,6 +3,8 @@ title: Verifier
 sidebar_position: 4
 ---
 
+import ThemedIframe from '../../src/components/ThemedIframe';
+
 ## **🕵️ Verifier**
 
 Learn how to implement a Verifier app using the Multipaz SDK to request and validate verifiable credentials from users, enabling secure and privacy-preserving identity verification.
@@ -37,7 +39,11 @@ To ensure your verifier app can validate the authenticity of documents from hold
 4. **Scan the document's QR code**
     1. The app will trust the document if the issuer is recognized.
 
-[This](https://github.com/davidz25/MpzIdentityReader/blob/cdd2a4f05c2cb6e95014f66683b90986ce07a35d/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/TrustedIssuersScreen.kt#L156-L160) section deals with the loading of the IACA certs to the TrustManager in the MpzIdentityReader app.
+<ThemedIframe
+  githubUrl="https://github.com/davidz25/MpzIdentityReader/blob/cdd2a4f05c2cb6e95014f66683b90986ce07a35d/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/TrustedIssuersScreen.kt#L156-L160"
+/>
+
+The above section deals with the loading of the IACA certs to the TrustManager in the MpzIdentityReader app.
 
 ## **🏢 Issuer Trust**
 
@@ -64,10 +70,18 @@ Multipaz distinguishes between two types of trust:
     * Verifies the identity of verifier (reader) apps requesting credentials.
     * This was already handled in the holder/reader trust section (todo: link)
 
-[This](https://github.com/davidz25/MpzIdentityReader/blob/cdd2a4f05c2cb6e95014f66683b90986ce07a35d/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/ShowResultsScreen.kt#L144-L210) section deals with the verification of trust of the received document in the MpzIdentityReader app.
+<ThemedIframe
+  githubUrl="https://github.com/davidz25/MpzIdentityReader/blob/cdd2a4f05c2cb6e95014f66683b90986ce07a35d/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/ShowResultsScreen.kt#L144-L210"
+/>
+
+The above section deals with the verification of trust of the received document in the MpzIdentityReader app.
 
 ## **📷 Read a QR Code**
 
-[This](https://github.com/davidz25/MpzIdentityReader/blob/cdd2a4f05c2cb6e95014f66683b90986ce07a35d/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/ScanQrScreen.kt#L90-L103) section deals with the reading of a QR code in the MpzIdentityReader app.
+The following section deals with the reading of a QR code in the MpzIdentityReader app.
+
+<ThemedIframe
+  githubUrl="https://github.com/davidz25/MpzIdentityReader/blob/cdd2a4f05c2cb6e95014f66683b90986ce07a35d/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/ScanQrScreen.kt#L90-L103"
+/>
 
 By following these steps and using the MpzIdentityReader app as a reference, you can develop a robust verifier app that securely checks the authenticity and provenance of digital credentials.
