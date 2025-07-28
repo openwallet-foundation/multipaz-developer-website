@@ -12,54 +12,49 @@ Welcome to this sample codelab! This guide will walk you through the key phases 
 
 ## 1. Issuance
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim, nec dictum urna elit nec urna. 
+Issues a digital identity credential to a user.
 
 **Steps:**
-- Register a new user
-- Issue a digital credential
-- Save the credential to the user's wallet
+- Follows the OpenID for Verifiable Credential Issuance (OpenID4VCI) protocol.
+- Credentials are signed by a trusted issuer (e.g., government or institution).
+- Delivered securely to the user’s device (holder app).
 
 ---
 
 ## 2. Storage
 
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Stores the issued credentials securely on the holder’s device.
 
 **Key Points:**
-- Securely store credentials in the Multipaz wallet
-- Ensure privacy and data protection
+-Stored in a secure wallet app.
+-Credentials can be encrypted and selectively retrieved.
+-Supports multiple credentials from different issuers.
 
 ---
 
-## 3. Presentation
+## 3. Share Credentials
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+Allows the user (holder) to share their credentials with a verifier.
 
-**Scenario:**
+**Key Points:**
 - User selects a credential to present
 - Multipaz formats the credential for sharing
+- Uses QR code, NFC, or Bluetooth LE to transmit data.
+- Adheres to ISO/IEC 18013-5:2021 for secure, offline credential sharing.
+- Enables selective disclosure—only chosen fields are shared.
+- No Internet required during sharing.
 
 ---
 
 ## 4. Verification
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+Verifies the authenticity and validity of received credentials.
 
-**Verification Flow:**
-- Verifier requests credential
-- Multipaz verifies authenticity and integrity
-- User consents to share
-
----
-
-## 5. Revocations
-
-Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
-
-**Revocation Steps:**
-- Issuer revokes a credential
-- Multipaz updates the wallet to reflect revocation
-- User and verifier are notified of the change
+**Key Points:**
+- Validates the digital signature using IACA and DS certificates.
+- Ensures the credential is untampered and issued by a trusted authority.
+- Performed offline using the Multipaz Identity Reader.
+- Displays the credential content to the verifier for inspection.
 
 ---
 
