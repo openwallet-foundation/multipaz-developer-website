@@ -1,4 +1,3 @@
-<!-- placeholder file -- do not edit -->
-<!-- will be replaced by the CI upon deployment -->
+# Code of Conduct
 
-# Google Open Source Community Guidelines
+The LF Europe Code of Conduct listed at http://lfeurope.be/policies applies for all collaborators and maintainers of the Identity Credential / Multipaz Project.
