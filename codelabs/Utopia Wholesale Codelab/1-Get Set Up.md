@@ -9,7 +9,7 @@ sidebar_position: 1
 Clone the codelab code using below command and open it **Android Studio**.
 
 ```shell
-git clone -b feature/sample-refactor https://github.com/openmobilehub/multipaz-utopia-wholesale-codelab.git
+git clone -b feature/code-starter https://github.com/openmobilehub/multipaz-utopia-wholesale-codelab.git
 ```
 
 The `sample-refactor` branch contains several folders, such as `Issuance` and `Storage` and others, which guide you through the programming process step by step.
