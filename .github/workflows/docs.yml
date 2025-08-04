@@ -94,7 +94,7 @@ jobs:
         env:
           NODE_ENV: production
           DOCUSAURUS_URL: https://${{ github.repository_owner }}.github.io
-          DOCUSAURUS_BASEURL: ${{ github.event.repository.name }}/
+          DOCUSAURUS_BASEURL: /
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
