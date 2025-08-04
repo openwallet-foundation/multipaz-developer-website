@@ -11,11 +11,11 @@ const showcaseApps = [
     link: 'https://play.google.com/store/apps/details?id=com.google.android.apps.walletnfcrel',
   },
   {
-    name: 'EU Digital Identity Wallet',
-    logo: '/img/eudi-wallet-square.png',
+    name: 'Scytáles AB',
+    logo: '/img/scytales_logo.png',
     platforms: ['Android'],
-    description: 'The official EU Digital Identity Wallet, leveraging Multipaz for digital identity.',
-    link: 'https://github.com/eu-digital-identity-wallet',
+    description: 'A leading provider of digital identity solutions in Europe, Scytáles AB uses Multipaz to power secure credential verification for the official EU Digital Identity Wallet.',
+    link: 'https://github.com/search?q=org%3Aniscy-eudiw+multipaz&type=code',
   },
   // Add more apps as needed
 ];

@@ -90,14 +90,7 @@ const config = {
         routeBasePath: 'codelabs',
       },
     ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'changelog', 
-        path: 'changelog',
-        routeBasePath: 'changelog',
-      },
-    ],
+
   ],
 
   themeConfig:
@@ -113,27 +106,14 @@ const config = {
         },
         items: [
           {
-            label: "Guides",
+            label: "Getting Started",
             to: "/docs",
             position: "left",
           },
           {
-            label: 'SDKs',
+            label: 'Codelabs',
+            to: '/codelabs',
             position: 'left',
-            className: 'navbar-sdks-dropdown',
-            items: [
-              {
-                type: 'html',
-                value: '<b class="dropdown-header" style="padding: 0 8px; color: var(--ifm-navbar-link-color);">Mobile KMP</b>',
-              },
-              { label: 'Multipaz Core SDK', to: '/docs/mobile/core-sdk' },
-              { label: 'Multipaz Compose SDK', to: '/docs/mobile/ui-kit' },
-              {
-                type: 'html',
-                value: '<b class="dropdown-header" style="padding: 0 8px; color: var(--ifm-navbar-link-color);">Server</b>',
-              },
-              { label: 'OpenID4VCI SDK', to: '/docs/server/core-sdk' },
-            ],
           },
           {
             label: 'API ↗',
@@ -142,9 +122,14 @@ const config = {
             position: 'left',
           },
           {
-            label: 'Codelabs',
-            to: '/codelabs',
+            label: 'Applications',
             position: 'left',
+            items: [
+              { label: 'Android Apps', href: 'https://apps.multipaz.org/', target: '_blank' },
+              { label: 'Web Verifier App', href: 'https://verifier.multipaz.org/', target: '_blank' },
+              { label: 'Issuer Portal', href: 'https://issuer.multipaz.org/', target: '_blank' },
+              { label: 'Identity Reader Backend', href: 'https://verifier.multipaz.org/identityreaderbackend/', target: '_blank' },
+            ],
           },
           {
             label: 'Contributing',

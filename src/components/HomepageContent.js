@@ -14,7 +14,7 @@ const cards = [
     title: 'Codelabs',
     description: 'Hands-on tutorials to guide you through key concepts.',
     icon: '🧪',
-    link: 'codelabs/codelabs',
+    link: '/codelabs',
   },
   {
     title: 'Sample Apps',
@@ -26,7 +26,7 @@ const cards = [
     title: 'Showcase Apps',
     description: 'See real-world apps built with our platform.',
     icon: '🌟',
-    link: 'showcase/showcase',
+    link: '/showcase',
   },
 ];
 
