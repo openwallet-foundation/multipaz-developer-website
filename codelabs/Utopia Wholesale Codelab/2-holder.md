@@ -151,7 +151,7 @@ now is captured from the system clock. The credential is considered signed at si
 
 ### **Step 2: Add the IACA certificate**
 
-Get pre-generated Authority Certificate Authority (IACA) certificate and private_key 
+Get pre-generated Authority Certificate Authority (IACA) certificate and private_key ,the certificate will be shared to Verifier so holder will be in Verifier's issuer trust list
 ```kotlin
 val iacaCert = X509Cert.fromPem(
    iaca_Cert
@@ -218,6 +218,53 @@ if (DigitalCredentials.Default.available) {
 }
 
 ```
+
+
+### **Step 6: Add Verifier Certificate**
+
+
+The Holder app also needs to add the Verifier (Reader) certificate to its trust list. This ensures that the Holder can recognize and trust the Verifier during credential sharing. The Verifier's certificate can be downloaded from the Multipaz Verifier [website](https://verifier.multipaz.org/identityreaderbackend/). Below is the code snippet demonstrating how to add the Verifier's certificate to the trust list:
+```
+   addTrustPoint(
+                    TrustPoint(
+                        certificate = X509Cert.fromPem(
+                            getReader_Root_Cert().trimIndent().trim() # Verifier's cert
+                        ),
+                        displayName = "OWF Multipaz TestApp",
+                        displayIcon = null,
+                        privacyPolicyUrl = "https://apps.multipaz.org"
+                    )
+                )
+
+```
+
+
+---
+
+# How to Generate a Certificate (Optional)
+In above step "Add the IACA certificate" mentions `iaca_private_key` (iaca private key)and `iaca_Cert`(iaca certificate)
+This section shows how to generate your own iaca certificate and  iaca private key.
+
+### Step 1: Add `multipazctl` to Your System Path
+
+Follow the official instructions:  
+👉 [Command-Line Tool Setup](https://github.com/openwallet-foundation-labs/identity-credential?tab=readme-ov-file#command-line-tool)
+
+Once set up, you can run `multipazctl` like any other terminal command.
+
+### Step 2: Generate the IACA Certificate and Private Key
+
+Run the following command:
+
+```bash
+multipazctl generateIaca
+```
+
+This will generate:
+- `iaca_certificate.pem` — used by the Verifier (contains the public key)
+- `iaca_private_key.pem` — private key
+
+
 ---
 
 # Share Credentials
