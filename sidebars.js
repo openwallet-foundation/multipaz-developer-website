@@ -15,7 +15,26 @@
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
 const sidebars = {
-
+  docs: [
+    'index',
+    {
+      type: 'category',
+      label: 'Getting Started',
+      link: {
+        type: 'doc',
+        id: 'getting-started/getting-started',
+      },
+      items: [
+        'getting-started/installation',
+        'getting-started/holder',
+        'getting-started/issuer',
+        'getting-started/verifier',
+      ],
+      collapsed: false,
+      collapsible: true,
+    },
+    'sample-apps',
+  ],
 };
 
 export default sidebars;

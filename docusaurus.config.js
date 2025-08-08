@@ -70,7 +70,7 @@ const config = {
         // No id means this is the default docs instance
         path: 'docs',
         routeBasePath: 'docs', // or '/' for root
-        //sidebarPath: require.resolve('./sidebars.js'),
+        sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
 
@@ -88,6 +88,7 @@ const config = {
         id: 'codelabs',
         path: 'codelabs',
         routeBasePath: 'codelabs',
+        sidebarPath: require.resolve('./sidebars.codelabs.js'),
       },
     ],
 
