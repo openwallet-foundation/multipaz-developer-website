@@ -200,7 +200,7 @@ By following these steps, you can securely create and provision an mDoc credenti
 Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/7500a92ead53cdeca3c6131000c3f7ec07284349/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L105-L161) part for the implementation of the Creating an MdocCredential section of this guide.
 
 :::info Looking for a more realistic flow?
-The example above uses helpful defaults for quick onboarding. If you're exploring how to construct credentials manually — including MSO creation, issuer namespaces, and authentication — check out this [advanced sample](https://github.com/dzuluaga/multipaz-getting-started-testing/blob/v1.0.0-holder-example/composeApp/src/commonMain/kotlin/org/example/project/App.kt#L532-L701) created by a core contributor.
+The example above uses helpful defaults for quick onboarding. If you're exploring how to construct credentials manually — including MSO creation, issuer namespaces, and authentication — check out this [advanced sample](https://github.com/dzuluaga/multipaz-getting-started-testing/blob/v1.1.0-age-verification/composeApp/src/commonMain/kotlin/org/example/project/App.kt#L539-L727) created by a core contributor.
 :::
 
 ### **🔍 Lookup and Manage Documents**
