@@ -17,7 +17,7 @@ Before working with identity documents in Multipaz, you need to initialize platf
 
 `Storage` is responsible for securely holding data items on the device.
 
-Multipaz provides platform-specific implementations through the `Platform.getNonBackedUpStorage()` method:
+Multipaz provides platform-specific implementations through the `Platform.nonBackedUpStorage` object:
 
 * **Android**: uses local encrypted storage.
 * **iOS**: wraps native secure storage.
@@ -54,8 +54,8 @@ lateinit var storage: Storage
 lateinit var secureArea: SecureArea
 lateinit var secureAreaRepository: SecureAreaRepository
 //. . .
-storage = org.multipaz.util.Platform.getNonBackedUpStorage()
-secureArea = org.multipaz.util.Platform.getSecureArea(storage)
+storage = org.multipaz.util.Platform.nonBackedUpStorage
+secureArea = org.multipaz.util.Platform.getSecureArea()
 secureAreaRepository = SecureAreaRepository.Builder()
          .add(secureArea)
          .build()
@@ -324,97 +324,93 @@ To establish reader trust, add trusted verifier app certificates to your trust m
 
 ```kotlin
 lateinit var readerTrustManager: TrustManager
+
 //. . .
+
 // Initialize TrustManager
 // Three certificates are configured to handle different verification scenarios:
 // 1. OWF Multipaz TestApp - for testing with the Multipaz test application
 // 2. Multipaz Identity Reader - for APK downloaded from https://apps.multipaz.org/ (production devices with secure boot)
 //    Certificate available from: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
-// 3. Multipaz Identity Reader (Untrusted Devices) - for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
+// 3. Multipaz Identity Reader (Untrusted Devices) - for app compiled from source code at https://github.com/davidzMpzIdentityReader
 //    Certificate available from: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
-readerTrustManager = TrustManager().apply {
-    addTrustPoint(
-        TrustPoint(
-            certificate = X509Cert.fromPem( // Multipaz TestApp certificate
-                """
-                -----BEGIN CERTIFICATE-----
-                MIICUTCCAdegAwIBAgIQppKZHI1iPN290JKEA79OpzAKBggqhkjOPQQDAzArMSkwJwYDVQQDDCBP
-                V0YgTXVsdGlwYXogVGVzdEFwcCBSZWFkZXIgUm9vdDAeFw0yNDEyMDEwMDAwMDBaFw0zNDEyMDEw
-                MDAwMDBaMCsxKTAnBgNVBAMMIE9XRiBNdWx0aXBheiBUZXN0QXBwIFJlYWRlciBSb290MHYwEAYH
-                KoZIzj0CAQYFK4EEACIDYgAE+QDye70m2O0llPXMjVjxVZz3m5k6agT+wih+L79b7jyqUl99sbeU
-                npxaLD+cmB3HK3twkA7fmVJSobBc+9CDhkh3mx6n+YoH5RulaSWThWBfMyRjsfVODkosHLCDnbPV
-                o4G/MIG8MA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEAMFYGA1UdHwRPME0wS6BJ
-                oEeGRWh0dHBzOi8vZ2l0aHViLmNvbS9vcGVud2FsbGV0LWZvdW5kYXRpb24tbGFicy9pZGVudGl0
-                eS1jcmVkZW50aWFsL2NybDAdBgNVHQ4EFgQUq2Ub4FbCkFPx3X9s5Ie+aN5gyfUwHwYDVR0jBBgw
-                FoAUq2Ub4FbCkFPx3X9s5Ie+aN5gyfUwCgYIKoZIzj0EAwMDaAAwZQIxANN9WUvI1xtZQmAKS4/D
-                ZVwofqLNRZL/co94Owi1XH5LgyiBpS3E8xSxE9SDNlVVhgIwKtXNBEBHNA7FKeAxKAzu4+MUf4gz
-                8jvyFaE0EUVlS2F5tARYQkU6udFePucVdloi
-                -----END CERTIFICATE-----
+readerTrustManager = TrustManagerLocal(storage = storage, identifier = "reader
+readerTrustManager.addX509Cert(
+    certificate = X509Cert.fromPem(
+        """
+                    -----BEGIN CERTIFICATE-----
+                    MIICUTCCAdegAwIBAgIQppKZHI1iPN290JKEA79OpzAKBggqhkjOPQQDAzArMSkwJwYDVQQDDCBP
+                    V0YgTXVsdGlwYXogVGVzdEFwcCBSZWFkZXIgUm9vdDAeFw0yNDEyMDEwMDAwMDBaFw0zNDEyMDEw
+                    MDAwMDBaMCsxKTAnBgNVBAMMIE9XRiBNdWx0aXBheiBUZXN0QXBwIFJlYWRlciBSb290MHYwEAYH
+                    KoZIzj0CAQYFK4EEACIDYgAE+QDye70m2O0llPXMjVjxVZz3m5k6agT+wih+L79b7jyqUl99sbeU
+                    npxaLD+cmB3HK3twkA7fmVJSobBc+9CDhkh3mx6n+YoH5RulaSWThWBfMyRjsfVODkosHLCDnbPV
+                    o4G/MIG8MA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEAMFYGA1UdHwRPME0wS6BJ
+                    oEeGRWh0dHBzOi8vZ2l0aHViLmNvbS9vcGVud2FsbGV0LWZvdW5kYXRpb24tbGFicy9pZGVudGl0
+                    eS1jcmVkZW50aWFsL2NybDAdBgNVHQ4EFgQUq2Ub4FbCkFPx3X9s5Ie+aN5gyfUwHwYDVR0jBBgw
+                    FoAUq2Ub4FbCkFPx3X9s5Ie+aN5gyfUwCgYIKoZIzj0EAwMDaAAwZQIxANN9WUvI1xtZQmAKS4/D
+                    ZVwofqLNRZL/co94Owi1XH5LgyiBpS3E8xSxE9SDNlVVhgIwKtXNBEBHNA7FKeAxKAzu4+MUf4gz
+                    8jvyFaE0EUVlS2F5tARYQkU6udFePucVdloi
+                    -----END CERTIFICATE-----
                 """.trimIndent().trim()
-            ),
-            displayName = "OWF Multipaz TestApp",
-            displayIcon = null,
-            privacyPolicyUrl = "https://apps.multipaz.org"
-        )
+    ),
+    metadata = TrustMetadata(
+        displayName = "OWF Multipaz TestApp",
+        privacyPolicyUrl = "https://apps.multipaz.org"
     )
 
-    // Certificate for APK downloaded from https://apps.multipaz.org/
-    // This should be used for production devices with secure boot (GREEN state)
-    // Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
-    addTrustPoint(
-        TrustPoint(
-            certificate = X509Cert.fromPem(
-                """
-            -----BEGIN CERTIFICATE-----
-            MIICYTCCAeegAwIBAgIQOSV5JyesOLKHeDc+0qmtuTAKBggqhkjOPQQDAzAzMQswCQYDVQQGDAJV
-            UzEkMCIGA1UEAwwbTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBMB4XDTI1MDcwNTEyMjAyMVoX
-            DTMwMDcwNTEyMjAyMVowMzELMAkGA1UEBgwCVVMxJDAiBgNVBAMMG011bHRpcGF6IElkZW50aXR5
-            IFJlYWRlciBDQTB2MBAGByqGSM49AgEGBSuBBAAiA2IABD4UX5jabDLuRojEp9rsZkAEbP8Icuj3
-            qN4wBUYq6UiOkoULMOLUb+78Ygonm+sJRwqyDJ9mxYTjlqliW8PpDfulQZejZo2QGqpB9JPInkrC
-            Bol5T+0TUs0ghkE5ZQBsVKOBvzCBvDAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIB
-            ADBWBgNVHR8ETzBNMEugSaBHhkVodHRwczovL2dpdGh1Yi5jb20vb3BlbndhbGxldC1mb3VuZGF0
-            aW9uLWxhYnMvaWRlbnRpdHktY3JlZGVudGlhbC9jcmwwHQYDVR0OBBYEFM+kr4eQcxKWLk16F2Rq
-            zBxFcZshMB8GA1UdIwQYMBaAFM+kr4eQcxKWLk16F2RqzBxFcZshMAoGCCqGSM49BAMDA2gAMGUC
-            MQCQ+4+BS8yH20KVfSK1TSC/RfRM4M9XNBZ+0n9ePg9ftXUFt5e4lBddK9mL8WznJuoCMFuk8ey4
-            lKnb4nubv5iPIzwuC7C0utqj7Fs+qdmcWNrSYSiks2OEnjJiap1cPOPk2g==
-            -----END CERTIFICATE-----
-        """.trimIndent().trim()
-            ),
-            displayName = "Multipaz Identity Reader",
-            displayIcon = null,
-            privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
-        )
+// Certificate for APK downloaded from https://apps.multipaz.org/
+// This should be used for production devices with secure boot (GREEN state)
+// Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
+readerTrustManager.addX509Cert(
+    certificate = X509Cert.fromPem(
+        """
+                    -----BEGIN CERTIFICATE-----
+                    MIICYTCCAeegAwIBAgIQOSV5JyesOLKHeDc+0qmtuTAKBggqhkjOPQQDAzAzMQswCQYDVQQGDAJV
+                    UzEkMCIGA1UEAwwbTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBMB4XDTI1MDcwNTEyMjAyMVoX
+                    DTMwMDcwNTEyMjAyMVowMzELMAkGA1UEBgwCVVMxJDAiBgNVBAMMG011bHRpcGF6IElkZW50aXR5
+                    IFJlYWRlciBDQTB2MBAGByqGSM49AgEGBSuBBAAiA2IABD4UX5jabDLuRojEp9rsZkAEbP8Icuj3
+                    qN4wBUYq6UiOkoULMOLUb+78Ygonm+sJRwqyDJ9mxYTjlqliW8PpDfulQZejZo2QGqpB9JPInkrC
+                    Bol5T+0TUs0ghkE5ZQBsVKOBvzCBvDAOBgNVHQ8BAf8EBAMCAQYwEgYDVR0TAQH/BAgwBgEB/wIB
+                    ADBWBgNVHR8ETzBNMEugSaBHhkVodHRwczovL2dpdGh1Yi5jb20vb3BlbndhbGxldC1mb3VuZGF0
+                    aW9uLWxhYnMvaWRlbnRpdHktY3JlZGVudGlhbC9jcmwwHQYDVR0OBBYEFM+kr4eQcxKWLk16F2Rq
+                    zBxFcZshMB8GA1UdIwQYMBaAFM+kr4eQcxKWLk16F2RqzBxFcZshMAoGCCqGSM49BAMDA2gAMGUC
+                    MQCQ+4+BS8yH20KVfSK1TSC/RfRM4M9XNBZ+0n9ePg9ftXUFt5e4lBddK9mL8WznJuoCMFuk8ey4
+                    lKnb4nubv5iPIzwuC7C0utqj7Fs+qdmcWNrSYSiks2OEnjJiap1cPOPk2g==
+                    -----END CERTIFICATE-----
+               """.trimIndent().trim()
+    ),
+    metadata = TrustMetadata(
+        displayName = "Multipaz Identity Reader",
+        privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
     )
 
-    // Certificate for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
-    // This should be used for development/testing devices or devices with unlocked bootloaders
-    // Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
-    addTrustPoint(
-        TrustPoint(
-            certificate = X509Cert.fromPem(
-                """
-            -----BEGIN CERTIFICATE-----
-            MIICiTCCAg+gAwIBAgIQQd/7PXEzsmI+U14J2cO1bjAKBggqhkjOPQQDAzBHMQswCQYDVQQGDAJV
-            UzE4MDYGA1UEAwwvTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBIChVbnRydXN0ZWQgRGV2aWNl
-            cykwHhcNMjUwNzE5MjMwODE0WhcNMzAwNzE5MjMwODE0WjBHMQswCQYDVQQGDAJVUzE4MDYGA1UE
-            AwwvTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBIChVbnRydXN0ZWQgRGV2aWNlcykwdjAQBgcq
-            hkjOPQIBBgUrgQQAIgNiAATqihOe05W3nIdyVf7yE4mHJiz7tsofcmiNTonwYsPKBbJwRTHa7AME
-            +ToAfNhPMaEZ83lBUTBggsTUNShVp1L5xzPS+jK0tGJkR2ny9+UygPGtUZxEOulGK5I8ZId+35Gj
-            gb8wgbwwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQAwVgYDVR0fBE8wTTBLoEmg
-            R4ZFaHR0cHM6Ly9naXRodWIuY29tL29wZW53YWxsZXQtZm91bmRhdGlvbi1sYWJzL2lkZW50aXR5
-            LWNyZWRlbnRpYWwvY3JsMB0GA1UdDgQWBBSbz9r9IFmXjiGGnH3Siq90geurxTAfBgNVHSMEGDAW
-            gBSbz9r9IFmXjiGGnH3Siq90geurxTAKBggqhkjOPQQDAwNoADBlAjEAomqjfJe2k162S5Way3sE
-            BTcj7+DPvaLJcsloEsj/HaThIsKWqQlQKxgNu1rE/XryAjB/Gq6UErgWKlspp+KpzuAAWaKk+bMj
-            cM4aKOKOU3itmB+9jXTQ290Dc8MnWVwQBs4=
-            -----END CERTIFICATE-----
-        """.trimIndent().trim()
-            ),
-            displayName = "Multipaz Identity Reader (Untrusted Devices)",
-            displayIcon = null,
-            privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
-        )
+// Certificate for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
+// This should be used for development/testing devices or devices with unlocked bootloaders
+// Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
+readerTrustManager.addX509Cert(
+    certificate = X509Cert.fromPem(
+        """
+                    -----BEGIN CERTIFICATE-----
+                    MIICiTCCAg+gAwIBAgIQQd/7PXEzsmI+U14J2cO1bjAKBggqhkjOPQQDAzBHMQswCQYDVQQGDAJV
+                    UzE4MDYGA1UEAwwvTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBIChVbnRydXN0ZWQgRGV2aWNl
+                    cykwHhcNMjUwNzE5MjMwODE0WhcNMzAwNzE5MjMwODE0WjBHMQswCQYDVQQGDAJVUzE4MDYGA1UE
+                    AwwvTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBIChVbnRydXN0ZWQgRGV2aWNlcykwdjAQBgcq
+                    hkjOPQIBBgUrgQQAIgNiAATqihOe05W3nIdyVf7yE4mHJiz7tsofcmiNTonwYsPKBbJwRTHa7AME
+                    +ToAfNhPMaEZ83lBUTBggsTUNShVp1L5xzPS+jK0tGJkR2ny9+UygPGtUZxEOulGK5I8ZId+35Gj
+                    gb8wgbwwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQAwVgYDVR0fBE8wTTBLoEmg
+                    R4ZFaHR0cHM6Ly9naXRodWIuY29tL29wZW53YWxsZXQtZm91bmRhdGlvbi1sYWJzL2lkZW50aXR5
+                    LWNyZWRlbnRpYWwvY3JsMB0GA1UdDgQWBBSbz9r9IFmXjiGGnH3Siq90geurxTAfBgNVHSMEGDAW
+                    gBSbz9r9IFmXjiGGnH3Siq90geurxTAKBggqhkjOPQQDAwNoADBlAjEAomqjfJe2k162S5Way3sE
+                    BTcj7+DPvaLJcsloEsj/HaThIsKWqQlQKxgNu1rE/XryAjB/Gq6UErgWKlspp+KpzuAAWaKk+bMj
+                    cM4aKOKOU3itmB+9jXTQ290Dc8MnWVwQBs4=
+                    -----END CERTIFICATE-----
+               """.trimIndent().trim()
+    ),
+    metadata = TrustMetadata(
+        displayName = "Multipaz Identity Reader (Untrusted Devices)",
+        privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
     )
-}
+)
 ```
 
 With this setup, your holder app will trust the following Multipaz applications as valid readers:
@@ -423,7 +419,7 @@ With this setup, your holder app will trust the following Multipaz applications 
 - **Multipaz Identity Reader (Untrusted Devices & Apps)** (https://github.com/davidz25/MpzIdentityReader) - For apps compiled directly from the MpzIdentityReader for development purposes or devices with unlocked bootloaders
 
 Add additional trusted readers as needed by importing their certificates.
-By configuring TrustManager with trusted reader certificates, you ensure that only authorized verifier apps can access user credentials during presentment. Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/v1.1.0/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L201-L281) commit for the implementation of the reader trust in the app.
+By configuring TrustManager with trusted reader certificates, you ensure that only authorized verifier apps can access user credentials during presentment. Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/4d33941929892849b53afbd89653b374cd708a81/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L196-L282) commit for the implementation of the reader trust in the app.
 
 #### **PresentmentModel**
 
