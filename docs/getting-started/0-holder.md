@@ -328,16 +328,19 @@ lateinit var readerTrustManager: TrustManager
 //. . .
 
 // Initialize TrustManager
+
 // Three certificates are configured to handle different verification scenarios:
 // 1. OWF Multipaz TestApp - for testing with the Multipaz test application
 // 2. Multipaz Identity Reader - for APK downloaded from https://apps.multipaz.org/ (production devices with secure boot)
 //    Certificate available from: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
-// 3. Multipaz Identity Reader (Untrusted Devices) - for app compiled from source code at https://github.com/davidzMpzIdentityReader
+// 3. Multipaz Identity Reader (Untrusted Devices) - for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
 //    Certificate available from: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
-readerTrustManager = TrustManagerLocal(storage = storage, identifier = "reader
-readerTrustManager.addX509Cert(
-    certificate = X509Cert.fromPem(
-        """
+readerTrustManager = TrustManagerLocal(storage = storage, identifier = "reader")
+
+try {
+    readerTrustManager.addX509Cert(
+        certificate = X509Cert.fromPem(
+            """
                     -----BEGIN CERTIFICATE-----
                     MIICUTCCAdegAwIBAgIQppKZHI1iPN290JKEA79OpzAKBggqhkjOPQQDAzArMSkwJwYDVQQDDCBP
                     V0YgTXVsdGlwYXogVGVzdEFwcCBSZWFkZXIgUm9vdDAeFw0yNDEyMDEwMDAwMDBaFw0zNDEyMDEw
@@ -352,18 +355,23 @@ readerTrustManager.addX509Cert(
                     8jvyFaE0EUVlS2F5tARYQkU6udFePucVdloi
                     -----END CERTIFICATE-----
                 """.trimIndent().trim()
-    ),
-    metadata = TrustMetadata(
-        displayName = "OWF Multipaz TestApp",
-        privacyPolicyUrl = "https://apps.multipaz.org"
+        ),
+        metadata = TrustMetadata(
+            displayName = "OWF Multipaz TestApp",
+            privacyPolicyUrl = "https://apps.multipaz.org"
+        )
     )
+} catch (e: TrustPointAlreadyExistsException) {
+    e.printStackTrace()
+}
 
 // Certificate for APK downloaded from https://apps.multipaz.org/
 // This should be used for production devices with secure boot (GREEN state)
 // Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
-readerTrustManager.addX509Cert(
-    certificate = X509Cert.fromPem(
-        """
+try {
+    readerTrustManager.addX509Cert(
+        certificate = X509Cert.fromPem(
+            """
                     -----BEGIN CERTIFICATE-----
                     MIICYTCCAeegAwIBAgIQOSV5JyesOLKHeDc+0qmtuTAKBggqhkjOPQQDAzAzMQswCQYDVQQGDAJV
                     UzEkMCIGA1UEAwwbTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBMB4XDTI1MDcwNTEyMjAyMVoX
@@ -378,18 +386,23 @@ readerTrustManager.addX509Cert(
                     lKnb4nubv5iPIzwuC7C0utqj7Fs+qdmcWNrSYSiks2OEnjJiap1cPOPk2g==
                     -----END CERTIFICATE-----
                """.trimIndent().trim()
-    ),
-    metadata = TrustMetadata(
-        displayName = "Multipaz Identity Reader",
-        privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
+        ),
+        metadata = TrustMetadata(
+            displayName = "Multipaz Identity Reader",
+            privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
+        )
     )
+} catch (e: TrustPointAlreadyExistsException) {
+    e.printStackTrace()
+}
 
 // Certificate for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
 // This should be used for development/testing devices or devices with unlocked bootloaders
 // Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
-readerTrustManager.addX509Cert(
-    certificate = X509Cert.fromPem(
-        """
+try {
+    readerTrustManager.addX509Cert(
+        certificate = X509Cert.fromPem(
+            """
                     -----BEGIN CERTIFICATE-----
                     MIICiTCCAg+gAwIBAgIQQd/7PXEzsmI+U14J2cO1bjAKBggqhkjOPQQDAzBHMQswCQYDVQQGDAJV
                     UzE4MDYGA1UEAwwvTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBIChVbnRydXN0ZWQgRGV2aWNl
@@ -405,12 +418,15 @@ readerTrustManager.addX509Cert(
                     cM4aKOKOU3itmB+9jXTQ290Dc8MnWVwQBs4=
                     -----END CERTIFICATE-----
                """.trimIndent().trim()
-    ),
-    metadata = TrustMetadata(
-        displayName = "Multipaz Identity Reader (Untrusted Devices)",
-        privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
+        ),
+        metadata = TrustMetadata(
+            displayName = "Multipaz Identity Reader (Untrusted Devices)",
+            privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
+        )
     )
-)
+} catch (e: TrustPointAlreadyExistsException) {
+    e.printStackTrace()
+}
 ```
 
 With this setup, your holder app will trust the following Multipaz applications as valid readers:
@@ -419,7 +435,7 @@ With this setup, your holder app will trust the following Multipaz applications 
 - **Multipaz Identity Reader (Untrusted Devices & Apps)** (https://github.com/davidz25/MpzIdentityReader) - For apps compiled directly from the MpzIdentityReader for development purposes or devices with unlocked bootloaders
 
 Add additional trusted readers as needed by importing their certificates.
-By configuring TrustManager with trusted reader certificates, you ensure that only authorized verifier apps can access user credentials during presentment. Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/4d33941929892849b53afbd89653b374cd708a81/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L196-L282) commit for the implementation of the reader trust in the app.
+By configuring TrustManager with trusted reader certificates, you ensure that only authorized verifier apps can access user credentials during presentment. Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/aeb4b2a80935a97e66dc38529331c70fcd922d99/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L195-L293) commit for the implementation of the reader trust in the app.
 
 #### **PresentmentModel**
 
