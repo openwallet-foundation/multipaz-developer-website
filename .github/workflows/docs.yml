@@ -86,15 +86,20 @@ jobs:
           npm ci
 
       - name: Build Docusaurus website
-        run: |
-          cd docusaurus-repo
-          # Include the current date in the build for versioning
-          echo "Build date: $(date +'%Y-%m-%d %H:%M:%S')" > src/build-info.json
-          npm run build
         env:
           NODE_ENV: production
           DOCUSAURUS_URL: https://${{ github.repository_owner }}.github.io
-          DOCUSAURUS_BASEURL: /
+          # Dynamic baseUrl: PRODUCTION uses /, otherwise uses /repository-name/
+          DOCUSAURUS_BASEURL: ${{ vars.WEBSITE_ENVIRONMENT == 'PRODUCTION' && '/' || format('/{0}/', github.event.repository.name) }}
+        run: |
+          cd docusaurus-repo
+          # Debug: Show the resolved baseUrl and environment
+          echo "Resolved DOCUSAURUS_BASEURL: $DOCUSAURUS_BASEURL"
+          echo "WEBSITE_ENVIRONMENT: ${{ vars.WEBSITE_ENVIRONMENT }}"
+          
+          # Include the current date in the build for versioning
+          echo "Build date: $(date +'%Y-%m-%d %H:%M:%S')" > src/build-info.json
+          npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
