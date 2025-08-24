@@ -1,0 +1,98 @@
+---
+title: 🆔 Creation of an mDoc
+sidebar_position: 3
+---
+
+After initializing your `DocumentStore` and related components, you can proceed to create an mDoc (mobile Document) credential. This section guides you through creating a Document and generating a standards-compliant mDoc credential.
+
+### Creating a Document
+
+A `Document` represents an individual item created and managed by the `DocumentStore`.
+
+* Method: Use `DocumentStore#createDocument` to create a new document.
+
+```kotlin
+val document = documentStore.createDocument(
+   displayName = "Erika's Driving License",
+   typeDisplayName = "Utopia Driving License"
+)
+```
+
+### Creating an MdocCredential
+
+An `MdocCredential` represents a mobile credential, such as a Mobile Driving License (mDL), following the ISO/IEC 18013-5:2021 standard.
+
+#### 1. Prepare Timestamps
+
+Set up the credential's validity period and signing time:
+
+```kotlin
+val now = Clock.System.now()
+val signedAt = now
+val validFrom = now
+val validUntil = now + 365.days
+```
+
+#### 2. Generate IACA Certificate
+
+The IACA (Issuing Authority Certificate Authority) certificate is required for signing the Document Signing (DS) certificate.
+
+```kotlin
+val iacaKey = Crypto.createEcPrivateKey(EcCurve.P256)
+val iacaCert = MdocUtil.generateIacaCertificate(
+   iacaKey = iacaKey,
+   subject = X500Name.fromName(name = "CN=Test IACA Key"),
+   serial = ASN1Integer.fromRandom(numBits = 128),
+   validFrom = validFrom,
+   validUntil = validUntil,
+   issuerAltNameUrl = "https://issuer.example.com",
+   crlUrl = "https://issuer.example.com/crl"
+)
+```
+
+#### 3. Generate Document Signing (DS) Certificate
+
+The DS certificate signs the mDoc credential.
+
+```kotlin
+val dsKey = Crypto.createEcPrivateKey(EcCurve.P256)
+val dsCert = MdocUtil.generateDsCertificate(
+   iacaCert = iacaCert,
+   iacaKey = iacaKey,
+   dsKey = dsKey.publicKey,
+   subject = X500Name.fromName(name = "CN=Test DS Key"),
+   serial = ASN1Integer.fromRandom(numBits = 128),
+   validFrom = validFrom,
+   validUntil = validUntil
+)
+```
+
+#### 4. Create the mDoc Credential
+
+Finally, use the document and generate certificates to create the mDoc credential.
+
+```kotlin
+val mdocCredential =
+   DrivingLicense.getDocumentType().createMdocCredentialWithSampleData(
+       document = document,
+       secureArea = secureArea,
+       createKeySettings = CreateKeySettings(
+           algorithm = Algorithm.ESP256,
+           nonce = "Challenge".encodeToByteString(),
+           userAuthenticationRequired = true
+       ),
+       dsKey = dsKey,
+       dsCertChain = X509CertChain(listOf(dsCert)),
+       signedAt = signedAt,
+       validFrom = validFrom,
+       validUntil = validUntil,
+   )
+```
+
+By following these steps, you can securely create and provision an mDoc credential, ready to be managed and used within your application.
+
+Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/7500a92ead53cdeca3c6131000c3f7ec07284349/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L105-L161) part for the implementation of the Creating an MdocCredential section of this guide.
+
+:::info Looking for a more realistic flow?
+The example above uses helpful defaults for quick onboarding. If you're exploring how to construct credentials manually — including MSO creation, issuer namespaces, and authentication — check out this [advanced sample](https://github.com/dzuluaga/multipaz-getting-started-testing/blob/v1.1.0-age-verification/composeApp/src/commonMain/kotlin/org/example/project/App.kt#L539-L727) created by a core contributor.
+:::

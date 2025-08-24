@@ -26,7 +26,24 @@ const sidebars = {
       },
       items: [
         'getting-started/installation',
-        'getting-started/holder',
+        {
+          type: 'category',
+          label: 'Holder',
+          link: {
+            type: 'doc',
+            id: 'getting-started/holder/index',
+          },
+          items: [
+            'getting-started/holder/storage',
+            'getting-started/holder/documentstore',
+            'getting-started/holder/creation',
+            'getting-started/holder/lookup',
+            'getting-started/holder/presentation',
+            'getting-started/holder/reader-trust',
+          ],
+          collapsed: false,
+          collapsible: true,
+        },
         'getting-started/issuer',
         'getting-started/verifier',
       ],
