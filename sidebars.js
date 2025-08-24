@@ -45,7 +45,21 @@ const sidebars = {
           collapsible: true,
         },
         'getting-started/issuer',
-        'getting-started/verifier',
+        {
+          type: 'category',
+          label: 'Verifier',
+          link: {
+            type: 'doc',
+            id: 'getting-started/verifier/index',
+          },
+          items: [
+            'getting-started/verifier/import-cert',
+            'getting-started/verifier/issuer-trust',
+            'getting-started/verifier/read-qr',
+          ],
+          collapsed: false,
+          collapsible: true,
+        },
       ],
       collapsed: false,
       collapsible: true,
