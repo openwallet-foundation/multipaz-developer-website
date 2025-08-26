@@ -233,14 +233,7 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-      announcementBar: {
-        id: 'multipaz-summit-2024',
-        content:
-          '🎉 Join us for the Global Digital Collaboration Conference! <a href="https://globaldigitalcollaboration.org/agenda?day=2025-07-02" style="color: #fff; text-decoration: underline;">Learn more</a>',
-        backgroundColor: 'var(--ifm-color-primary)',
-        textColor: '#fff',
-        isCloseable: true,
-      },
+
     }),
 };
 
