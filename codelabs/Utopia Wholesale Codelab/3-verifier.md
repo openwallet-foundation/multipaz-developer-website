@@ -103,8 +103,12 @@ Identification: Displays all identity data elements, such as "given\_name", "fam
 The **Multipaz Identity Verifier** requires the issuer’s certificate to verify credentials. Follow these steps to import the certificate:
 
 1. Open the **Holder** app project.
-2. Find the [PEM file](https://github.com/openmobilehub/multipaz-utopia-wholesale-codelab/blob/feature/code-starter/Holder/composeApp/src/commonMain/composeResources/files/iaca_certificate.pem):  
-   `iaca_certificate.pem`
+2. <a href="https://raw.githubusercontent.com/openmobilehub/multipaz-utopia-wholesale-codelab/feature/code-starter/Holder/composeApp/src/commonMain/composeResources/files/iaca_certificate.pem" target="_blank">Download the IACA certificate</a>
+
+:::info Download Instructions
+Long-press the link above and select **"Download link"** or **"Save link"** from the context menu.
+:::
+
 3. Copy `iaca_certificate.pem` to your phone.
 4. On your phone, open the **Multipaz Identity Verifier** app.
 4. Tap the **hamburger menu** (☰) in the top-left corner.
