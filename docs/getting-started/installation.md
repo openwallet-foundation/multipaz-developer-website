@@ -39,7 +39,7 @@ dependencyResolutionManagement {
 # update this line
 android-minSdk = "26" # Multipaz requires minSdk >= 26 due to usage of Android 8.0+ APIs
 
-multipaz = "0.92.0" # latest version of Multipaz to use
+multipaz = "0.93.0" # latest version of Multipaz to use
 
 androidx-fragment = "1.8.6"
 
