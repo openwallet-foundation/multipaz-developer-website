@@ -27,9 +27,31 @@
         items: [
           'Utopia Wholesale Codelab/Before You Begin',
           'Utopia Wholesale Codelab/Get Set Up',
-          'Utopia Wholesale Codelab/holder',
-          'Utopia Wholesale Codelab/verifier',
-          'Utopia Wholesale Codelab/issuer',
+             'Utopia Wholesale Codelab/Issuer',
+          {
+            type: 'category',
+            label: 'Holder',
+            items: [
+              'Utopia Wholesale Codelab/Holder/Get Credential',
+              'Utopia Wholesale Codelab/Holder/Storage',
+              'Utopia Wholesale Codelab/Holder/Holder'
+            ],
+            collapsed: false,
+            collapsible: true,
+          },
+          {
+            type: 'category',
+            label: 'Verifier',
+            items: [
+              'Utopia Wholesale Codelab/Verifier/Verifier',
+              'Utopia Wholesale Codelab/Verifier/BLE and Camera Permission',
+              'Utopia Wholesale Codelab/Verifier/Verification Modes',
+              'Utopia Wholesale Codelab/Verifier/How to Import a Certificate'
+            ],
+            collapsed: false,
+            collapsible: true,
+          },
+       
         ],
         collapsed: false,
         collapsible: true,
