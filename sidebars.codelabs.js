@@ -32,7 +32,7 @@
             type: 'category',
             label: 'Holder',
             items: [
-              'Utopia Wholesale Codelab/Holder/Get Credential',
+              'Utopia Wholesale Codelab/Holder/Obtaining a credential',
               'Utopia Wholesale Codelab/Holder/Storage',
               'Utopia Wholesale Codelab/Holder/Holder'
             ],
