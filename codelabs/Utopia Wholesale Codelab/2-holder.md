@@ -225,38 +225,42 @@ if (DigitalCredentials.Default.available) {
 
 The Holder app also needs to add the Verifier (Reader) certificate to its trust list. This ensures that the Holder can recognize and trust the Verifier during credential sharing. The Verifier's certificate can be downloaded from the Multipaz Verifier [website](https://verifier.multipaz.org/identityreaderbackend/). Below is the code snippet demonstrating how to add the Verifier's certificate to the trust list:
 ```
-        addTrustPoint(
-                 addTrustPoint(
-                    TrustPoint(
-                        certificate = X509Cert.fromPem(
-                            Res.readBytes("files/test_app_reader_root_certificate.pem").decodeToString().trimIndent().trim()
-                        ),
+    try {
+            readerTrustManager.apply{
+                addX509Cert(
+                    certificate = X509Cert.fromPem(
+                        Res.readBytes("files/test_app_reader_root_certificate.pem").decodeToString().trimIndent().trim()
+                    ),
+                    metadata = TrustMetadata(
                         displayName = "OWF Multipaz Test App Reader",
                         displayIcon = null,
                         privacyPolicyUrl = "https://apps.multipaz.org"
                     )
                 )
-                addTrustPoint(
-                    TrustPoint(
-                        certificate = X509Cert.fromPem(
-                            Res.readBytes("files/reader_root_certificate.pem").decodeToString().trimIndent().trim()
-                        ),
+                addX509Cert(
+                    certificate = X509Cert.fromPem(
+                        Res.readBytes("files/reader_root_certificate.pem").decodeToString().trimIndent().trim(),
+                    ),
+                    metadata = TrustMetadata(
                         displayName = "Multipaz Identity Reader (Trusted Devices)",
                         displayIcon = null,
                         privacyPolicyUrl = "https://apps.multipaz.org"
                     )
                 )
-                addTrustPoint(
-                    TrustPoint(
-                        certificate = X509Cert.fromPem(
-                            Res.readBytes("files/reader_root_certificate.pem").decodeToString().trimIndent().trim()
-                        ),
+                addX509Cert(
+                    certificate = X509Cert.fromPem(
+                        Res.readBytes("files/reader_root_certificate_for_untrust_device.pem").decodeToString().trimIndent().trim(),
+                    ),
+                    metadata = TrustMetadata(
                         displayName = "Multipaz Identity Reader (UnTrusted Devices)",
                         displayIcon = null,
                         privacyPolicyUrl = "https://apps.multipaz.org"
                     )
                 )
-
+            }
+        } catch (e: TrustPointAlreadyExistsException) {
+            e.printStackTrace()
+        }
 ```
 
 
