@@ -50,6 +50,8 @@ val iacaCert = MdocUtil.generateIacaCertificate(
 )
 ```
 
+We are currently generating a random IACA certificate. You can use `multipazctl` to generate your own certificates & keys. Refer [here](https://github.com/openwallet-foundation-labs/identity-credential/?tab=readme-ov-file#command-line-tool) for the steps.
+
 #### 3. Generate Document Signing (DS) Certificate
 
 The DS certificate signs the mDoc credential.

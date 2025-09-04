@@ -58,6 +58,17 @@ if (!blePermissionState.isGranted) {
    android:maxSdkVersion="30" />
 ```
 
+**info.plist: Required BLE Permissions (iOS)**
+
+Add the following to `iosApp/iosApp/info.plist` to enable BLE permission prompts.
+
+```xml
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>Bluetooth permission is required for proximity presentations</string>
+<key>CADisableMinimumFrameDurationOnPhone</key>
+<true/>
+```
+
 Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/7500a92ead53cdeca3c6131000c3f7ec07284349/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L186-L196) part for the implementation of the permissions section of this guide.
 
 ## PresentmentModel
