@@ -9,7 +9,7 @@ sidebar_position: 3
 The **Multipaz Identity Verifier** requires the issuer’s certificate to verify credentials. Follow these steps to import the certificate:
 
 1. Open the **Holder** app project.
-2. <a href="https://raw.githubusercontent.com/openmobilehub/multipaz-utopia-wholesale-codelab/feature/code-starter/Holder/composeApp/src/commonMain/composeResources/files/iaca_certificate.pem" target="_blank">Download the IACA certificate</a>
+2. <a href="https://raw.githubusercontent.com/openmobilehub/multipaz-utopia-wholesale-codelab/0efb6d19d93780065dd49f3e363a968389718f61/Holder/composeApp/src/commonMain/composeResources/files/iaca_certificate.pem" target="_blank">Download the IACA certificate</a>
 
 :::info Download Instructions
 Long-press the link above and select **"Download link"** or **"Save link"** from the context menu.
