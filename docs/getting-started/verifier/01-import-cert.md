@@ -15,9 +15,18 @@ To ensure your verifier app can validate the authenticity of documents from hold
 
 2. **Export the IACA certificate**
     1. Use the following in your app to print the PEM:
-    
+
     ```kotlin
-    println(iacaCert.toPem().toString()) 
+    class App {
+        // ...
+        suspend fun init() {
+            // ...
+            val iacaCert = MdocUtil.generateIacaCertificate(
+                // ...
+            )
+            println(iacaCert.toPem().toString()) // print the IACA certificate
+        }
+    }
     ```
 3. **Import the PEM into MpzIdentityReader**
     1. Open the navigation drawer

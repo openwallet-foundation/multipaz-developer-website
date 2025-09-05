@@ -1,6 +1,6 @@
 ---
 title: 🎁 Presentation
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 The presentation phase allows a user to present a credential (such as an mDL) to a verifier, typically using BLE, NFC, or QR code. This section covers runtime permissions, setting up presentment flows, and generating engagement QR codes.
@@ -16,18 +16,31 @@ Multipaz provides composable functions for requesting runtime permissions in you
 **Example: Requesting BLE Permission**
 
 ```kotlin
-val blePermissionState = rememberBluetoothPermissionState()
+fun Content() {
+    // ...
+    MaterialTheme {
+        // ...
+        Column {
+            val coroutineScope = rememberCoroutineScope { promptModel }
+            val blePermissionState = rememberBluetoothPermissionState()
 
-if (!blePermissionState.isGranted) {
-   Button(
-       onClick = {
-           coroutineScope.launch {
-               blePermissionState.launchPermissionRequest()
-           }
-       }
-   ) {
-       Text("Request BLE permissions")
-   }
+            if (!blePermissionState.isGranted) {
+                Button(
+                    onClick = {
+                        coroutineScope.launch {
+                            blePermissionState.launchPermissionRequest()
+                        }
+                    }
+                ) {
+                    Text("Request BLE permissions")
+                }
+            } else {
+                // ...
+            }
+        }
+    }
+    // ...
+}
 ```
 
 **AndroidManifest.xml: Required BLE Permissions**
@@ -78,45 +91,63 @@ Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample
 You can generate QR codes using `org.multipaz.compose.qrcode:generateQrCode`.
 
 ```kotlin
-lateinit var presentmentModel: PresentmentModel
-lateinit var presentmentSource: PresentmentSource
-// . . .
-presentmentModel = PresentmentModel().apply { setPromptModel(promptModel) }
-presentmentSource = SimplePresentmentSource(
-   documentStore = documentStore,
-   documentTypeRepository = documentTypeRepository,
-   readerTrustManager = readerTrustManager,
-   preferSignatureToKeyAgreement = true,
-   domainMdocSignature = "mdoc",
-)
+class App {
+    // ...
+    lateinit var presentmentModel: PresentmentModel
+    lateinit var presentmentSource: PresentmentSource
 
-val deviceEngagement = remember { mutableStateOf<ByteString?>(null) }
-val state = presentmentModel.state.collectAsState()
-when (state.value) {
-   PresentmentModel.State.IDLE -> {
-       showQrButton(deviceEngagement)
-   }
+    suspend fun init() {
+        // ...
+        presentmentModel = PresentmentModel().apply { setPromptModel(promptModel) }
+        presentmentSource = SimplePresentmentSource(
+            documentStore = documentStore,
+            documentTypeRepository = documentTypeRepository,
+            readerTrustManager = readerTrustManager,
+            preferSignatureToKeyAgreement = true,
+            domainMdocSignature = "mdoc",
+        )
+    }
 
-   PresentmentModel.State.CONNECTING -> {
-       showQrCode(deviceEngagement)
-   }
-
-   PresentmentModel.State.WAITING_FOR_SOURCE,
-   PresentmentModel.State.PROCESSING,
-   PresentmentModel.State.WAITING_FOR_DOCUMENT_SELECTION,
-   PresentmentModel.State.WAITING_FOR_CONSENT,
-   PresentmentModel.State.COMPLETED -> {
-       Presentment(
-           appName = "Multipaz Getting Started Sample",
-           appIconPainter = painterResource(Res.drawable.compose_multiplatform),
-           presentmentModel = presentmentModel,
-           presentmentSource = presentmentSource,
-           documentTypeRepository = documentTypeRepository,
-           onPresentmentComplete = {
-               presentmentModel.reset()
-           },
-       )
-   }
+    fun Content() {
+        // ...
+        MaterialTheme {
+            // ...
+            Column {
+                if (!blePermissionState.isGranted) {
+                    // ...
+                } else {
+                    val deviceEngagement = remember { mutableStateOf<ByteString?>(null) }
+                    val state = presentmentModel.state.collectAsState()
+                    val appIcon = painterResource(Res.drawable.compose_multiplatform)
+                    when (state.value) {
+                        PresentmentModel.State.IDLE -> {
+                            ShowQrButton(deviceEngagement)
+                        }
+                        PresentmentModel.State.CONNECTING -> {
+                            ShowQrCode(deviceEngagement)
+                        }
+                        PresentmentModel.State.WAITING_FOR_SOURCE,
+                        PresentmentModel.State.PROCESSING,
+                        PresentmentModel.State.WAITING_FOR_DOCUMENT_SELECTION,
+                        PresentmentModel.State.WAITING_FOR_CONSENT,
+                        PresentmentModel.State.COMPLETED -> {
+                            Presentment(
+                                appName = "Multipaz Getting Started Sample",
+                                appIconPainter = appIcon,
+                                presentmentModel = presentmentModel,
+                                presentmentSource = presentmentSource,
+                                documentTypeRepository = documentTypeRepository,
+                                onPresentmentComplete = {
+                                    presentmentModel.reset()
+                                },
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        // ...
+    }
 }
 ```
 
@@ -127,60 +158,63 @@ To start engagement for presentment (e.g., via BLE), use a connection method tha
 **Example: BLE Engagement and QR Code**
 
 ```kotlin
-@Composable
-private fun showQrButton(showQrCode: MutableState<ByteString?>) {
-   Column(
-       modifier = Modifier.fillMaxSize(),
-       verticalArrangement = Arrangement.Center,
-       horizontalAlignment = Alignment.CenterHorizontally
-   ) {
-       Button(onClick = {
-           presentmentModel.reset()
-           presentmentModel.setConnecting()
-           presentmentModel.presentmentScope.launch() {
-               val connectionMethods = listOf(
-                   MdocConnectionMethodBle(
-                       supportsPeripheralServerMode = false,
-                       supportsCentralClientMode = true,
-                       peripheralServerModeUuid = null,
-                       centralClientModeUuid = UUID.randomUUID(),
-                   )
-               )
-               val eDeviceKey = Crypto.createEcPrivateKey(EcCurve.P256)
-               val advertisedTransports = connectionMethods.advertise(
-                   role = MdocRole.MDOC,
-                   transportFactory = MdocTransportFactory.Default,
-                   options = MdocTransportOptions(bleUseL2CAP = true),
-               )
-               val engagementGenerator = EngagementGenerator(
-                   eSenderKey = eDeviceKey.publicKey,
-                   version = "1.0"
-               )
-               engagementGenerator.addConnectionMethods(advertisedTransports.map {
-                   it.connectionMethod
-               })
-               val encodedDeviceEngagement = ByteString(engagementGenerator.generate())
-               showQrCode.value = encodedDeviceEngagement
-               val transport = advertisedTransports.waitForConnection(
-                   eSenderKey = eDeviceKey.publicKey,
-                   coroutineScope = presentmentModel.presentmentScope
-               )
-               presentmentModel.setMechanism(
-                   MdocPresentmentMechanism(
-                       transport = transport,
-                       eDeviceKey = eDeviceKey,
-                       encodedDeviceEngagement = encodedDeviceEngagement,
-                       handover = Simple.NULL,
-                       engagementDuration = null,
-                       allowMultipleRequests = false
-                   )
-               )
-               showQrCode.value = null
-           }
-       }) {
-           Text("Present mDL via QR")
-       }
-   }
+class App {
+    // ...
+    @Composable
+    private fun showQrButton(showQrCode: MutableState<ByteString?>) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Button(onClick = {
+                presentmentModel.reset()
+                presentmentModel.setConnecting()
+                presentmentModel.presentmentScope.launch() {
+                    val connectionMethods = listOf(
+                        MdocConnectionMethodBle(
+                            supportsPeripheralServerMode = false,
+                            supportsCentralClientMode = true,
+                            peripheralServerModeUuid = null,
+                            centralClientModeUuid = UUID.randomUUID(),
+                        )
+                    )
+                    val eDeviceKey = Crypto.createEcPrivateKey(EcCurve.P256)
+                    val advertisedTransports = connectionMethods.advertise(
+                        role = MdocRole.MDOC,
+                        transportFactory = MdocTransportFactory.Default,
+                        options = MdocTransportOptions(bleUseL2CAP = true),
+                    )
+                    val engagementGenerator = EngagementGenerator(
+                        eSenderKey = eDeviceKey.publicKey,
+                        version = "1.0"
+                    )
+                    engagementGenerator.addConnectionMethods(advertisedTransports.map {
+                        it.connectionMethod
+                    })
+                    val encodedDeviceEngagement = ByteString(engagementGenerator.generate())
+                    showQrCode.value = encodedDeviceEngagement
+                    val transport = advertisedTransports.waitForConnection(
+                        eSenderKey = eDeviceKey.publicKey,
+                        coroutineScope = presentmentModel.presentmentScope
+                    )
+                    presentmentModel.setMechanism(
+                        MdocPresentmentMechanism(
+                            transport = transport,
+                            eDeviceKey = eDeviceKey,
+                            encodedDeviceEngagement = encodedDeviceEngagement,
+                            handover = Simple.NULL,
+                            engagementDuration = null,
+                            allowMultipleRequests = false
+                        )
+                    )
+                    showQrCode.value = null
+                }
+            }) {
+                Text("Present mDL via QR")
+            }
+        }
+    }
 }
 ```
 
@@ -193,32 +227,35 @@ Use the following composable to display the QR code generated for presentment.
 **Example: QR Code Display**
 
 ```kotlin
-@Composable
-private fun showQrCode(deviceEngagement: MutableState<ByteString?>) {
-   Column(
-       modifier = Modifier.fillMaxSize().padding(16.dp),
-       verticalArrangement = Arrangement.Center,
-       horizontalAlignment = Alignment.CenterHorizontally,
-   ) {
-       if (deviceEngagement.value != null) {
-           val mdocUrl = "mdoc:" + deviceEngagement.value!!.toByteArray().toBase64Url()
-           val qrCodeBitmap = remember { generateQrCode(mdocUrl) }
-           Text(text = "Present QR code to mdoc reader")
-           Image(
-               modifier = Modifier.fillMaxWidth(),
-               bitmap = qrCodeBitmap,
-               contentDescription = null,
-               contentScale = ContentScale.FillWidth
-           )
-           Button(
-               onClick = {
-                   presentmentModel.reset()
-               }
-           ) {
-               Text("Cancel")
-           }
-       }
-   }
+class App {
+    // ...
+    @Composable
+    private fun showQrCode(deviceEngagement: MutableState<ByteString?>) {
+        Column(
+            modifier = Modifier.fillMaxSize().padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            if (deviceEngagement.value != null) {
+                val mdocUrl = "mdoc:" + deviceEngagement.value!!.toByteArray().toBase64Url()
+                val qrCodeBitmap = remember { generateQrCode(mdocUrl) }
+                Text(text = "Present QR code to mdoc reader")
+                Image(
+                    modifier = Modifier.fillMaxWidth(),
+                    bitmap = qrCodeBitmap,
+                    contentDescription = null,
+                    contentScale = ContentScale.FillWidth
+                )
+                Button(
+                    onClick = {
+                        presentmentModel.reset()
+                    }
+                ) {
+                    Text("Cancel")
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -279,6 +316,7 @@ Multipaz provides `MdocNfcPresentmentActivity`, which manages the entire lifecyc
 * This activity launches automatically upon NFC tap, initializes the SDK, and prepares your app for credential presentment.
 
 ```kotlin
+// kotlin/NfcActivity.kt
 class NfcActivity : MdocNfcPresentmentActivity() {
     @Composable
     override fun ApplicationTheme(content: @Composable (() -> Unit)) {
@@ -291,7 +329,7 @@ class NfcActivity : MdocNfcPresentmentActivity() {
         return Settings(
             appName = app.appName,
             appIcon = app.appIcon,
-            promptModel = promptModel,
+            promptModel = App.promptModel,
             documentTypeRepository = app.documentTypeRepository,
             presentmentSource = app.presentmentSource
         )
@@ -307,8 +345,8 @@ To facilitate NFC engagement, extend `MdocNdefService` and configure the handove
 * With this setup, the NFC connection is used to negotiate the preferred transport. Since BLE is selected here, the actual credential data is transferred over BLE after initial NFC engagement.
 
 ```kotlin
+// kotlin/NdefService.kt
 class NdefService : MdocNdefService() {
-
     override suspend fun getSettings(): Settings {
         return Settings(
             sessionEncryptionCurve = EcCurve.P256,
@@ -322,7 +360,7 @@ class NdefService : MdocNdefService() {
             staticHandoverBlePeripheralServerModeEnabled = false,
             staticHandoverNfcDataTransferEnabled = false,
             transportOptions = MdocTransportOptions(bleUseL2CAP = true),
-            promptModel = promptModel,
+            promptModel = App.promptModel,
             presentmentActivityClass = NfcActivity::class.java,
         )
     }
@@ -335,21 +373,22 @@ Configure the AID (Application Identifier) filter in `res/xml/nfc_ndef_service.x
 
 * `android:requireDeviceUnlock="false"`: Allows engagement even if the device is locked.
 * `android:requireDeviceScreenOn="false"`: Allows engagement even if the screen is off.
-* `&lt;aid-filter>`: Identifies to verifiers that your app supports ISO/IEC 18013-5 NFC mDL presentation.
+* `<aid-filter>`: Identifies to verifiers that your app supports **ISO/IEC 18013-5** NFC mDL presentation.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <host-apdu-service xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:description="@string/nfc_ndef_service_description"
-    android:requireDeviceUnlock="false"
     android:requireDeviceScreenOn="false"
+    android:requireDeviceUnlock="false"
     tools:ignore="UnusedAttribute">
 
-    <aid-group android:description="@string/nfc_ndef_service_aid_group_description"
-        android:category="other">
+    <aid-group
+        android:category="other"
+        android:description="@string/nfc_ndef_service_aid_group_description">
         <!-- NFC Type 4 Tag - matches ISO 18013-5 mDL standard -->
-        <aid-filter android:name="D2760000850101"/>
+        <aid-filter android:name="D2760000850101" />
     </aid-group>
 </host-apdu-service>
 ```

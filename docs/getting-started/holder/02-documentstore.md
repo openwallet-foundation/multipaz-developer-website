@@ -27,16 +27,23 @@ A `DocumentStore` is responsible for securely holding and managing real-world id
 ### Implementation
 
 ```kotlin
-lateinit var documentTypeRepository: DocumentTypeRepository
-lateinit var documentStore: DocumentStore
-// . . .
-documentTypeRepository = DocumentTypeRepository().apply {
-addDocumentType(DrivingLicense.getDocumentType())
+class App {
+    // ...
+    
+    lateinit var documentTypeRepository: DocumentTypeRepository
+    lateinit var documentStore: DocumentStore
+
+    suspend fun init() {
+        // ...
+        documentTypeRepository = DocumentTypeRepository().apply {
+        addDocumentType(DrivingLicense.getDocumentType())
+        }
+        documentStore = buildDocumentStore(
+            storage = storage,
+            secureAreaRepository = secureAreaRepository
+        ) {}
+    }
 }
-documentStore = buildDocumentStore(
-    storage = storage,
-    secureAreaRepository = secureAreaRepository
-) {}
 ```
 
 By clearly structuring the setup of `DocumentTypeRepository` and `DocumentStore`, you ensure your app is ready to manage identity documents securely and efficiently. Always perform this setup early in your app lifecycle, after initializing storage and secure areas.

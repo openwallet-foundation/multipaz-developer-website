@@ -74,77 +74,139 @@ kotlin {
 
 You might also want to check out other libraries in the Multipaz ecosystem, from Multipaz [here](https://mvnrepository.com/search?q=multipaz).
 
-* Inside the `onCreate()` method, call the `initializeApplication(applicationContext)` function provided by the Multipaz library. This ensures the SDK has access to a valid application-level context, which is required for internal operations like secure storage and credential handling. Make sure this is done only once in the app lifecycle, ideally during app startup.
+### Initialize `App.kt`
 
-```kotlin
-initializeApplication(this.applicationContext)
-```
+App Class is the main class that holds all the core logic and state for the app.
 
-Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/commit/f467118149b55080edd2e4f8606a7cd7ad82c2cb) commit for a sample project initialization setup.
+We are splitting `App.kt` into multiple sections for ease of use wit multiple Multipaz components.
 
-### UI Prompt Handling with `PromptModel`
+- **Properties**: Variables for storage, document management, trust management, and presentment.
+- **Initialization**: Sets up storage, document types, creates a sample document, and configures trusted certificates.
+    - `suspend fun init()`
+- **UI**: A Composable function that builds the app’s user interface using Jepack Compose components. It shows initialization status, handles permissions, and displays buttons or QR codes based on the app state.
+    - `@Composable fun Content()`
+- **Companion Object**: Provides a singleton instance of App and holds shared models.
+    - `fun getInstance(): App`
 
-To support secure prompts such as **biometric authentication**, **passphrases**, and **NFC dialogs** in a consistent and platform-specific way, we now pass a `PromptModel` into the `App()` function.
+* To support secure prompts such as **biometric authentication**, **passphrases**, and **NFC dialogs** in a consistent and platform-specific way, we now initialize `PromptDialogs` by passing a `PromptModel`.
+* Multipaz provides a pre-initialized `promptModel` object that can be imported from `org.multipaz.util.Platform.promptModel`.
 
 ```kotlin
 // commonMain/App.kt
-fun App(promptModel: PromptModel) {
-	MaterialTheme {
-		// This ensures all prompts inherit the app's main style
-		PromptDialogs(promptModel)
-		// ... rest of your UI
-	}
+class App {
+
+    val appName = "Multipaz Getting Started Sample"
+    val appIcon = Res.drawable.compose_multiplatform
+
+    var isAppInitialized = false
+
+    suspend fun init() {
+        if (!isAppInitialized) {
+            isAppInitialized = true
+        }
+    }
+
+    @Composable
+    @Preview
+    fun Content() {
+
+        val isUIInitialized = remember { mutableStateOf(false) }
+
+        if (!isUIInitialized.value) {
+            CoroutineScope(Dispatchers.Main).launch {
+                init()
+                isUIInitialized.value = true
+            }
+
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(text = "Initializing...")
+            }
+            return
+        }
+
+        MaterialTheme {
+            // This ensures all prompts inherit the app's main style
+            PromptDialogs(promptModel)
+
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(text = "Welcome to Multipaz Getting Started Sample")
+                // ... rest of your UI
+            }
+        }
+    }
+
+    companion object {
+        val promptModel = org.multipaz.util.Platform.promptModel
+
+        private var app: App? = null
+        fun getInstance(): App {
+            if (app == null) {
+                app = App()
+            }
+            return app!!
+        }
+    }
 }
 ```
 
-#### Platform Integration
+### Update `MainActivity.kt`
 
-Now, each platform must create and pass its own `PromptModel` implementation into` App()`:
+Update `MainActivity` to reflect the changes from `App.kt`, along with the following additions for the Multipaz library.
 
-> 📌 This change ensures that all prompt-related UI elements:
-> - Are styled consistently with the app (through MaterialTheme)
-> - Are driven by a shared abstraction (PromptModel), while still using platform-specific logic behind the scenes
+* Inside the `onCreate()` method in `kotlin/MainActivity` class, call the `initializeApplication(applicationContext)` function provided by the Multipaz library.
+    * This ensures the SDK has access to a valid application-level context, which is required for internal operations like secure storage and credential handling. Make sure this is done only once in the app lifecycle, ideally during app startup.
+* Modify update `MainActivity` to extend `FragmentActivity`.
+    * Multipaz's `PromptDialogs` require the activity to be a `FragmentActivity` to support the `BiometricPrompt` and other platform features.
 
 ```kotlin
 // kotlin/MainActivity.kt
 // IMPORTANT: Multipaz's PromptDialogs require the activity to be a FragmentActivity
 // to support the BiometricPrompt and other platform features.
 class MainActivity : FragmentActivity() { // use FragmentActivity
-    val promptModel = AndroidPromptModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        initializeApplication(this.applicationContext)
-        setContent {
-            App(promptModel)
+        initializeApplication(this.applicationContext) // initialize Multipaz
+
+        lifecycle.coroutineScope.launch {
+            val app = App.getInstance()
+            app.init()
+            setContent {
+                app.Content()
+            }
         }
     }
 }
 ```
 
+### Update `iOSMain/MainViewController.kt`
+
+Update `MainViewController` to reflect the changes from `App.kt`.
+
 ```kotlin
-// iosMain/MainViewController.kt
+private val app = App.getInstance()
+
 fun MainViewController() = ComposeUIViewController {
-    App(IosPromptModel())
+    app.Content()
 }
 ```
 
-#### ⚠️ Some gotchas to be aware of:
+<!-- TODO: code to be updated -->
+> 📌 Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/commit/f467118149b55080edd2e4f8606a7cd7ad82c2cb) commit for a sample project initialization setup.
+
+#### ⚠️ Some gotchas to be aware of (iOS only):
 
 For iOS, there are these required fixes:
 
-1. Update `info.plist`
-
-In `iosApp/iosApp/info.plist`, add the following keys to enable BLE permission prompts. Without this, the "Request BLE Permissions" feature will not work:
-
-```xml
-<key>NSBluetoothAlwaysUsageDescription</key>
-<string>Bluetooth permission is required for proximity presentations</string>
-<key>CADisableMinimumFrameDurationOnPhone</key>
-<true/>
-```
-
-2. In `iosApp/iosApp/iosApp.xcodeproj/project.pbxproj`
+1. In `iosApp/iosApp.xcodeproj/project.pbxproj`
 
 Add the following flags to the `buildSettings` of each `XCBuildConfiguration` under the `iosApp` target in your `project.pbxproj` file:
 
@@ -154,5 +216,6 @@ OTHER_LDFLAGS = (
    "-lsqlite3",
 );
 ```
+
 Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/commit/6fd2be0b1e039903c837f3d8894aca54bc7d6adf) commit for the changes to be done for the iOS builds.
 

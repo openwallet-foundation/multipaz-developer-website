@@ -1,6 +1,6 @@
 ---
 title: 🛡️ Reader Trust
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 The reader trust mechanism ensures that the holder app can check whether the verifier (reader) apps that request the credentials can be trusted. Multipaz uses the `TrustManager` interface to manage and validate trust relationships.
@@ -27,24 +27,27 @@ To establish reader trust, add trusted verifier app certificates to your trust m
 **Example: Adding Trusted Reader Certificates**
 
 ```kotlin
-lateinit var readerTrustManager: TrustManager
+class App {
+    // ...
+    lateinit var readerTrustManager: TrustManagerLocal
 
-//. . .
+    //. . .
+    suspend fun init() {
+        //. . .
 
-// Initialize TrustManager
+        // Initialize TrustManager
+        // Three certificates are configured to handle different verification scenarios:
+        // 1. OWF Multipaz TestApp - for testing with the Multipaz test application
+        // 2. Multipaz Identity Reader - for APK downloaded from https://apps.multipaz.org/ (production devices with secure boot)
+        //    Certificate available from: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
+        // 3. Multipaz Identity Reader (Untrusted Devices) - for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
+        //    Certificate available from: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
+        readerTrustManager = TrustManagerLocal(storage = storage, identifier = "reader")
 
-// Three certificates are configured to handle different verification scenarios:
-// 1. OWF Multipaz TestApp - for testing with the Multipaz test application
-// 2. Multipaz Identity Reader - for APK downloaded from https://apps.multipaz.org/ (production devices with secure boot)
-//    Certificate available from: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
-// 3. Multipaz Identity Reader (Untrusted Devices) - for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
-//    Certificate available from: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
-readerTrustManager = TrustManagerLocal(storage = storage, identifier = "reader")
-
-try {
-    readerTrustManager.addX509Cert(
-        certificate = X509Cert.fromPem(
-            """
+        try {
+            readerTrustManager.addX509Cert(
+                certificate = X509Cert.fromPem(
+                    """
                     -----BEGIN CERTIFICATE-----
                     MIICUTCCAdegAwIBAgIQppKZHI1iPN290JKEA79OpzAKBggqhkjOPQQDAzArMSkwJwYDVQQDDCBP
                     V0YgTXVsdGlwYXogVGVzdEFwcCBSZWFkZXIgUm9vdDAeFw0yNDEyMDEwMDAwMDBaFw0zNDEyMDEw
@@ -59,23 +62,23 @@ try {
                     8jvyFaE0EUVlS2F5tARYQkU6udFePucVdloi
                     -----END CERTIFICATE-----
                 """.trimIndent().trim()
-        ),
-        metadata = TrustMetadata(
-            displayName = "OWF Multipaz TestApp",
-            privacyPolicyUrl = "https://apps.multipaz.org"
-        )
-    )
-} catch (e: TrustPointAlreadyExistsException) {
-    e.printStackTrace()
-}
+                ),
+                metadata = TrustMetadata(
+                    displayName = "OWF Multipaz TestApp",
+                    privacyPolicyUrl = "https://apps.multipaz.org"
+                )
+            )
+        } catch (e: TrustPointAlreadyExistsException) {
+            e.printStackTrace()
+        }
 
-// Certificate for APK downloaded from https://apps.multipaz.org/
-// This should be used for production devices with secure boot (GREEN state)
-// Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
-try {
-    readerTrustManager.addX509Cert(
-        certificate = X509Cert.fromPem(
-            """
+        // Certificate for APK downloaded from https://apps.multipaz.org/
+        // This should be used for production devices with secure boot (GREEN state)
+        // Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCert
+        try {
+            readerTrustManager.addX509Cert(
+                certificate = X509Cert.fromPem(
+                    """
                     -----BEGIN CERTIFICATE-----
                     MIICYTCCAeegAwIBAgIQOSV5JyesOLKHeDc+0qmtuTAKBggqhkjOPQQDAzAzMQswCQYDVQQGDAJV
                     UzEkMCIGA1UEAwwbTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBMB4XDTI1MDcwNTEyMjAyMVoX
@@ -90,23 +93,23 @@ try {
                     lKnb4nubv5iPIzwuC7C0utqj7Fs+qdmcWNrSYSiks2OEnjJiap1cPOPk2g==
                     -----END CERTIFICATE-----
                """.trimIndent().trim()
-        ),
-        metadata = TrustMetadata(
-            displayName = "Multipaz Identity Reader",
-            privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
-        )
-    )
-} catch (e: TrustPointAlreadyExistsException) {
-    e.printStackTrace()
-}
+                ),
+                metadata = TrustMetadata(
+                    displayName = "Multipaz Identity Reader",
+                    privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
+                )
+            )
+        } catch (e: TrustPointAlreadyExistsException) {
+            e.printStackTrace()
+        }
 
-// Certificate for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
-// This should be used for development/testing devices or devices with unlocked bootloaders
-// Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
-try {
-    readerTrustManager.addX509Cert(
-        certificate = X509Cert.fromPem(
-            """
+        // Certificate for app compiled from source code at https://github.com/davidz25/MpzIdentityReader
+        // This should be used for development/testing devices or devices with unlocked bootloaders
+        // Certificate source: https://verifier.multipaz.org/identityreaderbackend/readerRootCertUntrustedDevices
+        try {
+            readerTrustManager.addX509Cert(
+                certificate = X509Cert.fromPem(
+                    """
                     -----BEGIN CERTIFICATE-----
                     MIICiTCCAg+gAwIBAgIQQd/7PXEzsmI+U14J2cO1bjAKBggqhkjOPQQDAzBHMQswCQYDVQQGDAJV
                     UzE4MDYGA1UEAwwvTXVsdGlwYXogSWRlbnRpdHkgUmVhZGVyIENBIChVbnRydXN0ZWQgRGV2aWNl
@@ -122,14 +125,16 @@ try {
                     cM4aKOKOU3itmB+9jXTQ290Dc8MnWVwQBs4=
                     -----END CERTIFICATE-----
                """.trimIndent().trim()
-        ),
-        metadata = TrustMetadata(
-            displayName = "Multipaz Identity Reader (Untrusted Devices)",
-            privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
-        )
-    )
-} catch (e: TrustPointAlreadyExistsException) {
-    e.printStackTrace()
+                ),
+                metadata = TrustMetadata(
+                    displayName = "Multipaz Identity Reader (Untrusted Devices)",
+                    privacyPolicyUrl = "https://verifier.multipaz.org/identityreaderbackend/"
+                )
+            )
+        } catch (e: TrustPointAlreadyExistsException) {
+            e.printStackTrace()
+        }
+    }
 }
 ```
 

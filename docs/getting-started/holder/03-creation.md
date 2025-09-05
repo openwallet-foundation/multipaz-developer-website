@@ -3,7 +3,7 @@ title: 🆔 Creation of an mDoc
 sidebar_position: 3
 ---
 
-After initializing your `DocumentStore` and related components, you can proceed to create an mDoc (mobile Document) credential. This section guides you through creating a Document and generating a standards-compliant mDoc credential.
+After initializing your `DocumentStore` and related components, you can proceed to create an mDoc (mobile Document) credential. This section guides you through creating a Document and generating a standards-compliant mDoc credential. The following code should go into the `suspend fun init()` in `App.kt`.
 
 ### Creating a Document
 
