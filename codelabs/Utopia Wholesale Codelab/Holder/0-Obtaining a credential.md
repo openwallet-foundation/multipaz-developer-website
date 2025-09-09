@@ -10,9 +10,37 @@ This codelab teaches you how to implement OpenID4VCI (OpenID Connect for Verifia
 
 **Architecture Overview**
 
-The credential provisioning process follows this sequence:
 
-1\. Credential Offer Received → 2\. URL Processing →3 Input Identity Info \-\>4. Authorization → 5\. Credential Issuance → 6\. Storage
+The screenshots below illustrate the provisioning process:
+
+- In the app, click “Get Credentials from Issuer”
+
+- The browser opens at issuer.multipaz.org → click “OpenID4VCI server”
+
+- Select the “Utopia Wholesale” credential
+
+- Click “Credential Offer using custom URL scheme”
+
+- Complete the Provisioning step
+
+- On the Verification Page, select the person
+
+- The Credential is issued
+
+- Back in the app, click “Present mDL via QR”
+
+- The QR code is displayed
+<div className="image-grid">
+  <img src="/img/start.png" alt="Start" />
+  <img src="/img/issuer.png" alt="Issuer" />
+  <img src="/img/select_credential.png" alt="Select Credential" />
+  <img src="/img/customize_scheme.png" alt="Customize Scheme" />
+  <img src="/img/provision.png" alt="Provision" />
+  <img src="/img/verify.png" alt="Verify" />
+  <img src="/img/authorized.png" alt="Authorized" />
+  <img src="/img/preesent_mdl.png" alt="Present MDL" />
+  <img src="/img/dispaly_qr.png" alt="Display QR" />
+</div>
 
 **What is Identity Credential Provisioning?**
 
@@ -93,7 +121,7 @@ This method includes the X.509 certificate in the JWT header to prove the wallet
 
 ### **Step 2: Understanding URL Processing**
 
-#### **2.1 Examine the URL Handler**
+#### **Examine the URL Handler**
 
 ```kotlin
 fun handleUrl(url: String) {  
@@ -123,7 +151,7 @@ fun handleUrl(url: String) {
 
 ### **Step 3: Understanding the User Interface**
 
-#### **3.1 Provisioning Screen**
+#### **Provisioning Screen**
 
 ```kotlin
 @Composable  
@@ -168,22 +196,6 @@ fun ProvisioningTestScreen(
 ```
 
 The UI observes the provisioning state using collectAsState()  
-**State Flow Diagram**:
-
-Idle → Initial → Connected → ProcessingAuthorization → Authorizing → Authorized → RequestingCredentials → CredentialsIssued
-
-In the Connected  flow you will see some page like this one:
-
-<img src="/img/provision.png" alt="Provisioning Flow" width="200" />
-
-After connecting to the server, the client will open a browser link prompting you to enter your personal data to begin authentication, as shown below:
-
-<img src="/img/verify.png" alt="Verification" width="200" />
-
-
-This demo **does not perform actual verification**—it skips identity proofing and just lets you pick a credential. In a production setup, the server should verify the user’s identity (e.g., via a challenge) before allowing credential download.
-
-<img src="/img/authorized.png" alt="Authorized" width="200" />
 
 
 ### **Step 4: Understanding Authorization**
