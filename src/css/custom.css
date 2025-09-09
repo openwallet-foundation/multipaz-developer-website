@@ -105,3 +105,43 @@
   overflow: visible !important;
   text-overflow: clip !important;
 }
+
+/* Float right class for images */
+.float-right {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* Image container for centered images with spacing */
+.image-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Grid layout for images - 3 per row */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive: 2 images per row on tablets, 1 on mobile */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
