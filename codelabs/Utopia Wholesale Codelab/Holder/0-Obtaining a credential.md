@@ -31,16 +31,17 @@ The screenshots below illustrate the provisioning process:
 
 - The QR code is displayed
 <div className="image-grid">
-  <img src="/img/start.png" alt="Start" />
-  <img src="/img/issuer.png" alt="Issuer" />
-  <img src="/img/select_credential.png" alt="Select Credential" />
-  <img src="/img/customize_scheme.png" alt="Customize Scheme" />
-  <img src="/img/provision.png" alt="Provision" />
-  <img src="/img/verify.png" alt="Verify" />
-  <img src="/img/authorized.png" alt="Authorized" />
-  <img src="/img/preesent_mdl.png" alt="Present MDL" />
-  <img src="/img/dispaly_qr.png" alt="Display QR" />
+  <img src={require('@site/static/img/start.png').default} alt="Start" />
+  <img src={require('@site/static/img/issuer.png').default} alt="Issuer" />
+  <img src={require('@site/static/img/select_credential.png').default} alt="Select Credential" />
+  <img src={require('@site/static/img/customize_scheme.png').default} alt="Customize Scheme" />
+  <img src={require('@site/static/img/provision.png').default} alt="Provision" />
+  <img src={require('@site/static/img/verify.png').default} alt="Verify" />
+  <img src={require('@site/static/img/authorized.png').default} alt="Authorized" />
+  <img src={require('@site/static/img/preesent_mdl.png').default} alt="Present MDL" />
+  <img src={require('@site/static/img/dispaly_qr.png').default} alt="Display QR" />
 </div>
+
 
 **What is Identity Credential Provisioning?**
 
