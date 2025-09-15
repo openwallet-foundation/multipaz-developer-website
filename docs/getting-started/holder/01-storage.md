@@ -58,5 +58,4 @@ class App {
 }
 ```
 
-<!-- TODO: update link -->
-Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/7500a92ead53cdeca3c6131000c3f7ec07284349/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L91-L94) code for the implementation of the Storage section of this guide.
+Refer to [this](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L98-L101) code for the implementation of the Storage section of this guide.

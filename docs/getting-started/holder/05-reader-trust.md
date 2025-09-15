@@ -144,4 +144,6 @@ With this setup, your holder app will trust the following Multipaz applications 
 - **Multipaz Identity Reader (Untrusted Devices & Apps)** (https://github.com/davidz25/MpzIdentityReader) - For apps compiled directly from the MpzIdentityReader for development purposes or devices with unlocked bootloaders
 
 Add additional trusted readers as needed by importing their certificates.
-By configuring TrustManager with trusted reader certificates, you ensure that only authorized verifier apps can access user credentials during presentment. Refer to [this](https://github.com/openmobilehub/multipaz-getting-started-sample/blob/aeb4b2a80935a97e66dc38529331c70fcd922d99/composeApp/src/commonMain/kotlin/org/multipaz/get_started/App.kt#L195-L293) commit for the implementation of the reader trust in the app.
+By configuring TrustManager with trusted reader certificates, you ensure that only authorized verifier apps can access user credentials during presentment.
+
+Refer to [this](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L188-L286) part for the implementation of the reader trust in the app.
