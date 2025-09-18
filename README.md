@@ -89,16 +89,72 @@ Docusaurus Repo: Documentation site that displays the generated API docs
 
 GitHub Actions Setup
 
-1. In Kotlin Repository => [.github/workflows/trigger-docusaurus-update.yml](https://github.com/VishnuSanal/multipaz-identity-credential/blob/main/.github/workflows/trigger-docusaurus-update.yml)
-2. In Docusaurus Repository => [.github/workflows/docs.yml](https://github.com/openmobilehub/developer-multipaz-website/blob/main/.github/workflows/docs.yml)
+1. In Multipaz Repository => [.github/workflows/trigger-docusaurus-update.yml](https://github.com/openwallet-foundation/multipaz/blob/main/.github/workflows/trigger-docusaurus-update.yml)
+2. In Multipaz Developer Website Repository => [.github/workflows/docs.yml](https://github.com/openwallet-foundation/multipaz-developer-website/blob/main/.github/workflows/docs.yml)
 
 ### Required Repository Settings
 
-Secrets:
+To enable automatic documentation updates between repositories, you need to set up a Personal Access Token (PAT).
 
-- In Kotlin repo: `DOCS_REPO_ACCESS_TOKEN` (GitHub PAT with repo scope)
-- In Docusaurus repo (if Kotlin repo is private): KOTLIN_REPO_ACCESS_TOKEN
+#### Step 1: Generate Personal Access Token
 
-### GitHub Pages:
+1. **Go to GitHub Settings**: Navigate to [https://github.com/settings/personal-access-tokens/new](https://github.com/settings/personal-access-tokens/new)
+2. **Select Token Type**: Choose "Fine-grained personal access tokens"
+3. **Configure Token Settings**:
+   - **Token name**: `DOCS_REPO_ACCESS_TOKEN`
+   - **Description**: `Token for automated documentation updates between multipaz and developer website repo`
+   - **Expiration**: `366 days` (or your preferred duration)
+4. **Set Repository Access**:
+   - **Resource Owner**: `openwallet-foundation`
+   - **Repository access**: `Selected repositories`
+   - **Select repository**: `openwallet-foundation/multipaz-developer-website`
+5. **Set Permissions**:
+   - **Content**: `Read and write`
+   - **Metadata**: `Read`
+6. **Generate Token**: Click "Generate token" and **copy the token immediately** (it won't be shown again)
 
-In Docusaurus repo: Enable GitHub Pages with GitHub Actions as source
+#### Step 2: Add Token as Repository Secret
+
+1. **Go to Multipaz Repository**: Navigate to [https://github.com/openwallet-foundation/multipaz/settings/secrets/actions](https://github.com/openwallet-foundation/multipaz/settings/secrets/actions)
+2. **Add New Secret**:
+   - Click "New repository secret"
+   - **Name**: `DOCS_REPO_ACCESS_TOKEN`
+   - **Secret**: Paste the token you generated in Step 1
+   - Click "Add secret"
+
+#### What This Enables
+
+This setup allows the [Trigger Docs Update workflow](https://github.com/openwallet-foundation/multipaz/blob/main/.github/workflows/trigger-docusaurus-update.yml) to automatically update the developer website whenever changes are made to the multipaz repository.
+
+## GitHub Pages Setup
+
+Docusaurus can run in two modes depending on your deployment setup:
+
+### Option 1: Custom Domain (PRODUCTION mode)
+For custom domains like `developer.multipaz.org`:
+
+1. **Enable GitHub Pages**: In Docusaurus repo, go to **Settings → Pages** and enable GitHub Pages with GitHub Actions as source
+2. **Set Custom Domain**: Under **Custom domain**, enter:  
+   ```
+   developer.multipaz.org
+   ```  
+3. **Save Changes**: Click save to apply the custom domain
+4. **Verify DNS**: Optionally, verify that DNS settings (CNAME or A records) are set properly for `developer.multipaz.org` pointing to GitHub Pages
+5. **Set Environment Variable**: Configure `WEBSITE_ENVIRONMENT` GitHub repository variable as `PRODUCTION`
+
+### Option 2: GitHub Pages Subdomain (DEVELOPMENT mode)
+For github.io pages like `openwallet-foundation.github.io/multipaz-developer-website`:
+
+1. **Enable GitHub Pages**: In Docusaurus repo, go to **Settings → Pages** and enable GitHub Pages with GitHub Actions as source
+2. **Set Environment Variable**: Configure `WEBSITE_ENVIRONMENT` GitHub repository variable as `DEVELOPMENT`
+3. **No Custom Domain**: Leave the custom domain field empty
+
+### Deployment
+After configuration:
+- Trigger the [`Build and Deploy Docusaurus with KDocs`](https://github.com/openmobilehub/developer-multipaz-website/actions/workflows/docs.yml) workflow
+- The `baseUrl` will automatically be set to:
+  - `/` for custom domains (PRODUCTION mode)
+  - `/{repository_name}` for github.io pages (DEVELOPMENT mode)
+
+### Reference
+See GitHub's guide for more details: [Configuring a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
