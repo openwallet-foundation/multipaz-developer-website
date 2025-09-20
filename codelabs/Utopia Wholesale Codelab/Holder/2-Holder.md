@@ -10,139 +10,52 @@ A document is a container that holds multiple credentials and represents an iden
 
 We will discuss how to create a credential and bind it to the document created above.
 
-In App.kt
 
-### **Step 1: Establish validity times**
-```kotlin
-val now = Clock.System.now()
+### **Add Verifier Certificate**
 
-val signedAt = now
 
-val validFrom = now
-
-val validUntil = now + 365.days
+The Holder app also needs to add the Verifier (Reader) certificate to its trust list. This ensures that the Holder can recognize and trust the Verifier during credential sharing. The Verifier's certificate can be downloaded from the Multipaz Verifier [website](https://verifier.multipaz.org/identityreaderbackend/). Below is the code snippet demonstrating how to add the Verifier's certificate to the trust list,In App.kt:
 ```
-
-now is captured from the system clock. The credential is considered signed at signedAt, becomes valid at validFrom, and remains valid for 365 days (validUntil).
-
-### **Step 2: Add the IACA certificate**
-
-Get pre-generated Authority Certificate Authority (IACA) certificate and private_key ,the certificate will be shared to Verifier so holder will be in Verifier's issuer trust list
-```kotlin
-val iacaCert = X509Cert.fromPem(
-    Res.readBytes("files/iaca_certificate.pem").decodeToString().trimIndent().trim()
-)
-Logger.i(appName, iacaCert.toPem())
-val iacaKey = EcPrivateKey.fromPem(
-   Res.readBytes("files/iaca_private_key.pem").decodeToString().trimIndent().trim(),
-   iacaCert.ecPublicKey
-)
-
-```
-### **Step 3: Generate the DS certificate**
-
-“generateDsCertificate” issues a Document Signing (DS) certificate from the IACA key. Its parameters are:  
-```kotlin
-val dsKey = Crypto.createEcPrivateKey(EcCurve.P256)
-val dsCert = MdocUtil.generateDsCertificate(
-    iacaCert = iacaCert,
-    iacaKey = iacaKey, 
-    dsKey = dsKey.publicKey,
-    subject = X500Name.fromName(name = "CN=Test DS Key"),
-    serial = ASN1Integer.fromRandom(numBits = 128),
-    validFrom = validFrom,
-    validUntil = validUntil
-)
-```
-
-### **Step 4: Create the credential with sample data**
-
-“createMdocCredentialWithSampleData” adds an MdocCredential to the document using the specified secureArea.  
-```kotlin
-val mdocCredential =  
-    DrivingLicense.getDocumentType().createMdocCredentialWithSampleData(  
-        document = document,  
-        secureArea = secureArea,  
-        createKeySettings = CreateKeySettings(  
-            algorithm = Algorithm.ESP256,  
-            nonce = "Challenge".encodeToByteString(),  
-            userAuthenticationRequired = true  
-        ),  
-        dsKey = dsKey,  
-        dsCertChain = X509CertChain(listOf(dsCert)),  
-        signedAt = signedAt,  
-        validFrom = validFrom,  
-        validUntil = validUntil,  
+//TODO: Add X509Cert
+addX509Cert(
+    certificate = X509Cert.fromPem(
+        Res.readBytes("files/test_app_reader_root_certificate.pem")
+            .decodeToString().trimIndent().trim()
+    ),
+    metadata = TrustMetadata(
+        displayName = "OWF Multipaz Test App Reader",
+        displayIcon = null,
+        privacyPolicyUrl = "https://apps.multipaz.org"
     )
-```
-
-### **Step 5: Start exporting credential**
-
-Now the credentials exist in your documents, however, they won't be accessible through  Android/ios credential manager system. In order to be accessed by the credential manager system, you need to export the credentials
-
-```kotlin
-if (DigitalCredentials.Default.available) {  
-//TODO:  DigitalCredentials.Default.startExportingCredentials(
-//                    documentStore = documentStore,
-//                    documentTypeRepository = documentTypeRepository*  
-//                )
-
-   DigitalCredentials.Default.startExportingCredentials(  
-       documentStore = documentStore,  
-       documentTypeRepository = documentTypeRepository  
-   )  
-}
-
-```
-
-
-### **Step 6: Add Verifier Certificate**
-
-
-The Holder app also needs to add the Verifier (Reader) certificate to its trust list. This ensures that the Holder can recognize and trust the Verifier during credential sharing. The Verifier's certificate can be downloaded from the Multipaz Verifier [website](https://verifier.multipaz.org/identityreaderbackend/). Below is the code snippet demonstrating how to add the Verifier's certificate to the trust list:
-```
-    try {
-            readerTrustManager.apply{
-                addX509Cert(
-                    certificate = X509Cert.fromPem(
-                        Res.readBytes("files/test_app_reader_root_certificate.pem").decodeToString().trimIndent().trim()
-                    ),
-                    metadata = TrustMetadata(
-                        displayName = "OWF Multipaz Test App Reader",
-                        displayIcon = null,
-                        privacyPolicyUrl = "https://apps.multipaz.org"
-                    )
-                )
-                addX509Cert(
-                    certificate = X509Cert.fromPem(
-                        Res.readBytes("files/reader_root_certificate.pem").decodeToString().trimIndent().trim(),
-                    ),
-                    metadata = TrustMetadata(
-                        displayName = "Multipaz Identity Reader (Trusted Devices)",
-                        displayIcon = null,
-                        privacyPolicyUrl = "https://apps.multipaz.org"
-                    )
-                )
-                addX509Cert(
-                    certificate = X509Cert.fromPem(
-                        Res.readBytes("files/reader_root_certificate_for_untrust_device.pem").decodeToString().trimIndent().trim(),
-                    ),
-                    metadata = TrustMetadata(
-                        displayName = "Multipaz Identity Reader (UnTrusted Devices)",
-                        displayIcon = null,
-                        privacyPolicyUrl = "https://apps.multipaz.org"
-                    )
-                )
-            }
-        } catch (e: TrustPointAlreadyExistsException) {
-            e.printStackTrace()
-        }
+)
+addX509Cert(
+    certificate = X509Cert.fromPem(
+        Res.readBytes("files/reader_root_certificate.pem").decodeToString()
+            .trimIndent().trim(),
+    ),
+    metadata = TrustMetadata(
+        displayName = "Multipaz Identity Reader (Trusted Devices)",
+        displayIcon = null,
+        privacyPolicyUrl = "https://apps.multipaz.org"
+    )
+)
+addX509Cert(
+    certificate = X509Cert.fromPem(
+        Res.readBytes("files/reader_root_certificate_for_untrust_device.pem")
+            .decodeToString().trimIndent().trim(),
+    ),
+    metadata = TrustMetadata(
+        displayName = "Multipaz Identity Reader (UnTrusted Devices)",
+        displayIcon = null,
+        privacyPolicyUrl = "https://apps.multipaz.org"
+    )
+)
 ```
 
 
 ---
 
-## **How to Generate a Certificate (Optional)**
+## **(Optional)How to Generate a Certificate**
 
 In above step "Add the IACA certificate" mentions `iaca_private_key` (iaca private key)and `iaca_Cert`(iaca certificate)
 This section shows how to generate your own iaca certificate and  iaca private key.
@@ -195,35 +108,23 @@ We will use components just like below
 In App.kt , initialize this model during app startup (if not already):
 
 ```kotlin
-// TODO: presentmentModel = PresentmentModel().apply { // setPromptModel(promptModel) }
-presentmentModel = PresentmentModel().apply {
-    setPromptModel(promptModel)
-}
+// TDDO: add provisioningModel
+provisioningModel = ProvisioningModel(
+    documentStore = documentStore,
+    secureArea = Platform.getSecureArea(),
+    httpClient = io.ktor.client.HttpClient() {
+        followRedirects = false
+    },
+    promptModel = Platform.promptModel,
+    documentMetadataInitializer = ::initializeDocumentMetadata
+)
 ```
-
-
 This model manages the credential presentation lifecycle, including state transitions like `IDLE`, `CONNECTING`, `COMPLETED`, etc.
 
 
 ### **Step 2: Add a QR Presentation Button**
 
 The `showQrButton()` composable sets up a UI button that begins the QR-code based session.
-
-```kotlin
-private fun showQrButton(showQrCode: MutableState<ByteString?>) {
-    Button(onClick = {
-        presentmentModel.reset()
-        presentmentModel.setConnecting()
-        presentmentModel.presentmentScope.launch() {
-            ...
-        }
-    }) {
-        Text("Present mDL via QR")
-    }
-}
-```
-
-
 Internally, this function:
 
 * Starts a BLE connection for a mobile document (mDoc).
@@ -234,30 +135,35 @@ Internally, this function:
 
 * Waits for a verifier to connect.
 
-
-
-
-### **Step 3: Generate and Show the QR Code**
-
-When `showQrButton()` triggers the connection, it calls `showQrCode()` to display a QR code representing the device engagement.
-
 ```kotlin
-private fun showQrCode(deviceEngagement: MutableState<ByteString?>) {
-    if (deviceEngagement.value != null) {
-        // TODO: val mdocUrl = "mdoc:" + deviceEngagement.value!!.toByteArray().toBase64Url()
-        val mdocUrl = "mdoc:" + deviceEngagement.value!!.toByteArray().toBase64Url()
+// TODO: show qr button when credentials are available
+Button(onClick = {
+                 val connectionMethods = listOf(
+                     MdocConnectionMethodBle(
+                         supportsPeripheralServerMode = false,
+                         supportsCentralClientMode = true,
+                         peripheralServerModeUuid = null,
+                         centralClientModeUuid = UUID.randomUUID(),
+                     )
+                 )
+                 onQrButtonClicked(
+                     MdocProximityQrSettings(
+                         availableConnectionMethods = connectionMethods,
+                         createTransportOptions = MdocTransportOptions(bleUseL2CAP = true)
+                     )
+                 )
+             }) {
+                 Text("Present mDL via QR")
+             }
+             Spacer(modifier = Modifier.height(16.dp))
+             Text(
+                 text = "The mDL is also available\n" +
+                         "via NFC engagement and W3C DC API\n" +
+                         "(Android-only right now)",
+                 textAlign = TextAlign.Center
+             )
 
-        // TODO: qrCodeBitmap = remember { generateQrCode(mdocUrl) }
-        qrCodeBitmap = remember { generateQrCode(mdocUrl) }
-    }
-}
 ```
-
-
-The QR code encodes the device's **payload**, which a verifier can scan to initiate a secure connection.
-
-
-### **Step 4: Sharing Credential Code by QR and Bluetooth**
 
 When the user taps **Present mDL via QR**, the following sequence is triggered:
 
@@ -279,49 +185,28 @@ When the user taps **Present mDL via QR**, the following sequence is triggered:
    MdocConnectionMethodBle is used for Ble connection
 
 
-```kotlin
-val connectionMethods = listOf(
-    MdocConnectionMethodBle(
-        supportsPeripheralServerMode = false,
-        supportsCentralClientMode = true,
-        peripheralServerModeUuid = null,
-        centralClientModeUuid = UUID.randomUUID(),
-    )
-)
-```
 
-This BLE transport is then advertised:
+### **Step 3: Generate and Show the QR Code**
+
+When `showQrButton()` triggers the connection, it calls `showQrCode()` to display a QR code representing the device engagement.
 
 ```kotlin
-// TODO: advertisedTransports = connectionMethods.advertise(
-//                         role = MdocRole.MDOC,
-//                         transportFactory = MdocTransportFactory.Default,
-//                         options = MdocTransportOptions(bleUseL2CAP = true),
-//                     )
-
-val advertisedTransports = connectionMethods.advertise(
-    role = MdocRole.MDOC,
-    transportFactory = MdocTransportFactory.Default,
-    options = MdocTransportOptions(bleUseL2CAP = true),
-)
-```
-
-The device engagement includes connection methods for BLE/NFC and is shared as:
-
-```kotlin
-val engagementGenerator = EngagementGenerator(
-    eSenderKey = eDeviceKey.publicKey,
-    version = "1.0"
+//TODO: show QR code
+Image(
+    modifier = Modifier.fillMaxWidth(),
+    bitmap = qrCodeBitmap,
+    contentDescription = null,
+    contentScale = ContentScale.FillWidth
 )
 
-engagementGenerator.addConnectionMethods(advertisedTransports.map {
-    it.connectionMethod
-})
 ```
 
 
+The QR code encodes the device's **payload**, which a verifier can scan to initiate a secure connection.
 
-### **Step 5: Sharing Credential Code by NFC (Android Only)**
+
+
+### **Step 4(Android Only): Sharing Credential Code by NFC**
 
 In this section, you'll learn how to enable **NFC credential sharing** in your Utopia app. NFC (Near Field Communication) is a contactless mechanism allowing users to "tap" their phone to a verifier device to present credentials. This is especially useful for Android devices, offering fast and secure sharing without opening a UI manually.
 
@@ -338,21 +223,8 @@ This activity launches when the device is tapped against a verifier. It initiali
 _NfcActivity.kt_
 
 ```kotlin
-override fun ApplicationTheme(content: @Composable (() -> Unit)) {
-    content()
-}
-
-override suspend fun getSettings(): Settings {
-    val app = App.getInstance()
-    app.init()
-    return Settings(
-        appName = app.appName,
-        appIcon = app.appIcon,
-        promptModel = App.promptModel,
-        documentTypeRepository = app.documentTypeRepository,
-        presentmentSource = app.presentmentSource
-    )
-}
+//TODO: init app instance
+app.init()
 ```
 
 This activity wakes the device if necessary and securely presents credentials.
@@ -362,41 +234,13 @@ This activity wakes the device if necessary and securely presents credentials.
 
 NdefService extends from MdocNdefService(Base class for implementing NFC engagement according to ISO/IEC 18013-5:2021.)
 
-_NdefService.kt_
-```kotlin
-class NdefService : MdocNdefService() {
-    override suspend fun getSettings(): Settings {
-        return Settings(
-            sessionEncryptionCurve = EcCurve.P256,
-            allowMultipleRequests = false,
-            useNegotiatedHandover = true,
-            negotiatedHandoverPreferredOrder = listOf(
-                "ble:central_client_mode:",
-                "ble:peripheral_server_mode:"
-            ),
-            transportOptions = MdocTransportOptions(bleUseL2CAP = true),
-            promptModel = App.promptModel,
-            presentmentActivityClass = NfcActivity::class.java
-        )
-    }
-}
-```
+In _NdefService.kt_ `negotiatedHandoverPreferredOrder` is set to select BLE. In this case, NFC establishes the initial connection. No credential data is transferred at this stage. The NFC connection is used to negotiate which transport method to use. Since BLE is selected, a BLE connection is established, and credentials are shared over BLE.
 
-`negotiatedHandoverPreferredOrder` is set to select BLE. In this case, NFC establishes the initial connection. No credential data is transferred at this stage. The NFC connection is used to negotiate which transport method to use. Since BLE is selected, a BLE connection is established, and credentials are shared over BLE.
-
-3. Configure AndroidManifest.xml:Add NFC capabilities and link your NfcActivity and NdefService in AndroidManifest.xml
+Configure AndroidManifest.xml:Add NFC capabilities and link your NfcActivity and NdefService in AndroidManifest.xml
 
 _AndroidManifest.xml_
 ```xml
-<activity
-    android:name=".NfcActivity"
-    android:showWhenLocked="true"
-    android:turnScreenOn="true"
-    android:exported="true"
-    android:launchMode="singleInstance"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
-<!-- TODO: Add this service
+<!-- TODO: Add this NdefService-->
 <service
     android:name=".NdefService"
     android:exported="true"
@@ -405,19 +249,7 @@ _AndroidManifest.xml_
     <intent-filter>
         <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
     </intent-filter>
-    <meta-data
-        android:name="android.nfc.cardemulation.host_apdu_service"
-        android:resource="@xml/nfc_ndef_service" />
-</service>
--->
 
-<service
-    android:name=".NdefService"
-    android:exported="true"
-    android:permission="android.permission.BIND_NFC_SERVICE">
-    <intent-filter>
-        <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
-    </intent-filter>
     <meta-data
         android:name="android.nfc.cardemulation.host_apdu_service"
         android:resource="@xml/nfc_ndef_service" />
@@ -425,7 +257,7 @@ _AndroidManifest.xml_
 
 ```
 
-4. Configure NFC AID Filter(nfc\_ndef\_service.xml)
+3. Configure NFC AID Filter(nfc\_ndef\_service.xml)
 
 Nfc\_ndef\_service.xml is under “res/xml”. To allow your Android device to act as an NFC Type 4 Tag and share credentials securely with a verifier, you must configure an AID (Application Identifier) filter. This is done in `nfc_ndef_service.xml`, which is referenced in your `AndroidManifest.xml`.
 
@@ -441,22 +273,13 @@ This XML file tells the Android system:
 
 _nfc_ndef_service.xml_
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<host-apdu-service xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:description="@string/nfc_ndef_service_description"
-    android:requireDeviceUnlock="false"
-    android:requireDeviceScreenOn="false"
-    tools:ignore="UnusedAttribute">
 
-    <aid-group android:description="@string/nfc_ndef_service_aid_group_description"
-        android:category="other">
-        <!-- NFC Type 4 Tag - matches ISO 18013-5 mDL standard -->
-        <aid-filter android:name="D2760000850101"/>
-    </aid-group>
-</host-apdu-service>
+<!--TODO: implement nfc_ndef_service xml-->
+<aid-group android:description="@string/nfc_ndef_service_aid_group_description" android:category="other">
+    <!-- NFC Type 4 Tag -->
+    <aid-filter android:name="D2760000850101"/>
+</aid-group>
 ```
-
 ---
 
 Explanation of attributes:  
