@@ -64,6 +64,17 @@ const sidebars = {
       collapsed: false,
       collapsible: true,
     },
+    {
+      type: "category",
+      label: "Getting Started Guides",
+      link: {
+        type: "doc",
+        id: "guides/guides",
+      },
+      items: ["guides/web-verification", "guides/facenet", "guides/dcql"],
+      collapsed: false,
+      collapsible: true,
+    },
     'sample-apps',
   ],
 };
