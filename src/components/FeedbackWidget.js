@@ -15,7 +15,7 @@ export default function FeedbackWidget() {
   }
 
   const handleFeedbackClick = () => {
-    const issueUrl = 'https://github.com/openmobilehub/developer-multipaz-website/issues/new';
+    const issueUrl = 'https://github.com/openwallet-foundation/multipaz-developer-website/issues/new';
     const template = 'website-feedback.md';
     
     // Get the current page title

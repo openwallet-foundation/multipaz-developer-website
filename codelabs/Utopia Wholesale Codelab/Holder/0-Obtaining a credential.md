@@ -68,16 +68,13 @@ First, set your project’s **“android:launchMode="singleInstance"** to preven
 
 #### **1.2 Understand the ProvisioningSupport Class**
 ```kotlin
-
-class ProvisioningSupport: OpenID4VCIBackend {  
-    companion object Companion {  
-      //TODO:  Add const val APP_LINK_SERVER = "https://apps.multipaz.org"
-
-       const val CLIENT_ID = "urn:uuid:418745b8-78a3-4810-88df-7898aff3ffb4"  
-    }  
-      
-      
-}
+//TODO: implement OpenID4VCI_CLIENT_PREFERENCES
+val OPENID4VCI_CLIENT_PREFERENCES = OpenID4VCIClientPreferences(
+    clientId = CLIENT_ID,
+    redirectUrl = APP_LINK_BASE_URL,
+    locales = listOf("en-US"),
+    signingAlgorithms = listOf(Algorithm.ESP256, Algorithm.ESP384, Algorithm.ESP512)
+    )
 
 ```
 
@@ -85,196 +82,102 @@ ProvisioningSupport is a subclass of OpenID4VCIBackend, which is defined in the 
 
 #### **1.3 Examine Key Methods**
 
+In ProvisioningSupport.kt 
+
 **createJwtClientAssertion**:
 
 ```kotlin
-@OptIn(ExperimentalTime::class)  
-override suspend fun createJwtClientAssertion(tokenUrl: String): String {  
-    val alg = localClientAssertionPrivateKey.curve.defaultSigningAlgorithmFullySpecified.joseAlgorithmIdentifier  
-    //TODO implement head   
-    
-      
-    // ... rest of implementation ...  
-}
+//TODO: implement head 
+val head = buildJsonObject {
+            put("typ", "JWT")
+            put("alg", alg)
+            put("kid", localClientAssertionKeyId)
+        }.toString().encodeToByteArray().toBase64Url()
+
 ```
 
 This method creates a JWT header with the signing algorithm and key ID.
 
-**Wallet Attestation**
 
 ```kotlin
-@OptIn(ExperimentalTime::class)  
-override suspend fun createJwtWalletAttestation(keyAttestation: KeyAttestation): String {  
-    val signatureAlgorithm = attestationPrivateKey.curve.defaultSigningAlgorithmFullySpecified  
-    val head = buildJsonObject {  
-        put("typ", "oauth-client-attestation+jwt")  
-        put("alg", signatureAlgorithm.joseAlgorithmIdentifier)  
-        put("x5c", buildJsonArray {  
-            add(attestationCertificate.encodedCertificate.encodeBase64())  
-        })  
-    }.toString().encodeToByteArray().toBase64Url()  
-      
-    // ... rest of implementation ...  
-}
+//TODO: implement OpenID4VCI_CLIENT_PREFERENCES
+val OPENID4VCI_CLIENT_PREFERENCES = OpenID4VCIClientPreferences(
+            clientId = CLIENT_ID,
+            redirectUrl = APP_LINK_BASE_URL,
+            locales = listOf("en-US"),
+            signingAlgorithms = listOf(Algorithm.ESP256, Algorithm.ESP384, Algorithm.ESP512)
+        )
 ```
-
-This method includes the X.509 certificate in the JWT header to prove the wallet's authenticity. These JWTs are what convince the issuer that your wallet is legitimate and secure.
+Here creates an OPENID4VCI_CLIENT_PREFERENCES object, which defines configuration parameters such as clientId, redirectUrl, locals, and signingAlgorithms. The OPENID4VCI_CLIENT_PREFERENCES is then used when calling launchOpenID4VCIProvisioning.
 
 ### **Step 2: Understanding URL Processing**
 
 #### **Examine the URL Handler**
+In App.kt file
 
 ```kotlin
-fun handleUrl(url: String) {  
-    Logger.i(TAG, "handleUrl called with: $url")  
-      
-    if (url.startsWith(OID4VCI_CREDENTIAL_OFFER_URL_SCHEME) || url.startsWith(HAIP_URL_SCHEME)) {  
-        // Handle credential offer URLs  
-        Logger.i(TAG, "Starting OpenID4VCI provisioning with: $url")  
-        CoroutineScope(Dispatchers.Default).launch {  
-          //TODO:  credentialOffers.send(url)  
-        }  
-    } else if (url.startsWith(ProvisioningSupport.APP_LINK_BASE_URL)) {  
-        // Handle app link invocations (OAuth callbacks)  
-        Logger.i(TAG, "Processing app link invocation: $url")  
-        CoroutineScope(Dispatchers.Default).launch {  
-            try {  
-            //TODO:    provisioningSupport.processAppLinkInvocation(url)  
-            } catch (e: Exception) {  
-                Logger.e(TAG, "Error processing app link: ${e.message}", e)  
-            }  
-        }  
-    }  
-}
+//TODO:    call processAppLinkInvocation(url)
+provisioningSupport.processAppLinkInvocation(url)
 ```
-
 **Credential Offer URLs**: Start with openid-credential-offer:// or haip://
+
+During provisioning, the app receives a URL from the server, and the client must perform specific processing based on that URL.
 
 ### **Step 3: Understanding the User Interface**
 
 #### **Provisioning Screen**
 
-```kotlin
-@Composable  
-fun ProvisioningTestScreen(  
-    app: App,  
-    provisioningModel: ProvisioningModel,  
-    provisioningSupport: ProvisioningSupport,  
-    onNavigateToMain: () -> Unit  
-) {  
-    val provisioningState = provisioningModel.state.collectAsState(ProvisioningModel.Idle).value  
-      
-    Column {  
-        // Navigation back button  
-        Row(  
-            modifier = Modifier.fillMaxWidth(),  
-            horizontalArrangement = Arrangement.Start  
-        ) {  
-            Text(  
-                modifier = Modifier  
-                    .padding(16.dp)  
-                    .clickable { onNavigateToMain() },  
-                text = "← Back",  
-                style = MaterialTheme.typography.bodyLarge,  
-                color = MaterialTheme.colorScheme.primary  
-            )  
-        }  
-          
-        // Display different states  
-        when (provisioningState) {  
-            is ProvisioningModel.Authorizing -> {  
-                Authorize(app, provisioningModel, provisioningState.authorizationChallenges, provisioningSupport)  
-            }  
-            is ProvisioningModel.Error -> {  
-                Text("Error: ${provisioningState.err.message}")  
-            }  
-            else -> {  
-/*TODO:   handle provisioningState */  
-            }  
-        }  
-    }  
-}
+```kotlin   
+//TODO: update text depends on provisioningState
+val text = when (provisioningState) {
+             ProvisioningModel.Idle -> "Initializing..."
+             ProvisioningModel.Idle -> "Starting provisioning..."
+             ProvisioningModel.Connected -> "Connected to the back-end"
+             ProvisioningModel.ProcessingAuthorization -> "Processing authorization..."
+             ProvisioningModel.ProcessingAuthorization -> "Authorized"
+             ProvisioningModel.RequestingCredentials -> "Requesting credentials..."
+             ProvisioningModel.CredentialsIssued -> "Credentials issued"
+             is ProvisioningModel.Error -> throw IllegalStateException()
+             is ProvisioningModel.Authorizing -> throw IllegalStateException()
+         }
+         Text(
+             modifier = Modifier
+                 .align(Alignment.CenterHorizontally)
+                 .padding(8.dp),
+             style = MaterialTheme.typography.titleLarge,
+             text = text
+         )
+    
 ```
-
-The UI observes the provisioning state using collectAsState()  
-
+The provisioning flow progresses through the following states: Idle, Connected, ProcessingAuthorization, RequestingCredentials,CredentialsIssued, etc. Your application should monitor the current provisioning state and display a notification that corresponds to it.
 
 ### **Step 4: Understanding Authorization**
 
 #### **4.1 Authorization Handler**
 
+In ProvisioningTestScreen.kt
+
 ```kotlin
-@Composable  
-private fun Authorize(  
-    app: App,  
-    provisioningModel: ProvisioningModel,  
-    provisioningSupport: ProvisioningSupport,  
-    challenges: List<AuthorizationChallenge>  
-) {  
-    Logger.i(EvidenceRequestWebView, "Authorize function called with ${challenges.size} challenges")  
-    when (val challenge = challenges.first()) {  
-        is AuthorizationChallenge.OAuth -> {  
-            Logger.i(EvidenceRequestWebView, "Authorize: Rendering EvidenceRequestWebView for OAuth challenge") 
-            //TODO: init  EvidenceRequestWebView
-            
-        }  
-    }  
-}
+//TODO: init  EvidenceRequestWebView
+EvidenceRequestWebView(
+    evidenceRequest = challenge,
+    provisioningModel = provisioningModel,
+    provisioningSupport = provisioningSupport
+)
 ```
 
-The function receives a list of authorization challenges ,handles OAuth challenges and Calls EvidenceRequestWebView for OAuth challenges
+EvidenceRequestWebView is called inside Authorize function. The Authorize function receives a list of authorization challenges ,handles OAuth challenges and Calls EvidenceRequestWebView for OAuth challenges
 
 #### **4.2 OAuth Flow Handler**
 
-```kotlin
-@Composable  
-fun EvidenceRequestWebView(  
-    evidenceRequest: AuthorizationChallenge.OAuth,  
-    provisioningModel: ProvisioningModel,  
-    provisioningSupport: ProvisioningSupport  
-) {  
-    // Stabilize the evidenceRequest to prevent unnecessary re-compositions  
-    val stableEvidenceRequest = remember(evidenceRequest.url, evidenceRequest.state) {  
-        evidenceRequest  
-    }  
-      
-    // Handle OAuth callback when user returns from browser  
-    LaunchedEffect(stableEvidenceRequest.url) {  
-        Logger.i(EvidenceRequestWebView, "Waiting for app link invocation with state: ${stableEvidenceRequest.state}")  
-        val invokedUrl = provisioningSupport.waitForAppLinkInvocation(stableEvidenceRequest.state)  
-        Logger.i(EvidenceRequestWebView, "App link invoked with URL: $invokedUrl")  
-          
-          //TODO: add provideAuthorizationResponse
-        
-    }  
-      
-    // Launch external browser for OAuth authentication  
-    val uriHandler = LocalUriHandler.current  
-    LaunchedEffect(stableEvidenceRequest.url) {  
-        Logger.i(EvidenceRequestWebView, "About to open browser with URL: ${stableEvidenceRequest.url}")  
-        // TODO: use Chrome Custom Tabs instead?  
-        uriHandler.openUri(stableEvidenceRequest.url)  
-        Logger.i(EvidenceRequestWebView, "Browser opened successfully")  
-    }  
-      
-    // Show user message while browser is launching  
-    Column {  
-        Row(  
-            modifier = Modifier.fillMaxWidth(),  
-            horizontalArrangement = Arrangement.Center  
-        ) {  
-            Text(  
-                text = "Launching browser, continue there",  
-                textAlign = TextAlign.Center,  
-                modifier = Modifier.padding(8.dp),  
-                style = MaterialTheme.typography.bodyLarge  
-            )  
-        }  
-    }  
-}
+```kotlin  
+//TODO: add provideAuthorizationResponse
+ provisioningModel.provideAuthorizationResponse(
+            AuthorizationResponse.OAuth(stableEvidenceRequest.id, invokedUrl)
+        )
 ```
 
-\*\*What it do \*\*:
+**What it do**:
 
 1. **OAuth Challenge Handling**: Receives an OAuth authorization challenge from the issuer  
 2. **External Browser Launch**: Opens the user's default browser with the OAuth URL  
@@ -296,8 +199,8 @@ The APP\_LINK\_SERVER serves as the **OAuth callback endpoint** for your credent
 
 ```kotlin
 companion object Companion {  
-    // Default custom scheme (enabled in AndroidManifest.xml)  
-    const val APP_LINK_SERVER = "wholesale-test-app"  
+        // Default custom scheme (enabled in AndroidManifest.xml)  
+        const val APP_LINK_SERVER = "wholesale-test-app"  
         const val APP_LINK_BASE_URL = "${APP_LINK_SERVER}://landing/"
 
         // Alternative HTTP App Links (more secure). See AndroidManifest.xml Option #2  
@@ -309,9 +212,7 @@ companion object Companion {
 
 By default, since your app’s fingerprint has not been uploaded to apps.multipaz.org, app links from the website cannot be handled by the app and will instead open in the browser. To enable the app to handle these links, follow these steps:
 
-**App Info → Open by default → Add Link → select “apps.multipaz.org Opens in Multipaz Test App.”**
-
-![][image4]
+**App Info → Open by default → Add Link → select “apps.multipaz.org Opens in Multipaz Test App.”(Different devices may display different)**
 
 If your app’s fingerprint is not registered on the Multipaz server and you haven’t completed the above steps, you will see the error message: **“The request URL was not found on the server.”**
 
@@ -367,7 +268,7 @@ The codelab enables custom URI schemes out of the box. This intent filter matche
 
 **If you prefer to use HTTP App Links (more secure), see Option #2 in AndroidManifest.xml and complete the verification steps.**
 
-### **6 Set up your Own Credential Server(Optional)**
+### **Step 6 (Optional)Set up your Own Credential Server**
 
 If you are setting up your own Credential server, the steps below will guide you through adding your app’s fingerprint.
 

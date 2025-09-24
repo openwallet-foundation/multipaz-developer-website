@@ -32,6 +32,7 @@ This code is in App.kt. `SecureArea` suitable for the platform to represent cryp
 ```kotlin
 // TODO: create secure area
 secureArea = Platform.getSecureArea()
+        
 ```
 
 The `Platform.getSecureArea()` function returns platform-specific secure area implementations that use hardware-backed key storage: in android it is Android Keystore system, in iOS, it uses SecureEnclaveSecureArea.
@@ -54,9 +55,9 @@ In App.kt, DocumentStore is the main API used to create, list, and manage verifi
 ```kotlin
 // TODO: initialize the document store
 documentStore = buildDocumentStore(
-    storage = storage, 
+    storage = storage,
     secureAreaRepository = secureAreaRepository
-) {}
+    ) {}
 ```
 
 Once initialized, you can start interacting with the document store to create, delete, or retrieve documents.
