@@ -71,7 +71,11 @@ const sidebars = {
         type: "doc",
         id: "guides/guides",
       },
-      items: ["guides/web-verification", "guides/facenet", "guides/dcql"],
+      items: [
+        "guides/web-verification",
+        "guides/facenet",
+        "guides/dcql"
+      ],
       collapsed: false,
       collapsible: true,
     },
