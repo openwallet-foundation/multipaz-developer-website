@@ -207,6 +207,28 @@ Refer to [**this code from App.kt**](https://github.com/openwallet-foundation/mu
 * Follow the on screen instructions & when prompted, select Multipaz Getting Started as the credential provider.
 * You will be able to see the details of the received credential in the browser screen.
 
+#### **Demo Screenshots**
+
+<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px'}}>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/dc-demo-one.png" alt="Step 1: Credential Request in Browser" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 1</div>
+  </div>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/dc-demo-two.png" alt="Step 2: Credential Selection in App" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 2</div>
+  </div>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/dc-demo-three.png" alt="Step 3: Credential Sent to Verifier" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 3</div>
+  </div>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/dc-demo-four.png" alt="Step 4: Verified Credential Displayed" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 4</div>
+  </div>
+</div>
+
+
 #### **Security Considerations**
 
 * Only browsers listed in `privilegedUserAgents.json` are trusted when requesting credentials.
