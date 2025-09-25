@@ -18,11 +18,13 @@ using Multipaz.
 
 ![Credential Lifecycle](/img/lifecycle.png#gh-light-mode-only)
 ![Credential Lifecycle](/img/lifecycle-dark.png#gh-dark-mode-only)
+[<p align="center">Source (.excalidraw)</p>](/img/lifecycle.excalidraw)
 
 The "Credential Lifecycle" diagram illustrates the typical stages that a digital credential undergoes. It starts with Provisioning (Issuance), where the credential is created and issued. Next, the credential is stored by the holder. When needed, the holder can present the credential to a relying party (Presentation). The presented credential is then verified. Finally, there may be an optional step of Revocation & Status Checking, where the validity or status of the credential can be checked or revoked as needed.
 
-![Credential Lifecycle](/img/roles.png#gh-light-mode-only)
-![Credential Lifecycle](/img/roles-dark.png#gh-dark-mode-only)
+![Roles](/img/roles.png#gh-light-mode-only)
+![Roles](/img/roles-dark.png#gh-dark-mode-only)
+[<p align="center">Source (.excalidraw)</p>](/img/roles.excalidraw)
 
 We have split this guide into three parts. Each of which is split into the type of role you as a developer play in developing an app with Multipaz.
 
