@@ -13,6 +13,8 @@ Multipaz provides composable functions for requesting runtime permissions in you
 * **Camera Permission:** Use `rememberCameraPermissionState`
 * **Notification Permission:** Use `rememberNotificationPermissionState`
 
+**Note:** Multipaz also provides `rememberBluetoothEnabledState` composable to keep track of enablement of bluetooth on the device.
+
 **Example: Requesting BLE Permission**
 
 ```kotlin
@@ -23,7 +25,9 @@ fun Content() {
         Column {
             val coroutineScope = rememberCoroutineScope { promptModel }
             val blePermissionState = rememberBluetoothPermissionState()
+            val bleEnabledState = rememberBluetoothEnabledState()
 
+            // Bluetooth Permission
             if (!blePermissionState.isGranted) {
                 Button(
                     onClick = {
@@ -34,6 +38,17 @@ fun Content() {
                 ) {
                     Text("Request BLE permissions")
                 }
+            // Bluetooth Enablement
+            } else if (!bleEnabledState.isEnabled) {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Button(onClick = { coroutineScope.launch { bleEnabledState.enable() } }) {
+                        Text("Enable Bluetooth")
+                    }
+                }
             } else {
                 // ...
             }
@@ -43,7 +58,7 @@ fun Content() {
 }
 ```
 
-Refer to **[this presentation setup code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L340-L351)** for the complete example.
+Refer to **[this presentation setup code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L316-L337)** for the complete example.
 
 **AndroidManifest.xml: Required BLE Permissions**
 
@@ -91,6 +106,11 @@ Refer to **[this Info.plist code](https://github.com/openwallet-foundation/multi
 
 `PresentmentModel` manages the entire UX/UI flow for credential presentation, providing a `state` variable to track the presentation process. Multipaz also offers a `Presentment` composable for embedding credential presentment UI.
 
+`MdocProximityQrPresentment` composable can be used for presentment with QR engagement according to **ISO/IEC 18013-5:2021**. It displays different content based on `presentmentModel` state:
+- `PresentmentModel.State.IDLE` → shows `showQrButton`. When clicked, transitions to `PresentmentModel.State.CONNECTING`.
+- `PresentmentModel.State.CONNECTING` → shows `showQrCode` (QR code display). Once scanned, transitions to `PresentmentModel.State.WAITING_FOR_SOURCE` and further states.
+- Other states → shows `Presentment` composable (including cconsent/authentication, etc.). When the reader disconnects, returns to `PresentmentModel.State.IDLE` and shows `showQrButton` again.
+
 You can generate QR codes using `org.multipaz.compose.qrcode:generateQrCode`.
 
 ```kotlin
@@ -112,40 +132,33 @@ class App {
     }
 
     fun Content() {
+
+        val context = LocalPlatformContext.current
+        val imageLoader = remember {
+            ImageLoader.Builder(context).components { /* network loader omitted */ }.build()
+        }
+
         // ...
         MaterialTheme {
             // ...
             Column {
                 if (!blePermissionState.isGranted) {
                     // ...
+                } else if (!bleEnabledState.isEnabled) {
+                    // ...
                 } else {
-                    val deviceEngagement = remember { mutableStateOf<ByteString?>(null) }
-                    val state = presentmentModel.state.collectAsState()
-                    val appIcon = painterResource(Res.drawable.compose_multiplatform)
-                    when (state.value) {
-                        PresentmentModel.State.IDLE -> {
-                            ShowQrButton(deviceEngagement)
-                        }
-                        PresentmentModel.State.CONNECTING -> {
-                            ShowQrCode(deviceEngagement)
-                        }
-                        PresentmentModel.State.WAITING_FOR_SOURCE,
-                        PresentmentModel.State.PROCESSING,
-                        PresentmentModel.State.WAITING_FOR_DOCUMENT_SELECTION,
-                        PresentmentModel.State.WAITING_FOR_CONSENT,
-                        PresentmentModel.State.COMPLETED -> {
-                            Presentment(
-                                appName = "Multipaz Getting Started Sample",
-                                appIconPainter = appIcon,
-                                presentmentModel = presentmentModel,
-                                presentmentSource = presentmentSource,
-                                documentTypeRepository = documentTypeRepository,
-                                onPresentmentComplete = {
-                                    presentmentModel.reset()
-                                },
-                            )
-                        }
-                    }
+                    MdocProximityQrPresentment(
+                        appName = appName,
+                        appIconPainter = painterResource(appIcon),
+                        presentmentModel = presentmentModel,
+                        presentmentSource = presentmentSource,
+                        promptModel = promptModel,
+                        documentTypeRepository = documentTypeRepository,
+                        imageLoader = imageLoader,
+                        allowMultipleRequests = false,
+                        showQrButton = { onQrButtonClicked -> ShowQrButton(onQrButtonClicked) },
+                        showQrCode = { uri -> ShowQrCode(uri) }
+                    )
                 }
             }
         }
@@ -154,8 +167,7 @@ class App {
 }
 ```
 
-
-The implementation code for the initialization of PresentmentModel can be found [here](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L288-L295) & for the UI updates can be found [here](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L352-L379).
+The implementation code for the initialization of PresentmentModel can be found [here](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L251-L258) & for the UI updates can be found [here](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L338-L349).
 
 ## Starting Device Engagement
 
@@ -167,64 +179,36 @@ To start engagement for presentment (e.g., via BLE), use a connection method tha
 class App {
     // ...
     @Composable
-    private fun showQrButton(showQrCode: MutableState<ByteString?>) {
+    private fun ShowQrButton(onQrButtonClicked: (settings: MdocProximityQrSettings) -> Unit) {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(onClick = {
-                presentmentModel.reset()
-                presentmentModel.setConnecting()
-                presentmentModel.presentmentScope.launch() {
-                    val connectionMethods = listOf(
-                        MdocConnectionMethodBle(
-                            supportsPeripheralServerMode = false,
-                            supportsCentralClientMode = true,
-                            peripheralServerModeUuid = null,
-                            centralClientModeUuid = UUID.randomUUID(),
-                        )
+                val connectionMethods = listOf(
+                    MdocConnectionMethodBle(
+                        supportsPeripheralServerMode = false,
+                        supportsCentralClientMode = true,
+                        peripheralServerModeUuid = null,
+                        centralClientModeUuid = UUID.randomUUID(),
                     )
-                    val eDeviceKey = Crypto.createEcPrivateKey(EcCurve.P256)
-                    val advertisedTransports = connectionMethods.advertise(
-                        role = MdocRole.MDOC,
-                        transportFactory = MdocTransportFactory.Default,
-                        options = MdocTransportOptions(bleUseL2CAP = true),
+                )
+                onQrButtonClicked(
+                    MdocProximityQrSettings(
+                        availableConnectionMethods = connectionMethods,
+                        createTransportOptions = MdocTransportOptions(bleUseL2CAP = true)
                     )
-                    val engagementGenerator = EngagementGenerator(
-                        eSenderKey = eDeviceKey.publicKey,
-                        version = "1.0"
-                    )
-                    engagementGenerator.addConnectionMethods(advertisedTransports.map {
-                        it.connectionMethod
-                    })
-                    val encodedDeviceEngagement = ByteString(engagementGenerator.generate())
-                    showQrCode.value = encodedDeviceEngagement
-                    val transport = advertisedTransports.waitForConnection(
-                        eSenderKey = eDeviceKey.publicKey,
-                        coroutineScope = presentmentModel.presentmentScope
-                    )
-                    presentmentModel.setMechanism(
-                        MdocPresentmentMechanism(
-                            transport = transport,
-                            eDeviceKey = eDeviceKey,
-                            encodedDeviceEngagement = encodedDeviceEngagement,
-                            handover = Simple.NULL,
-                            engagementDuration = null,
-                            allowMultipleRequests = false
-                        )
-                    )
-                    showQrCode.value = null
-                }
+                )
             }) {
-                Text("Present mDL via QR")
+                Text("Present mDL via QR Code")
             }
         }
     }
 }
 ```
 
-Refer to **[this PresentmentModel code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L397-L451)** for the complete example.
+Refer to **[the show QR button code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L367-L393)** for the complete example.
 
 ## Displaying the QR Code
 
@@ -236,36 +220,33 @@ Use the following composable to display the QR code generated for presentment.
 class App {
     // ...
     @Composable
-    private fun showQrCode(deviceEngagement: MutableState<ByteString?>) {
+    private fun ShowQrCode(uri: String) {
         Column(
             modifier = Modifier.fillMaxSize().padding(16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            if (deviceEngagement.value != null) {
-                val mdocUrl = "mdoc:" + deviceEngagement.value!!.toByteArray().toBase64Url()
-                val qrCodeBitmap = remember { generateQrCode(mdocUrl) }
-                Text(text = "Present QR code to mdoc reader")
-                Image(
-                    modifier = Modifier.fillMaxWidth(),
-                    bitmap = qrCodeBitmap,
-                    contentDescription = null,
-                    contentScale = ContentScale.FillWidth
-                )
-                Button(
-                    onClick = {
-                        presentmentModel.reset()
-                    }
-                ) {
-                    Text("Cancel")
+            val qrCodeBitmap = remember { generateQrCode(uri) }
+            Text(text = "Present QR code to mdoc reader")
+            Image(
+                modifier = Modifier.fillMaxWidth(),
+                bitmap = qrCodeBitmap,
+                contentDescription = null,
+                contentScale = ContentScale.FillWidth
+            )
+            Button(
+                onClick = {
+                    presentmentModel.reset()
                 }
+            ) {
+                Text("Cancel")
             }
         }
     }
 }
 ```
 
-Refer to **[this QR code display code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L453-L479)** for the complete example.
+Refer to **[this QR code display code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L395-L418)** for the complete example.
 
 By following these steps, you can request necessary permissions, manage the credential presentment flow, and generate device engagement QR codes for verifiers.
 
@@ -325,26 +306,24 @@ Multipaz provides `MdocNfcPresentmentActivity`, which manages the entire lifecyc
 ```kotlin
 // kotlin/NfcActivity.kt
 class NfcActivity : MdocNfcPresentmentActivity() {
-    @Composable
-    override fun ApplicationTheme(content: @Composable (() -> Unit)) {
-        content()
-    }
-
     override suspend fun getSettings(): Settings {
         val app = App.getInstance()
         app.init()
         return Settings(
             appName = app.appName,
             appIcon = app.appIcon,
-            promptModel = App.promptModel,
+            promptModel = promptModel,
+            applicationTheme = @Composable { content -> MaterialTheme { content() } },
             documentTypeRepository = app.documentTypeRepository,
-            presentmentSource = app.presentmentSource
+            presentmentSource = app.presentmentSource,
+            imageLoader = ImageLoader.Builder(applicationContext)
+                .components { /* network loader omitted */ }.build(),
         )
     }
 }
 ```
 
-Refer to **[this NfcActivity code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/NfcActivity.kt)** for the complete example.
+Refer to **[this NfcActivity code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/NfcActivity.kt)** for the complete example.
 
 ### **NFC Engagement Service**
 
