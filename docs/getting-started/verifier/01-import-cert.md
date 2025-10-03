@@ -7,36 +7,30 @@ import ThemedIframe from '../../../src/components/ThemedIframe';
 
 To ensure your verifier app can validate the authenticity of documents from holders, configure the `TrustManager` with trusted issuer certificates. This enhances security and ensures compliance with digital credential standards.
 
-##### Steps to Import an IACA Certificate to the [MpzIdentityReader](https://github.com/davidz25/MpzIdentityReader) app
+## Steps to Import an IACA Certificate to the [MpzIdentityReader](https://github.com/davidz25/MpzIdentityReader) app
 
-1. Install the MpzIdentityReader app
-    1. Download from [apps.multipaz.org](http://apps.multipaz.org/)
-    2. Or build it yourself from the [source](https://github.com/davidz25/MpzIdentityReader).
+### Install the MpzIdentityReader app
 
-2. **Export the IACA certificate**
-    1. Use the following in your app to print the PEM:
+* Download from [apps.multipaz.org](http://apps.multipaz.org/)
+* Or build it yourself from the [source](https://github.com/davidz25/MpzIdentityReader).
 
-    ```kotlin
-    class App {
-        // ...
-        suspend fun init() {
-            // ...
-            val iacaCert = MdocUtil.generateIacaCertificate(
-                // ...
-            )
-            println(iacaCert.toPem().toString()) // print the IACA certificate
-        }
-    }
-    ```
-3. **Import the PEM into MpzIdentityReader**
-    1. Open the navigation drawer
-    2. Go to **Settings**
-    3. Select **Trusted issuers**
-    4. Tap the add floating button (bottom right)
-    5. Click **import certificate**
-    6. Select the PEM file you just created
-4. **Scan the document's QR code**
-    1. The app will trust the document if the issuer is recognized.
+### Download the IACA Certificate Multipaz Getting Started Sample uses
+
+* Download the IACA Certificate we used to generate the credential to the reader device
+    * [**iaca_certificate.pem**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/iaca_certificate.pem)
+
+### Import the PEM into MpzIdentityReader
+
+* Open the navigation drawer
+* Go to **Settings**
+* Select **Trusted issuers**
+* Tap the add floating button (bottom right)
+* Click **import certificate**
+* Select the PEM file you just downloaded
+
+### Scan the document's QR code
+
+* The app will trust the document if the issuer is recognized.
 
 <ThemedIframe
   githubUrl="https://github.com/davidz25/MpzIdentityReader/blob/cdd2a4f05c2cb6e95014f66683b90986ce07a35d/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/TrustedIssuersScreen.kt#L156-L160"
