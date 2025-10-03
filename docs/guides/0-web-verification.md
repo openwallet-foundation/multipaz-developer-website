@@ -50,12 +50,6 @@ Create a new activity extending `CredentialManagerPresentmentActivity `provided 
 ```kotlin
 // ...
 class CredmanActivity : CredentialManagerPresentmentActivity() {
-    @Composable
-    override fun ApplicationTheme(content: @Composable (() -> Unit)) {
-        App()
-        content()
-    }
-
     override suspend fun getSettings(): Settings {
         val app = App.getInstance()
         app.init()
@@ -63,15 +57,18 @@ class CredmanActivity : CredentialManagerPresentmentActivity() {
             appName = app.appName,
             appIcon = app.appIcon,
             promptModel = App.promptModel,
+            applicationTheme = @Composable { content -> MaterialTheme { content() } },
             documentTypeRepository = app.documentTypeRepository,
             presentmentSource = app.presentmentSource,
-            privilegedAllowList = Res.readBytes("files/privilegedUserAgents.json").decodeToString()
+            privilegedAllowList = Res.readBytes("files/privilegedUserAgents.json").decodeToString(),
+            imageLoader = ImageLoader.Builder(applicationContext)
+                .components { /* network loader omitted */ }.build(),
         )
     }
 }
 ```
 
-Refer to **[**the CredmanActivity file**](https://github.com/openwallet-foundation/multipaz-samples/blob/af7f2adea05fd2ca531cdc50824e556b88b770fd/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/CredmanActivity.kt)** for the complete example.
+Refer to **[**the CredmanActivity file**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/CredmanActivity.kt)** for the complete example.
 
 ### **2. Update AndroidManifest.xml**
 
