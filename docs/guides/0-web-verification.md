@@ -93,7 +93,7 @@ Register `CredmanActivity` in your manifest and declare intent filters for the C
 
 * This registers your app as a credential provider for browser and web app requests using the W3C DC API.
 
-Refer to the [**sample Manifest code**](https://github.com/openwallet-foundation/multipaz-samples/blob/af7f2adea05fd2ca531cdc50824e556b88b770fd/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L55-L67) for context.
+Refer to the [**sample Manifest code**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L55-L67) for context.
 
 ### **3. Add Privileged User Agents JSON**
 
@@ -127,7 +127,7 @@ Create a JSON file listing all trusted browser apps and their signature fingerpr
 * Defines which browsers and apps can be trusted when requesting credentials from your app.
 * Warns about untrusted applications/websites when they try to access sensitive credential data.
 
-Refer to [**the full `privilegedUserAgents.json` file**](https://github.com/openwallet-foundation/multipaz-samples/blob/af7f2adea05fd2ca531cdc50824e556b88b770fd/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/privilegedUserAgents.json) for a complete list.
+Refer to [**the full `privilegedUserAgents.json` file**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/privilegedUserAgents.json) for a complete list.
 
 ### **4. Export Digital Credentials**
 
@@ -153,13 +153,13 @@ class App {
 * Enables credential export functionality for the W3C DC API.
 * Ensures the app is ready to respond to browser credential requests.
 
-Refer to [**this code from App.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/af7f2adea05fd2ca531cdc50824e556b88b770fd/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L255-L260) for context.
+Refer to [**this code from App.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L260-L265) for context.
 
 ### **5. Updating Reader Trust Manager**
 
 Modify your app’s reader trust manager to trust the official Multipaz web verifier also.
 
-- First download [**this file**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/af7f2adea05fd2ca531cdc50824e556b88b770fd/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/reader_root_cert_multipaz_web_verifier.pem) that contains the reader certificate for [verifier.multipaz.org](https://verifier.multipaz.org) & add it to `/src/commonMain/composeResources/files` directory.
+- First download [**this file**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/reader_root_cert_multipaz_web_verifier.pem) that contains the reader certificate for [verifier.multipaz.org](https://verifier.multipaz.org) & add it to `/src/commonMain/composeResources/files` directory.
 
 - Next, add this certificate to the reader trust manager to trust the web verifier using the following code.
 
@@ -192,7 +192,7 @@ class App {
 
 * Enables the app to trust [verifier.multipaz.org](http://verifier.multipaz.org) for sharing credentials.
 
-Refer to [**this code from App.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/af7f2adea05fd2ca531cdc50824e556b88b770fd/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L230-L244) for context.
+Refer to [**this code from App.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L235-L249) for context.
 
 ### **6. Testing and Verification**
 
