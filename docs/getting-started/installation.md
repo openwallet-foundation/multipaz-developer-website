@@ -32,7 +32,7 @@ dependencyResolutionManagement {
 }
 ```
 
-Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/settings.gradle.kts#L4-L31)** for the complete example.
+Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/settings.gradle.kts#L4-L33)** for the complete example.
 
 * Add the following dependencies to `libs.versions.toml`
 
@@ -41,8 +41,9 @@ Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundat
 # update this line
 android-minSdk = "26" # Multipaz requires minSdk >= 26 due to usage of Android 8.0+ APIs
 
-multipaz = "0.93.0" # latest version of Multipaz to use
+multipaz = "0.94.0" # latest version of Multipaz to use
 
+coil = "3.3.0"
 androidx-fragment = "1.8.6"
 
 [libraries]
@@ -51,10 +52,11 @@ multipaz-models = { group = "org.multipaz", name = "multipaz-models", version.re
 multipaz-compose = { group = "org.multipaz", name = "multipaz-compose", version.ref = "multipaz" }
 multipaz-doctypes = { group = "org.multipaz", name = "multipaz-doctypes", version.ref = "multipaz" }
 
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "androidx-fragment" }
 ```
 
-Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/gradle/libs.versions.toml#L34-L39)** for the complete example.
+Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/gradle/libs.versions.toml#L35-L41)** for the complete example.
 
 * Add the following to your module level `build.gradle.kts` file (usually `app/build.gradle.kts`):
 
@@ -71,11 +73,13 @@ kotlin {
            implementation(libs.multipaz.models)
            implementation(libs.multipaz.compose)
            implementation(libs.multipaz.doctypes)
+           
+           implementation(libs.coil.compose)
        }
    }
 }
 ```
-Refer to **[this build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/build.gradle.kts#L32-L52)** for the complete example.
+Refer to **[this build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/build.gradle.kts#L32-L54)** for the complete example.
 
 You might also want to check out other libraries in the Multipaz ecosystem, from Multipaz [here](https://mvnrepository.com/search?q=multipaz).
 
@@ -162,7 +166,7 @@ class App {
 }
 ```
 
-Refer to **[this App.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt)** for the complete example.
+Refer to **[this App.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt)** for the complete example.
 
 ### Update `MainActivity.kt`
 
@@ -194,7 +198,7 @@ class MainActivity : FragmentActivity() { // use FragmentActivity
 }
 ```
 
-Refer to **[this MainActivity.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/MainActivity.kt)** for the complete example.
+Refer to **[this MainActivity.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/MainActivity.kt)** for the complete example.
 
 ### Update `iOSMain/MainViewController.kt`
 
@@ -208,7 +212,7 @@ fun MainViewController() = ComposeUIViewController {
 }
 ```
 
-Refer to **[this MainViewController.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/composeApp/src/iosMain/kotlin/org/multipaz/getstarted/MainViewController.kt)** for the complete example.
+Refer to **[this MainViewController.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/iosMain/kotlin/org/multipaz/getstarted/MainViewController.kt)** for the complete example.
 
 #### ⚠️ Some gotchas to be aware of (iOS only):
 
@@ -225,4 +229,4 @@ OTHER_LDFLAGS = (
 );
 ```
 
-Refer to **[this project.pbxproj code](https://github.com/openwallet-foundation/multipaz-samples/blob/9708cb36f44040ff51b5e0b3b7922175e47462d2/MultipazGettingStartedSample/iosApp/iosApp.xcodeproj/project.pbxproj)** for the complete example.
+Refer to **[this project.pbxproj code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/iosApp/iosApp.xcodeproj/project.pbxproj)** for the complete example.
