@@ -29,7 +29,7 @@ Multipaz distinguishes between two types of trust:
     * This was already handled in the holder/reader trust section (todo: link)
 
 <ThemedIframe
-  githubUrl="https://github.com/davidz25/MpzIdentityReader/blob/cdd2a4f05c2cb6e95014f66683b90986ce07a35d/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/ShowResultsScreen.kt#L144-L210"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-identity-reader/blob/fbf081128a70f0bf5ec8db10cff48faf95452024/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/ShowResultsScreen.kt#L152-L218"
 />
 
-The above section deals with the verification of trust of the received document in the MpzIdentityReader app.
+The above section deals with the verification of trust of the received document in the Mutipaz Identity Reader app.
