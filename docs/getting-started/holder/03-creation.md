@@ -38,35 +38,21 @@ val validUntil = now + 365.days
 The IACA (Issuing Authority Certificate Authority) certificate is required for signing the Document Signing (DS) certificate.
 
 ```kotlin
-val iacaCert = X509Cert.fromPem(
-    """
-        -----BEGIN CERTIFICATE-----
-        MIICYzCCAemgAwIBAgIQ36kOae8cfvOqQ+mO4YhnpDAKBggqhkjOPQQDAzAuMQswCQYDVQQGDAJV
-        UzEfMB0GA1UEAwwWT1dGIE11bHRpcGF6IFRFU1QgSUFDQTAeFw0yNTA3MjQxMTE3MTlaFw0zMDA3
-        MjQxMTE3MTlaMC4xCzAJBgNVBAYMAlVTMR8wHQYDVQQDDBZPV0YgTXVsdGlwYXogVEVTVCBJQUNB
-        MHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEQQJf9BH+fJytVI4K4nQvHJAfzapvuT6jo+19fo+o9+zV
-        PFnOYtsbPXB5sPeuMMv5ZkQGmn9yWCgpbZHAS2pJ/eJXAcLp9uH8BGo6pYhkPomx9cwgMX0YUXoB
-        4wiO6w9eo4HLMIHIMA4GA1UdDwEB/wQEAwIBBjASBgNVHRMBAf8ECDAGAQH/AgEAMC0GA1UdEgQm
-        MCSGImh0dHBzOi8vaXNzdWVyLmV4YW1wbGUuY29tL3dlYnNpdGUwMwYDVR0fBCwwKjAooCagJIYi
-        aHR0cHM6Ly9pc3N1ZXIuZXhhbXBsZS5jb20vY3JsLmNybDAdBgNVHQ4EFgQUPbetw5QkxGKjazN0
-        qI9YfaexD+0wHwYDVR0jBBgwFoAUPbetw5QkxGKjazN0qI9YfaexD+0wCgYIKoZIzj0EAwMDaAAw
-        ZQIxAKizj2YexKf1+CTBCOV4ehyiUU5MSi9iPScW32+halSCVUtbmW63fpG+37obLGivegIwb38g
-        xhIRxDdIk1CBVsqANCFUvdBuSoORRV5928xo/B9he5ZFyb8b6UauJS70AMD8
-        -----END CERTIFICATE-----
-    """.trimIndent()
+val iacaCert =
+    X509Cert.fromPem(Res.readBytes("files/iaca_certificate.pem").decodeToString())
 
 val iacaKey = EcPrivateKey.fromPem(
-    """
-        -----BEGIN PRIVATE KEY-----
-        MFcCAQAwEAYHKoZIzj0CAQYFK4EEACIEQDA+AgEBBDBEPQnb6xr3p0XKGucrf3iVI/sDF2fc55vs
-        T31kxam8x8ocKu4ETouTZM+DZKu0cD+gBwYFK4EEACI=
-        -----END PRIVATE KEY-----
-    """.trimIndent(),
+    Res.readBytes("files/iaca_private_key.pem").decodeToString(),
     iacaCert.ecPublicKey
 )
 ```
 
-We are embedding IACA certificate & key into the code right now. In a production environment you'll them load from a sever.
+These cerfiticate files can be downloaded from the following links. They should be placed inside `commonMain/composeResources/files`:
+
+* [**iaca_certificate.pem**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/iaca_certificate.pem)
+* [**iaca_private_key.pem**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/iaca_private_key.pem)
+
+We are embedding IACA certificate & key into the app right now. In a production environment you'll them load from a sever.
 
 You can use `multipazctl` to generate your own certificates & keys. Refer [here](https://github.com/openwallet-foundation-labs/identity-credential/?tab=readme-ov-file#command-line-tool) for the steps.
 
