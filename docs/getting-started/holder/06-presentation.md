@@ -111,13 +111,21 @@ Refer to **[this Info.plist code](https://github.com/openwallet-foundation/multi
 - `PresentmentModel.State.CONNECTING` → shows `showQrCode` (QR code display). Once scanned, transitions to `PresentmentModel.State.WAITING_FOR_SOURCE` and further states.
 - Other states → shows `Presentment` composable (including cconsent/authentication, etc.). When the reader disconnects, returns to `PresentmentModel.State.IDLE` and shows `showQrButton` again.
 
-You can generate QR codes using `org.multipaz.compose.qrcode:generateQrCode`.
-
 ```kotlin
 class App {
     // ...
     lateinit var presentmentModel: PresentmentModel
     lateinit var presentmentSource: PresentmentSource
+
+    companion object {
+        // ...
+
+        // Domains used for MdocCredential & SdJwtVcCredential
+        private const val CREDENTIAL_DOMAIN_MDOC_USER_AUTH = "mdoc_user_auth"
+        private const val CREDENTIAL_DOMAIN_MDOC_MAC_USER_AUTH = "mdoc_mac_user_auth"
+        private const val CREDENTIAL_DOMAIN_SDJWT_USER_AUTH = "sdjwt_user_auth"
+        private const val CREDENTIAL_DOMAIN_SDJWT_KEYLESS = "sdjwt_keyless"
+    }
 
     suspend fun init() {
         // ...
@@ -127,7 +135,10 @@ class App {
             documentTypeRepository = documentTypeRepository,
             readerTrustManager = readerTrustManager,
             preferSignatureToKeyAgreement = true,
-            domainMdocSignature = "mdoc",
+            domainMdocSignature = CREDENTIAL_DOMAIN_MDOC_USER_AUTH,
+            domainMdocKeyAgreement = CREDENTIAL_DOMAIN_MDOC_MAC_USER_AUTH,
+            domainKeylessSdJwt = CREDENTIAL_DOMAIN_SDJWT_KEYLESS,
+            domainKeyBoundSdJwt = CREDENTIAL_DOMAIN_SDJWT_USER_AUTH
         )
     }
 
@@ -212,7 +223,7 @@ Refer to **[the show QR button code](https://github.com/openwallet-foundation/mu
 
 ## Displaying the QR Code
 
-Use the following composable to display the QR code generated for presentment.
+Use the following composable to display the QR code generated for presentment. You can generate QR codes using `org.multipaz.compose.qrcode:generateQrCode`.
 
 **Example: QR Code Display**
 

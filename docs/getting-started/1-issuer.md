@@ -173,14 +173,14 @@ Refer to [**this MainActivity.kt code**](https://github.com/openwallet-foundatio
 
 ## **Initialize Issuance in App**
 
-1. Add provisioning fields and initialize ProvisioningModel.
+1. Add provisioning fields, initialize ProvisioningModel & ProvisioningSupport.
 
 ```kotlin
 // ...
 class App {
     // ...
     lateinit var provisioningModel: ProvisioningModel
-    val provisioningSupport = ProvisioningSupport()
+    lateinit var provisioningSupport: ProvisioningSupport
 
     // Channel for incoming credential offer URIs
     private val credentialOffers = Channel<String>()
@@ -191,19 +191,24 @@ class App {
             // ... to initialize provisioningModel
             provisioningModel = ProvisioningModel(
                 documentStore = documentStore,
-                secureArea = org.multipaz.util.Platform.getSecureArea(),
+                secureArea = secureArea,
                 httpClient = io.ktor.client.HttpClient() {
                     followRedirects = false
                 },
-                promptModel = org.multipaz.util.Platform.promptModel,
+                promptModel = promptModel,
                 documentMetadataInitializer = ::initializeDocumentMetadata
             )
+            provisioningSupport = ProvisioningSupport(
+                storage = storage,
+                secureArea = secureArea,
+            )
+            provisioningSupport.init()
         }
     }
 }
 ```
 
-Refer to [**this initialization code**](https://github.com/openwallet-foundation/multipaz-samples/blob/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L282-L290) for the complete example.
+Refer to [**this initialization code**](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L317-L330) for the complete example.
 
 2. Add URL handling for credential offers and app links:
 
@@ -249,27 +254,28 @@ class App {
         var isProvisioning by remember { mutableStateOf(false) }
         val provisioningState = provisioningModel.state.collectAsState().value
 
-        val stableProvisioningModel = remember(provisioningModel) { provisioningModel }
-        val stableProvisioningSupport = remember(provisioningSupport) { provisioningSupport }
-
         // Listen for credential offers and launch OID4VCI flow
         LaunchedEffect(true) {
-            while (true) {
-                val credentialOffer = credentialOffers.receive()
-                stableProvisioningModel.launchOpenID4VCIProvisioning(
-                    offerUri = credentialOffer,
-                    clientPreferences = ProvisioningSupport.OPENID4VCI_CLIENT_PREFERENCES,
-                    backend = stableProvisioningSupport
-                )
-                isProvisioning = true
+            if (!provisioningModel.isActive)  {
+                while (true) {
+                    val credentialOffer = credentialOffers.receive()
+                    provisioningModel.launchOpenID4VCIProvisioning(
+                        offerUri = credentialOffer,
+                        clientPreferences = provisioningSupport.getOpenID4VCIClientPreferences(),
+                        backend = provisioningSupport.getOpenID4VCIBackend()
+                    )
+                    isProvisioning = true
+                }
             }
         }
 
         Column(/* ... */) {
             if (isProvisioning) {
-                ProvisioningTestScreen(
-                    stableProvisioningModel,
-                    stableProvisioningSupport,
+                Provisioning(
+                    provisioningModel = provisioningModel,
+                    waitForRedirectLinkInvocation = { state ->
+                        provisioningSupport.waitForAppLinkInvocation(state)
+                    }
                 )
                 Button(onClick = {
                     provisioningModel.cancel();
@@ -301,7 +307,11 @@ class App {
 }
 ```
 
-Refer to [**this Provisioning UI code**](https://github.com/openwallet-foundation/multipaz-samples/blob/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L332-L375) and [**this button code**](https://github.com/openwallet-foundation/multipaz-samples/blob/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L412-L428) for the complete example.
+#### **Provisioning UI**
+
+Multipaz provides `Provisioning` Composable that that interacts with the user and drives credential provisioning in the given `ProvisioningModel`. This composable handles the end-to-end provisioning UI for the attached `ProvisioningModel`.
+
+Refer to [**this Provisioning UI code**](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L376-L428) and [**this button code**](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L415-L427) for the complete example.
 
 4. Initialize document metadata for new credentials:
 
@@ -325,32 +335,37 @@ class App {
 }
 ```
 
+Note: You can [**download profile.png** from here](https://github.com/openwallet-foundation/multipaz-samples/blob/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/profile.png).
+
 Refer to [**this metadata init function code**](https://github.com/openwallet-foundation/multipaz-samples/blob/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L542-L555) for the complete example.
 
-## **Demo “wallet back-end” (OpenID4VCIBackend)**
+## **ProvisioningSupport & OpenID4VCILocalBackend**
 
-The sample includes `ProvisioningSupport`, an in-app implementation of `OpenID4VCIBackend` to sign:
+The sample includes `ProvisioningSupport` (to imitate `OpenID4VCI` wallet back-end) and `OpenID4VCILocalBackend` (an in-app implementation of `OpenID4VCIBackend`).
+
+`OpenID4VCILocalBackend` is used to sign:
 
 * Client assertions (for token exchange)
 * Wallet attestation JWT
 * Key attestation JWT
 
-It also coordinates the app-link redirect callback using a simple state→channel map.
+`ProvisioningSupport` also coordinates the app-link redirect callback using a simple state→channel map.
 
 **Important:** This is for development and testing only. Do not embed keys in production apps. In production, implement `OpenID4VCIBackend` on your server.
 
-Highlights:
+#### **Highlights:**
 
-* Implements:
-    * `createJwtClientAssertion(tokenUrl: String)`
-    * `createJwtWalletAttestation(keyAttestation: KeyAttestation)`
-    * `createJwtKeyAttestation(keyAttestations: List&lt;KeyAttestation>, challenge: String)`
-* Manages app-link OAuth callbacks using a state-channel:
+* `ProvisioningSupport` manages app-link OAuth callbacks using a state-channel, and an instance of `:
     * `waitForAppLinkInvocation(state)`
     * `processAppLinkInvocation(url)`
+    * `getOpenID4VCIClientPreferences()`
+    * `getOpenID4VCIBackend()`
 
 ```kotlin
-class ProvisioningSupport : OpenID4VCIBackend {
+class ProvisioningSupport(
+    val storage: Storage,
+    val secureArea: SecureArea,
+) {
     companion object {
         // Custom URI Scheme used for app redirection in this sample.
         const val APP_LINK_SERVER = "get-started-app"
@@ -359,21 +374,28 @@ class ProvisioningSupport : OpenID4VCIBackend {
         // Alternative HTTP App Links (more secure)
         // const val APP_LINK_SERVER = "https://getstarted.multipaz.org"
         // const val APP_LINK_BASE_URL = "$APP_LINK_SERVER/landing/"
-
-        // Client identity and client preferences used during OID4VCI.
-        const val CLIENT_ID = "urn:uuid:418745b8-78a3-4810-88df-7898aff3ffb4"
-
-        val OPENID4VCI_CLIENT_PREFERENCES = OpenID4VCIClientPreferences(
-            clientId = CLIENT_ID,
-            redirectUrl = APP_LINK_BASE_URL,
-            locales = listOf("en-US"),
-            signingAlgorithms = listOf(Algorithm.ESP256, Algorithm.ESP384, Algorithm.ESP512)
-        )
     }
 
     // Wait for wallet redirect: state is provided by the issuer during OAuth
     private val lock = Mutex()
     private val pendingLinksByState = mutableMapOf<String, SendChannel<String>>()
+
+    // Instances of backend and client preferences used for provisioning
+    private lateinit var backend: OpenID4VCIBackend
+    private lateinit var preferences: OpenID4VCIClientPreferences
+
+    suspend fun init() {
+        this.backend = OpenID4VCILocalBackend()
+
+        preferences = OpenID4VCIClientPreferences(
+            clientId = withContext(RpcAuthClientSession()) {
+                backend.getClientId()
+            },
+            redirectUrl = APP_LINK_BASE_URL,
+            locales = listOf("en-US"),
+            signingAlgorithms = listOf(Algorithm.ESP256, Algorithm.ESP384, Algorithm.ESP512)
+        )
+    }
 
     suspend fun processAppLinkInvocation(url: String) {
         val state = Url(url).parameters["state"] ?: ""
@@ -388,8 +410,23 @@ class ProvisioningSupport : OpenID4VCIBackend {
         return channel.receive()
     }
 
+    fun getOpenID4VCIClientPreferences(): OpenID4VCIClientPreferences = preferences
+
+    fun getOpenID4VCIBackend(): OpenID4VCIBackend = backend
+}
+```
+
+You refer to the [**full `ProvisioningSupport` file here**](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/ProvisioningSupport.kt).
+
+* `OpenID4VCILocalBackend` implements:
+    * `createJwtClientAssertion(tokenUrl: String)`
+    * `createJwtWalletAttestation(keyAttestation: KeyAttestation)`
+    * `createJwtKeyAttestation(keyAttestations: List&lt;KeyAttestation>, challenge: String)`
+
+```kotlin
+class OpenID4VCILocalBackend : OpenID4VCIBackend {
     // Sign a JWT client assertion for token endpoint
-    override suspend fun createJwtClientAssertion(tokenUrl: String): String { /* loads JWK, signs JWT */ }
+    override suspend fun createJwtClientAssertion(authorizationServerIdentifier: String): String { /* loads JWK, signs JWT */ }
 
     // Sign wallet attestation JWT (draft-ietf-oauth-attestation-based-client-auth)
     override suspend fun createJwtWalletAttestation(keyAttestation: KeyAttestation): String { /* signs with attestation key */ }
@@ -397,12 +434,18 @@ class ProvisioningSupport : OpenID4VCIBackend {
     // Sign key attestation JWT covering ephemeral public keys
     override suspend fun createJwtKeyAttestation(
         keyAttestations: List<KeyAttestation>,
-        challenge: String
+        challenge: String,
+        userAuthentication: List<String>?,
+        keyStorage: List<String>?
     ): String { /* signs with attestation key */ }
+
+    companion object {
+        /* hardcoded JWKs, keys, and client ID */
+    }
 }
 ```
 
-You can copy-paste the [**`ProvisioningSupport` file for the complete implementation**](https://github.com/openwallet-foundation/multipaz-samples/blob/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/ProvisioningSupport.kt).
+You can copy-paste the [**`OpenID4VCILocalBackend` file for the complete implementation**](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/OpenID4VCILocalBackend.kt).
 
 ## **Wallet back end vs Issuer**
 
@@ -418,105 +461,7 @@ You can copy-paste the [**`ProvisioningSupport` file for the complete implementa
     * Verifies the wallet back end’s signed artifacts and issues credentials to the wallet.
 * You can refer to [this](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-attestation-based-client-auth-04) document and [this diagram](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-attestation-based-client-auth-04#section-1-2) for more info on the wallet backend
 
-For local testing, the sample loads keys from Compose resources (do not ship these in production; move to a backend):
-
-* JWK for local client assertion signing from `files/provisioning_local_assertion_jwk.json`
-* Attestation certificate from `files/provisioning_attestation_certificate.pem`
-* Attestation private key from `files/provisioning_attestation_private_key.pem`
-
-You can download these files from [here](https://github.com/openwallet-foundation/multipaz-samples/tree/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files). Place these under: `composeApp/src/commonMain/composeResources/files/`
-
-These are cached in-memory and used to produce compact JWTs with COSE-encoded signatures.
-
-## **Provisioning UI**
-
-`ProvisioningTestScreen` consumes `ProvisioningModel.state` and renders:
-
-* OAuth authorization challenge: opens browser to issuer, waits for app redirect, returns the invoked redirect URL to the model
-* Secret text challenge: displays a passphrase field with constraints
-* Progress and error states
-
-```kotlin
-@Composable
-fun ProvisioningTestScreen(
-    provisioningModel: ProvisioningModel,
-    provisioningSupport: ProvisioningSupport,
-) {
-    val state = provisioningModel.state.collectAsState(ProvisioningModel.Idle).value
-    Column {
-        when (state) {
-            is ProvisioningModel.Authorizing -> Authorize(
-                provisioningModel,
-                state.authorizationChallenges,
-                provisioningSupport
-            )
-            is ProvisioningModel.Error -> {
-                Text(
-                    modifier = Modifier.align(Alignment.CenterHorizontally).padding(8.dp),
-                    style = MaterialTheme.typography.titleLarge,
-                    text = "Error: ${state.err.message}"
-                )
-                Text(
-                    modifier = Modifier.padding(4.dp),
-                    style = MaterialTheme.typography.bodyMedium,
-                    text = "For details: adb logcat -s ProvisioningModel"
-                )
-            }
-            else -> {
-                val label = when (state) {
-                    ProvisioningModel.Idle -> "Initializing..."
-                    ProvisioningModel.Initial -> "Starting provisioning..."
-                    ProvisioningModel.Connected -> "Connected to the back-end"
-                    ProvisioningModel.ProcessingAuthorization -> "Processing authorization..."
-                    ProvisioningModel.Authorized -> "Authorized"
-                    ProvisioningModel.RequestingCredentials -> "Requesting credentials..."
-                    ProvisioningModel.CredentialsIssued -> "Credentials issued"
-                    else -> ""
-                }
-                Text(
-                    modifier = Modifier.align(Alignment.CenterHorizontally).padding(8.dp),
-                    style = MaterialTheme.typography.titleLarge,
-                    text = label
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun Authorize(
-    provisioningModel: ProvisioningModel,
-    challenges: List<AuthorizationChallenge>,
-    provisioningSupport: ProvisioningSupport
-) {
-    when (val challenge = challenges.first()) {
-        is AuthorizationChallenge.OAuth -> EvidenceRequestWebView(challenge, provisioningModel, provisioningSupport)
-        is AuthorizationChallenge.SecretText -> EvidenceRequestSecretText(challenge, provisioningModel)
-    }
-}
-
-@Composable
-fun EvidenceRequestWebView(
-    evidenceRequest: AuthorizationChallenge.OAuth,
-    provisioningModel: ProvisioningModel,
-    provisioningSupport: ProvisioningSupport
-) {
-    // Wait for the redirect invocation (get-started-app://landing/?state=...)
-    LaunchedEffect(evidenceRequest.url) {
-        val invokedUrl = provisioningSupport.waitForAppLinkInvocation(evidenceRequest.state)
-        provisioningModel.provideAuthorizationResponse(
-            AuthorizationResponse.OAuth(evidenceRequest.id, invokedUrl)
-        )
-    }
-    // Launch external browser
-    LaunchedEffect(evidenceRequest.url) {
-        LocalUriHandler.current.openUri(evidenceRequest.url)
-    }
-    // Simple hint text...
-}
-```
-
-You can copy-paste the [**`ProvisioningTestScreen` file for the complete implementation**](https://github.com/openwallet-foundation/multipaz-samples/blob/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/ProvisioningTestScreen.kt).
+For local testing, the sample loads hardcoded keys (do not ship these in production; move to a backend). These are cached in-memory and used to produce compact JWTs with COSE-encoded signatures.
 
 ## **How issuance works (end-to-end)**
 
