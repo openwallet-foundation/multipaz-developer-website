@@ -97,6 +97,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {
+          name: "algolia-site-verification",
+          content: "004D866D9F7AD1BD",
+        },
+      ],
+
       // Replace with your project's social card
       image: 'img/multipaz.png',
       navbar: {
