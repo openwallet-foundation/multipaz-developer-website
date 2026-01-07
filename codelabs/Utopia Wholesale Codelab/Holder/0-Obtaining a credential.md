@@ -138,8 +138,26 @@ fun handleUrl(url: String) {
 
 #### **Step 1: Configure Info.plist**
 
-The iOS app requires URL scheme configuration in `Info.plist`. Add the following to handle deep
-links:
+The iOS app requires URL scheme configuration in `Info.plist` to handle deep links and custom URL schemes. `Info.plist` (Information Property List) is a configuration file that contains metadata about your iOS app, including supported URL schemes, app permissions, and other settings.
+
+**Configuring URL Types in Xcode:**
+
+You can configure URL schemes directly in Xcode using the Info tab:
+
+1. Open your iOS app target in Xcode
+2. Select the **Info** tab in the project settings
+3. Expand the **URL Types** section
+4. Click the **+** button to add a new URL Type
+5. Configure each URL scheme with:
+   - **Identifier**: A reverse DNS identifier (e.g., `org.multipaz.samples.wallet`)
+   - **URL Schemes**: The custom scheme name (e.g., `wholesale-test-app`)
+   - **Role**: Typically set to "Viewer" for custom schemes
+
+![Xcode Info.plist URL Types Configuration](/img/info_plist.png)
+
+**Manual Configuration (Alternative):**
+
+If you prefer to edit the XML directly, add the following to your `Info.plist` file:
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -238,8 +256,8 @@ To test the iOS implementation:
 1. **Open in Xcode**: Navigate to `iosApp → iosApp.xcodeproj` (tested with Xcode 16.3)
 2. **Clean Build**: In Xcode, go to **Product → Clean Build Folder**
 3. **Run**: Click **Start the Active Scheme** to build and run the app
-4. The app will install on your iOS device or simulator
-5. You can now test the issuance flow
+4. **Important**: The app can **only run on a real iOS device**, not on the iOS simulator. This is because credentials are stored in hardware-related secure storage (Secure Enclave) that is not available in simulators. Connect your physical iOS device and select it as the deployment target.
+5. You can now test the issuance flow on your physical device
 
 ## **Step-by-Step Implementation**
 
@@ -362,6 +380,7 @@ fun handleUrl(
     provisioningModel: ProvisioningModel,
     provisioningSupport: ProvisioningSupport
 ) {
+    // TODO: Implement URL handling and validation
     Logger.i(TAG, "handleUrl called with: $url")
     Logger.i(TAG, "handleUrl provisioningModel state: ${provisioningModel.state.value}")
     
