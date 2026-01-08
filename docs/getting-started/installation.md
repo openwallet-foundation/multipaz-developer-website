@@ -41,7 +41,7 @@ Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundat
 # update this line
 android-minSdk = "26" # Multipaz requires minSdk >= 26 due to usage of Android 8.0+ APIs
 
-multipaz = "0.95.0" # latest version of Multipaz to use
+multipaz = "0.96.0" # latest version of Multipaz to use
 
 coil = "3.3.0"
 androidx-fragment = "1.8.6"
@@ -56,7 +56,7 @@ coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" 
 androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "androidx-fragment" }
 ```
 
-Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/gradle/libs.versions.toml#L35-L41)** for the complete example.
+Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/gradle/libs.versions.toml#L39-L46)** for the complete example.
 
 * Add the following to your module level `build.gradle.kts` file (usually `app/build.gradle.kts`):
 

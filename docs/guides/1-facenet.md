@@ -14,14 +14,18 @@ What you’ll build:
 
 ## **Dependencies**
 
-Add the Multipaz Vision library for face detection, face matching, and camera APIs.
+Add the Multipaz Vision library for face detection, face matching, and camera APIs. Multipaz Vision library is published from the [Multipaz Extras](https://github.com/openwallet-foundation/multipaz-extras) repository that contains additional libraries and functionality not included in the main [Multipaz](https://github.com/openwallet-foundation/multipaz) repository.
 
 `gradle/libs.versions.toml`
 ```toml
-multipaz-vision = { group = "org.multipaz", name = "multipaz-vision", version.ref = "multipaz" }
+[versions]
+multipaz-vision = "0.95.0" # latest version of Multipaz Extras
+
+[libraries]
+multipaz-vision = { group = "org.multipaz", name = "multipaz-vision", version.ref = "multipaz-vision" }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/gradle/libs.versions.toml#L41)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/gradle/libs.versions.toml#L42)** for the complete example.
 
 `composeApp/build.gradle.kts`
 ```kotlin

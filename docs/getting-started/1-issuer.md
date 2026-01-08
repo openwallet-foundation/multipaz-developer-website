@@ -419,9 +419,9 @@ class ProvisioningSupport(
 You refer to the [**full `ProvisioningSupport` file here**](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/ProvisioningSupport.kt).
 
 * `OpenID4VCILocalBackend` implements:
-    * `createJwtClientAssertion(tokenUrl: String)`
-    * `createJwtWalletAttestation(keyAttestation: KeyAttestation)`
-    * `createJwtKeyAttestation(keyAttestations: List&lt;KeyAttestation>, challenge: String)`
+    * `createJwtClientAssertion(authorizationServerIdentifier: String): String`
+    * `createJwtWalletAttestation(keyAttestation: KeyAttestation): String`
+    * `createJwtKeyAttestation(keyIdAndAttestations: List<KeyIdAndAttestation>, challenge: String): String`
 
 ```kotlin
 class OpenID4VCILocalBackend : OpenID4VCIBackend {
@@ -433,7 +433,7 @@ class OpenID4VCILocalBackend : OpenID4VCIBackend {
 
     // Sign key attestation JWT covering ephemeral public keys
     override suspend fun createJwtKeyAttestation(
-        keyAttestations: List<KeyAttestation>,
+        keyIdAndAttestations: List<KeyIdAndAttestation>,
         challenge: String,
         userAuthentication: List<String>?,
         keyStorage: List<String>?
@@ -445,7 +445,7 @@ class OpenID4VCILocalBackend : OpenID4VCIBackend {
 }
 ```
 
-You can copy-paste the [**`OpenID4VCILocalBackend` file for the complete implementation**](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/OpenID4VCILocalBackend.kt).
+You can copy-paste the [**`OpenID4VCILocalBackend` file for the complete implementation**](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/OpenID4VCILocalBackend.kt).
 
 ## **Wallet back end vs Issuer**
 
