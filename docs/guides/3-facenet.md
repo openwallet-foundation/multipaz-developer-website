@@ -53,6 +53,7 @@ CocoaPods is a dependency manager for iOS/macOS projects (similar to Gradle for 
 - **Podfile**: Defines your dependencies (like `build.gradle.kts`)
 - **Podfile.lock**: Locks dependency versions (like `gradle.lockfile`)
 - **Pods/**: Directory where dependencies are installed (like Gradle's cache)
+- **`.podspec` files**: Specification files that define pod metadata, dependencies, and build configuration (like Gradle module descriptors)
 
 #### CocoaPods Configuration (Already Set Up)
 
@@ -66,6 +67,21 @@ CocoaPods is a dependency manager for iOS/macOS projects (similar to Gradle for 
   - `Metal`: Apple's GPU acceleration framework
 
 You can view the complete `Podfile` configuration **[here in the repository](https://github.com/openwallet-foundation/multipaz-samples/blob/main/MultipazGettingStartedSample/Podfile)**.
+
+#### Understanding composeApp.podspec
+
+The `composeApp.podspec` file is a CocoaPods specification that integrates your Kotlin Multiplatform Compose code into the iOS app. This file acts as a bridge between your Kotlin framework and the iOS native build system.
+
+**What composeApp.podspec does:**
+
+- **Defines the pod**: Specifies the pod name, version, and native dependencies (such as GoogleMLKit and TensorFlowLite)
+- **Locates the framework**: Points to the compiled Kotlin framework at `build/cocoapods/framework/ComposeApp.framework`
+- **Configures build scripts**:
+  - **Before compile**: Builds the Kotlin framework and prepares Compose resources for iOS
+  - **After compile**: Copies Compose resources and required files (like PEM certificates) into the iOS app bundle
+- **Configures Xcode settings**: Disables script sandboxing and sets the Kotlin project path for proper integration
+
+This allows your Kotlin Multiplatform code to be seamlessly integrated into the iOS build process, making Compose UI and shared business logic available to your iOS app.
 
 #### What You Need to Do
 
@@ -505,28 +521,60 @@ Standard Android build process:
 
 ### iOS Build
 
-iOS requires additional setup for CocoaPods integration:
+:::note Version Compatibility
+Different Xcode and CocoaPods versions may cause build issues. This guide was tested with:
+- **Xcode**: 16.0
+- **CocoaPods**: 1.16.2
 
-1. **First-time setup** (after cloning or adding iOS support):
+If you encounter build issues, try matching these versions or check the project's compatibility requirements.
+:::
+
+iOS requires additional setup for CocoaPods integration. Follow these steps in order:
+
+#### **Step 1: Gradle Preparation**
+
+Run these Gradle tasks to prepare the Kotlin framework and resources:
 
 ```bash
-# Generate the initial Kotlin framework
+# Clean previous builds
+./gradlew :composeApp:clean
+
+# Generate the Kotlin framework for iOS
 ./gradlew :composeApp:generateDummyFramework
 
+# Prepare Compose resources for common main
+./gradlew :composeApp:prepareComposeResourcesTaskForCommonMain
+```
+
+#### **Step 2: CocoaPods Setup**
+
+Install CocoaPods dependencies:
+
+```bash
 # Install CocoaPods dependencies
 pod install
 ```
 
-2. **Open in Xcode**:
+**Important**: After running `pod install`, always open the `.xcworkspace` file (not the `.xcodeproj` file) in Xcode.
 
-```bash
-# Always open the workspace, not the project file
-open iosApp.xcworkspace
-```
+#### **Step 3: Xcode Build**
 
-3. **Build and run**:
+1. **Open the workspace**:
+   ```bash
+   # Always open the workspace, not the project file
+   open iosApp.xcworkspace
+   ```
+
+2. **Configure project settings**:
+   - Set up your **Team** in project settings (Signing & Capabilities tab)
+   - Configure your **Bundle Identifier** in project settings
+
+3. **Clean build folder**:
+   - In Xcode: **Product → Clean Build Folder** (⇧⌘K)
+
+4. **Build and run**:
    - Select a simulator or connected device from the scheme selector
-   - Click the "Play" button (⌘+R)
+   - Click **Product → Run** (⌘+R) or the "Play" button
 
 **Common iOS build issues for Android developers:**
 
