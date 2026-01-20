@@ -285,6 +285,7 @@ composeApp/src/commonMain/
 │       ├── util/                        # Utilities
 │       │   ├── AppSettingsModel.kt
 │       │   ├── ProvisioningSupport.kt
+│       │   ├── OpenID4VCILocalBackend.kt
 │       │   ├── DocumentStoreExtensions.kt
 │       │   ├── TestAppUtils.kt
 │       │   └── Constants.kt
@@ -329,39 +330,39 @@ composeApp/src/iosMain/
 First, set your project's `android:launchMode="singleInstance"` in `AndroidManifest.xml` to prevent unnecessary recompositions, which may otherwise break the issuance process.
 :::
 
-#### **1.2 Understand the ProvisioningSupport Class**
-```kotlin
-//TODO: implement OpenID4VCI_CLIENT_PREFERENCES
-val OPENID4VCI_CLIENT_PREFERENCES = OpenID4VCIClientPreferences(
-    clientId = CLIENT_ID,
-    redirectUrl = APP_LINK_BASE_URL,
-    locales = listOf("en-US"),
-    signingAlgorithms = listOf(Algorithm.ESP256, Algorithm.ESP384, Algorithm.ESP512)
-    )
+#### **1.2 Understand the ProvisioningSupport & OpenID4VCILocalBackend Classes**
 
-```
-
-`ProvisioningSupport` is a subclass of `OpenID4VCIBackend`, which is defined in the Multipaz library. `ProvisioningSupport` class is the bridge between your wallet and credential issuers. It handles authentication, authorization, and secure communication.
-
-Here we creates an `OPENID4VCI_CLIENT_PREFERENCES` object, which defines configuration parameters such as `clientId`, `redirectUrl`, `locals`, and `signingAlgorithms`. The `OPENID4VCI_CLIENT_PREFERENCES` is then used when calling `launchOpenID4VCIProvisioning`.
+`OpenID4VCILocalBackend` is a subclass of `OpenID4VCIBackend`, which is defined in the Multipaz library. `ProvisioningSupport` class is the bridge between your wallet and credential issuers. It handles authentication, authorization, and secure communication. `ProvisioningSupport` contains an instance of `OpenID4VCILocalBackend`.
 
 #### **1.3 Examine Key Methods**
 
-In ProvisioningSupport.kt 
+In `ProvisioningSupport.kt`:
+
+**processAppLinkInvocation**:
+
+```kotlin
+// TODO: process app link invocation
+
+lock.withLock {
+    pendingLinksByState.remove(state)?.send(url)
+}
+```
+
+In `OpenID4VCILocalBackend.kt`:
 
 **createJwtClientAssertion**:
 
 ```kotlin
-//TODO: implement head 
-val head = buildJsonObject {
-            put("typ", "JWT")
-            put("alg", alg)
-            put("kid", localClientAssertionKeyId)
-        }.toString().encodeToByteArray().toBase64Url()
+// TODO: create and assign JWT client assertion string
 
+OpenID4VCIBackendUtil.createJwtClientAssertion(
+    signingKey = clientAssertionKey,
+    clientId = CLIENT_ID,
+    authorizationServerIdentifier = authorizationServerIdentifier,
+)
 ```
 
-This method creates a JWT header with the signing algorithm and key ID.
+This method creates a fresh OAuth JWT client assertion based on the server-side key.
 
 ### **Step 2: Understanding URL Processing**
 
