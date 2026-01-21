@@ -25,7 +25,7 @@ multipaz-vision = "0.95.0" # latest version of Multipaz Extras
 multipaz-vision = { group = "org.multipaz", name = "multipaz-vision", version.ref = "multipaz-vision" }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/gradle/libs.versions.toml#L42)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/gradle/libs.versions.toml#L42)** for the complete example.
 
 `composeApp/build.gradle.kts`
 ```kotlin
@@ -39,7 +39,7 @@ kotlin {
 }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/composeApp/build.gradle.kts#L54)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/build.gradle.kts#L57)** for the complete example.
 
 ## **Android Manifest: Camera Permissions**
 
@@ -55,7 +55,7 @@ Enable camera access on Android.
 <uses-permission android:name="android.permission.CAMERA"/>
 ```
 
-Refer to **[this AndroidManifest code](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L39-L43)** for the complete example.
+Refer to **[this AndroidManifest code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L39-L43)** for the complete example.
 
 iOS: Add camera usage descriptions to your Info.plist if you plan to run on iOS:
 
@@ -75,7 +75,7 @@ This sample uses:
 * Input image size: 160x160
 * Embedding size: 512
 
-You can [**download the model from this link**](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/facenet_512.tflite).
+You can [**download the model from this link**](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/facenet_512.tflite).
 
 ## **Initialization**
 
@@ -101,23 +101,23 @@ class App {
 
 * `FaceMatchLiteRtModel` is the data class for the platform independent LiteRT model handling.
 
-Refer to **[this initialization code](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L297-L299)** for the complete example.
+Refer to **[this initialization code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L286-L288)** for the complete example.
 
 ## **Runtime Permissions (Camera)**
 
 Use Multipaz Compose permission helpers to request the camera permission at runtime. `rememberCameraPermissionState` can be used for the same.
 
 ```kotlin
-class App {
-    // ...
+@Composable
+fun HomeScreen(
+    // ... 
+) {
+    val cameraPermissionState = rememberCameraPermissionState()
 
-    @Composable
-    fun Content() {
-        val cameraPermissionState = rememberCameraPermissionState()
+    // ... existing UI for presentation
 
-        // ... existing UI for presentation
-
-        if (!cameraPermissionState.isGranted) {
+    when {
+        !cameraPermissionState.isGranted -> {
             Button(
                 onClick = {
                     coroutineScope.launch {
@@ -127,155 +127,222 @@ class App {
             ) {
                 Text("Grant Camera Permission for Selfie Check")
             }
-            return
-        } else {
-          // ... facenet flow continues when the permission is granted
         }
+        // ... facenet flow continues when the permission is granted
     }
 }
 ```
 
-Refer to **[this permission request code](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L501-L509)** for the complete example.
+Refer to **[this permission request code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L248-L258)** for the complete example.
 
 ## **Selfie Capture Flow (Enrollment)**
 
 Use the built-in Selfie Check flow to capture a normalized face image for enrollment, then compute and store its FaceNet embedding.
 
 ```kotlin
-class App {
-    // ...
+@Composable
+fun HomeScreen(
+    // ... 
+) {
+    // 1) Prepare ViewModel and state
+    val identityIssuer = "Multipaz Getting Started Sample"
+    val selfieCheckViewModel: SelfieCheckViewModel =
+        remember { SelfieCheckViewModel(identityIssuer) }
 
-    @Composable
-    fun Content() {
-        // 1) Prepare ViewModel and state
-        val identityIssuer = "Multipaz Getting Started Sample"
-        val selfieCheckViewModel: SelfieCheckViewModel =
-            remember { SelfieCheckViewModel(identityIssuer) }
+    var showCamera by remember { mutableStateOf(false) }
+    val faceCaptured = remember { mutableStateOf<FaceEmbedding?>(null) }
 
-        var showCamera by remember { mutableStateOf(false) }
-        val faceCaptured = remember { mutableStateOf<FaceEmbedding?>(null) }
-
-        if (!cameraPermissionState.isGranted) {
-            // ... request camera permission button
+    when {
+        !cameraPermissionState.isGranted -> {
+            // ...  request camera permission button
         }
-        // 2) Show "Selfie Check" button
-        else if (faceCaptured.value == null) {
-            if (!showCamera) {
-                Button(onClick = { showCamera = true }) {
-                    Text("Selfie Check")
-                }
-            } else {
-                SelfieCheck(
-                    modifier = Modifier.fillMaxWidth(),
-                    onVerificationComplete = {
-                        showCamera = false
 
-                        // If a selfie image was captured, compute embeddings
-                        if (selfieCheckViewModel.capturedFaceImage != null) {
-                            faceCaptured.value = getFaceEmbeddings(
-                                image = decodeImage(selfieCheckViewModel.capturedFaceImage!!.toByteArray()),
-                                model = App.getInstance().faceMatchLiteRtModel
-                            )
-                        }
+        faceCaptured.value == null -> {
+            SelfieCheckFlow(
+                showCamera = showCamera,
+                onShowCameraChange = { showCamera = it },
+                selfieCheckViewModel = selfieCheckViewModel,
+                identityIssuer = identityIssuer,
+                onFaceCaptured = { embedding ->
+                    faceCaptured.value = embedding
+                },
+                app = app
+            )
+        }
 
-                        selfieCheckViewModel.resetForNewCheck()
-                    },
-                    viewModel = selfieCheckViewModel,
-                    identityIssuer = identityIssuer
-                )
-
-                Button(onClick = {
-                    showCamera = false
-                    selfieCheckViewModel.resetForNewCheck()
-                }) {
-                    Text("Close")
-                }
-            }
+        else -> {
+            // Face matching flow (covered in next section)
         }
     }
 }
 ```
 
-* `SelfieCheck` composable helps guide the user to capture a face image after performing certain liveness checks viz look up to the sides, smile, squeeze eyes etc.
+Refer to **[this selfie check code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L260-L271)** for the complete example.
+
+### Selfie Check Flow Composable
+
+The selfie check logic is extracted into a separate composable for better organization:
+
+```kotlin
+@Composable
+private fun SelfieCheckFlow(
+    showCamera: Boolean,
+    onShowCameraChange: (Boolean) -> Unit,
+    selfieCheckViewModel: SelfieCheckViewModel,
+    identityIssuer: String,
+    onFaceCaptured: (FaceEmbedding?) -> Unit,
+    app: App
+) {
+    if (!showCamera) {
+        Button(onClick = { onShowCameraChange(true) }) {
+            Text("Selfie Check")
+        }
+    } else {
+        SelfieCheck(
+            modifier = Modifier.fillMaxWidth(),
+            onVerificationComplete = {
+                onShowCameraChange(false)
+                if (selfieCheckViewModel.capturedFaceImage != null) {
+                    val embedding = getFaceEmbeddings(
+                        image = decodeImage(selfieCheckViewModel.capturedFaceImage!!.toByteArray()),
+                        model = app.faceMatchLiteRtModel
+                    )
+                    onFaceCaptured(embedding)
+                }
+                selfieCheckViewModel.resetForNewCheck()
+            },
+            viewModel = selfieCheckViewModel,
+            identityIssuer = identityIssuer
+        )
+
+        Button(
+            onClick = {
+                onShowCameraChange(false)
+                selfieCheckViewModel.resetForNewCheck()
+            }
+        ) {
+            Text("Close")
+        }
+    }
+}
+```
+
+* The `SelfieCheck` composable provided by the Multipaz SDK helps guide the user to capture a face image after performing certain liveness checks viz look up to the sides, smile, squeeze eyes etc.
 * `SelfieCheckViewModel `helps with the selfie check process – initialization, orchestration, and data exchange with UI.
 * The `SelfieCheckViewModel` returns the `capturedFaceImage` as a `ByteString` which we convert to a `ByteArray`.
 * This `ByteArray` is then passed to `decodeImage` function to decode it to an `ImageBitmap`.
 * After completion, use `getFaceEmbeddings` function to compute the FaceNet embedding from the captured `ImageBitmap` in a normalized values array.
 
-Refer to **[this selfie check code](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L510-L541)** for the complete example.
+Refer to **[this selfie check flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L287-L327)** for the complete example.
 
 ## **Live Face Matching**
 
 Once an enrollment embedding exists, we open a live camera preview using the “Camera” composable, detect faces per frame, align and crop the face region, compute embeddings, and calculate the similarity with the embeddings of the image we captured during selfie check.
 
 ```kotlin
-class App {
-    // ...
+@Composable
+fun HomeScreen(
+    // ... 
+) {
+    var showFaceMatching by remember { mutableStateOf(false) }
+    var similarity by remember { mutableStateOf(0f) }
 
-    @Composable
-    fun Content() {
-        var showFaceMatching by remember { mutableStateOf(false) }
-        var similarity by remember { mutableStateOf(0f) }
-
-        if (!cameraPermissionState.isGranted) {
+    when {
+        !cameraPermissionState.isGranted -> {
             // ... request camera permission button
-        } else if (faceCaptured.value == null) {
+        }
+
+        faceCaptured.value == null -> {
             // ... show selfie check
-        } else { // faceCaptured.value is not null (already completed the selfie check)
-            if (!showFaceMatching) {
-                Button(onClick = { showFaceMatching = true }) {
-                    Text("Face Matching")
+        }
+
+        else -> {
+            FaceMatchingFlow(
+                showFaceMatching = showFaceMatching,
+                onShowFaceMatchingChange = { showFaceMatching = it },
+                similarity = similarity,
+                onSimilarityChange = { similarity = it },
+                faceCaptured = faceCaptured,
+                app = app
+            )
+        }
+    }
+
+}
+```
+
+Refer to **[live face matching flow](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L273-L282)** for the complete example.
+
+### Face Matching Flow Composable
+
+The selfie check logic is extracted into a separate composable for better organization:
+
+```kotlin
+@Composable
+private fun FaceMatchingFlow(
+    showFaceMatching:  Boolean,
+    onShowFaceMatchingChange: (Boolean) -> Unit,
+    similarity: Float,
+    onSimilarityChange: (Float) -> Unit,
+    faceCaptured: MutableState<FaceEmbedding?>,
+    app: App
+) {
+    if (!showFaceMatching) {
+        Button(onClick = { onShowFaceMatchingChange(true) }) {
+            Text("Face Matching")
+        }
+    } else {
+        Text("Similarity: ${(similarity * 100).roundToInt()}%")
+
+        Camera(
+            modifier = Modifier
+                .fillMaxSize(0.5f)
+                .padding(64.dp),
+            cameraSelection = CameraSelection.DEFAULT_FRONT_CAMERA,
+            captureResolution = CameraCaptureResolution.MEDIUM,
+            showCameraPreview = true,
+        ) { incomingVideoFrame:  CameraFrame ->
+            val faces = detectFaces(incomingVideoFrame)
+
+            when {
+                faces.isNullOrEmpty() -> {
+                    onSimilarityChange(0f)
                 }
-            } else {
-                Text("Similarity: ${(similarity * 100).roundToInt()}%")
 
-                Camera(
-                    modifier = Modifier
-                        .fillMaxSize(0.5f)
-                        .padding(64.dp),
-                    cameraSelection = CameraSelection.DEFAULT_FRONT_CAMERA,
-                    captureResolution = CameraCaptureResolution.MEDIUM,
-                    showCameraPreview = true,
-                ) { incomingVideoFrame: CameraFrame ->
-                    val faces = detectFaces(incomingVideoFrame)
+                faceCaptured.value != null -> {
+                    val faceImage = app.extractFaceBitmap(
+                        incomingVideoFrame,
+                        faces[0], // assuming only one face exists for simplicity
+                        app. faceMatchLiteRtModel.imageSquareSize
+                    )
 
-                    if (faces.isNullOrEmpty()) {
-                        similarity = 0f
-                    } else {
-                        val model = App.getInstance().faceMatchLiteRtModel
+                    val faceEmbedding = getFaceEmbeddings(faceImage, app.faceMatchLiteRtModel)
 
-                        // Assume one face for simplicity; production apps should handle multiple faces
-                        val faceBitmap = extractFaceBitmap(
-                            frameData = incomingVideoFrame,
-                            face = faces[0],
-                            targetSize = model.imageSquareSize
-                        )
-
-                        val liveFaceEmbedding = getFaceEmbeddings(faceBitmap, model)
-
-                        if (liveFaceEmbedding != null && faceCaptured.value != null) {
-                            similarity = faceCaptured.value!!.calculateSimilarity(liveFaceEmbedding)
-                        }
+                    if (faceEmbedding != null) {
+                        val newSimilarity = faceCaptured.value!!.calculateSimilarity(faceEmbedding)
+                        onSimilarityChange(newSimilarity)
                     }
                 }
-
-                Button(onClick = {
-                    showFaceMatching = false
-                    faceCaptured.value = null
-                }) {
-                    Text("Close")
-                }
             }
+        }
+
+        Button(
+            onClick = {
+                onShowFaceMatchingChange(false)
+                faceCaptured.value = null
+            }
+        ) {
+            Text("Close")
         }
     }
 }
 ```
 
-* The `Camera` composable from Multipaz SDK takes care of the camera operations initialization and camera preview composition. This takes a callback (`onFrameCaptured`) to invoke when a frame is captured with the frame object.
+* The `Camera` composable provided by the Multipaz SDK takes care of the camera operations initialization and camera preview composition. This takes a callback (`onFrameCaptured`) to invoke when a frame is captured with the frame object.
 * The `onFrameCaptured` function returns a `CameraFrame`. We then use `detectFaces` function to detect faces in the `CameraFrame` using MLKit. This function returns a list of `DetectedFace`s.
 * Now, we use the `extractFaceBitmap` function to align and crop the detected face, convert it to `FaceEmbedding` using `getFaceEmbeddings` function and use `FaceEmbedding#calculateSimilarity` function to calculate the similarity with the image we captured from the selfie check.
 
-Refer to **[this face matching code](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L541-L591)** for the complete example.
+Refer to **[this face matching flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L329-L386)** for the complete example.
 
 **Face Alignment and Cropping**
 
@@ -337,7 +404,7 @@ class App {
 }
 ```
 
-Refer to **[this function code](https://github.com/openwallet-foundation/multipaz-samples/blob/d5c525b213ef3a544cbb78519a46c27b5c07bcc7/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L713-L761)** for the complete example.
+Refer to **[this function code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L505-L553)** for the complete example.
 
 **Similarity Thresholds**
 
