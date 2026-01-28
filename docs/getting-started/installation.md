@@ -32,7 +32,7 @@ dependencyResolutionManagement {
 }
 ```
 
-Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/settings.gradle.kts#L4-L33)** for the complete example.
+Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/f9df00536049832fb5db632e49978ae149957274/MultipazGettingStartedSample/settings.gradle.kts#L4-L33)** for the complete example.
 
 * Add the following dependencies to `libs.versions.toml`
 
@@ -54,13 +54,22 @@ multipaz-dcapi = { group = "org.multipaz", name = "multipaz-dcapi", version.ref 
 
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "androidx-fragment" }
+
+[plugins]
+# required for navigation
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ```
 
-Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/gradle/libs.versions.toml#L39-L46)** for the complete example.
+Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/f9df00536049832fb5db632e49978ae149957274/MultipazGettingStartedSample/gradle/libs.versions.toml#L41-L48)** for the complete example.
 
-* Add the following to your module level `build.gradle.kts` file (usually `app/build.gradle.kts`):
+* Add the following to your module level `build.gradle.kts` file (usually `composeApp/build.gradle.kts`):
 
 ```kotlin
+plugins {
+    // ...
+    alias(libs.plugins.kotlinSerialization)
+}
+
 kotlin {
    sourceSets {
        androidMain.dependencies {
@@ -79,7 +88,7 @@ kotlin {
    }
 }
 ```
-Refer to **[this build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/build.gradle.kts#L32-L60)** for the complete example.
+Refer to **[this build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/build.gradle.kts#L36-L64)** for the complete example.
 
 You might also want to check out other libraries in the Multipaz ecosystem, from Multipaz [here](https://mvnrepository.com/search?q=multipaz).
 
@@ -90,9 +99,9 @@ App Class is the main class that holds all the core logic and state for the app.
 We are splitting `App.kt` into multiple sections for ease of use wit multiple Multipaz components.
 
 - **Properties**: Variables for storage, document management, trust management, and presentment.
-- **Initialization**: Sets up storage, document types, creates a sample document, and configures trusted certificates.
+- **Initialization**: Sets up storage, document types, creates a sample document, configures trusted certificates, and initializes different model classes.
     - `suspend fun init()`
-- **UI**: A Composable function that builds the app’s user interface using Jepack Compose components. It shows initialization status, handles permissions, and displays buttons or QR codes based on the app state.
+- **UI**: A Composable function that builds the app’s user interface using Jepack Compose components. It shows initialization status, and hosts a the `NavHost` for composables for different screens.
     - `@Composable fun Content()`
 - **Companion Object**: Provides a singleton instance of App and holds shared models.
     - `fun getInstance(): App`
@@ -119,6 +128,7 @@ class App {
     @Preview
     fun Content() {
 
+        val navController = rememberNavController()
         val isUIInitialized = remember { mutableStateOf(false) }
 
         if (!isUIInitialized.value) {
@@ -146,8 +156,19 @@ class App {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = "Welcome to Multipaz Getting Started Sample")
-                // ... rest of your UI
+                NavHost(
+                    navController = navController,
+                    startDestination = Destination.HomeDestination,
+                    modifier = Modifier.fillMaxSize().navigationBarsPadding(),
+                ) {
+                    composable<Destination.HomeDestination> {
+                        HomeScreen(
+                            this@App,
+                            navController,
+                        )
+                    }
+                }
+
             }
         }
     }
@@ -166,7 +187,39 @@ class App {
 }
 ```
 
-Refer to **[this App.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt)** for the complete example.
+**Note:** You would want to copy-paste [**the Navigation.kt** file](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/Navigation.kt) for the definition of the navigation targets.
+
+Refer to **[this App.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt)** for the complete example.
+
+#### Define `HomeScreen.kt` Composable
+
+`HomeScreen` is a composable function that handles the UI according to the app state - viz. handle permissions, displays buttons or QR codes, or show the issuance and presentation UI. You can use the following code in `HomeScreen.kt`. It currently only uses a placeholder `Text` composable.
+
+```kotlin
+@Composable
+fun HomeScreen(
+    app: App,
+    navController: NavController,
+    identityIssuer: String = "Multipaz Getting Started Sample"
+) {
+    val scrollState = rememberScrollState()
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .scrollable(
+                scrollState,
+                Orientation.Vertical
+            ),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "Welcome to Multipaz Getting Started Sample")
+        // ... rest of your UI
+    }
+}
+```
 
 ### Update `MainActivity.kt`
 
@@ -198,7 +251,7 @@ class MainActivity : FragmentActivity() { // use FragmentActivity
 }
 ```
 
-Refer to **[this MainActivity.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/MainActivity.kt)** for the complete example.
+Refer to **[this MainActivity.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/MainActivity.kt)** for the complete example.
 
 ### Update `iOSMain/MainViewController.kt`
 
@@ -212,7 +265,7 @@ fun MainViewController() = ComposeUIViewController {
 }
 ```
 
-Refer to **[this MainViewController.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/iosMain/kotlin/org/multipaz/getstarted/MainViewController.kt)** for the complete example.
+Refer to **[this MainViewController.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/iosMain/kotlin/org/multipaz/getstarted/MainViewController.kt)** for the complete example.
 
 #### ⚠️ Some gotchas to be aware of (iOS only):
 
@@ -220,7 +273,7 @@ For iOS, there are these required fixes:
 
 1. In `iosApp/iosApp.xcodeproj/project.pbxproj`
 
-Add the following flags to the `buildSettings` of each `XCBuildConfiguration` under the `iosApp` target in your `project.pbxproj` file:
+Add the following flags to the `buildSettings` of **each** `XCBuildConfiguration` under the `iosApp` target in your `project.pbxproj` file:
 
 ```C
 OTHER_LDFLAGS = (
@@ -229,4 +282,4 @@ OTHER_LDFLAGS = (
 );
 ```
 
-Refer to **[this project.pbxproj code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/iosApp/iosApp.xcodeproj/project.pbxproj)** for the complete example.
+Refer to **[this project.pbxproj code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/iosApp/iosApp.xcodeproj/project.pbxproj)** for the complete example.
