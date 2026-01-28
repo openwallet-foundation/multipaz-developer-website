@@ -15,6 +15,10 @@ Multipaz provides platform-specific implementations through the `Platform.nonBac
 * **Android**: uses local encrypted storage.
 * **iOS**: wraps native secure storage.
 
+### StorageTable
+
+`StorageTable` is a storage unit that holds a collection of data items. Each item in a `StorageTable` is a `ByteString` indexed by a unique key. `StorageTable` supports partitioning and expiration for data items.
+
 ### SecureArea
 
 A `SecureArea` represents a secure environment for creating and managing key material and other sensitive objects (e.g., for signing identity credentials).
@@ -41,21 +45,36 @@ This setup should be done once, early in your app's lifecycle (e.g., inside `App
 ```kotlin
 class App {
     lateinit var storage: Storage
+    lateinit var storageTable: StorageTable
     lateinit var secureArea: SecureArea
     lateinit var secureAreaRepository: SecureAreaRepository
 
     // ...
 
     suspend fun init() {
-        // ...
+        if (!isAppInitialized) {
+            // ...
 
-        storage = org.multipaz.util.Platform.nonBackedUpStorage
-        secureArea = org.multipaz.util.Platform.getSecureArea()
-        secureAreaRepository = SecureAreaRepository.Builder()
-            .add(secureArea)
-            .build()
+            storage = org.multipaz.util.Platform.nonBackedUpStorage
+            storageTable = storage.getTable(
+                StorageTableSpec(
+                    name = STORAGE_TABLE_NAME,
+                    supportPartitions = false,  // Simple key-value storage
+                    supportExpiration = false    // Keys don't auto-expire
+                )
+            )
+            secureArea = org.multipaz.util.Platform.getSecureArea()
+            secureAreaRepository = SecureAreaRepository.Builder().add(secureArea).build()
+
+            // ...
+            isAppInitialized = true
+        }
+    }
+
+    companion object {
+        private const val STORAGE_TABLE_NAME = "TestAppKeys"
     }
 }
 ```
 
-Refer to **[this storage code](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L105-L108)** for the complete example.
+Refer to **[this storage code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L118-L128)** for the complete example.

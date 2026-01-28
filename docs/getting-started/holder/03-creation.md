@@ -5,19 +5,6 @@ sidebar_position: 3
 
 After initializing your `DocumentStore` and related components, you can proceed to create an mDoc (mobile Document) credential. This section guides you through creating a Document and generating a standards-compliant mDoc credential. The following code should go into the `suspend fun init()` in `App.kt`.
 
-### Creating a Document
-
-A `Document` represents an individual item created and managed by the `DocumentStore`.
-
-* Method: Use `DocumentStore#createDocument` to create a new document.
-
-```kotlin
-val document = documentStore.createDocument(
-   displayName = "Erika's Driving License",
-   typeDisplayName = "Utopia Driving License"
-)
-```
-
 ### Creating an MdocCredential
 
 An `MdocCredential` represents a mobile credential, such as a Mobile Driving License (mDL), following the ISO/IEC 18013-5:2021 standard.
@@ -27,7 +14,7 @@ An `MdocCredential` represents a mobile credential, such as a Mobile Driving Lic
 Set up the credential's validity period and signing time:
 
 ```kotlin
-val now = Clock.System.now()
+val now = Instant.fromEpochSeconds(Clock.System.now().epochSeconds)
 val signedAt = now
 val validFrom = now
 val validUntil = now + 365.days
@@ -69,29 +56,48 @@ val dsCert = MdocUtil.generateDsCertificate(
 )
 ```
 
-#### 4. Create the mDoc Credential
+#### 4. Creating a Document
+
+A `Document` represents an individual item created and managed by the `DocumentStore`. Here we only create a new document only if `DocumentStore` is empty to prevent proliferation.
+
+Method: Use `DocumentStore#createDocument` to create a new document.
+
+```kotlin
+if (documentStore.listDocuments().isEmpty()) {
+    val document = documentStore.createDocument(
+       displayName = "Erika's Driving License",
+       typeDisplayName = "Utopia Driving License"
+    )
+}
+```
+
+#### 5. Create the mDoc Credential
 
 Finally, use the document and generate certificates to create the mDoc credential.
 
 ```kotlin
-val mdocCredential =
-   DrivingLicense.getDocumentType().createMdocCredentialWithSampleData(
-       document = document,
-       secureArea = secureArea,
-       createKeySettings = CreateKeySettings(
-           algorithm = Algorithm.ESP256,
-           nonce = "Challenge".encodeToByteString(),
-           userAuthenticationRequired = true
-       ),
-       dsKey = AsymmetricKey.X509CertifiedExplicit(
-           certChain = X509CertChain(certificates = listOf(dsCert)),
-           privateKey = dsKey,
-       ),
-       signedAt = signedAt,
-       validFrom = validFrom,
-       validUntil = validUntil,
-       domain = CREDENTIAL_DOMAIN_MDOC_USER_AUTH
-   )
+if (documentStore.listDocuments().isEmpty()) {
+    // create document
+
+    val mdocCredential =
+       DrivingLicense.getDocumentType().createMdocCredentialWithSampleData(
+           document = document,
+           secureArea = secureArea,
+           createKeySettings = CreateKeySettings(
+               algorithm = Algorithm.ESP256,
+               nonce = "Challenge".encodeToByteString(),
+               userAuthenticationRequired = true
+           ),
+           dsKey = AsymmetricKey.X509CertifiedExplicit(
+               certChain = X509CertChain(certificates = listOf(dsCert)),
+               privateKey = dsKey,
+           ),
+           signedAt = signedAt,
+           validFrom = validFrom,
+           validUntil = validUntil,
+           domain = CREDENTIAL_DOMAIN_MDOC_USER_AUTH
+       )
+}
 ```
 
 Please add the following declaration for `CREDENTIAL_DOMAIN_MDOC_USER_AUTH` too.
@@ -107,7 +113,7 @@ class App {
 
 By following these steps, you can securely create and provision an mDoc credential, ready to be managed and used within your application.
 
-Refer to **[this MdocCredential creation code](https://github.com/openwallet-foundation/multipaz-samples/blob/5960d0ee1fb4f84028a999ff69ab005db0aea790/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L160-L214)** for the complete example.
+Refer to **[this MdocCredential creation code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L147-L194)** for the complete example.
 
 :::info Looking for a more realistic flow?
 The example above uses helpful defaults for quick onboarding. If you're exploring how to construct credentials manually — including MSO creation, issuer namespaces, and authentication — check out this [advanced sample](https://github.com/dzuluaga/multipaz-getting-started-testing/blob/v1.1.0-age-verification/composeApp/src/commonMain/kotlin/org/example/project/App.kt#L539-L727) created by a core contributor.

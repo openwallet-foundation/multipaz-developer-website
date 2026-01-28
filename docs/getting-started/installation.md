@@ -163,8 +163,8 @@ class App {
                 ) {
                     composable<Destination.HomeDestination> {
                         HomeScreen(
-                            this@App,
-                            navController,
+                            app = this@App,
+                            navController = navController,
                         )
                     }
                 }

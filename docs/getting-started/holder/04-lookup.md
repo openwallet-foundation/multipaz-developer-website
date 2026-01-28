@@ -26,47 +26,87 @@ class App {
         }
         return documents
     }
+
+    companion object {
+        const val SAMPLE_DOCUMENT_DISPLAY_NAME = "Erika's Driving License"
+    }
 }
 ```
 
-2: **Implement the UI for listing documents**
+2: **Implement the UI for listing documents in `HomeScreen` Composable**
+
+```kotlin
+@Composable
+fun HomeScreen(
+    // ... other parameters
+    documents: List<Document>, // add document list and deletion callbacks as a parameters
+    onDeleteDocument: (Document) -> Unit,
+) {
+    val coroutineScope = rememberCoroutineScope { App.promptModel }
+
+    Column {
+        // ...
+
+        if (documents.isNotEmpty()) {
+            Text(
+                modifier = Modifier.padding(4.dp),
+                text = "${documents.size} Documents present:"
+            )
+            documents.forEachIndexed { index, document ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = document.metadata.displayName ?: document.identifier,
+                        modifier = Modifier.padding(4.dp)
+                    )
+                    // delete button here (explained in next step)
+                }
+            }
+        } else {
+            Text(text = "No documents found.")
+        }
+    }
+}
+```
+
+3: **Update App.kt on `HomeScreen` invocation**
 
 ```kotlin
 class App {
+    @Composable
     fun Content() {
+        val documents = remember { mutableStateListOf<Document>() }
+
+        LaunchedEffect(navController.currentDestination) {
+            val currentDocuments = listDocuments()
+            if (currentDocuments.size != documents.size) {
+                documents.apply {
+                    clear()
+                    addAll(currentDocuments)
+                }
+            }
+        }
+
+        // ...
+
         MaterialTheme {
             Column {
-                // ...
-
-                var documents = remember { mutableStateListOf<Document>() }
-
-                LaunchedEffect(isInitialized.value, documents) {
-                    if (isInitialized.value) {
-                        documents.addAll(listDocuments())
+                NavHost {
+                    composable<Destination.HomeDestination> {
+                        HomeScreen(
+                            app = this@App,
+                            navController = navController,
+                            documents = documents,
+                            onDeleteDocument = {
+                                documents.remove(it)
+                            },
+                        )
                     }
-                }
-
-                if (documents.isNotEmpty()) {
-                    Text(
-                        modifier = Modifier.padding(4.dp),
-                        text = "${documents.size} Documents present:"
-                    )
-                    for (document in documents) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(
-                                text = document.metadata.displayName ?: document.identifier,
-                                modifier = Modifier.padding(4.dp)
-                            )
-                            // delete button from the next step goes here
-                        }
-                    }
-                } else {
-                    Text(text = "No documents found.")
                 }
             }
         }
     }
 }
+
 ```
 
 ### Deleting Documents
@@ -75,25 +115,28 @@ To remove a document from the `DocumentStore`, use the `DocumentStore#deleteDocu
 
 **Example: Deleting a Document**
 
-You can add the following code to add a small delete button to the listing we implemented above. We use a simple `IconButton` with the default delete icon.
+You can add the following code to `HomeScreen` Composable to add a small delete button to the listing we implemented above. We use a simple `IconButton` with the default delete icon. We prevent deletion of the default document to ensure the document store is never empty.
 
 ```kotlin
-IconButton(
-    content = @Composable {
-        Icon(
-            imageVector = Icons.Default.Delete,
-            contentDescription = null
-        )
-    },
-    onClick = {
-        coroutineScope.launch {
-            documentStore.deleteDocument(document.identifier)
-            documents.remove(document)
+// delete button here (explained in next step)
+if (document.metadata.displayName != SAMPLE_DOCUMENT_DISPLAY_NAME) {
+    IconButton(
+        content = @Composable {
+            Icon(
+                imageVector = Icons.Default.Delete,
+                contentDescription = null
+            )
+        },
+        onClick = {
+            coroutineScope.launch {
+                app.documentStore.deleteDocument(document.identifier)
+                onDeleteDocument(document)
+            }
         }
-    }
-)
+    )
+}
 ```
 
-Refer to **[this Document Listing & Deletion code](https://github.com/openwallet-foundation/multipaz-samples/blob/9ef4472490e8c497f492f94763418afc7cdf5545/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L430-L467)** for the complete example.
+Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L165-L197)** and [**from `App.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L348-L358) for the complete example.
 
 By following these steps, you can efficiently list, fetch, and delete documents managed by your `DocumentStore`, ensuring your application's document management remains clean and up-to-date.
