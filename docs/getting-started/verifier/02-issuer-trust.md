@@ -26,10 +26,10 @@ Multipaz distinguishes between two types of trust:
 * **Reader Trust:**
     * Used by holder apps.
     * Verifies the identity of verifier (reader) apps requesting credentials.
-    * This was already handled in the holder/reader trust section (todo: link)
+    * This was already handled in the [holder/reader-trust section](../holder/reader-trust)
 
 <ThemedIframe
-  githubUrl="https://github.com/openwallet-foundation/multipaz-identity-reader/blob/fbf081128a70f0bf5ec8db10cff48faf95452024/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/ShowResultsScreen.kt#L152-L218"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-identity-reader/blob/0565229028eeb06d349ccd27f4916aba679e201b/composeApp/src/commonMain/kotlin/org/multipaz/identityreader/ShowResultsScreen.kt#L154-L216"
 />
 
 The above section deals with the verification of trust of the received document in the Mutipaz Identity Reader app.

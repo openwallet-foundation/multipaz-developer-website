@@ -8,7 +8,7 @@ sidebar_position: 1
 Learn how to implement a Verifier app using the Multipaz SDK to request and validate verifiable credentials from users, enabling secure and privacy-preserving identity verification.
 
 **Note:**
-This section of the Get Started guide is a work in progress. The reference implementation can be found in the [Mutipaz Identity Reader](https://github.com/openwallet-foundation/multipaz-identity-reader) sample app. A standalone module with a streamlined interface is coming soon. Until then, use the existing Mutipaz Identity Reader app as your guide.
+The reference implementation can be found in the [Mutipaz Identity Reader](https://github.com/openwallet-foundation/multipaz-identity-reader) sample app.
 
 The Verifier implementation consists of several key components:
 
