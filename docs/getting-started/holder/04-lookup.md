@@ -137,6 +137,6 @@ if (document.metadata.displayName != SAMPLE_DOCUMENT_DISPLAY_NAME) {
 }
 ```
 
-Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L165-L197)** and [**from `App.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L348-L358) for the complete example.
+Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L166-L198)** and [**from `App.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L350-L360) for the complete example.
 
 By following these steps, you can efficiently list, fetch, and delete documents managed by your `DocumentStore`, ensuring your application's document management remains clean and up-to-date.

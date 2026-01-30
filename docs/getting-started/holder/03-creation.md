@@ -113,7 +113,7 @@ class App {
 
 By following these steps, you can securely create and provision an mDoc credential, ready to be managed and used within your application.
 
-Refer to **[this MdocCredential creation code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L147-L194)** for the complete example.
+Refer to **[this MdocCredential creation code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L149-L196)** for the complete example.
 
 :::info Looking for a more realistic flow?
 The example above uses helpful defaults for quick onboarding. If you're exploring how to construct credentials manually — including MSO creation, issuer namespaces, and authentication — check out this [advanced sample](https://github.com/dzuluaga/multipaz-getting-started-testing/blob/v1.1.0-age-verification/composeApp/src/commonMain/kotlin/org/example/project/App.kt#L539-L727) created by a core contributor.

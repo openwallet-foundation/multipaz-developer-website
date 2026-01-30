@@ -445,7 +445,7 @@ class OpenID4VCILocalBackend : OpenID4VCIBackend {
 }
 ```
 
-You can copy-paste the [**`OpenID4VCILocalBackend` file for the complete implementation**](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/OpenID4VCILocalBackend.kt).
+You can copy-paste the [**`OpenID4VCILocalBackend` file for the complete implementation**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/OpenID4VCILocalBackend.kt).
 
 ## **Wallet back end vs Issuer**
 

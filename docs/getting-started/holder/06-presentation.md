@@ -58,7 +58,7 @@ fun HomeScreen(
 }
 ```
 
-Refer to **[this presentation setup code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L111-L125)** for the complete example.
+Refer to **[this presentation setup code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L112-L126)** for the complete example.
 
 **AndroidManifest.xml: Required BLE Permissions**
 
@@ -88,7 +88,7 @@ Refer to **[this presentation setup code](https://github.com/openwallet-foundati
    android:maxSdkVersion="30" />
 ```
 
-Refer to **[this AndroidManifest.xml code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L5-L28)** for the complete example.
+Refer to **[this AndroidManifest.xml code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L5-L28)** for the complete example.
 
 **info.plist: Required BLE Permissions (iOS)**
 
@@ -100,7 +100,7 @@ Add the following to `iosApp/iosApp/info.plist` to enable BLE permission prompts
 <key>CADisableMinimumFrameDurationOnPhone</key>
 <true/>
 ```
-Refer to **[this Info.plist code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/iosApp/iosApp/Info.plist#L8-L11)** for the complete example.
+Refer to **[this Info.plist code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/iosApp/iosApp/Info.plist#L8-L11)** for the complete example.
 
 ## Presentmentation using `PresentmentModel`
 
@@ -153,7 +153,7 @@ fun HomeScreen(
 }
 ```
 
-Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L127-L144)** for the full implementation
+Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L128-L145)** for the full implementation
 
 ### 2. Wire in the implementation in `App.kt` class
 
@@ -226,7 +226,7 @@ class App {
 }
 ```
 
-Refer to the [**initialization code for PresentmentModel**](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L272-L283) & [**these updates to the HomeScreen invocation**](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L391-L403) for the complete example.
+Refer to the [**initialization code for PresentmentModel**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L274-L285) & [**these updates to the HomeScreen invocation**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L393-L405) for the complete example.
 
 ### 3. Starting Device Engagement
 
@@ -265,7 +265,7 @@ fun ShowQrButton(onQrButtonClicked: (settings: MdocProximityQrSettings) -> Unit)
 }
 ```
 
-Refer to **[the show QR button composable function code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L341-L367)** for the complete example.
+Refer to **[the show QR button composable function code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L388-L414)** for the complete example.
 
 ### 4. Displaying the QR Code
 
@@ -303,7 +303,7 @@ fun ShowQrCode(
 }
 ```
 
-Refer to **[this QR code display composable function code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L369-L395)** for the complete example.
+Refer to **[this QR code display composable function code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L416-L442)** for the complete example.
 
 By following these steps, you can request necessary permissions, manage the credential presentment flow, and generate device engagement QR codes for verifiers.
 
@@ -349,7 +349,7 @@ Add the required NFC features and permissions in your `AndroidManifest.xml`. Thi
 <!-- </application> -->
 ```
 
-Refer to **[this Android Manifest code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L134-L152)** for the complete example.
+Refer to **[this Android Manifest code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L134-L152)** for the complete example.
 
 ### **Implement NfcActivity**
 
@@ -378,7 +378,7 @@ class NfcActivity : MdocNfcPresentmentActivity() {
 }
 ```
 
-Refer to **[this NfcActivity code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/NfcActivity.kt)** for the complete example.
+Refer to **[this NfcActivity code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/NfcActivity.kt)** for the complete example.
 
 ### **NFC Engagement Service**
 
@@ -409,7 +409,7 @@ class NdefService : MdocNdefService() {
 }
 ```
 
-Refer to **[this NdefService code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/NdefService.kt)** for the complete example.
+Refer to **[this NdefService code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/NdefService.kt)** for the complete example.
 
 ### **NFC NDEF Service Configuration**
 
@@ -437,7 +437,7 @@ Configure the AID (Application Identifier) filter in `res/xml/nfc_ndef_service.x
 </host-apdu-service>
 ```
 
-Refer to **[this NFC service configuration](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/androidMain/res/xml/nfc_ndef_service.xml)** for the complete example.
+Refer to **[this NFC service configuration](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/res/xml/nfc_ndef_service.xml)** for the complete example.
 
 ### **String Resources**
 
@@ -447,7 +447,7 @@ Add the following resource strings to your `strings.xml`:
 <string name="nfc_ndef_service_description">@string/app_name</string>
 <string name="nfc_ndef_service_aid_group_description">ISO/IEC 18013-5:2021 NFC engagement</string>
 ```
-Refer to **[this string resources code](https://github.com/openwallet-foundation/multipaz-samples/blob/72f4b28d448b8a049b1c392daf5cd3a9e2cbba63/MultipazGettingStartedSample/composeApp/src/androidMain/res/values/strings.xml#L3-L4)** for the complete example.
+Refer to **[this string resources code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/res/values/strings.xml#L3-L4)** for the complete example.
 
 By following these steps, you configure your Android app to support secure NFC-based mDoc presentment with Multipaz. The device uses NFC for initial engagement, negotiates the preferred transport (such as BLE), and then securely transfers credentials to the verifier.
 
