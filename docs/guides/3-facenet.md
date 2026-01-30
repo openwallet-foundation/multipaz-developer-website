@@ -27,7 +27,7 @@ multipaz-vision = "0.95.0" # latest version of Multipaz Extras
 multipaz-vision = { group = "org.multipaz", name = "multipaz-vision", version.ref = "multipaz-vision" }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/gradle/libs.versions.toml#L42)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/gradle/libs.versions.toml#L42)** for the complete example.
 
 `composeApp/build.gradle.kts`
 ```kotlin
@@ -41,7 +41,7 @@ kotlin {
 }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/build.gradle.kts#L57)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/build.gradle.kts#L57)** for the complete example.
 
 ### iOS-Specific Dependencies (CocoaPods)
 
@@ -57,7 +57,9 @@ CocoaPods is a dependency manager for iOS/macOS projects (similar to Gradle for 
 
 #### CocoaPods Configuration (Already Set Up)
 
-**Good news!** This sample project already has CocoaPods configured with all necessary dependencies. The `Podfile` at the root of the project includes:
+This `Podfile` configuration **[here in the repository](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/Podfile)** has CocoaPods configured with all necessary dependencies. This `Podfile` includes:
+
+Podfile
 
 **Key dependencies (already configured):**
 - **`GoogleMLKit/FaceDetection`**: Provides face detection capabilities (equivalent to Android's ML Kit)
@@ -65,8 +67,6 @@ CocoaPods is a dependency manager for iOS/macOS projects (similar to Gradle for 
 - **`TensorFlowLiteObjC`**: Runs TensorFlow Lite models on iOS
   - `CoreML`: Apple's ML framework integration for better performance
   - `Metal`: Apple's GPU acceleration framework
-
-You can view the complete `Podfile` configuration **[here in the repository](https://github.com/openwallet-foundation/multipaz-samples/blob/main/MultipazGettingStartedSample/Podfile)**.
 
 #### Understanding composeApp.podspec
 
@@ -132,7 +132,7 @@ Enable camera access on Android by adding permissions to your manifest.
 <uses-permission android:name="android.permission.CAMERA"/>
 ```
 
-Refer to **[this AndroidManifest code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L39-L43)** for the complete example.
+Refer to **[this AndroidManifest code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L39-L43)** for the complete example.
 
 ### iOS: Camera Permissions
 
@@ -144,11 +144,11 @@ iOS requires a **usage description** that explains to users why your app needs c
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <!-- Your other existing keys... -->
+
     <!-- Camera permission description (required by Apple) -->
     <key>NSCameraUsageDescription</key>
     <string>Camera access is required for selfie capture and face verification.</string>
-    
-    <!-- Your other existing keys... -->
 </dict>
 </plist>
 ```
@@ -184,7 +184,7 @@ This sample uses:
 * Input image size: 160x160
 * Embedding size: 512
 
-You can [**download the model from this link**](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/facenet_512.tflite).
+You can [**download the model from this link**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/facenet_512.tflite).
 
 ## **Initialization**
 
@@ -198,12 +198,17 @@ class App {
 
     @OptIn(ExperimentalTime::class)
     suspend fun init() {
-        // ... existing initializations ...
+        if (!isAppInitialized) {
+            // ... existing initializations ...
 
-        // Load FaceNet model from common resources
-        val modelData = ByteString(*Res.readBytes("files/facenet_512.tflite"))
-        faceMatchLiteRtModel =
-            FaceMatchLiteRtModel(modelData, imageSquareSize = 160, embeddingsArraySize = 512)
+            // Load FaceNet model from common resources
+            val modelData = ByteString(*Res.readBytes("files/facenet_512.tflite"))
+            faceMatchLiteRtModel =
+                FaceMatchLiteRtModel(modelData, imageSquareSize = 160, embeddingsArraySize = 512)
+
+            // ...
+            isAppInitialized = true
+        }
     }
 }
 ```
@@ -211,7 +216,7 @@ class App {
 * `FaceMatchLiteRtModel` is the platform-independent data class for LiteRT model handling.
 * The model loading works identically on both platforms thanks to Compose Multiplatform's resource system.
 
-Refer to **[this initialization code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L286-L288)** for the complete example.
+Refer to **[this initialization code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L287-L289)** for the complete example.
 
 ## **Runtime Permissions (Camera)**
 
@@ -224,24 +229,28 @@ fun HomeScreen(
 ) {
     val cameraPermissionState = rememberCameraPermissionState()
 
-    // ... existing UI for presentation
+    Column {
 
-    when {
-        !cameraPermissionState.isGranted -> {
-            Button(
-                onClick = {
-                    coroutineScope.launch {
-                        cameraPermissionState.launchPermissionRequest()
+        // ... existing UI for presentation
+
+        when {
+            !cameraPermissionState.isGranted -> {
+                Button(
+                    onClick = {
+                        coroutineScope.launch {
+                            cameraPermissionState.launchPermissionRequest()
+                        }
                     }
+                ) {
+                    Text("Grant Camera Permission for Selfie Check")
                 }
-            ) {
-                Text("Grant Camera Permission for Selfie Check")
             }
+            // ... facenet flow continues when the permission is granted
         }
-        // ... facenet flow continues when the permission is granted
     }
 }
 ```
+
 **Platform-specific behavior:**
 - **Android**: Shows standard Android permission dialog. User can grant/deny/deny permanently.
 - **iOS**: Shows native alert with your `NSCameraUsageDescription` text. First request only - iOS remembers the choice.
@@ -250,7 +259,7 @@ fun HomeScreen(
 - **Android**: Can reset in Settings → Apps → Your App → Permissions
 - **iOS**: Can reset in Settings → Your App → Camera, or by uninstalling and reinstalling the app
 
-Refer to **[this permission request code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L248-L258)** for the complete example.
+Refer to **[this permission request code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L248-L258)** for the complete example.
 
 ## **Selfie Capture Flow (Enrollment)**
 
@@ -262,39 +271,40 @@ fun HomeScreen(
     // ... 
 ) {
     // 1) Prepare ViewModel and state
-    val identityIssuer = "Multipaz Getting Started Sample"
     val selfieCheckViewModel: SelfieCheckViewModel =
         remember { SelfieCheckViewModel(identityIssuer) }
 
     var showCamera by remember { mutableStateOf(false) }
     val faceCaptured = remember { mutableStateOf<FaceEmbedding?>(null) }
 
-    when {
-        !cameraPermissionState.isGranted -> {
-            // ...  request camera permission button
-        }
+    Column {
+        when {
+            !cameraPermissionState.isGranted -> {
+                // ...  request camera permission button
+            }
 
-        faceCaptured.value == null -> {
-            SelfieCheckFlow(
-                showCamera = showCamera,
-                onShowCameraChange = { showCamera = it },
-                selfieCheckViewModel = selfieCheckViewModel,
-                identityIssuer = identityIssuer,
-                onFaceCaptured = { embedding ->
-                    faceCaptured.value = embedding
-                },
-                app = app
-            )
-        }
+            faceCaptured.value == null -> {
+                SelfieCheckFlow(
+                    showCamera = showCamera,
+                    onShowCameraChange = { showCamera = it },
+                    selfieCheckViewModel = selfieCheckViewModel,
+                    identityIssuer = identityIssuer,
+                    onFaceCaptured = { embedding ->
+                        faceCaptured.value = embedding
+                    },
+                    app = app
+                )
+            }
 
-        else -> {
-            // Face matching flow (covered in next section)
+            else -> {
+                // Face matching flow (covered in next section)
+            }
         }
     }
 }
 ```
 
-Refer to **[this selfie check code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L260-L271)** for the complete example.
+Refer to **[this selfie check code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L260-L271)** for the complete example.
 
 ### Selfie Check Flow Composable
 
@@ -356,7 +366,7 @@ private fun SelfieCheckFlow(
 - **iOS**: Uses AVFoundation (native camera framework) with ML Kit iOS for face detection
 - Both platforms produce identical embedding vectors, ensuring consistency
 
-Refer to **[this selfie check flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L287-L327)** for the complete example.
+Refer to **[this selfie check flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L287-L327)** for the complete example.
 
 ## **Live Face Matching**
 
@@ -370,31 +380,32 @@ fun HomeScreen(
     var showFaceMatching by remember { mutableStateOf(false) }
     var similarity by remember { mutableStateOf(0f) }
 
-    when {
-        !cameraPermissionState.isGranted -> {
-            // ... request camera permission button
-        }
+    Column {
+        when {
+            !cameraPermissionState.isGranted -> {
+                // ... request camera permission button
+            }
 
-        faceCaptured.value == null -> {
-            // ... show selfie check
-        }
+            faceCaptured.value == null -> {
+                // ... show selfie check
+            }
 
-        else -> {
-            FaceMatchingFlow(
-                showFaceMatching = showFaceMatching,
-                onShowFaceMatchingChange = { showFaceMatching = it },
-                similarity = similarity,
-                onSimilarityChange = { similarity = it },
-                faceCaptured = faceCaptured,
-                app = app
-            )
+            else -> {
+                FaceMatchingFlow(
+                    showFaceMatching = showFaceMatching,
+                    onShowFaceMatchingChange = { showFaceMatching = it },
+                    similarity = similarity,
+                    onSimilarityChange = { similarity = it },
+                    faceCaptured = faceCaptured,
+                    app = app
+                )
+            }
         }
     }
-
 }
 ```
 
-Refer to **[live face matching flow](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L273-L282)** for the complete example.
+Refer to **[live face matching flow](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L273-L282)** for the complete example.
 
 ### Face Matching Flow Composable
 
@@ -474,7 +485,7 @@ private fun FaceMatchingFlow(
 - **iOS**: Generally faster on newer devices with CoreML acceleration (20-60 FPS)
 - Both platforms support Metal/GPU acceleration for the TensorFlow Lite model
 
-Refer to **[this face matching flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L329-L386)** for the complete example.
+Refer to **[this face matching flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L329-L386)** for the complete example.
 
 ## **Face Alignment and Cropping**
 
@@ -485,7 +496,7 @@ class App {
     /**
      * Cut out the face square, rotate it to level eyes line, scale to the smaller size for face matching tasks.
      */
-    private fun extractFaceBitmap(
+    fun extractFaceBitmap(
         frameData: CameraFrame,
         face: DetectedFace,
         targetSize: Int
@@ -536,7 +547,7 @@ class App {
 }
 ```
 
-Refer to **[this function code](https://github.com/openwallet-foundation/multipaz-samples/blob/0c9a33d8a9b447167f9fef431ba278317c2ace8a/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L505-L553)** for the complete example.
+Refer to **[this function code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L505-L553)** for the complete example.
 
 ## **Similarity Thresholds**
 

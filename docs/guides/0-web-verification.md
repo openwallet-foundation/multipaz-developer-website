@@ -43,12 +43,41 @@ The W3C DC API integration allows your app to interact with web-based verifiers 
 
 ## **Implementation Steps**
 
-### **1. Add CredmanActivity**
+### **1. Dependencies**
+
+We would need to add the Multipaz DC API library for the Digital Credentials implementation.
+
+`gradle/libs.versions.toml`
+```toml
+[versions]
+multipaz = "0.96.0" # latest version of Multipaz Extras
+
+[libraries]
+multipaz-dcapi = { group = "org.multipaz", name = "multipaz-dcapi", version.ref = "multipaz" }
+```
+
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/gradle/libs.versions.toml#L43)** for the complete example.
+
+`composeApp/build.gradle.kts`
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            // ...
+            implementation(libs.multipaz.vision)
+        }
+    }
+}
+```
+
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/build.gradle.kts#L58)** for the complete example.
+
+### **2. Add CredmanActivity**
 
 Create a new activity extending `CredentialManagerPresentmentActivity `provided by Multipaz. This activity is launched when a browser requests credentials via the W3C DC API.
 
 ```kotlin
-// ...
+// kotlin/CredmanActivity.kt
 class CredmanActivity : CredentialManagerPresentmentActivity() {
     override suspend fun getSettings(): Settings {
         val app = App.getInstance()
@@ -68,9 +97,9 @@ class CredmanActivity : CredentialManagerPresentmentActivity() {
 }
 ```
 
-Refer to **[**the CredmanActivity file**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/CredmanActivity.kt)** for the complete example.
+Refer to **[**the CredmanActivity file**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/CredmanActivity.kt)** for the complete example.
 
-### **2. Update AndroidManifest.xml**
+### **3. Update AndroidManifest.xml**
 
 Register `CredmanActivity` in your manifest and declare intent filters for the Credential Manager API actions.
 
@@ -93,9 +122,9 @@ Register `CredmanActivity` in your manifest and declare intent filters for the C
 
 * This registers your app as a credential provider for browser and web app requests using the W3C DC API.
 
-Refer to the [**sample Manifest code**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L55-L67) for context.
+Refer to the [**sample Manifest code**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L120-L132) for context.
 
-### **3. Add Privileged User Agents JSON**
+### **4. Add Privileged User Agents JSON**
 
 This JSON defines the trusted browsers (by package name and certificate fingerprint) that are allowed to handle credential requests, ensuring only verified apps can participate.
 
@@ -127,9 +156,9 @@ Create a JSON file listing all trusted browser apps and their signature fingerpr
 * Defines which browsers and apps can be trusted when requesting credentials from your app.
 * Warns about untrusted applications/websites when they try to access sensitive credential data.
 
-Refer to [**the full `privilegedUserAgents.json` file**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/privilegedUserAgents.json) for a complete list.
+Refer to [**the full `privilegedUserAgents.json` file**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/privilegedUserAgents.json) for a complete list.
 
-### **4. Export Digital Credentials**
+### **5. Export Digital Credentials**
 
 Modify your app’s initialization to start exporting credentials if Digital Credentials are available.
 
@@ -137,12 +166,18 @@ Modify your app’s initialization to start exporting credentials if Digital Cre
 class App {
     // ...
     suspend fun init() {
-        // ...
-        if (DigitalCredentials.Default.available) {
-            DigitalCredentials.Default.startExportingCredentials(
-                documentStore = documentStore,
-                documentTypeRepository = documentTypeRepository
-            )
+        if (!isAppInitialized) {
+          // ...
+
+          if (DigitalCredentials.Default.available) {
+              DigitalCredentials.Default.startExportingCredentials(
+                  documentStore = documentStore,
+                  documentTypeRepository = documentTypeRepository
+              )
+          }
+
+          // ...
+          isAppInitialized = true
         }
     }
 }
@@ -153,48 +188,15 @@ class App {
 * Enables credential export functionality for the W3C DC API.
 * Ensures the app is ready to respond to browser credential requests.
 
-Refer to [**this code from App.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L260-L265) for context.
+Refer to [**this code from App.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L291-L296) for context.
 
-### **5. Updating Reader Trust Manager**
+### **6. Updating Reader Trust Manager**
 
-Modify your app’s reader trust manager to trust the official Multipaz web verifier also.
+Make sure that you have configured the app's reader trust manager to trust the official Multipaz web verifier  [verifier.multipaz.org](http://verifier.multipaz.org) for sharing credentials.
 
-- First download [**this file**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/reader_root_cert_multipaz_web_verifier.pem) that contains the reader certificate for [verifier.multipaz.org](https://verifier.multipaz.org) & add it to `/src/commonMain/composeResources/files` directory.
+* **Note:** Refer to the [**Reader Trust section**](../getting-started/holder/05-reader-trust.md) for more details on this step
 
-- Next, add this certificate to the reader trust manager to trust the web verifier using the following code.
-
-```kotlin
-class App {
-   // ...
-   suspend fun init() {
-       // …
-
-       // This is for https://verifier.multipaz.org website.
-       try {
-           readerTrustManager.addX509Cert(
-               certificate = X509Cert(
-                   Res.readBytes("files/reader_root_cert_multipaz_web_verifier.pem")
-                       .decodeToString().fromHex()
-               ),
-               metadata = TrustMetadata(
-                   displayName = "Multipaz Verifier",
-                   privacyPolicyUrl = "https://verifier.multipaz.org"
-               )
-           )
-       } catch (e: TrustPointAlreadyExistsException) {
-           e.printStackTrace()
-       }
-   }
-}
-```
-
-**What does this do?**
-
-* Enables the app to trust [verifier.multipaz.org](http://verifier.multipaz.org) for sharing credentials.
-
-Refer to [**this code from App.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/7988c38259d62972a93b10a5fc2f5c43e6a789d8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L235-L249) for context.
-
-### **6. Testing and Verification**
+### **7. Testing and Verification**
 
 #### **Test with Supported Browsers**
 
