@@ -26,10 +26,6 @@ class App {
         }
         return documents
     }
-
-    companion object {
-        const val SAMPLE_DOCUMENT_DISPLAY_NAME = "Erika's Driving License"
-    }
 }
 ```
 

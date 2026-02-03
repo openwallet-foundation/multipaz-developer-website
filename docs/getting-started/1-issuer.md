@@ -147,7 +147,7 @@ class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         // ...
         setContent { /* ... */ }
-        handleIntent(intent) // add this line
+        handleIntent(intent)
     }
 
     override fun onNewIntent(intent: Intent) {

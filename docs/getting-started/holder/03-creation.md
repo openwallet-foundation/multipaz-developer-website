@@ -65,9 +65,20 @@ Method: Use `DocumentStore#createDocument` to create a new document.
 ```kotlin
 if (documentStore.listDocuments().isEmpty()) {
     val document = documentStore.createDocument(
-       displayName = "Erika's Driving License",
-       typeDisplayName = "Utopia Driving License"
+        displayName = SAMPLE_DOCUMENT_DISPLAY_NAME,
+        typeDisplayName = SAMPLE_DOCUMENT_TYPE_DISPLAY_NAME,
     )
+}
+```
+
+Pleasae make sure to define these constants in `App.kt`.
+
+```kotlin
+class App {
+    companion object {
+        const val SAMPLE_DOCUMENT_DISPLAY_NAME = "Erika's Driving License"
+        const val SAMPLE_DOCUMENT_TYPE_DISPLAY_NAME = "Utopia Driving License"
+    }
 }
 ```
 
