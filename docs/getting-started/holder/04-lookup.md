@@ -7,7 +7,7 @@ Once your `DocumentStore` is initialized and populated, you can fetch, list, and
 
 ### Listing and Fetching Documents
 
-You can retrieve all documents stored in the `DocumentStore` using `DocumentStore#listDocuments`. For each document ID retrieved, use `DocumentStore#lookupDocument` to get the corresponding document object.
+You can retrieve all documents stored in the `DocumentStore` using `DocumentStore#listDocuments`, which returns the documents directly.
 
 **Example: Listing Documents**
 
@@ -17,8 +17,8 @@ You can retrieve all documents stored in the `DocumentStore` using `DocumentStor
 class App {
     suspend fun listDocuments(): MutableList<Document> {
         val documents = mutableStateListOf<Document>()
-        for (documentId in documentStore.listDocuments()) {
-            documentStore.lookupDocument(documentId)?.let { document ->
+        for (document in documentStore.listDocuments()) {
+            document.let { document ->
                 if (!documents.contains(document)) {
                     documents.add(document)
                 }
@@ -51,7 +51,7 @@ fun HomeScreen(
             documents.forEachIndexed { index, document ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = document.metadata.displayName ?: document.identifier,
+                        text = document.displayName ?: document.identifier,
                         modifier = Modifier.padding(4.dp)
                     )
                     // delete button here (explained in next step)
@@ -115,7 +115,7 @@ You can add the following code to `HomeScreen` Composable to add a small delete 
 
 ```kotlin
 // delete button here (explained in next step)
-if (document.metadata.displayName != SAMPLE_DOCUMENT_DISPLAY_NAME) {
+if (document.displayName != SAMPLE_DOCUMENT_DISPLAY_NAME) {
     IconButton(
         content = @Composable {
             Icon(
@@ -133,6 +133,6 @@ if (document.metadata.displayName != SAMPLE_DOCUMENT_DISPLAY_NAME) {
 }
 ```
 
-Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L166-L198)** and [**from `App.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/5143fd7e31e7c61bebffd38b6e496c0cde855d1f/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L350-L360) for the complete example.
+Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/688bf8394cb19a73c6bd8db861eb6e57d96e4c41/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L213-L245)** and [**from `App.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/688bf8394cb19a73c6bd8db861eb6e57d96e4c41/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L372-L382) for the complete example.
 
 By following these steps, you can efficiently list, fetch, and delete documents managed by your `DocumentStore`, ensuring your application's document management remains clean and up-to-date.
