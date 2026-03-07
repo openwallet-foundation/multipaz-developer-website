@@ -21,6 +21,10 @@ const config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
+  customFields: {
+    askAiApiUrl: process.env.ASK_AI_API_URL || '',
+  },
+
   url: process.env.DOCUSAURUS_URL || 'http://localhost',
   baseUrl: process.env.DOCUSAURUS_BASEURL || '/',
 

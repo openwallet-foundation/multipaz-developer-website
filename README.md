@@ -55,6 +55,105 @@ graph TD;
   G --> H1[...]
 ```
 
+## Ask AI Widget
+
+The site includes an AI chat widget ("Ask AI") that lets developers ask questions about Multipaz and get answers grounded in the official documentation.
+
+### Architecture
+
+```
+┌──────────────────────────────────┐
+│  Docusaurus Site (Frontend)      │
+│                                  │
+│  src/components/AskAIWidget.js   │
+│  └─ Chat UI, streams responses   │
+│     via Server-Sent Events       │
+│                                  │
+│  src/theme/Root.js               │
+│  └─ Mounts widget on every page  │
+└──────────────┬───────────────────┘
+               │ POST /api/chat
+               ▼
+┌──────────────────────────────────┐
+│  Vercel Serverless (api/)        │
+│                                  │
+│  api/chat.js                     │
+│  └─ Gemini 2.5 Flash            │
+│     + full docs as system prompt │
+│                                  │
+│  docs-context.txt (bundled)      │
+│  └─ Built by build-docs-context  │
+└──────────────────────────────────┘
+```
+
+### How the docs context is built
+
+`api/build-docs-context.js` produces `api/docs-context.txt`, which is the knowledge base sent to Gemini as a system prompt. It aggregates content from two sources:
+
+**Local directories** (from this repo):
+| Directory | Content |
+|---|---|
+| `docs/` | SDK guides (getting started, issuer, verifier, etc.) |
+| `codelabs/` | Step-by-step codelab tutorials |
+| `contributing/` | Contribution guidelines |
+| `blog/` | Blog posts |
+
+**Remote files** (fetched from [openwallet-foundation/multipaz](https://github.com/openwallet-foundation/multipaz) at build time):
+| File | Content |
+|---|---|
+| `README.md` | Library overview and module descriptions |
+| `CHANGELOG.md` | Release notes and API changes |
+| `DEVELOPER-ENVIRONMENT.md` | Dev setup instructions |
+| `TESTING.md` | Test commands and procedures |
+| `CODING-STYLE.md` | Kotlin coding conventions |
+| `CONTRIBUTING.md` | PR and code review guidelines |
+| `multipaz-cbor-rpc/RPC.md` | RPC system architecture |
+| `multipaz-cbor-rpc/README.md` | CBOR serialization details |
+| `multipaz-server-deployment/README.md` | Docker/Podman deployment guide |
+
+### Rebuilding the docs context
+
+After adding or modifying documentation in any of the sources above, rebuild the context file:
+
+```bash
+cd api
+npm run build-context
+```
+
+This fetches the latest remote files and re-aggregates everything into `docs-context.txt`. The file is bundled into the Vercel serverless function at deploy time via `vercel.json`.
+
+### Adding new documentation sources
+
+To include a new **local directory**, add it to the `DOCS_DIRS` array in `api/build-docs-context.js`.
+
+To include a new **file from the multipaz repo**, add its path to the `MULTIPAZ_REPO_FILES` array in the same file.
+
+### Environment variables
+
+**API server** (set in Vercel):
+| Variable | Description |
+|---|---|
+| `GEMINI_API_KEY` | Google Gemini API key |
+| `ALLOWED_ORIGINS` | Comma-separated list of allowed CORS origins |
+| `RATE_LIMIT_PER_MIN` | Max requests per IP per minute (default: 10) |
+| `DAILY_REQUEST_LIMIT` | Max total requests per day across all users (default: 300) |
+
+**Docusaurus build** (set as [GitHub repo variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#creating-configuration-variables-for-a-repository) under Settings → Secrets and variables → Actions → Variables):
+| Variable | Description |
+|---|---|
+| `ASK_AI_API_URL` | URL of the deployed Ask AI API (e.g., your Vercel deployment URL) |
+
+### Deploying the API server to Vercel
+
+```bash
+cd api
+npm install
+npm run build-context   # rebuild docs-context.txt
+vercel --prod           # deploy to production
+```
+
+On first deploy, Vercel will prompt you to link the project. After that, subsequent deploys with `vercel --prod` will update the production deployment.
+
 ## CI Config
 
 ### Overview

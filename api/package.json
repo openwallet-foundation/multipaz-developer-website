@@ -1,0 +1,14 @@
+{
+  "name": "multipaz-ask-ai-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build-context": "node build-docs-context.js",
+    "start": "node server.js",
+    "dev": "node build-docs-context.js && node server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^0.14.0",
+    "openai": "^6.27.0"
+  }
+}

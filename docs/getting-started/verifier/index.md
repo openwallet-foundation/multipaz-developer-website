@@ -12,8 +12,8 @@ The reference implementation can be found in the [Mutipaz Identity Reader](https
 
 The Verifier implementation consists of several key components:
 
-- **[Import Issuer Certificate](/docs/getting-started/verifier/import-cert)** - How to Import an IACA Certificate to the Mutipaz Identity Reader app
-- **[Issuer Trust](/docs/getting-started/verifier/issuer-trust)** - Issuer trust ensures that credentials presented by a holder app are authentic and issued by trusted authorities.
-- **[Read QR Code](/docs/getting-started/verifier/read-qr)** - How to read a QR code
+- **[Import Issuer Certificate](./import-cert)** - How to Import an IACA Certificate to the Mutipaz Identity Reader app
+- **[Issuer Trust](./issuer-trust)** - Issuer trust ensures that credentials presented by a holder app are authentic and issued by trusted authorities.
+- **[Read QR Code](./read-qr)** - How to read a QR code
 
 Additional sections will be added as we continue building out the documentation.

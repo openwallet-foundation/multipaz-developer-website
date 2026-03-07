@@ -119,6 +119,7 @@ jobs:
       - name: Build Docusaurus website
         env:
           NODE_ENV: production
+          ASK_AI_API_URL: ${{ vars.ASK_AI_API_URL }}
           DOCUSAURUS_URL: https://${{ github.repository_owner }}.github.io
           # Dynamic baseUrl: PRODUCTION uses /, otherwise uses /repository-name/
           DOCUSAURUS_BASEURL: ${{ vars.WEBSITE_ENVIRONMENT == 'PRODUCTION' && '/' || format('/{0}/', github.event.repository.name) }}

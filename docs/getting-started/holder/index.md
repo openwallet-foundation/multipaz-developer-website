@@ -11,11 +11,11 @@ Initially we'll cover the steps required to create an mDoc & store it in a secur
 
 The Holder implementation consists of several key components:
 
-- **[Storage](/docs/getting-started/holder/storage)** - Initialize secure storage and cryptographic infrastructure
-- **[DocumentStore](/docs/getting-started/holder/documentstore)** - Set up repositories and storage for document types
-- **[Creation of an mDoc](/docs/getting-started/holder/creation)** - Create and provision mDoc credentials
-- **[Lookup and Manage Documents](/docs/getting-started/holder/lookup)** - Fetch, list, and manage documents
-- **[Presentation](/docs/getting-started/holder/presentation)** - Present credentials to verifiers
-- **[Reader Trust](/docs/getting-started/holder/reader-trust)** - Manage trust relationships with verifier apps
+- **[Storage](./storage)** - Initialize secure storage and cryptographic infrastructure
+- **[DocumentStore](./documentstore)** - Set up repositories and storage for document types
+- **[Creation of an mDoc](./creation)** - Create and provision mDoc credentials
+- **[Lookup and Manage Documents](./lookup)** - Fetch, list, and manage documents
+- **[Presentation](./presentation)** - Present credentials to verifiers
+- **[Reader Trust](./reader-trust)** - Manage trust relationships with verifier apps
 
 Additional sections will be added as we continue building out the documentation.

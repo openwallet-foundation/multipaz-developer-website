@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "functions": {
+    "api/chat.js": {
+      "includeFiles": "docs-context.txt",
+      "maxDuration": 60
+    }
+  }
+}
