@@ -83,6 +83,7 @@
   padding: 12px 16px;
   background: var(--ifm-color-primary);
   color: white;
+  flex-shrink: 0;
 }
 
 .pilotStrip {
@@ -92,6 +93,7 @@
   background: #fff3cd;
   color: #856404;
   border-bottom: 1px solid #ffeeba;
+  flex-shrink: 0;
 }
 
 .pilotStrip a {
@@ -113,6 +115,28 @@
 .chatTitle {
   font-weight: 600;
   font-size: 15px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.expandChat {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.expandChat:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .closeChat {
@@ -313,6 +337,7 @@
   padding: 12px;
   border-top: 1px solid var(--ifm-color-emphasis-300);
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .chatInput {
@@ -373,6 +398,28 @@
   border-color: var(--ifm-color-emphasis-700);
 }
 
+/* Expanded state — must come after base classes to win specificity */
+.widgetExpanded {
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.chatPanelExpanded {
+  width: auto;
+  max-height: none;
+  height: calc(100vh - 40px);
+  border-radius: 16px;
+}
+
+.chatMessagesExpanded {
+  flex: 1 1 0%;
+  max-height: none;
+  min-height: 0;
+  overflow-y: auto;
+}
+
 /* Responsive */
 @media (max-width: 480px) {
   .widget {
@@ -384,6 +431,27 @@
   .chatPanel {
     width: auto;
     max-height: 70vh;
+  }
+
+  .expandChat {
+    display: none;
+  }
+
+  .widgetExpanded {
+    top: auto;
+    left: 12px;
+    right: 12px;
+    bottom: 72px;
+  }
+
+  .chatPanelExpanded {
+    width: auto;
+    max-height: 70vh;
+    height: auto;
+  }
+
+  .chatMessagesExpanded {
+    max-height: 380px;
   }
 
   .fab {
