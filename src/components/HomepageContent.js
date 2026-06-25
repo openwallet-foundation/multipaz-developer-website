@@ -4,6 +4,12 @@ import Link from '@docusaurus/Link';
 
 const cards = [
   {
+    title: 'Agentic',
+    description: 'AI agents for identity and commerce — MCP, x402, and more.',
+    icon: '🤖',
+    link: '/docs/agentic',
+  },
+  {
     title: 'API Reference',
     description: 'Explore comprehensive documentation for every API endpoint.',
     icon: '📘',

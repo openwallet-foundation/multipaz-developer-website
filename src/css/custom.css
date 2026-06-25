@@ -145,3 +145,40 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Highlight the "Agentic" sidebar item and give it a NEW badge.
+   It's a category, so the `sidebar-agentic` class lands on the <li>; scope the
+   styling to the category's own toggle link only, not its child items.
+   The badge is ABSOLUTELY positioned so it's taken out of the link's flex flow
+   entirely — a pseudo-element flex item gets compressed into a tall vertical
+   sliver in Safari (notably when the category is collapsed). Out of flow, it
+   keeps its fixed box in every browser and every state. */
+.sidebar-agentic > .menu__list-item-collapsible > .menu__link,
+a.menu__link.sidebar-agentic {
+  position: relative;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+}
+
+.sidebar-agentic > .menu__list-item-collapsible > .menu__link::after,
+a.menu__link.sidebar-agentic::after {
+  content: "NEW";
+  position: absolute;
+  left: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  writing-mode: horizontal-tb;
+  color: #fff;
+  background-color: #e5484d;
+  border-radius: 10px;
+  pointer-events: none;
+}
