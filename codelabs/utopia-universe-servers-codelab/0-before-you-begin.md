@@ -51,7 +51,7 @@ flowchart LR;
 - **Java 17+** (to build the bundle).
 - **Podman** (recommended) or **Docker** (to run it). Installation is covered in the next step.
 - A **Multipaz wallet** on a phone or emulator to obtain and present credentials. If you don't have
-  one, the [Utopia Wholesale codelab](../Utopia%20Wholesale%20Codelab/index.md) walks you through
+  one, the [Utopia Wholesale codelab](../utopia-wholesale-codelab/index.md) walks you through
   building one, or you can use the [Multipaz sample apps](https://apps.multipaz.org/).
 - Basic familiarity with **OpenID4VCI** (issuance) and **OpenID4VP** (presentation). A quick read of
   the [Getting Started](../../docs/) docs is enough.

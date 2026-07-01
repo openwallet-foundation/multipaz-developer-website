@@ -83,7 +83,7 @@ Revert when you're done.
   `settings.gradle.kts` and wired into the `deployment` module. Copy the Brewery as a template for a
   new verifier, or the DMV for a new issuer.
 - **Deploy the bundle.** The same image runs in the cloud — follow
-  [Deploying to Google Cloud Run](./6-Deploying%20to%20Google%20Cloud%20Run.md) to put the whole
+  [Deploying to Google Cloud Run](./6-deploying-to-google-cloud-run.md) to put the whole
   Utopia Universe behind a public HTTPS URL.
 
 You've now run a complete digital-identity economy locally and seen where to extend it — issuers,

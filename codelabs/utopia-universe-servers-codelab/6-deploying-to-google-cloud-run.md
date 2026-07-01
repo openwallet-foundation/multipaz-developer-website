@@ -44,7 +44,7 @@ This page covers Cloud Run because that's the managed, URL-in-one-command path.
   enabled.
 - The **Google Cloud SDK** (`gcloud`) installed and authenticated (`gcloud auth login`).
 - **Podman or Docker** and **Java 17+** locally, to build the image (as in
-  [Run the Bundle](./2-Run%20the%20Bundle.md)).
+  [Run the Bundle](./2-run-the-bundle.md)).
 
 ```bash
 gcloud services enable run.googleapis.com artifactregistry.googleapis.com
