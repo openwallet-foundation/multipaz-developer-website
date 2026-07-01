@@ -22,19 +22,19 @@
         label: 'Utopia Wholesale Codelab',
         link: {
           type: 'doc',
-          id: 'Utopia Wholesale Codelab/index',
+          id: 'utopia-wholesale-codelab/index',
         },
         items: [
-          'Utopia Wholesale Codelab/Before You Begin',
-          'Utopia Wholesale Codelab/Get Set Up',
-             'Utopia Wholesale Codelab/Issuer',
+          'utopia-wholesale-codelab/before-you-begin',
+          'utopia-wholesale-codelab/get-set-up',
+          'utopia-wholesale-codelab/issuer',
           {
             type: 'category',
             label: 'Holder',
             items: [
-              'Utopia Wholesale Codelab/Holder/Obtaining a credential',
-              'Utopia Wholesale Codelab/Holder/Storage',
-              'Utopia Wholesale Codelab/Holder/Holder'
+              'utopia-wholesale-codelab/holder/obtaining-a-credential',
+              'utopia-wholesale-codelab/holder/storage',
+              'utopia-wholesale-codelab/holder/holder'
             ],
             collapsed: false,
             collapsible: true,
@@ -43,9 +43,9 @@
             type: 'category',
             label: 'Verifier',
             items: [
-              'Utopia Wholesale Codelab/Verifier/Verifier',
-              'Utopia Wholesale Codelab/Verifier/Verification Modes',
-              'Utopia Wholesale Codelab/Verifier/Testing Holder'
+              'utopia-wholesale-codelab/verifier/verifier',
+              'utopia-wholesale-codelab/verifier/verification-modes',
+              'utopia-wholesale-codelab/verifier/testing-holder'
             ],
             collapsed: false,
             collapsible: true,
@@ -54,9 +54,9 @@
             type: 'category',
             label: 'Advanced Features',
             items: [
-              'Utopia Wholesale Codelab/Advanced Features/W3C DC API Implementation',
-              'Utopia Wholesale Codelab/Advanced Features/Request Multiple Credentials with DCQL',
-              'Utopia Wholesale Codelab/Advanced Features/iOS App Group ID Setup'
+              'utopia-wholesale-codelab/advanced-features/w3c-dc-api-implementation',
+              'utopia-wholesale-codelab/advanced-features/request-multiple-credentials-with-dcql',
+              'utopia-wholesale-codelab/advanced-features/ios-app-group-id-setup'
             ],
             collapsed: false,
             collapsible: true,
@@ -70,16 +70,16 @@
         label: 'Utopia Universe Servers Codelab',
         link: {
           type: 'doc',
-          id: 'Utopia Universe Servers Codelab/index',
+          id: 'utopia-universe-servers-codelab/index',
         },
         items: [
-          'Utopia Universe Servers Codelab/Before You Begin',
-          'Utopia Universe Servers Codelab/Get Set Up',
-          'Utopia Universe Servers Codelab/Run the Bundle',
-          'Utopia Universe Servers Codelab/Issue Credentials',
-          'Utopia Universe Servers Codelab/Verify and Pay',
-          'Utopia Universe Servers Codelab/Extend the Servers',
-          'Utopia Universe Servers Codelab/Deploying to Google Cloud Run'
+          'utopia-universe-servers-codelab/before-you-begin',
+          'utopia-universe-servers-codelab/get-set-up',
+          'utopia-universe-servers-codelab/run-the-bundle',
+          'utopia-universe-servers-codelab/issue-credentials',
+          'utopia-universe-servers-codelab/verify-and-pay',
+          'utopia-universe-servers-codelab/extend-the-servers',
+          'utopia-universe-servers-codelab/deploying-to-google-cloud-run'
         ],
         collapsed: false,
         collapsible: true,

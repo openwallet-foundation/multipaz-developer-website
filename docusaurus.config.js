@@ -96,6 +96,38 @@ const config = {
       },
     ],
 
+    // Redirect the old space/capitalized codelab URLs (which produced %20 in
+    // links) to the new kebab-case paths, so existing/bookmarked links keep working.
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          { from: '/codelabs/Utopia Wholesale Codelab', to: '/codelabs/utopia-wholesale-codelab' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Before You Begin', to: '/codelabs/utopia-wholesale-codelab/before-you-begin' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Get Set Up', to: '/codelabs/utopia-wholesale-codelab/get-set-up' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Issuer', to: '/codelabs/utopia-wholesale-codelab/issuer' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Holder/Obtaining a credential', to: '/codelabs/utopia-wholesale-codelab/holder/obtaining-a-credential' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Holder/Storage', to: '/codelabs/utopia-wholesale-codelab/holder/storage' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Holder/Holder', to: '/codelabs/utopia-wholesale-codelab/holder/holder' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Verifier/Verifier', to: '/codelabs/utopia-wholesale-codelab/verifier/verifier' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Verifier/Verification Modes', to: '/codelabs/utopia-wholesale-codelab/verifier/verification-modes' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Verifier/Testing Holder', to: '/codelabs/utopia-wholesale-codelab/verifier/testing-holder' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Advanced Features/W3C DC API Implementation', to: '/codelabs/utopia-wholesale-codelab/advanced-features/w3c-dc-api-implementation' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Advanced Features/Request Multiple Credentials with DCQL', to: '/codelabs/utopia-wholesale-codelab/advanced-features/request-multiple-credentials-with-dcql' },
+          { from: '/codelabs/Utopia Wholesale Codelab/Advanced Features/iOS App Group ID Setup', to: '/codelabs/utopia-wholesale-codelab/advanced-features/ios-app-group-id-setup' },
+          // Utopia Universe Servers Codelab
+          { from: '/codelabs/Utopia Universe Servers Codelab', to: '/codelabs/utopia-universe-servers-codelab' },
+          { from: '/codelabs/Utopia Universe Servers Codelab/Before You Begin', to: '/codelabs/utopia-universe-servers-codelab/before-you-begin' },
+          { from: '/codelabs/Utopia Universe Servers Codelab/Get Set Up', to: '/codelabs/utopia-universe-servers-codelab/get-set-up' },
+          { from: '/codelabs/Utopia Universe Servers Codelab/Run the Bundle', to: '/codelabs/utopia-universe-servers-codelab/run-the-bundle' },
+          { from: '/codelabs/Utopia Universe Servers Codelab/Issue Credentials', to: '/codelabs/utopia-universe-servers-codelab/issue-credentials' },
+          { from: '/codelabs/Utopia Universe Servers Codelab/Verify and Pay', to: '/codelabs/utopia-universe-servers-codelab/verify-and-pay' },
+          { from: '/codelabs/Utopia Universe Servers Codelab/Extend the Servers', to: '/codelabs/utopia-universe-servers-codelab/extend-the-servers' },
+          { from: '/codelabs/Utopia Universe Servers Codelab/Deploying to Google Cloud Run', to: '/codelabs/utopia-universe-servers-codelab/deploying-to-google-cloud-run' },
+        ],
+      },
+    ],
+
   ],
 
   themeConfig:

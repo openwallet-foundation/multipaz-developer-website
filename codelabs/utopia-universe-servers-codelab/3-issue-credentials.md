@@ -15,7 +15,7 @@ offer, authorize the request, and mint the credential from the Registry's record
 ## Issue an mDL from the DMV
 
 1. On the device, open **`http://localhost:8100/dmv/`** (set up in
-   [Run on a real Android device](./2-Run%20the%20Bundle.md#run-on-a-real-android-device)).
+   [Run on a real Android device](./2-run-the-bundle.md#run-on-a-real-android-device)).
 2. Select the **driver's license** credential.
 3. Choose **credential offer using a custom URL scheme**. Because you're browsing on the device
    itself, this deep-links the offer straight into the wallet — no QR scan needed. Pick the
@@ -33,7 +33,7 @@ DmvIssuerAssistant: Issued credential id=... format=mso_mdoc
 ```
 
 That hook is the seam where a real DMV would push the event to an audit log or fraud pipeline. You'll
-implement against it in **[Extend the Servers](./5-Extend%20the%20Servers.md)** section.
+implement against it in **[Extend the Servers](./5-extend-the-servers.md)** section.
 
 ## Issue a payment card from the Bank of Utopia
 
