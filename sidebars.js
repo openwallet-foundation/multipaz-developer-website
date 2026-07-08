@@ -80,6 +80,21 @@ const sidebars = {
       collapsed: false,
       collapsible: true,
     },
+    {
+      type: "category",
+      label: "Agentic",
+      className: "sidebar-agentic",
+      link: {
+        type: "doc",
+        id: "agentic/agentic",
+      },
+      items: [
+        "agentic/credentagent",
+        "agentic/human-present",
+      ],
+      collapsed: false,
+      collapsible: true,
+    },
     'sample-apps',
   ],
 };
