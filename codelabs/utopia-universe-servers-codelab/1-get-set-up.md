@@ -13,7 +13,7 @@ cd multipaz-utopia
 ```
 
 The repository is a Gradle multi-module project. Each organization lives under `organizations/`
-(`dmv`, `bank_of_utopia`, `registry`, `upay`, `brewery`), shared issuer code is in `shared/`, and the
+(`dmv`, `bank_of_utopia`, `registry`, `upay`, `marketplace`), shared issuer code is in `shared/`, and the
 `deployment/` module knows how to package everything into one container image.
 
 ## Install a container runtime

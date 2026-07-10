@@ -8,7 +8,7 @@ verifiers** that the wallet talks to.
 
 You'll run the **Utopia Universe** — a bundle of five fictional organizations that exercise the full
 Multipaz ecosystem end to end: a DMV that issues mobile driving licences, a bank that issues a
-digital payment credential, a records registry that backs them, a payment processor, and a brewery
+digital payment credential, a records registry that backs them, a payment processor, and a marketplace
 storefront that verifies age **and** takes payment in a single OpenID4VP exchange.
 
 <div style={{
