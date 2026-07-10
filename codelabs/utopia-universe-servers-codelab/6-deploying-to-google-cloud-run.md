@@ -18,7 +18,7 @@ plus the nginx proxy baked in — you build the image, push it, and deploy it on
 A few things about the bundle shape your deployment, so it's worth being explicit:
 
 - **One container, many processes.** The image runs five JVMs *and* nginx together. nginx listens on
-  a hardcoded **port 8100** and proxies by path (`/dmv/`, `/bank_of_utopia/`, `/brewery/`, ...). You
+  a hardcoded **port 8100** and proxies by path (`/dmv/`, `/bank_of_utopia/`, `/marketplace/`, ...). You
   tell Cloud Run to send traffic to 8100 with `--port 8100`.
 - **Services find each other over `localhost`.** Because they're in the same container and discover
   one another on loopback, you must run **exactly one instance** (`--min-instances 1 --max-instances
@@ -156,7 +156,7 @@ Open the service URL in a browser:
 - `https://YOUR-SERVICE-URL/health` — returns `{"status":"ok"}` from nginx.
 - `https://YOUR-SERVICE-URL/dmv/` and `/bank_of_utopia/` — issuer pages; scan a credential offer with
   a real wallet to confirm the full OpenID4VCI round-trip works against the public URL.
-- `https://YOUR-SERVICE-URL/brewery/` — run a checkout end to end.
+- `https://YOUR-SERVICE-URL/marketplace/` — run a checkout end to end.
 
 ## Keys, trust, and data persistence
 
@@ -166,7 +166,7 @@ Open the service URL in a browser:
   `CREDENTIAL_SIGNING` root certificate — the IACA root that wallets ultimately trust.
 - Every other service **enrolls with the Registry** at startup. The `start-servers.sh` entrypoint
   passes `enrollment_server_url`, `ca_allow_enrollment`, and `ca_trust_servers` derived from your
-  `BASE_URL`, so the DMV and Bank get credential-signing identities and UPay/Brewery get a
+  `BASE_URL`, so the DMV and Bank get credential-signing identities and UPay/Marketplace get a
   `PAYMENT_PROCESSOR` identity — all signed by the Registry root. No manual key exchange.
 - The root certificate and each service's enrolled private keys are written to the **SQLite databases
   under `/app/data`** (`registry.db`, `dmv.db`, `bank_of_utopia.db`, ...).

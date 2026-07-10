@@ -5,7 +5,7 @@ sidebar_position: 3
 
 # Issue Credentials
 
-The Brewery checkout you'll build to later needs two things in the wallet: a **government ID** to
+The Marketplace checkout you'll build to later needs two things in the wallet: a **government ID** to
 prove age, and a **payment credential** to pay. Utopia issues both. In this step you'll get an mDL
 from the **DMV** and a payment card from the **Bank of Utopia**.
 
@@ -56,5 +56,5 @@ system.
 :::
 
 You now hold two credentials in your wallet, issued by two independent Utopia organizations. Next
-you'll use them: the **Brewery** will verify your age and charge your payment credential in a single
+you'll use them: the **Marketplace** will verify your age and charge your payment credential in a single
 OpenID4VP exchange using DCQL.

@@ -60,7 +60,7 @@ each organization. All services are reachable through the proxy on port `8100`:
 | Utopia DMV     | `http://localhost:8100/dmv/`            |
 | Bank of Utopia | `http://localhost:8100/bank_of_utopia/` |
 | UPay           | `http://localhost:8100/upay/`           |
-| Brewery        | `http://localhost:8100/brewery/`        |
+| Marketplace        | `http://localhost:8100/marketplace/`        |
 
 Press `Ctrl+C` from the terminal to stop.
 
@@ -87,10 +87,10 @@ You don't need the container to iterate on one organization. Each backend has a 
 which is handy when you're editing its code:
 
 ```shell
-./gradlew :organizations:brewery:backend:run
+./gradlew :organizations:marketplace:backend:run
 ```
 
-Note that this is not a complete service independently. Since brewery depends on registry and upay,
+Note that this is not a complete service independently. Since marketplace depends on registry and upay,
 you won't be able to complete settlement whilst running like this.
 
 ## Run on a real Android device

@@ -19,7 +19,7 @@ Multipaz wallet can interact with.
 | **Bank of Utopia** | Credential **issuer**             | Issuance of a digital payment credential (`org.multipaz.payment.sca.1`)              |
 | **Registry**       | System of records + web frontend  | The identity data store that issuers draw from                                       |
 | **UPay**           | Payment **processor / verifier**  | Account-to-account transactions behind a payment credential                          |
-| **Brewery**        | **Verifier** (storefront)         | OpenID4VP with DCQL — age verification **and** payment in one presentation           |
+| **Marketplace**        | **Verifier** (storefront)         | OpenID4VP with DCQL — age verification **and** payment in one presentation           |
 
 The flow they implement together looks like this:
 
@@ -28,13 +28,13 @@ flowchart LR;
     Registry["Registry<br/>(identity data)"]
     Issuer["DMV / Bank<br/>(issuers)"]
     Wallet["Wallet"]
-    Brewery["Brewery<br/>(verifier)"]
+    Marketplace["Marketplace<br/>(verifier)"]
     UPay["UPay"]
 
     Registry -->|identity data| Issuer
     Issuer -->|OpenID4VCI| Wallet
-    Wallet -->|OpenID4VP / DCQL| Brewery
-    Brewery -->|payment transaction| UPay
+    Wallet -->|OpenID4VP / DCQL| Marketplace
+    Marketplace -->|payment transaction| UPay
 ```
 
 ## What you'll learn

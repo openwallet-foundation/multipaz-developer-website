@@ -52,7 +52,7 @@ gate.
 
 ## `VerifierAssistant` — decide what a presentation means
 
-You met this in the Brewery. A `VerifierAssistant` has two hooks:
+You met this in the Marketplace. A `VerifierAssistant` has two hooks:
 
 - `processRequest` — adjust the outgoing request before it's sent (return `null` to leave it
   unchanged).
@@ -60,7 +60,7 @@ You met this in the Brewery. A `VerifierAssistant` has two hooks:
   verified, and return the result.
 
 ```kotlin
-class BreweryVerifierAssistant : VerifierAssistant {
+class MarketplaceVerifierAssistant : VerifierAssistant {
     override suspend fun processRequest(request: JsonObject): JsonObject? = null
 
     override suspend fun processResponse(presentment: VerifierPresentment): JsonObject {
@@ -74,13 +74,13 @@ This is the right home for policy: *what counts as old enough*, *which credentia
 *when to settle payment*. Multipaz guarantees the response is authentic; your assistant decides what
 to do about it.
 
-**Try it:** see the decline path. The reliable way to watch a rejection is to temporarily force the age check to fail: make `checkAge` return `false`, rebuild, and run a checkout. The Brewery shows **declined** and never settles the payment.
+**Try it:** see the decline path. The reliable way to watch a rejection is to temporarily force the age check to fail: make `checkAge` return `false`, rebuild, and run a checkout. The Marketplace shows **declined** and never settles the payment.
 Revert when you're done.
 
 ## Where to go next
 
 - **Build an organization.** Each org under `organizations/` is a small Ktor server registered in
-  `settings.gradle.kts` and wired into the `deployment` module. Copy the Brewery as a template for a
+  `settings.gradle.kts` and wired into the `deployment` module. Copy the Marketplace as a template for a
   new verifier, or the DMV for a new issuer.
 - **Deploy the bundle.** The same image runs in the cloud — follow
   [Deploying to Google Cloud Run](./6-deploying-to-google-cloud-run.md) to put the whole
