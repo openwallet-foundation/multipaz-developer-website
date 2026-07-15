@@ -76,7 +76,7 @@ Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundat
 # update this line
 android-minSdk = "29" # Multipaz requires minSdk >= 29
 
-multipaz = "0.99.0" # latest version of Multipaz to use
+multipaz = "0.100.0" # latest version of Multipaz to use
 
 coil = "3.3.0"
 androidx-fragment = "1.8.6"

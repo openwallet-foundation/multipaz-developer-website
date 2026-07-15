@@ -369,10 +369,15 @@ class AppContainerImpl : AppContainer {
             documentStore = documentStore,
             documentTypeRepository = documentTypeRepository,
             resolveTrustFn = { requester ->
-                requester.certChain?.let { certChain ->
-                    val trustResult = readerTrustManager.verify(certChain.certificates)
-                    if (trustResult.isTrusted) {
-                        return@SimplePresentmentSource trustResult.trustPoints.first().metadata
+                requester.requesterIdentities.forEach { requesterIdentity ->
+                    requesterIdentity.certChain.let { certChain ->
+                        val trustResult = readerTrustManager.verify(certChain.certificates)
+                        if (trustResult.isTrusted) {
+                            return@SimplePresentmentSource TrustedRequesterIdentity(
+                                requesterIdentity,
+                                trustResult.trustPoints.first().metadata
+                            )
+                        }
                     }
                 }
                 null
@@ -453,7 +458,7 @@ Add the required NFC features and permissions in your `AndroidManifest.xml`. Thi
 <!-- Inside <application> ... -->
 <!-- Service for NFC handover and APDU communication -->
 <service
-   android:name=".NdefService"
+   android:name=".GetStartedNfcService"
    android:exported="true"
    android:permission="android.permission.BIND_NFC_SERVICE">
    <intent-filter>
@@ -471,13 +476,32 @@ Refer to **[this Android Manifest code](https://github.com/openwallet-foundation
 
 ### **NFC Engagement Service**
 
-To facilitate NFC engagement, extend `MdocNdefService` and configure the handover and transport preferences. In this example, negotiated handover is enabled, with BLE selected as the preferred transport after initial NFC engagement.
+The service registered in the manifest is a `CombinedNfcService`, which routes incoming APDUs to the appropriate `NfcApduService` based on the selected application. Register your `NdefService` against the NDEF application ID so it handles engagement requests.
+
+```kotlin
+// composeApp/../kotlin/GetStartedNfcService.kt
+class GetStartedNfcService : CombinedNfcService() {
+    override fun buildServices(): Map<ByteString, NfcApduService> {
+        return mapOf(
+            Nfc.NDEF_APPLICATION_ID to NdefService(this, ::sendResponseApdu),
+        )
+    }
+}
+```
+
+To facilitate NFC engagement, extend `MdocNdefService` and configure the handover and transport preferences. The service receives the application `Context` and a `sendResponse` callback from the `CombinedNfcService` that hosts it. In this example, negotiated handover is enabled, with BLE selected as the preferred transport after initial NFC engagement.
 
 * With this setup, the NFC connection is used to negotiate the preferred transport. Since BLE is selected here, the actual credential data is transferred over BLE after initial NFC engagement.
 
 ```kotlin
 // composeApp/../kotlin/NdefService.kt
-class NdefService : MdocNdefService() {
+class NdefService(
+    applicationContext: Context,
+    sendResponse: (ByteArray) -> Unit
+) : MdocNdefService(
+    applicationContext,
+    sendResponse
+) {
     override suspend fun getSettings(): Settings {
         val container = AppContainer.getInstance()
         container.init()

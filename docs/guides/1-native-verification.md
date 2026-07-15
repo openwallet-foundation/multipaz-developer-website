@@ -176,9 +176,8 @@ private suspend fun doDcRequestFlow(
         claims = claims,
         nonce = nonce,
         origin = origin,
-        clientId = clientId,
         responseEncryptionKey = responseEncryptionKey.publicKey,
-        readerAuthenticationKey = appReaderKey,  // Sign request to prove verifier identity
+        verifierIdentities = emptyList(),  // Verifier identities used to sign the request (empty = unsigned)
         zkSystemSpecs = emptyList()
     )
 
@@ -243,7 +242,7 @@ private suspend fun doDcRequestFlow(
 * **Step 2**: Gets the platform-specific app identifier (Android: package + certificate fingerprint)
 * **Step 3**: Configures the exchange protocol (OpenID4VP in this example)
 * **Step 4**: Extracts the specific data elements (claims) being requested from the credential
-* **Step 5**: Builds the W3C DC request object with all necessary parameters including reader authentication
+* **Step 5**: Builds the W3C DC request object with all necessary parameters, optionally signed with verifier identities
 * **Step 6**: Sends the request via W3C DC API and measures response time
 * **Step 7**: Decrypts the response using the ephemeral key and validates it
 * **Step 8**: Creates metadata for tracking request/response sizes and timing
@@ -867,8 +866,6 @@ fun ShowResponseScreen(
         Cbor.decode(it.fromBase64Url())
     }
 
-    val nonce = response.nonce?.let { ByteString(it.fromBase64Url()) }
-
     val verificationResult =
         remember { mutableStateOf<VerificationResult>(VerificationResult.Loading) }
     val verificationResultValue = verificationResult.value
@@ -884,7 +881,7 @@ fun ShowResponseScreen(
                 now = now,
                 vpToken = vpToken,
                 sessionTranscript = sessionTranscript,
-                nonce = nonce,
+                nonce = response.nonce,
                 documentTypeRepository = documentTypeRepository,
             )
         } catch (e: Throwable) {
