@@ -39,7 +39,7 @@ First, ensure your project has the necessary Android manifest configuration for 
 
 #### **1.2 Understand the CredmanActivity Class**
 
-`CredmanActivity` lives in the Android-specific source set (for example, `composeApp/src/androidMain/.../CredmanActivity.kt`) and is responsible for handling W3C DC API presentation requests.
+`CredmanActivity` lives in the `androidApp` module (for example, `androidApp/src/main/.../CredmanActivity.kt`) and is responsible for handling W3C DC API presentation requests.
 
 ```kotlin
 class CredmanActivity : CredentialManagerPresentmentActivity() {
@@ -78,7 +78,7 @@ In AndroidManifest.xml:
 
 ```xml
 <activity
-    android:name=".CredmanActivity"
+    android:name="org.multipaz.samples.wallet.cmp.CredmanActivity"
     android:exported="true"
     android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|mnc|colorMode|density|fontScale|fontWeightAdjustment|keyboard|layoutDirection|locale|mcc|navigation|smallestScreenSize|touchscreen|uiMode"
     android:theme="@android:style/Theme.Translucent"

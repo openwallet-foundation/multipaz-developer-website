@@ -337,9 +337,10 @@ The QR code encodes the device's **payload**, which a verifier can scan to initi
 
 In this section, you'll learn how to enable **NFC credential sharing** in your Utopia app. NFC (Near Field Communication) is a contactless mechanism allowing users to "tap" their phone to a verifier device to present credentials. This is especially useful for Android devices, offering fast and secure sharing without opening a UI manually.
 
-These components live in the **Android-specific source set** (`composeApp/src/androidMain/`):
+These components live in the **`androidApp` module** (`androidApp/src/main/`):
 
-* `NdefService` – System-level service that binds the NFC engagement mechanism.  
+* `NdefService` – Implements the NDEF engagement settings (`MdocNdefService`).
+* `UtopiaNfcService` – A `CombinedNfcService` that the system binds to and that registers `NdefService` for the NDEF application.
 * `AndroidManifest.xml` – Declares the NFC capabilities and configures the app’s NFC role.
 
 This activity wakes the device if necessary and securely presents credentials when the phone is tapped against a verifier.
@@ -348,14 +349,30 @@ This activity wakes the device if necessary and securely presents credentials wh
 
 `NdefService` extends `MdocNdefService` (base class for implementing NFC engagement according to ISO/IEC 18013-5:2021).
 
+`MdocNdefService` receives the application context and a `sendResponse` callback through its constructor, so `NdefService` forwards both to the superclass. Because the instance is created by `UtopiaNfcService` (rather than instantiated by the Android framework as a bare `Service`), the Koin dependencies are resolved with `KoinJavaComponent.inject` instead of the Android component `inject` extension.
+
 In this service, you load the user's NFC-related settings via `AppSettingsModel` and configure the engagement behavior:
 
-_`composeApp/src/androidMain/.../NdefService.kt`_
+_`androidApp/src/main/.../NdefService.kt`_
 
 ```kotlin
-class NdefService : MdocNdefService() {
-    private val presentmentSource: PresentmentSource by inject()
-    private val settingsModel: AppSettingsModel by inject()
+import android.content.Context
+import org.koin.java.KoinJavaComponent.inject
+import org.multipaz.compose.mdoc.MdocNdefService
+import org.multipaz.compose.prompt.PresentmentActivity
+import org.multipaz.mdoc.transport.MdocTransportOptions
+import org.multipaz.presentment.PresentmentSource
+import org.multipaz.samples.wallet.cmp.util.AppSettingsModel
+
+class NdefService(
+    applicationContext: Context,
+    sendResponse: (ByteArray) -> Unit,
+) : MdocNdefService(
+    applicationContext,
+    sendResponse,
+) {
+    private val presentmentSource: PresentmentSource by inject(PresentmentSource::class.java)
+    private val settingsModel: AppSettingsModel by inject(AppSettingsModel::class.java)
 
     override suspend fun getSettings(): Settings {
         // Reset the presentment model with the source's document store and repository
@@ -389,14 +406,39 @@ class NdefService : MdocNdefService() {
 
 `negotiatedHandoverPreferredOrder` is set to select BLE. In this case, NFC establishes the initial connection. No credential data is transferred at this stage. The NFC connection is used to negotiate which transport method to use. Since BLE is selected, a BLE connection is established, and credentials are shared over BLE.
 
-Configure `AndroidManifest.xml`:Add NFC capabilities and link your `NfcActivity` and `NdefService` in `AndroidManifest.xml`
+#### 2. Register `NdefService` via `UtopiaNfcService`
+
+The service that Android binds to for host card emulation is a `CombinedNfcService`. It routes incoming APDUs to the right handler based on the selected AID. Here you register a single handler, `NdefService`, for the NDEF application, passing the service instance and its `sendResponseApdu` callback into the `NdefService` constructor:
+
+_`androidApp/src/main/.../UtopiaNfcService.kt`_
+
+```kotlin
+package org.multipaz.samples.wallet.cmp
+
+import kotlinx.io.bytestring.ByteString
+import org.multipaz.compose.mdoc.CombinedNfcService
+import org.multipaz.compose.mdoc.NfcApduService
+import org.multipaz.nfc.Nfc
+
+class UtopiaNfcService : CombinedNfcService() {
+    override fun buildServices(): Map<ByteString, NfcApduService> {
+        return mapOf(
+            Nfc.NDEF_APPLICATION_ID to NdefService(this, ::sendResponseApdu),
+        )
+    }
+}
+```
+
+#### 3. Configure `AndroidManifest.xml`
+
+Add NFC capabilities and declare `UtopiaNfcService` (the service Android binds to) in `AndroidManifest.xml`. The service is referenced by its fully qualified class name, since `androidApp` has its own namespace:
 
 _`AndroidManifest.xml`_
 
 ```xml
-<!-- TODO: Add this NdefService-->
+<!-- TODO: Add this NfcService-->
 <service
-    android:name=".NdefService"
+    android:name="org.multipaz.samples.wallet.cmp.UtopiaNfcService"
     android:exported="true"
     android:label="@string/nfc_ndef_service_description"
     android:permission="android.permission.BIND_NFC_SERVICE">
@@ -411,7 +453,7 @@ _`AndroidManifest.xml`_
 
 ```
 
-#### 2. Configure NFC AID Filter(nfc\_ndef\_service.xml)
+#### 4. Configure NFC AID Filter(nfc\_ndef\_service.xml)
 
 Nfc\_ndef\_service.xml is under “res/xml”. To allow your Android device to act as an NFC Type 4 Tag and share credentials securely with a verifier, you must configure an AID (Application Identifier) filter. This is done in `nfc_ndef_service.xml`, which is referenced in your `AndroidManifest.xml`.
 
