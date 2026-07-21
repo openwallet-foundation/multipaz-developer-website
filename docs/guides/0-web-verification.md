@@ -53,7 +53,7 @@ This guide builds on top of the completed [Getting Started](/docs/getting-starte
 multipaz-dcapi = { group = "org.multipaz", name = "multipaz-dcapi", version.ref = "multipaz" }
 ```
 
-Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/gradle/libs.versions.toml#L45)** for the complete example.
+Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/gradle/libs.versions.toml#L45)** for the complete example.
 
 * Add the dependency to the `:core` module's `build.gradle.kts` file:
 
@@ -69,7 +69,7 @@ kotlin {
 }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/core/build.gradle.kts#L37)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/core/build.gradle.kts#L37)** for the complete example.
 
 ### **2. Add CredmanActivity**
 
@@ -89,7 +89,7 @@ class CredmanActivity : CredentialManagerPresentmentActivity() {
 }
 ```
 
-Refer to [**the CredmanActivity file**](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/CredmanActivity.kt) for the complete example.
+Refer to [**the CredmanActivity file**](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/CredmanActivity.kt) for the complete example.
 
 ### **3. Update AndroidManifest.xml**
 
@@ -114,7 +114,7 @@ Register `CredmanActivity` in your manifest and declare intent filters for the C
 
 * This registers your app as a credential provider for browser and web app requests using the W3C DC API.
 
-Refer to the [**sample Manifest code**](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L128-L140) for context.
+Refer to the [**sample Manifest code**](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L128-L140) for context.
 
 ### **4. Add Privileged User Agents JSON**
 
@@ -148,7 +148,7 @@ Create a JSON file listing all trusted browser apps and their signature fingerpr
 * Defines which browsers and apps can be trusted when requesting credentials from your app.
 * Warns about untrusted applications/websites when they try to access sensitive credential data.
 
-Refer to [**the full `privilegedUserAgents.json` file**](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/privilegedUserAgents.json) for a complete list.
+Refer to [**the full `privilegedUserAgents.json` file**](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/composeResources/files/privilegedUserAgents.json) for a complete list.
 
 ### **5. Register Digital Credentials**
 
@@ -202,7 +202,7 @@ class AppContainerImpl : AppContainer {
 * Registers credentials with the platform's Digital Credentials provider for the W3C DC API.
 * Automatically re-registers credentials whenever the document store changes (e.g., after adding or removing documents).
 
-Refer to [**this code from AppContainerImpl.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L209-L232) for context.
+Refer to [**this code from AppContainerImpl.kt**](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L214-L237) for context.
 
 ### **6. Updating Reader Trust Manager**
 

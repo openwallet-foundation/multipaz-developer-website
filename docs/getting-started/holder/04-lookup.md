@@ -27,7 +27,7 @@ interface AppContainer {
 }
 ```
 
-Refer to **[this AppContainer code](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainer.kt#L31)** for the complete example.
+Refer to **[this AppContainer code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainer.kt#L31)** for the complete example.
 
 ```kotlin
 // core/src/commonMain/kotlin/.../core/AppContainerImpl.kt
@@ -45,7 +45,7 @@ class AppContainerImpl : AppContainer {
 }
 ```
 
-Refer to **[this listDocuments code](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L237-L245)** for the complete example.
+Refer to **[this listDocuments code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L242-L250)** for the complete example.
 
 2: **Render the documents in a `DocumentSection` within `HomeScreen`**
 
@@ -122,7 +122,7 @@ private fun DocumentSection(
 }
 ```
 
-Refer to **[this `HomeScreen` and `DocumentSection` code](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L72-L223)** for the complete example.
+Refer to **[this `HomeScreen` and `DocumentSection` code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L72-L223)** for the complete example.
 
 Each section is wrapped in a small `SectionCard` — a titled `ElevatedCard` — and slow-loading content shows a `LoadingRow` while it resolves. Both are shared helpers reused by the presentment and identity-verification sections in the later guides:
 
@@ -166,7 +166,7 @@ private fun LoadingRow(label: String) {
 }
 ```
 
-Refer to **[these `SectionCard` and `LoadingRow` helpers](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L314-L350)** for the complete example.
+Refer to **[these `SectionCard` and `LoadingRow` helpers](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L314-L350)** for the complete example.
 
 A few notes on the snippet:
 
@@ -252,6 +252,6 @@ Key things to note:
 * `DocumentStore#deleteDocument(identifier: String)` is the underlying API for removal; on success the carousel auto-refreshes via `DocumentModel`.
 * Calling `onDocumentDeleted()` clears `selectedDocumentId` in the parent so the bottom sheet dismisses.
 
-Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/3f65d0c88e97c7d0ade2b9ac80ded625a23cd553/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L352-L415)** for the complete example.
+Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L352-L415)** for the complete example.
 
 By following these steps, the document list, detail view, and deletion flow stay consistent with the underlying `DocumentStore` automatically — no manual list maintenance required.
