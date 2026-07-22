@@ -317,23 +317,29 @@ composeApp/src/commonMain/
 
 **Android-specific structure:**
 
+The Android application lives in its own `androidApp` module. `composeApp` is a Kotlin Multiplatform library that holds the shared code, and `androidApp` is the `com.android.application` module that packages it into an APK along with the Android-only entry points (activities, services, manifest, resources and assets):
+
 ```text
-composeApp/src/androidMain/
+androidApp/src/main/
 ├── kotlin/
 │   └── org/multipaz/samples/wallet/cmp/
 │       ├── MainActivity.kt              # Main activity
 │       ├── CredmanActivity.kt           # Credential manager
-│       ├── NdefService.kt               # NDEF message service
+│       ├── NdefService.kt               # NDEF engagement service
+│       ├── UtopiaNfcService.kt          # Combined NFC service (registers NdefService)
 │       └── UtopiaSampleApplication.kt   # Application class
 ├── res/                                 # Android resources
 │   ├── drawable/                        # Drawables
-│   ├── drawable-v24/                    # API 24+ drawables
 │   ├── mipmap-*/                        # App icons
 │   ├── values/                          # Values (strings, colors)
 │   └── xml/                             # XML configs
 ├── assets/                              # Android assets
 └── AndroidManifest.xml                  # Manifest file
 ```
+
+:::note
+Because each module now has its own namespace, manifest components in `androidApp` are referenced by their fully qualified class name (for example `org.multipaz.samples.wallet.cmp.MainActivity`) rather than the shorthand `.MainActivity`.
+:::
 
 **iOS-specific structure:**
 
