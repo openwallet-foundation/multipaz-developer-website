@@ -70,7 +70,7 @@ Method: Use `DocumentStore#createDocument` to create a new document.
 
 ```kotlin
 if (documentStore.listDocuments().isEmpty()) {
-    val document = documentStore.createDocument(
+    val mdlDocument = documentStore.createDocument(
         displayName = CredentialDomains.SAMPLE_DOCUMENT_DISPLAY_NAME,
         typeDisplayName = CredentialDomains.SAMPLE_DOCUMENT_TYPE_DISPLAY_NAME,
     )
@@ -81,30 +81,32 @@ Refer to **[this document creation code](https://github.com/openwallet-foundatio
 
 #### 5. Create the mDoc Credential
 
-Finally, use the document and generate certificates to create the mDoc credential.
+Finally, use the document and generate the keys and certificates to create the mDoc credential.
 
 ```kotlin
 if (documentStore.listDocuments().isEmpty()) {
     // create document
 
-    val mdocCredential =
-       DrivingLicense.getDocumentType().createMdocCredentialWithSampleData(
-           document = document,
-           secureArea = secureArea,
-           createKeySettings = CreateKeySettings(
-               algorithm = Algorithm.ESP256,
-               nonce = "Challenge".encodeToByteString(),
-               userAuthenticationRequired = true
-           ),
-           dsKey = AsymmetricKey.X509CertifiedExplicit(
-               certChain = X509CertChain(certificates = listOf(dsCert)),
-               privateKey = dsKey,
-           ),
-           signedAt = signedAt,
-           validFrom = validFrom,
-           validUntil = validUntil,
-           domain = CredentialDomains.MDOC_USER_AUTH
-       )
+    val createKeySettings = CreateKeySettings(
+        algorithm = Algorithm.ESP256,
+        nonce = "Challenge".encodeToByteString(),
+        userAuthenticationRequired = true
+    )
+    val dsKeyCertified = AsymmetricKey.X509CertifiedExplicit(
+        certChain = X509CertChain(certificates = listOf(dsCert)),
+        privateKey = dsKey,
+    )
+
+    DrivingLicense.getDocumentType().createMdocCredentialWithSampleData(
+        document = mdlDocument,
+        secureArea = secureArea,
+        createKeySettings = createKeySettings,
+        dsKey = dsKeyCertified,
+        signedAt = signedAt,
+        validFrom = validFrom,
+        validUntil = validUntil,
+        domain = CredentialDomains.MDOC_USER_AUTH,
+    )
 }
 ```
 

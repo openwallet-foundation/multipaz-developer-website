@@ -126,7 +126,7 @@ All the helper functions for this feature are implemented in a separate file cal
 // verification/W3CDCCredentialsRequestButton.kt
 @OptIn(ExperimentalTime::class)
 private suspend fun doDcRequestFlow(
-    appReaderKey: AsymmetricKey.X509Compatible,
+    appReaderKey: AsymmetricKey.X509Certified,
     request: DocumentCannedRequest,
     showResponse: (
         vpToken: JsonObject?,
@@ -148,8 +148,10 @@ private suspend fun doDcRequestFlow(
 
     // Step 2: Get platform-specific app origin
     val origin = getAppToAppOrigin()
-    // Note: "web-origin" is the W3C DC specification format identifier
-    val clientId = "web-origin:$origin"
+
+    val readerCert = appReaderKey.certChain.certificates.first()
+    val clientId = "x509_hash:" +
+        Crypto.digest(Algorithm.SHA256, readerCert.encoded.toByteArray()).toBase64Url()
 
     // Step 3: Configure protocol
     val protocolDisplayName = "OpenID4VP 1.0"
@@ -177,7 +179,7 @@ private suspend fun doDcRequestFlow(
         nonce = nonce,
         origin = origin,
         responseEncryptionKey = responseEncryptionKey.publicKey,
-        verifierIdentities = emptyList(),  // Verifier identities used to sign the request (empty = unsigned)
+        verifierIdentities = listOf(VerifierIdentity(appReaderKey, clientId)),
         zkSystemSpecs = emptyList()
     )
 
@@ -242,7 +244,7 @@ private suspend fun doDcRequestFlow(
 * **Step 2**: Gets the platform-specific app identifier (Android: package + certificate fingerprint)
 * **Step 3**: Configures the exchange protocol (OpenID4VP in this example)
 * **Step 4**: Extracts the specific data elements (claims) being requested from the credential
-* **Step 5**: Builds the W3C DC request object with all necessary parameters, optionally signed with verifier identities
+* **Step 5**: Builds the W3C DC request object with all necessary parameters, signed with verifier identities
 * **Step 6**: Sends the request via W3C DC API and measures response time
 * **Step 7**: Decrypts the response using the ephemeral key and validates it
 * **Step 8**: Creates metadata for tracking request/response sizes and timing
@@ -478,17 +480,11 @@ const val TAG = "W3CDCCredentialsRequestButton"
 
 @Composable
 fun W3CDCCredentialsRequestButton(
+    modifier: Modifier = Modifier,
     storageTable: StorageTable,
     promptModel: PromptModel,
-    readerTrustManager: TrustManagerLocal,
-    text: AnnotatedString = buildAnnotatedString {
-        withStyle(style = SpanStyle(fontSize = 14.sp)) {
-            append("W3CDC Credentials Request")
-        }
-        withStyle(style = SpanStyle(fontSize = 12.sp)) {
-            append("\nmDL Driving License")
-        }
-    },
+    readerTrustManager: TrustManager,
+    text: AnnotatedString,
     showResponse: (
         vpToken: JsonObject?,
         deviceResponse: DataItem?,
@@ -513,7 +509,8 @@ fun W3CDCCredentialsRequestButton(
         }
     }
 
-    Button(onClick = {
+    Button(
+        modifier = modifier,
         coroutineScope.launch {
             // Parse certificate validity dates from constants
             val certsValidFrom = LocalDate.parse(CERT_VALID_FROM_DATE).atStartOfDayIn(TimeZone.UTC)
@@ -772,16 +769,10 @@ private fun PresentmentSection(
 
             // W3C Digital Credentials API is currently only available on Android
             if (isAndroid() && documents.isNotEmpty()) {
-                W3CDCCredentialsRequestButton(
-                    promptModel = AppContainer.promptModel,
-                    storageTable = container.storageTable,
-                    readerTrustManager = container.readerTrustManager,
-                    showResponse = { vpToken: JsonObject?,
-                                     deviceResponse: DataItem?,
-                                     sessionTranscript: DataItem,
-                                     nonce: ByteString?,
-                                     eReaderKey: EcPrivateKey?,
-                                     metadata: ShowResponseMetadata ->
+                val showResponse: (
+                    JsonObject?, DataItem?, DataItem, ByteString?, EcPrivateKey?, ShowResponseMetadata
+                ) -> Unit =
+                    { vpToken, deviceResponse, sessionTranscript, nonce, eReaderKey, metadata ->
                         navController.navigate(
                             buildShowResponseDestination(
                                 vpToken = vpToken,
@@ -793,7 +784,28 @@ private fun PresentmentSection(
                             )
                         )
                     }
-                )
+
+                Row(
+                    modifier = Modifier.padding(8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    W3CDCCredentialsRequestButton(
+                        modifier = Modifier.weight(1f),
+                        promptModel = AppContainer.promptModel,
+                        storageTable = container.storageTable,
+                        readerTrustManager = container.readerTrustManager,
+                        showResponse = showResponse,
+                        text = buildAnnotatedString {
+                            withStyle(style = SpanStyle(fontSize = 14.sp)) {
+                                append("W3CDC Request")
+                            }
+                            withStyle(style = SpanStyle(fontSize = 12.sp)) {
+                                append("\nmDL Driving License")
+                            }
+                        }
+                    )
+                }
             }
         }
     }
