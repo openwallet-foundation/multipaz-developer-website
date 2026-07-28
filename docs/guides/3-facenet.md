@@ -57,7 +57,7 @@ kotlin {
 }
 ```
 
-Refer to **[this biometrics build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/feature/biometrics/build.gradle.kts)** for the complete example.
+Refer to **[this biometrics build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/biometrics/build.gradle.kts)** for the complete example.
 
 Also add the dependency in `composeApp/build.gradle.kts`:
 
@@ -73,7 +73,7 @@ kotlin {
 }
 ```
 
-Refer to **[this composeApp build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/build.gradle.kts#L49)** for the complete example.
+Refer to **[this composeApp build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/build.gradle.kts#L49)** for the complete example.
 
 ## **Dependencies**
 
@@ -90,7 +90,7 @@ multipaz-vision = "0.95.0" # latest version of Multipaz Extras
 multipaz-vision = { group = "org.multipaz", name = "multipaz-vision", version.ref = "multipaz-vision" }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/gradle/libs.versions.toml#L23-L44)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/gradle/libs.versions.toml#L23-L44)** for the complete example.
 
 * Add the dependency to the `:core` module's `build.gradle.kts` file:
 
@@ -106,7 +106,7 @@ kotlin {
 }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/core/build.gradle.kts#L38)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/core/build.gradle.kts#L39)** for the complete example.
 
 ### iOS-Specific Dependencies (CocoaPods)
 
@@ -122,7 +122,7 @@ CocoaPods is a dependency manager for iOS/macOS projects (similar to Gradle for 
 
 #### CocoaPods Configuration (Already Set Up)
 
-This `Podfile` configuration **[here in the repository](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/Podfile)** has CocoaPods configured with all necessary dependencies. This `Podfile` includes:
+This `Podfile` configuration **[here in the repository](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/Podfile)** has CocoaPods configured with all necessary dependencies. This `Podfile` includes:
 
 Podfile
 
@@ -197,7 +197,7 @@ Enable camera access on Android by adding permissions to your manifest.
 <uses-permission android:name="android.permission.CAMERA"/>
 ```
 
-Refer to **[this AndroidManifest code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L39-L43)** for the complete example.
+Refer to **[this AndroidManifest code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/androidMain/AndroidManifest.xml#L39-L43)** for the complete example.
 
 ### iOS: Camera Permissions
 
@@ -249,7 +249,7 @@ This sample uses:
 * Input image size: 160x160
 * Embedding size: 512
 
-You can [**download the model from this link**](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/feature/biometrics/src/commonMain/composeResources/files/facenet_512.tflite).
+You can [**download the model from this link**](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/biometrics/src/commonMain/composeResources/files/facenet_512.tflite).
 
 ## **Initialization**
 
@@ -296,7 +296,7 @@ fun HomeScreen(
 * `FaceMatchLiteRtModel` is the platform-independent data class for LiteRT model handling.
 * The model loading works identically on both platforms thanks to Compose Multiplatform's resource system.
 
-Refer to **[this initialization code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/feature/biometrics/src/commonMain/kotlin/org/multipaz/getstarted/biometrics/FaceExtractor.kt#L22-L26)** and **[this HomeScreen code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L85-L90)** for the complete example.
+Refer to **[this initialization code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/biometrics/src/commonMain/kotlin/org/multipaz/getstarted/biometrics/FaceExtractor.kt#L15-L26)** and **[this HomeScreen code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L85-L90)** for the complete example.
 
 ## **Runtime Permissions (Camera)**
 
@@ -346,7 +346,7 @@ private fun FaceMatchSection(
 }
 ```
 
-Refer to **[this `FaceMatchSection` code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L274-L312)** for the complete example.
+Refer to **[this `FaceMatchSection` code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L309-L347)** for the complete example.
 
 `HomeScreen` owns the camera permission state and launches the request when the permission branch is tapped:
 
@@ -386,7 +386,7 @@ fun HomeScreen(
 - **Android**: Can reset in Settings → Apps → Your App → Permissions
 - **iOS**: Can reset in Settings → Your App → Camera, or by uninstalling and reinstalling the app
 
-Refer to **[this permission request code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L148-L157)** for the complete example.
+Refer to **[this permission request code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L148-L157)** for the complete example.
 
 ## **Selfie Capture Flow (Enrollment)**
 
@@ -442,7 +442,7 @@ fun HomeScreen(
 }
 ```
 
-Refer to **[this selfie check code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L107-L115)** for the complete example.
+Refer to **[this selfie check code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L107-L115)** for the complete example.
 
 ### Selfie Capture Screen Composable
 
@@ -507,7 +507,7 @@ fun SelfieCaptureScreen(
 - **iOS**: Uses AVFoundation (native camera framework) with ML Kit iOS for face detection
 - Both platforms produce identical embedding vectors, ensuring consistency
 
-Refer to **[this selfie check flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/feature/biometrics/src/commonMain/kotlin/org/multipaz/getstarted/biometrics/SelfieCheckSection.kt)** for the complete example.
+Refer to **[this selfie check flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/biometrics/src/commonMain/kotlin/org/multipaz/getstarted/biometrics/SelfieCheckSection.kt)** for the complete example.
 
 ## **Live Face Matching**
 
@@ -541,7 +541,7 @@ fun HomeScreen(
 }
 ```
 
-Refer to **[live face matching flow](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L117-L124)** for the complete example.
+Refer to **[live face matching flow](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L117-L124)** for the complete example.
 
 ### Face Matching Screen Composable
 
@@ -628,7 +628,7 @@ fun FaceMatchingScreen(
 - **iOS**: Generally faster on newer devices with CoreML acceleration (20-60 FPS)
 - Both platforms support Metal/GPU acceleration for the TensorFlow Lite model
 
-Refer to **[this face matching flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/feature/biometrics/src/commonMain/kotlin/org/multipaz/getstarted/biometrics/FaceMatchingSection.kt)** for the complete example.
+Refer to **[this face matching flow composable code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/biometrics/src/commonMain/kotlin/org/multipaz/getstarted/biometrics/FaceMatchingSection.kt)** for the complete example.
 
 ## **Face Alignment and Cropping**
 
@@ -691,7 +691,7 @@ class FaceExtractor {
 }
 ```
 
-Refer to **[this function code](https://github.com/openwallet-foundation/multipaz-samples/blob/36906be0fd4c686460a1cb5bfd3cc27868ba12b0/MultipazGettingStartedSample/feature/biometrics/src/commonMain/kotlin/org/multipaz/getstarted/biometrics/FaceExtractor.kt#L28-L70)** for the complete example.
+Refer to **[this function code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/biometrics/src/commonMain/kotlin/org/multipaz/getstarted/biometrics/FaceExtractor.kt#L28-L70)** for the complete example.
 
 ## **Similarity Thresholds**
 

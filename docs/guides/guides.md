@@ -13,5 +13,6 @@ These getting started guides cover some additional topics on using the Multipaz 
 
 - **[Web Verification](/docs/guides/web-verification)** - Enable Web Credential Sharing in Your Android App
 - **[Native Verification](/docs/guides/native-verification)** - Native W3C DC Implementation
+- **[Zero-Knowledge Proof Verification](/docs/guides/zkp)** - Present an Age-Over-18 Proof with the Longfellow ZK System
 - **[DCQL](/docs/guides/dcql)** - Request Multiple Credentials with DCQL
 - **[FaceNet Module](/docs/guides/facenet)** - Face Detection & Verification

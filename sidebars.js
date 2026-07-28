@@ -74,6 +74,7 @@ const sidebars = {
       items: [
         "guides/web-verification",
         "guides/native-verification",
+        "guides/zkp",
         "guides/dcql",
         "guides/facenet"
       ],
