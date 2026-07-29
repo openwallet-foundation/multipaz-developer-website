@@ -742,6 +742,91 @@ For local testing, the sample loads hardcoded keys (do not ship these in product
 * After issuance, your credential appears in the app’s DocumentStore and is ready for presentment.
 * You can see the new doc in the list of documents in the UI on the next app 
 
+## **Pre-authorized issuance offers**
+
+We have currently implemented the **authorization code** flow, where the user is redirected to the issuer's authorization page in the browser to prove who they are before a credential is issued.
+
+OpenID4VCI also defines a **pre-authorized code** flow. Here the issuer has *already* authorized the user out-of-band, so the credential offer itself carries a `pre-authorized_code`. The wallet redeems that code directly at the token endpoint - **no browser OAuth step**. Optionally the offer also specifies a `tx_code` (a short transaction code / PIN) that is delivered to the user through a separate channel and must be entered in the wallet, adding a little protection since a pre-authorized offer can be redeemed by anyone holding it.
+
+A pre-authorized offer looks like this (URL-decoded):
+
+```json
+{
+  "credential_issuer": "https://issuer.multipaz.org",
+  "credential_configuration_ids": ["mDL"],
+  "grants": {
+    "urn:ietf:params:oauth:grant-type:pre-authorized_code": {
+      "pre-authorized_code": "<opaque_code>",
+      "tx_code": {
+        "input_mode": "numeric",
+        "length": 6,
+        "description": "Transaction Code"
+      }
+    }
+  }
+}
+```
+
+#### The wallet needs no new code
+
+The provisioning machinery you already wired up handles pre-authorized offers **as-is** - you don't add or change anything in the app. `ProvisioningModel.launchOpenID4VCIProvisioning(...)` inspects the grant type, skips the OAuth redirect, and - when a `tx_code` is present - emits an `AuthorizationChallenge.SecretText` that the built-in `ProvisioningBottomSheet` renders as a PIN prompt automatically. The `credentialOffers` channel, `launchOpenID4VCIProvisioning(...)`, and `ProvisioningBottomSheet` are all reused unchanged from the authorization-code flow above.
+
+### How it works under the hood
+
+* `CredentialOffer.parseCredentialOffer(...)` reads the offer and, seeing the `urn:ietf:params:oauth:grant-type:pre-authorized_code` grant, produces a `PreauthorizedCode` offer (carrying the `pre-authorized_code` and any `tx_code`).
+* `getAuthorizationChallenges()` returns an `AuthorizationChallenge.SecretText` when a `tx_code` is required (and **no** `AuthorizationChallenge.OAuth`, so there's no browser round-trip). If there's no `tx_code`, there are no challenges at all.
+* The wallet answers with `AuthorizationResponse.SecretText(id, secret)` - this is what `ProvisioningBottomSheet` does for you when the user enters the PIN.
+* Once authorized, `obtainCredentials(...)` requests and stores the credentials, just as in the authorization-code flow.
+
+### Generate a pre-authorized offer and issue a credential
+
+The Multipaz issuer's demo page can mint pre-authorized offers directly.
+
+1. Open the [Multipaz Issuer page](https://issuer.multipaz.org/issuer/) and select the credential you want to provision.
+2. Scroll to the **Pre-authorized Offer Flow** section.
+3. Choose a **Transaction Code** option — `None`, `4 digits`, `4 letters or digits`, `6 digits`, or `6 letters or digits`. If you pick anything other than `None`, you can optionally set the prompt **Description** shown in the wallet.
+4. Click **Authorize**. The issuer returns a page with:
+   * a **"Credential offer using custom url schema"** link (`openid-credential-offer://?credential_offer=…`),
+   * a scannable **QR code**, and
+   * the **transaction code** printed on the page (if you chose one).
+5. On the device running your wallet app, **open the offer link** (tap it if you're browsing on the device) or **scan the QR code**.
+6. Android/iOS routes the `openid-credential-offer://` deep link to your app (or an app chooser if you have multiple apps); `handleUrl` enqueues it and `ProvisioningBottomSheet` appears. Notice the browser authorization step is **skipped**.
+7. If the offer included a transaction code, the bottom sheet prompts for it - enter the code shown on the issuer's page.
+8. The credential is issued and stored in your `DocumentStore`, and appears in the wallet ready for presentment - exactly like the authorization-code flow.
+
+
+#### **Demo Screenshots**
+
+<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px'}}>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/preauth_one.png" alt="Step 1: Multipaz Issuer" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 1</div>
+  </div>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/preauth_two.png" alt="Step 2: Pre Auth Flow Button" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 2</div>
+  </div>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/preauth_three.png" alt="Step 3: Identity Verification" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 3</div>
+  </div>
+</div>
+
+<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px'}}>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/preauth_four.png" alt="Step 4: Pre Auth Offer" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 4</div>
+  </div>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/preauth_five.png" alt="Step 5: Transaction Code" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 5</div>
+  </div>
+  <div style={{width: '22%', minWidth: 120, textAlign: 'center'}}>
+    <img src="/img/preauth_six.png" alt="Step 6: Credential Provisioning" style={{width: '100%', borderRadius: 6}} />
+    <div style={{fontSize: '0.9em', marginTop: 4}}>Step 6</div>
+  </div>
+</div>
+
 ## **Production Notes**
 
 * Keys and secrets
