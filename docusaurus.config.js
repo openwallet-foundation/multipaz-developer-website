@@ -173,11 +173,12 @@ const config = {
             position: 'left',
           },
           {
-            label: 'API Docs ↗',
+            label: 'API Docs',
+            to: '/api-reference',
             position: 'left',
             items: [
-              { label: 'Multipaz SDK', href: '/kdocs/index.html', target: '_blank' },
-              { label: 'Extras SDK', href: '/kdocs-extras/index.html', target: '_blank' },
+              { label: 'Multipaz SDK ↗', href: '/kdocs/index.html', target: '_blank' },
+              { label: 'Extras SDK ↗', href: '/kdocs-extras/index.html', target: '_blank' },
             ],
           },
           {
@@ -256,9 +257,8 @@ const config = {
                 to: '/docs/getting-started',
               },
               {
-                label: 'API Reference ↗',
-                target: '_blank',
-                href: '/kdocs/index.html',
+                label: 'API Reference',
+                to: '/api-reference',
               },
               {
                 label: 'Codelabs',
