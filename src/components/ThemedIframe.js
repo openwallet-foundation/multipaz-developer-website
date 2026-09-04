@@ -16,6 +16,7 @@ export default function ThemedIframe({ githubUrl}) {
       src={src}
       style={{
         width: "100%",
+        minHeight: "500px",
         borderRadius: "8px",
       }}
     />
