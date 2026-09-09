@@ -11,7 +11,7 @@ on:
         type: boolean
         default: true
   repository_dispatch:
-    types: [multipaz-repo-updated, extras-repo-updated]
+    types: [kotlin-repo-updated, extras-repo-updated]
 
 permissions:
   contents: read
