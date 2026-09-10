@@ -69,7 +69,7 @@ kotlin {
 }
 ```
 
-Refer to **[the core `build.gradle.kts`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/core/build.gradle.kts#L38)** and **[the verification `build.gradle.kts`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/verification/build.gradle.kts#L39)** for the complete examples.
+Refer to **[the core `build.gradle.kts`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/build.gradle.kts#L38)** and **[the verification `build.gradle.kts`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/build.gradle.kts#L39)** for the complete examples.
 
 ### **2. Register the Longfellow ZK System**
 
@@ -128,7 +128,7 @@ class AppContainerImpl : AppContainer {
 * `addDefaultCircuits()` loads the default circuits recommended by the Longfellow authors.
 * Passing `zkSystemRepository` to `SimplePresentmentSource` is what allows the wallet to match a reader's ZK request against a circuit and generate a proof at presentment time.
 
-Refer to **[this code from `AppContainer.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainer.kt#L27)** and **[`AppContainerImpl.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L221-L231)** for the complete implementation.
+Refer to **[this code from `AppContainer.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainer.kt#L27)** and **[`AppContainerImpl.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L221-L231)** for the complete implementation.
 
 ### **3. Provision a ZK-compatible credential**
 
@@ -190,7 +190,7 @@ if (documentStore.listDocuments().isEmpty()) {
 * The trailing lambda passed to `createMdocCredentialWithSampleData(...)` is a filter over sample data elements (`includeElement: (namespaceName: String, dataElement: MdocDataElement) -> Boolean`) - only the listed data elements are bundled into the credential.
 * Both documents are created only when the store is empty to prevent proliferation, mirroring the guard used in the original creation step.
 
-Refer to **[this code from `AppContainerImpl.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L133-L155)** for the complete implementation.
+Refer to **[this code from `AppContainerImpl.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L133-L155)** for the complete implementation.
 
 ### **4. Request a ZK proof from the reader side**
 
@@ -276,7 +276,7 @@ private suspend fun doDcRequestFlow(
 * `SingleDocumentCannedRequest` with the `age_over_18_zkp` id carries `mdocUseZkp = true`, so the wallet knows the reader is willing to accept a proof.
 * `getAllZkSystemSpecs()` returns the specs (system name + circuit hash + attribute count) the reader can verify. The wallet matches these against the credential and picks a compatible circuit.
 
-Refer to **[this code from `W3CDCCredentialsRequestButton.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L309-L318)** for the complete implementation.
+Refer to **[this code from `W3CDCCredentialsRequestButton.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L309-L318)** for the complete implementation.
 
 ### **5. Verify the ZK proof on the response side**
 
@@ -315,7 +315,7 @@ private suspend fun parseResponse(
 * Passing `zkSystemRepository` tells `verifyOpenID4VPResponse` to validate a returned proof against the matching circuit.
 * If the response is a regular mdoc disclosure, this path is unaffected - the repository is simply unused.
 
-Refer to **[this code from `ShowResponseScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/ShowResponseScreen.kt#L260-L268)** for the complete implementation.
+Refer to **[this code from `ShowResponseScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/ShowResponseScreen.kt#L260-L268)** for the complete implementation.
 
 ### **6. Wire the two buttons into the UI**
 
@@ -373,7 +373,7 @@ class App {
 }
 ```
 
-Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L286-L302)** and **[`App.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L187-L190)** for the full implementation.
+Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L286-L302)** and **[`App.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L187-L190)** for the full implementation.
 
 ## **Testing the ZK Flow**
 
