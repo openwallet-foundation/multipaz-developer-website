@@ -38,7 +38,7 @@ We have split this guide into three parts. Each of which is split into the type 
     * On how to deploy an issuance server.
     * This page focuses on how to issue verifiable credentials to users in a secure and standards-compliant way, following protocols like OpenID4VCI
 
-The implementations used in this guide can be found **[here in the sample repository](https://github.com/openwallet-foundation/multipaz-samples/tree/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample)**.
+The implementations used in this guide can be found **[here in the sample repository](https://github.com/openwallet-foundation/multipaz-samples/tree/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample)**.
 
 <div style={{
   background: "var(--ifm-background-surface-color)",

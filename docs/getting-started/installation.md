@@ -43,7 +43,7 @@ kotlin {
 }
 ```
 
-Refer to **[this composeApp build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/build.gradle.kts#L45)** for the complete example.
+Refer to **[this composeApp build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/build.gradle.kts#L45)** for the complete example.
 
 ## Installation of Dependencies​
 
@@ -67,7 +67,7 @@ dependencyResolutionManagement {
 }
 ```
 
-Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/settings.gradle.kts#L4-L33)** for the complete example.
+Refer to **[this settings.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/settings.gradle.kts#L4-L33)** for the complete example.
 
 * Add the following dependencies to `libs.versions.toml`
 
@@ -94,7 +94,7 @@ androidx-fragment = { group = "androidx.fragment", name = "fragment", version.re
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ```
 
-Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/gradle/libs.versions.toml#L1-L65)** for the complete example.
+Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/gradle/libs.versions.toml#L1-L65)** for the complete example.
 
 * Add the following to your module level `build.gradle.kts` files for the `composeApp` module & the `core` module:
 
@@ -173,9 +173,76 @@ kotlin {
 }
 ```
 
-Refer to **[this build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/build.gradle.kts#L13-L105)** for the complete example.
+Refer to **[this build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/build.gradle.kts#L13-L105)** for the complete example.
 
 You might also want to check out other libraries in the Multipaz ecosystem, from Multipaz [here](https://mvnrepository.com/search?q=multipaz).
+
+## iOS build integration
+
+Apply the following changes to **your Xcode project**. They mirror the Getting Started sample's build setup; they are not instructions to clone or copy the sample application.
+
+### Prepare Compose resources during Xcode builds
+
+In `composeApp/build.gradle.kts`, make the Xcode framework-embed task prepare Compose resources. This makes clean Xcode builds self-contained:
+
+```kotlin
+tasks.named("embedAndSignAppleFrameworkForXcode") {
+    dependsOn(tasks.named("prepareComposeResourcesTaskForCommonMain"))
+}
+```
+
+### Keep signing values local
+
+For an app that uses signing or an App Group, create a local `iosApp/Configuration/DeveloperConfig.xcconfig` file and add it to `.gitignore`:
+
+```xcconfig
+DEVELOPMENT_TEAM = YOUR_TEAM_ID
+LOCAL_BUNDLE_ID = com.example.wallet
+APP_GROUP_ID = group.com.example.wallet
+```
+
+Commit a `DeveloperConfig.xcconfig.template` with empty values instead. Use the local values in the app and extension base configuration files:
+
+```xcconfig
+// AppDebug.xcconfig
+#include "DeveloperConfig.xcconfig"
+#include "../../Pods/Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = $(LOCAL_BUNDLE_ID)
+```
+
+```xcconfig
+// ExtensionDebug.xcconfig
+#include "DeveloperConfig.xcconfig"
+#include "../../Pods/Target Support Files/Pods-iosApp-IdentityDocumentProviderExtension/Pods-iosApp-IdentityDocumentProviderExtension.debug.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = $(LOCAL_BUNDLE_ID).DocumentProviderExtension
+```
+
+Create matching release files with the CocoaPods release configuration paths, then assign the app and extension files as each target's **Base Configuration** in Xcode. Adapt target names and paths to your project.
+
+Use the same App Group value in both targets' entitlements:
+
+```xml
+<key>com.apple.security.application-groups</key>
+<array>
+    <string>$(APP_GROUP_ID)</string>
+</array>
+```
+
+Enable that App Group for both targets in the Apple Developer portal and Xcode's **Signing & Capabilities** tab.
+
+### Build from the CocoaPods workspace
+
+After `pod install`, open the generated `.xcworkspace`, not the `.xcodeproj`. In the shared app scheme's **Build** action, add the CocoaPods aggregate targets before your app target. This ensures Pod frameworks are built and resolvable in a clean workspace build.
+
+If your Podfile excludes `arm64` for iOS Simulator, add the equivalent setting to both the app and extension configurations so every target builds the same simulator architecture:
+
+```xcconfig
+EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64
+```
+
+Do not add this exclusion unless your Pods use it; use the architectures generated by your Podfile consistently across all targets.
 
 ### Initialize `AppContainer`
 
@@ -208,7 +275,7 @@ interface AppContainer {
 }
 ```
 
-Refer to **[this AppContainer code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainer.kt)** for the complete example.
+Refer to **[this AppContainer code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainer.kt)** for the complete example.
 
 `AppContainerImpl` provides the concrete implementation.
 
@@ -306,9 +373,9 @@ class App {
 }
 ```
 
-**Note:** You would want to copy-paste [**the Navigation.kt** file](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/Navigation.kt) for the definition of the navigation targets.
+**Note:** You would want to copy-paste [**the Navigation.kt** file](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/Navigation.kt) for the definition of the navigation targets.
 
-Refer to **[this App.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt)** and **[the AppContainerImpl.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt)** for the complete example.
+Refer to **[this App.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt)** and **[the AppContainerImpl.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt)** for the complete example.
 
 ### Define `HomeScreen.kt` Composable
 
@@ -334,7 +401,7 @@ fun HomeScreen(
 }
 ```
 
-Refer to **[this HomeScreen code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L72-L160)** for the complete example.
+Refer to **[this HomeScreen code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L72-L160)** for the complete example.
 
 ### Update `MainActivity.kt`
 
@@ -366,7 +433,7 @@ class MainActivity : FragmentActivity() { // use FragmentActivity
 }
 ```
 
-Refer to **[this MainActivity.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/MainActivity.kt)** for the complete example.
+Refer to **[this MainActivity.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/MainActivity.kt)** for the complete example.
 
 ### Update `iOSMain/MainViewController.kt`
 
@@ -380,21 +447,8 @@ fun MainViewController() = ComposeUIViewController {
 }
 ```
 
-Refer to **[this MainViewController.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/composeApp/src/iosMain/kotlin/org/multipaz/getstarted/MainViewController.kt)** for the complete example.
+Refer to **[this MainViewController.kt code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/iosMain/kotlin/org/multipaz/getstarted/MainViewController.kt)** for the complete example.
 
-#### ⚠️ Some gotchas to be aware of (iOS only):
-
-For iOS, there are these required fixes:
-
-1. In `iosApp/iosApp.xcodeproj/project.pbxproj`
-
-Add the following flags to the `buildSettings` of **each** `XCBuildConfiguration` under the `iosApp` target in your `project.pbxproj` file:
-
-```C
-OTHER_LDFLAGS = (
-   "$(inherited)",
-   "-lsqlite3",
-);
-```
-
-Refer to **[this project.pbxproj code](https://github.com/openwallet-foundation/multipaz-samples/blob/e18a008b9fcb53ee27932470cfa18800df3b2c10/MultipazGettingStartedSample/iosApp/iosApp.xcodeproj/project.pbxproj)** for the complete example.
+:::note iOS linker configuration
+The sample already includes `-lsqlite3` in the app and extension linker settings. Keep that setting if you are adapting the project manually; the checked-in Xcode configuration covers it.
+:::
