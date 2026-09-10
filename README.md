@@ -52,7 +52,8 @@ graph TD;
   
   A --> G[static/]
   G --> G1[kdocs/]
-  G --> H1[...]
+  G --> G2[kdocs-extras/]
+  G --> G3[...]
 ```
 
 ## Ask AI Widget
@@ -161,10 +162,16 @@ On first deploy, Vercel will prompt you to link the project. After that, subsequ
 ## CI Config
 
 ### Overview
-This project uses two repositories with automated documentation integration:
+This project uses three repositories with automated documentation integration:
 
-Kotlin Repo: Source code with KDocs
-Docusaurus Repo: Documentation site that displays the generated API docs
+- **[Multipaz repository](https://github.com/openwallet-foundation/multipaz)**: Core Kotlin source code and KDocs
+- **[Multipaz Extras repository](https://github.com/openwallet-foundation/multipaz-extras)**: Additional Kotlin libraries and KDocs
+- **Docusaurus repository**: Documentation site that displays the generated API docs (this repo)
+
+The workflow checks out both Kotlin repositories, runs `./gradlew dokkaGenerate`
+for each (using a per-repository KDoc cache), and copies the output into the
+Docusaurus static directories: Multipaz KDocs go to `static/kdocs/`; Extras
+KDocs go to `static/kdocs-extras/`.
 
 ```
 
@@ -188,12 +195,13 @@ Docusaurus Repo: Documentation site that displays the generated API docs
 ```
 
 ### Automation Workflow
-[Code Changes] → [Trigger Action] → [Build KDocs] → [Copy to Docusaurus] → [Deploy Site]
+[Multipaz or Extras Code Changes] → [Trigger Action] → [Build both KDocs] → [Copy to Docusaurus] → [Deploy Site]
 
 GitHub Actions Setup
 
-1. In Multipaz Repository => [.github/workflows/trigger-docusaurus-update.yml](https://github.com/openwallet-foundation/multipaz/blob/main/.github/workflows/trigger-docusaurus-update.yml)
-2. In Multipaz Developer Website Repository => [.github/workflows/docs.yml](https://github.com/openwallet-foundation/multipaz-developer-website/blob/main/.github/workflows/docs.yml)
+1. In Multipaz Repository => [.github/workflows/trigger-docusaurus-update.yml](https://github.com/openwallet-foundation/multipaz/blob/main/.github/workflows/trigger-docusaurus-update.yml) triggers `kotlin-repo-updated` whenever there's an update.
+2. In Multipaz Extras Repository => [.github/workflows/trigger-docusaurus-update.yml](https://github.com/openwallet-foundation/multipaz-extras/blob/main/.github/workflows/trigger-docusaurus-update.yml) triggers `extras-repo-updated` whenever there's an update.
+3. In Multipaz Developer Website Repository => [.github/workflows/docs.yml](https://github.com/openwallet-foundation/multipaz-developer-website/blob/main/.github/workflows/docs.yml). It responds to both `kotlin-repo-updated` and `extras-repo-updated`, generates KDocs for both repositories, and publishes them at `/kdocs` and `/kdocs-extras` respectively.
 
 ### Skipping KDoc Generation (faster builds)
 
@@ -236,9 +244,10 @@ To enable automatic documentation updates between repositories, you need to set 
    - **Metadata**: `Read`
 6. **Generate Token**: Click "Generate token" and **copy the token immediately** (it won't be shown again)
 
-#### Step 2: Add Token as Repository Secret
+#### Step 2: Add Token as Repository Secrets
 
-1. **Go to Multipaz Repository**: Navigate to [https://github.com/openwallet-foundation/multipaz/settings/secrets/actions](https://github.com/openwallet-foundation/multipaz/settings/secrets/actions)
+1. **Multipaz Repository**: Navigate to [https://github.com/openwallet-foundation/multipaz/settings/secrets/actions](https://github.com/openwallet-foundation/multipaz/settings/secrets/actions)
+2. **Extras Repository**: Navigate to [https://github.com/openwallet-foundation/multipaz-extras/settings/secrets/actions](https://github.com/openwallet-foundation/multipaz-extras/settings/secrets/actions)
 2. **Add New Secret**:
    - Click "New repository secret"
    - **Name**: `DOCS_REPO_ACCESS_TOKEN`
@@ -247,7 +256,7 @@ To enable automatic documentation updates between repositories, you need to set 
 
 #### What This Enables
 
-This setup allows the [Trigger Docs Update workflow](https://github.com/openwallet-foundation/multipaz/blob/main/.github/workflows/trigger-docusaurus-update.yml) to automatically update the developer website whenever changes are made to the multipaz repository.
+This setup allows the Multipaz and Multipaz Extras documentation-update workflows to automatically update the developer website whenever either repository changes. Configure the same `DOCS_REPO_ACCESS_TOKEN` secret in both source repositories.
 
 ## GitHub Pages Setup
 
