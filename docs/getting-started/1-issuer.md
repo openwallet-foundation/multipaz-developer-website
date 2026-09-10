@@ -224,7 +224,7 @@ Refer to **[this MainViewController.kt code](https://github.com/openwallet-found
 
 #### **Step 4: Build and Run iOS App**
 
-To test the iOS implementation, you can follow [**these iOS build instructions**](https://developer.multipaz.org/docs/guides/facenet/#ios-build) from our Face Detection & Verification guide.
+To test the iOS implementation, apply the [iOS build integration](./installation#ios-build-integration) to your own project, then build it from the CocoaPods workspace.
 
 ## **Android: Permissions and Custom URI Schemes**
 

@@ -150,32 +150,20 @@ This allows your Kotlin Multiplatform code to be seamlessly integrated into the 
 
 #### What You Need to Do
 
-1. **Install CocoaPods** (if not already installed on your Mac):
+1. **Install CocoaPods** (if it is not already installed on your Mac):
 
 ```bash
 sudo gem install cocoapods
 ```
 
-2. **Install the dependencies**:
+2. **Generate the framework stub and install dependencies** from your project root:
 
 ```bash
-# Navigate to your project root
-cd /path/to/MultipazGettingStartedSample
-
-# Install pods
+./gradlew :composeApp:generateDummyFramework
 pod install
 ```
 
-This command will:
-- Download and install all specified dependencies
-- Generate an `.xcworkspace` file
-- Create/update the `Pods/` directory
-
-**Important**: After running `pod install`, always open the `.xcworkspace` file (not the `.xcodeproj` file) in Xcode:
-
-```bash
-open iosApp.xcworkspace
-```
+`pod install` downloads the native dependencies, creates or updates `Pods/`, and generates `iosApp.xcworkspace`. Open that workspace—not `iosApp.xcodeproj`—in Xcode.
 
 ## **Platform Permissions**
 
@@ -737,62 +725,42 @@ Different Xcode and CocoaPods versions may cause build issues. This guide was te
 If you encounter build issues, try matching these versions or check the project's compatibility requirements.
 :::
 
-iOS requires additional setup for CocoaPods integration. Follow these steps in order:
+#### **Step 1: Gradle and CocoaPods preparation**
 
-#### **Step 1: Gradle Preparation**
-
-Run these Gradle tasks to prepare the Kotlin framework and resources:
+From the project root, generate the framework stub required by CocoaPods, then install the Pods:
 
 ```bash
-# Clean previous builds
-./gradlew :composeApp:clean
-
-# Generate the Kotlin framework for iOS
 ./gradlew :composeApp:generateDummyFramework
-
-# Prepare Compose resources for common main
-./gradlew :composeApp:prepareComposeResourcesTaskForCommonMain
-```
-
-#### **Step 2: CocoaPods Setup**
-
-Install CocoaPods dependencies:
-
-```bash
-# Install CocoaPods dependencies
 pod install
 ```
 
-**Important**: After running `pod install`, always open the `.xcworkspace` file (not the `.xcodeproj` file) in Xcode.
+Do not run `prepareComposeResourcesTaskForCommonMain` manually. The Xcode framework-embed task prepares Compose resources during the build.
 
-#### **Step 3: Xcode Build**
+#### **Step 2: Open and configure the workspace**
 
-1. **Open the workspace**:
-   ```bash
-   # Always open the workspace, not the project file
-   open iosApp.xcworkspace
-   ```
+```bash
+open iosApp.xcworkspace
+```
 
-2. **Configure project settings**:
-   - Set up your **Team** in project settings (Signing & Capabilities tab)
-   - Configure your **Bundle Identifier** in project settings
+Use the shared app scheme and ensure its Build action lists the CocoaPods aggregate targets before `iosApp`. This lets a clean workspace build resolve Pod frameworks.
 
-3. **Clean build folder**:
-   - In Xcode: **Product → Clean Build Folder** (⇧⌘K)
+If the project uses a document-provider extension, configure the local `DeveloperConfig.xcconfig` described in the [iOS build integration](/docs/getting-started/installation#ios-build-integration) section, including the Team ID, bundle ID, and shared App Group.
 
-4. **Build and run**:
-   - Select a simulator or connected device from the scheme selector
-   - Click **Product → Run** (⌘+R) or the "Play" button
+#### **Step 3: Build and run**
 
-**Common iOS build issues for Android developers:**
+1. In Xcode, choose **Product → Clean Build Folder** (⇧⌘K).
+2. Select a simulator or connected device from the scheme selector.
+3. Click **Product → Run** (⌘+R).
+
+**Common iOS build issues:**
 
 | Issue | Solution |
 |-------|----------|
-| "Framework not found" | Run `./gradlew :composeApp:generateDummyFramework` then `pod install` |
-| "CocoaPods not installed" | Run `sudo gem install cocoapods` |
-| "Building for iOS Simulator, but linking in dylib built for iOS" | This is normal for arm64 Macs, the app still runs |
-| Info.plist missing camera key | Add `NSCameraUsageDescription` as shown in the permissions section |
-| Resources not found at runtime | Clean build folder in Xcode (⌘+Shift+K) and rebuild |
+| "Framework not found" | Run `./gradlew :composeApp:generateDummyFramework`, then `pod install` and reopen the workspace. |
+| "CocoaPods not installed" | Run `sudo gem install cocoapods`. |
+| Simulator linker architecture mismatch | Ensure the app and extension use the same simulator architecture as the Podfile; see [iOS build integration](/docs/getting-started/installation#ios-build-integration). |
+| Info.plist missing camera key | Add `NSCameraUsageDescription` as shown in the permissions section. |
+| Resources not found at runtime | Clean the Xcode build folder and rebuild from `iosApp.xcworkspace`. |
 
 **Tips for Android developers:**
 - Xcode's "Scheme" = Gradle's build variant (Debug/Release)
