@@ -76,7 +76,8 @@ const sidebars = {
         "guides/native-verification",
         "guides/zkp",
         "guides/dcql",
-        "guides/facenet"
+        "guides/facenet",
+        "guides/vical-rical"
       ],
       collapsed: false,
       collapsible: true,
