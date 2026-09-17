@@ -4,7 +4,9 @@
 
 When your iOS wallet app and `DocumentProviderExtension` need to share data, both targets must use the same App Group identifier.
 
-This is required for bundles such as:
+The local `DeveloperConfig.xcconfig` file created in [iOS Holder setup](/codelabs/utopia-wholesale-codelab/get-set-up#ios-holder-setup) supplies this identifier. The build expands the same value into the app and extension entitlements and their `Info.plist` files; the setup guide also wires it into the Holder's iOS storage implementation.
+
+This is required for an app bundle such as:
 
 - `org.multipaz.samples.wallet.cmp.UtopiaSample`
 
@@ -60,14 +62,20 @@ Xcode example (App Groups capability in **Signing & Capabilities**):
   style={{ width: '85%', height: '85%' }}
 />
 
-## Verify entitlements
+## Verify the configured value
 
-Confirm both entitlements files contain the same group in `com.apple.security.application-groups`:
+Set the App Group once in the local configuration file:
+
+```xcconfig
+APP_GROUP_ID = group.org.multipaz.samples.wallet
+```
+
+The codelab's checked-in entitlement files use that setting for `com.apple.security.application-groups`:
 
 ```xml
 <key>com.apple.security.application-groups</key>
 <array>
-    <string>group.org.multipaz.samples.wallet</string>
+    <string>$(APP_GROUP_ID)</string>
 </array>
 ```
 
@@ -76,8 +84,11 @@ Targets that commonly need this match:
 - `iosApp.entitlements`
 - `IdentityDocumentProviderExtension.entitlements`
 
+The build also writes `AppGroupID` to both targets' `Info.plist` files. The Holder's iOS storage implementation uses this runtime value to locate the shared container.
+
 ## Troubleshooting
 
 - If you only set **Description/Name**, sharing will still fail because Description is not an App Group ID.
-- If app and extension use different group IDs, shared container access will fail.
+- If `APP_GROUP_ID` is missing from `DeveloperConfig.xcconfig`, the Holder reports `Missing AppGroupID in Info.plist` at runtime.
+- Do not hard-code the group ID in committed entitlement or project files; the local configuration keeps signing values out of source control.
 - If changes do not apply immediately, regenerate profiles in Apple Developer and refresh signing in Xcode.
