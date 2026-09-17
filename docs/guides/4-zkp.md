@@ -172,16 +172,17 @@ if (documentStore.listDocuments().isEmpty()) {
         validFrom = validFrom,
         validUntil = validUntil,
         domain = CredentialDomains.MDOC_USER_AUTH,
-    ) { namespaceName, dataElement ->
-        setOf(
-            "age_over_18",
-            "age_over_21",
-            "portrait",
-            "given_name",
-            "family_name",
-            "birth_date",
-        ).contains(dataElement.attribute.identifier)
-    }
+        includeElement = { namespaceName, dataElement ->
+            setOf(
+                "age_over_18",
+                "age_over_21",
+                "portrait",
+                "given_name",
+                "family_name",
+                "birth_date",
+            ).contains(dataElement.attribute.identifier)
+        }
+    )
 }
 ```
 
