@@ -53,9 +53,11 @@ const sidebars = {
             id: 'getting-started/verifier/index',
           },
           items: [
+            'getting-started/verifier/run-wholesale-pos',
             'getting-started/verifier/import-cert',
             'getting-started/verifier/issuer-trust',
             'getting-started/verifier/read-qr',
+            'getting-started/verifier/settle-payment',
           ],
           collapsed: false,
           collapsible: true,
