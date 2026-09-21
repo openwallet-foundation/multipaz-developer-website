@@ -59,14 +59,11 @@ In this codelab, you’ll build a minimal end-to-end Verifiable Credential flow 
 
 * Kotlin 1.8.10+
 
-* Xcode for Mac   
-* Internet access for network calls   
-* Setup Xcode (for Mac only)  
-  * Open Xcode  
-  * Open (/Project/iosApp/iosApp.xcodeproj)   
-  * Select iosApp on left panel  
-  * Click Signing\&Capabilities tab  
-  * Under Team, select your Apple developer team
+* Xcode and CocoaPods for Mac
+* An Apple Developer team, a unique app bundle ID, and an App Group if you will run the iOS Holder
+* Internet access for network calls
+
+The [Get Set Up](./get-set-up#ios-holder-setup) page walks through the required CocoaPods, local signing, and App Group setup. It uses the generated Xcode workspace, not the `.xcodeproj` file.
 
 ---
 

@@ -272,11 +272,12 @@ fun HandleUrl(url: String) {
 
 To test the iOS implementation:
 
-1. **Open in Xcode**: Navigate to `iosApp → iosApp.xcodeproj` (tested with Xcode 16.3)
-2. **Clean Build**: In Xcode, go to **Product → Clean Build Folder**
-3. **Run**: Click **Start the Active Scheme** to build and run the app
-4. **Important**: The app can **only run on a real iOS device**, not on the iOS simulator. This is because credentials are stored in hardware-related secure storage (Secure Enclave) that is not available in simulators. Connect your physical iOS device and select it as the deployment target.
-5. You can now test the issuance flow on your physical device
+1. Complete the [iOS Holder setup](../get-set-up#ios-holder-setup), including CocoaPods, local signing, and the App Group.
+2. **Open in Xcode**: Open `iosApp.xcworkspace` (tested with Xcode 16.3), not `iosApp.xcodeproj`.
+3. **Clean Build**: In Xcode, go to **Product → Clean Build Folder**.
+4. **Run**: Click **Start the Active Scheme** to build and run the app.
+5. **Important**: The app can **only run on a real iOS device**, not on the iOS simulator. This is because credentials are stored in hardware-related secure storage (Secure Enclave) that is not available in simulators. Connect your physical iOS device and select it as the deployment target.
+6. You can now test the issuance flow on your physical device.
 
 ## **Step-by-Step Implementation**
 
