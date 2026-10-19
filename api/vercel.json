@@ -3,7 +3,7 @@
   "functions": {
     "api/chat.js": {
       "includeFiles": "docs-context.txt",
-      "maxDuration": 60
+      "maxDuration": 300
     }
   }
 }

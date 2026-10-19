@@ -49,6 +49,23 @@ function checkRateLimit(ip) {
   return true;
 }
 
+// Global daily cap (in-memory, so it applies per warm instance and resets on
+// cold start; a spend cap on the Gemini project is the hard backstop)
+const DAILY_MAX = Number(process.env.DAILY_REQUEST_LIMIT) || 300;
+let dailyCount = 0;
+let dailyResetTime = Date.now() + 86_400_000;
+
+function checkDailyLimit() {
+  const now = Date.now();
+  if (now > dailyResetTime) {
+    dailyCount = 0;
+    dailyResetTime = now + 86_400_000;
+  }
+  if (dailyCount >= DAILY_MAX) return false;
+  dailyCount++;
+  return true;
+}
+
 module.exports = async (req, res) => {
   // CORS
   const origin = req.headers.origin || '';
@@ -75,6 +92,12 @@ module.exports = async (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
   if (!checkRateLimit(ip)) {
     res.status(429).json({ error: 'Rate limit exceeded. Please wait a moment.' });
+    return;
+  }
+
+  // Checked after the per-IP limit so rejected requests don't use daily quota
+  if (!checkDailyLimit()) {
+    res.status(429).json({ error: 'Daily limit reached. Please try again tomorrow.' });
     return;
   }
 
