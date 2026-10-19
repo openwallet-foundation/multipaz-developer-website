@@ -2,6 +2,7 @@ const path = require('path');
 const { GoogleGenAI } = require('@google/genai');
 const { loadIndex, search, formatExcerpts, retrievalQuery } = require('../docs-retrieval');
 const { generateStreamWithRetry } = require('../gemini');
+const { checkLimits } = require('../limits');
 
 const docsIndex = loadIndex(path.join(process.cwd(), 'docs-context.txt'));
 
@@ -32,40 +33,6 @@ function toGeminiHistory(messages) {
   }));
 }
 
-// Per-IP rate limiting (in-memory, resets on cold start)
-const rateLimitMap = new Map();
-const RATE_LIMIT_WINDOW = 60_000;
-const RATE_LIMIT_MAX = Number(process.env.RATE_LIMIT_PER_MIN) || 10;
-
-function checkRateLimit(ip) {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW) {
-    rateLimitMap.set(ip, { windowStart: now, count: 1 });
-    return true;
-  }
-  if (entry.count >= RATE_LIMIT_MAX) return false;
-  entry.count++;
-  return true;
-}
-
-// Global daily cap (in-memory, so it applies per warm instance and resets on
-// cold start; a spend cap on the Gemini project is the hard backstop)
-const DAILY_MAX = Number(process.env.DAILY_REQUEST_LIMIT) || 300;
-let dailyCount = 0;
-let dailyResetTime = Date.now() + 86_400_000;
-
-function checkDailyLimit() {
-  const now = Date.now();
-  if (now > dailyResetTime) {
-    dailyCount = 0;
-    dailyResetTime = now + 86_400_000;
-  }
-  if (dailyCount >= DAILY_MAX) return false;
-  dailyCount++;
-  return true;
-}
-
 module.exports = async (req, res) => {
   // CORS
   const origin = req.headers.origin || '';
@@ -88,16 +55,10 @@ module.exports = async (req, res) => {
     return;
   }
 
-  // Rate limit by IP
-  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
-  if (!checkRateLimit(ip)) {
-    res.status(429).json({ error: 'Rate limit exceeded. Please wait a moment.' });
-    return;
-  }
-
-  // Checked after the per-IP limit so rejected requests don't use daily quota
-  if (!checkDailyLimit()) {
-    res.status(429).json({ error: 'Daily limit reached. Please try again tomorrow.' });
+  // Per-IP and global daily limits
+  const limited = await checkLimits(req);
+  if (limited) {
+    res.status(limited.status).json({ error: limited.error });
     return;
   }
 
