@@ -1,9 +1,7 @@
 const path = require('path');
 const { GoogleGenAI } = require('@google/genai');
 const { loadIndex, search, formatExcerpts, retrievalQuery } = require('../docs-retrieval');
-
-// Older models (e.g. gemini-2.5-flash) are closed to new API keys, so keep this overridable.
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+const { generateStreamWithRetry } = require('../gemini');
 
 const docsIndex = loadIndex(path.join(process.cwd(), 'docs-context.txt'));
 
@@ -99,8 +97,7 @@ module.exports = async (req, res) => {
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
 
-    const stream = await ai.models.generateContentStream({
-      model: GEMINI_MODEL,
+    const stream = await generateStreamWithRetry(ai, {
       config: {
         systemInstruction: buildSystemPrompt(recentMessages),
         maxOutputTokens: 4096,

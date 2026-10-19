@@ -8,6 +8,7 @@ Backend API for the Ask AI widget on the Multipaz developer website. Provides ch
 |---|---|---|
 | `GEMINI_API_KEY` | Yes | Google Gemini API key for the chat endpoint |
 | `GEMINI_MODEL` | No | Gemini model for chat (default: `gemini-3.8-flash`) |
+| `GEMINI_FALLBACK_MODEL` | No | Model to try on the last retry when the primary returns 429/500/503 (default: none) |
 | `ELEVENLABS_API_KEY` | No | ElevenLabs API key for text-to-speech |
 | `ELEVENLABS_VOICE_ID` | No | ElevenLabs voice ID (default: `JBFqnCBsd6RMkjVDRZzb` — George) |
 | `ELEVENLABS_MODEL_ID` | No | ElevenLabs model (default: `eleven_turbo_v2_5`) |
