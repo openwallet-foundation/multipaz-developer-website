@@ -1,30 +1,29 @@
 const http = require('http');
-const fs = require('fs');
 const path = require('path');
 const { GoogleGenAI } = require('@google/genai');
+const { loadIndex, search, formatExcerpts, retrievalQuery } = require('./docs-retrieval');
 
-const DOCS_CONTEXT_PATH = path.join(__dirname, 'docs-context.txt');
-let docsContext = '';
-try {
-  docsContext = fs.readFileSync(DOCS_CONTEXT_PATH, 'utf-8');
-} catch {
-  console.error('Warning: docs-context.txt not found. Run "node build-docs-context.js" first.');
-}
+const docsIndex = loadIndex(path.join(__dirname, 'docs-context.txt'));
 
 const SYSTEM_PROMPT = `You are an AI assistant for the Multipaz documentation website. Multipaz is an identity framework designed to handle secure, real-world credential issuance and verification.
 
 Your role is to help developers understand and use the Multipaz SDK by answering questions based on the official documentation.
 
 Rules:
-- Only answer questions based on the documentation provided below.
-- If the answer is not in the documentation, say so honestly and suggest where the user might find help (e.g., GitHub issues, Discord).
+- Only answer questions based on the documentation excerpts provided below.
+- If the answer is not in the excerpts, say so honestly and suggest where the user might find help (e.g., GitHub issues, Discord).
 - When referencing docs pages, provide the relative URL path (e.g., /docs/getting-started).
 - Keep answers concise and include code examples from the docs when relevant.
 - Be friendly and helpful.
 
-Here is the full documentation:
+Here are the documentation excerpts most relevant to the user's question:
 
-${docsContext}`;
+`;
+
+function buildSystemPrompt(messages) {
+  const excerpts = formatExcerpts(search(docsIndex, retrievalQuery(messages)));
+  return SYSTEM_PROMPT + (excerpts || '(No matching documentation found.)');
+}
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -256,6 +255,8 @@ const server = http.createServer(async (req, res) => {
 
     // Separate the last user message from history
     const history = toGeminiHistory(recentMessages.slice(0, -1));
+    // Gemini expects the conversation to open with a user turn.
+    while (history.length && history[0].role === 'model') history.shift();
     const lastMessage = recentMessages[recentMessages.length - 1].content;
 
     res.writeHead(200, {
@@ -268,11 +269,10 @@ const server = http.createServer(async (req, res) => {
     const stream = await ai.models.generateContentStream({
       model: 'gemini-2.5-flash',
       config: {
-        systemInstruction: SYSTEM_PROMPT,
+        systemInstruction: buildSystemPrompt(recentMessages),
         maxOutputTokens: 1024,
       },
-      history,
-      contents: [{ role: 'user', parts: [{ text: lastMessage }] }],
+      contents: [...history, { role: 'user', parts: [{ text: lastMessage }] }],
     });
 
     for await (const chunk of stream) {

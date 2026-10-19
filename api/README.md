@@ -41,6 +41,8 @@ node server.js
 ### `POST /api/chat`
 Streaming chat powered by Gemini. Accepts `{ messages: [{ role, content }] }` and returns Server-Sent Events.
 
+Rather than sending all of `docs-context.txt` (~100k tokens) with every question, `docs-retrieval.js` splits it into sections at startup and sends Gemini only the ~8 sections that best match the last two user messages (BM25 keyword search, ~3–6k tokens), plus a pinned overview. This keeps requests within the Gemini free tier's per-minute token limit and cuts paid cost by ~20x.
+
 ### `POST /api/tts`
 Text-to-speech via ElevenLabs. Accepts `{ text: string }` and returns `audio/mpeg` stream.
 
