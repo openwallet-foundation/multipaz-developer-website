@@ -2,6 +2,9 @@ const path = require('path');
 const { GoogleGenAI } = require('@google/genai');
 const { loadIndex, search, formatExcerpts, retrievalQuery } = require('../docs-retrieval');
 
+// Older models (e.g. gemini-2.5-flash) are closed to new API keys, so keep this overridable.
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+
 const docsIndex = loadIndex(path.join(process.cwd(), 'docs-context.txt'));
 
 const SYSTEM_PROMPT = `You are an AI assistant for the Multipaz documentation website. Multipaz is an identity framework designed to handle secure, real-world credential issuance and verification.
@@ -97,7 +100,7 @@ module.exports = async (req, res) => {
     res.setHeader('Connection', 'keep-alive');
 
     const stream = await ai.models.generateContentStream({
-      model: 'gemini-2.5-flash',
+      model: GEMINI_MODEL,
       config: {
         systemInstruction: buildSystemPrompt(recentMessages),
         maxOutputTokens: 4096,
