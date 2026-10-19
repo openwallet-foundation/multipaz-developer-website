@@ -51,11 +51,28 @@ function stripMarkdown(text) {
     .trim();
 }
 
+// Set once /api/tts reports it isn't configured (503), so later clicks go
+// straight to browser speech: no wasted request, and speech starts within the
+// click itself, which iOS Safari requires.
+let serverTtsUnavailable = false;
+
+function canUseBrowserSpeech() {
+  return typeof window !== 'undefined' && 'speechSynthesis' in window;
+}
+
 // tts state: 'idle' | 'loading' | 'playing' | 'error'
 function SpeakerButton({ text, apiUrl }) {
   const [ttsState, setTtsState] = useState('idle');
   const audioRef = useRef(null);
   const blobUrlRef = useRef(null);
+  const speakingRef = useRef(false);
+
+  const stopBrowserSpeech = () => {
+    if (speakingRef.current) {
+      speakingRef.current = false;
+      window.speechSynthesis.cancel();
+    }
+  };
 
   useEffect(() => {
     return () => {
@@ -66,14 +83,46 @@ function SpeakerButton({ text, apiUrl }) {
       if (blobUrlRef.current) {
         URL.revokeObjectURL(blobUrlRef.current);
       }
+      stopBrowserSpeech();
     };
   }, []);
 
+  // Fallback when ElevenLabs is unavailable: the browser's built-in voice.
+  const speakWithBrowser = (plainText) => {
+    const synth = window.speechSynthesis;
+    synth.cancel(); // stop any other answer being read
+    const utterance = new SpeechSynthesisUtterance(plainText);
+    utterance.lang = document.documentElement.lang || 'en-US';
+    utterance.onend = () => {
+      if (!speakingRef.current) return; // already stopped
+      speakingRef.current = false;
+      setTtsState('idle');
+    };
+    utterance.onerror = (e) => {
+      if (!speakingRef.current) return;
+      speakingRef.current = false;
+      // 'interrupted'/'canceled' mean playback was stopped, not a failure.
+      if (e.error === 'interrupted' || e.error === 'canceled') {
+        setTtsState('idle');
+        return;
+      }
+      console.error('Speech synthesis error:', e.error);
+      setTtsState('error');
+      setTimeout(() => setTtsState('idle'), 2000);
+    };
+    speakingRef.current = true;
+    synth.speak(utterance);
+    setTtsState('playing');
+  };
+
   const handleClick = async () => {
     // If playing, stop
-    if (ttsState === 'playing' && audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+    if (ttsState === 'playing') {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      stopBrowserSpeech();
       setTtsState('idle');
       return;
     }
@@ -81,15 +130,17 @@ function SpeakerButton({ text, apiUrl }) {
     // If loading, ignore
     if (ttsState === 'loading') return;
 
+    const plainText = stripMarkdown(text);
+    if (!plainText) return;
+
+    if (serverTtsUnavailable && canUseBrowserSpeech()) {
+      speakWithBrowser(plainText);
+      return;
+    }
+
     setTtsState('loading');
 
     try {
-      const plainText = stripMarkdown(text);
-      if (!plainText) {
-        setTtsState('idle');
-        return;
-      }
-
       const res = await fetch(`${apiUrl}/api/tts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -97,6 +148,7 @@ function SpeakerButton({ text, apiUrl }) {
       });
 
       if (!res.ok) {
+        if (res.status === 503) serverTtsUnavailable = true;
         throw new Error(`HTTP ${res.status}`);
       }
 
@@ -116,6 +168,12 @@ function SpeakerButton({ text, apiUrl }) {
       await audio.play();
       setTtsState('playing');
     } catch (err) {
+      if (canUseBrowserSpeech()) {
+        console.warn('Server TTS unavailable, using browser speech:', err.message);
+        audioRef.current = null;
+        speakWithBrowser(plainText);
+        return;
+      }
       console.error('TTS error:', err);
       setTtsState('error');
       setTimeout(() => setTtsState('idle'), 2000);
