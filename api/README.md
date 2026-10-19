@@ -16,6 +16,7 @@ Backend API for the Ask AI widget on the Multipaz developer website. Provides ch
 | `ALLOWED_ORIGINS` | No | Comma-separated allowed CORS origins (default: `http://localhost:3000,http://localhost:3001,http://localhost:3010`) |
 | `RATE_LIMIT_PER_MIN` | No | Max requests per IP per minute (default: `10`) |
 | `DAILY_REQUEST_LIMIT` | No | Global daily request cap (default: `300`) |
+| `KV_REST_API_URL` / `KV_REST_API_TOKEN` | No | Upstash Redis REST credentials (set automatically by Vercel's Upstash integration; `UPSTASH_REDIS_REST_URL`/`_TOKEN` also work). When set, the per-IP and daily limits are shared across all instances and the daily window is the UTC day; otherwise they're in-memory per instance. |
 | `PORT` | No | Server port (default: `3010`) |
 
 For production, these are set as **Vercel environment variables** (Settings > Environment Variables in the Vercel dashboard, or via `vercel env add`).
