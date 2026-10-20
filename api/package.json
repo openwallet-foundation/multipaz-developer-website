@@ -8,7 +8,7 @@
     "dev": "node build-docs-context.js && node server.js"
   },
   "dependencies": {
-    "@google/genai": "^0.14.0",
+    "@google/genai": "^2.30.0",
     "@upstash/redis": "^1.39.0",
     "openai": "^6.27.0"
   }

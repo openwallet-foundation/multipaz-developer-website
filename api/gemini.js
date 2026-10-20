@@ -3,10 +3,15 @@
 // Lives outside api/ so Vercel doesn't deploy it as its own function.
 
 // Older models (e.g. gemini-2.5-flash) are closed to new API keys, so keep this overridable.
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
-// Optional model to try on the final attempt when the primary stays overloaded,
-// or right away when the primary isn't available (404).
-const GEMINI_FALLBACK_MODEL = process.env.GEMINI_FALLBACK_MODEL || '';
+// gemini-3.8-flash took 85s+ to start answering under load; 3.5 Flash at low
+// thinking usually starts within ~5-15s.
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
+// Model to try on the final attempt when the primary stays overloaded, or right
+// away when the primary isn't available (404). Set to "none" to disable.
+const GEMINI_FALLBACK_MODEL =
+  process.env.GEMINI_FALLBACK_MODEL === 'none' ? '' : process.env.GEMINI_FALLBACK_MODEL || 'gemini-3.5-flash-lite';
+// Doc Q&A doesn't need deep reasoning, and thinking delays the first word.
+const GEMINI_THINKING_LEVEL = process.env.GEMINI_THINKING_LEVEL || 'low';
 
 const RETRY_DELAYS_MS = [1000, 3000];
 const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504]);
@@ -27,7 +32,11 @@ async function generateStreamWithRetry(ai, params) {
     const isLast = attempt === RETRY_DELAYS_MS.length;
     const model = GEMINI_FALLBACK_MODEL && (isLast || primaryMissing) ? GEMINI_FALLBACK_MODEL : GEMINI_MODEL;
     try {
-      return await ai.models.generateContentStream({ ...params, model });
+      return await ai.models.generateContentStream({
+        ...params,
+        model,
+        config: { thinkingConfig: { thinkingLevel: GEMINI_THINKING_LEVEL }, ...params.config },
+      });
     } catch (err) {
       const status = httpStatus(err);
       const message = String(err && err.message).slice(0, 80);
