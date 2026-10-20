@@ -56,8 +56,21 @@ function stripMarkdown(text) {
 // click itself, which iOS Safari requires.
 let serverTtsUnavailable = false;
 
+// If browser speech hasn't started by then, report an error instead of
+// showing "playing" with no sound.
+const SPEECH_START_TIMEOUT_MS = 5000;
+
 function canUseBrowserSpeech() {
   return typeof window !== 'undefined' && 'speechSynthesis' in window;
+}
+
+// iOS Safari only lets speechSynthesis speak if it was first used within a
+// user gesture. Speaking a silent utterance during the click unlocks it, so the
+// fallback still works after the /api/tts request fails.
+function unlockBrowserSpeech() {
+  const primer = new SpeechSynthesisUtterance(' ');
+  primer.volume = 0;
+  window.speechSynthesis.speak(primer);
 }
 
 // tts state: 'idle' | 'loading' | 'playing' | 'error'
@@ -66,8 +79,10 @@ function SpeakerButton({ text, apiUrl }) {
   const audioRef = useRef(null);
   const blobUrlRef = useRef(null);
   const speakingRef = useRef(false);
+  const startTimerRef = useRef(null);
 
   const stopBrowserSpeech = () => {
+    clearTimeout(startTimerRef.current);
     if (speakingRef.current) {
       speakingRef.current = false;
       window.speechSynthesis.cancel();
@@ -93,12 +108,19 @@ function SpeakerButton({ text, apiUrl }) {
     synth.cancel(); // stop any other answer being read
     const utterance = new SpeechSynthesisUtterance(plainText);
     utterance.lang = document.documentElement.lang || 'en-US';
+    // Only show "playing" once sound actually starts.
+    utterance.onstart = () => {
+      clearTimeout(startTimerRef.current);
+      if (speakingRef.current) setTtsState('playing');
+    };
     utterance.onend = () => {
+      clearTimeout(startTimerRef.current);
       if (!speakingRef.current) return; // already stopped
       speakingRef.current = false;
       setTtsState('idle');
     };
     utterance.onerror = (e) => {
+      clearTimeout(startTimerRef.current);
       if (!speakingRef.current) return;
       speakingRef.current = false;
       // 'interrupted'/'canceled' mean playback was stopped, not a failure.
@@ -111,8 +133,16 @@ function SpeakerButton({ text, apiUrl }) {
       setTimeout(() => setTtsState('idle'), 2000);
     };
     speakingRef.current = true;
+    setTtsState('loading');
+    clearTimeout(startTimerRef.current);
+    startTimerRef.current = setTimeout(() => {
+      if (!speakingRef.current) return;
+      console.error('Speech synthesis did not start');
+      stopBrowserSpeech();
+      setTtsState('error');
+      setTimeout(() => setTtsState('idle'), 2000);
+    }, SPEECH_START_TIMEOUT_MS);
     synth.speak(utterance);
-    setTtsState('playing');
   };
 
   const handleClick = async () => {
@@ -138,6 +168,7 @@ function SpeakerButton({ text, apiUrl }) {
       return;
     }
 
+    if (canUseBrowserSpeech()) unlockBrowserSpeech();
     setTtsState('loading');
 
     try {
@@ -438,6 +469,17 @@ export default function AskAIWidget() {
             // skip malformed SSE lines
           }
         }
+      }
+
+      if (!assistantText) {
+        setMessages((prev) => {
+          const updated = [...prev];
+          updated[updated.length - 1] = {
+            role: 'assistant',
+            content: 'Sorry, no answer came back. Please try again.',
+          };
+          return updated;
+        });
       }
     } catch (err) {
       setMessages((prev) => [
