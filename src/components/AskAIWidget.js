@@ -435,7 +435,18 @@ export default function AskAIWidget() {
       let assistantText = '';
       let buffer = '';
 
-      setMessages((prev) => [...prev, { role: 'assistant', content: '' }]);
+      // Add the answer bubble only when text arrives, so the typing indicator
+      // stays up while Gemini is thinking (that can take a while).
+      let bubbleAdded = false;
+      const showAnswer = (content) => {
+        const add = !bubbleAdded;
+        bubbleAdded = true;
+        setMessages((prev) =>
+          add
+            ? [...prev, { role: 'assistant', content }]
+            : [...prev.slice(0, -1), { role: 'assistant', content }]
+        );
+      };
 
       while (true) {
         const { done, value } = await reader.read();
@@ -452,18 +463,10 @@ export default function AskAIWidget() {
             const data = JSON.parse(line.slice(6));
             if (data.type === 'text') {
               assistantText += data.text;
-              setMessages((prev) => {
-                const updated = [...prev];
-                updated[updated.length - 1] = { role: 'assistant', content: assistantText };
-                return updated;
-              });
+              showAnswer(assistantText);
             } else if (data.type === 'error') {
               assistantText += '\n\nSorry, an error occurred.';
-              setMessages((prev) => {
-                const updated = [...prev];
-                updated[updated.length - 1] = { role: 'assistant', content: assistantText };
-                return updated;
-              });
+              showAnswer(assistantText);
             }
           } catch {
             // skip malformed SSE lines
@@ -471,16 +474,7 @@ export default function AskAIWidget() {
         }
       }
 
-      if (!assistantText) {
-        setMessages((prev) => {
-          const updated = [...prev];
-          updated[updated.length - 1] = {
-            role: 'assistant',
-            content: 'Sorry, no answer came back. Please try again.',
-          };
-          return updated;
-        });
-      }
+      if (!assistantText) showAnswer('Sorry, no answer came back. Please try again.');
     } catch (err) {
       setMessages((prev) => [
         ...prev,
