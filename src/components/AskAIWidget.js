@@ -51,11 +51,43 @@ function stripMarkdown(text) {
     .trim();
 }
 
+// Set once /api/tts reports it isn't configured (503), so later clicks go
+// straight to browser speech: no wasted request, and speech starts within the
+// click itself, which iOS Safari requires.
+let serverTtsUnavailable = false;
+
+// If browser speech hasn't started by then, report an error instead of
+// showing "playing" with no sound.
+const SPEECH_START_TIMEOUT_MS = 5000;
+
+function canUseBrowserSpeech() {
+  return typeof window !== 'undefined' && 'speechSynthesis' in window;
+}
+
+// iOS Safari only lets speechSynthesis speak if it was first used within a
+// user gesture. Speaking a silent utterance during the click unlocks it, so the
+// fallback still works after the /api/tts request fails.
+function unlockBrowserSpeech() {
+  const primer = new SpeechSynthesisUtterance(' ');
+  primer.volume = 0;
+  window.speechSynthesis.speak(primer);
+}
+
 // tts state: 'idle' | 'loading' | 'playing' | 'error'
 function SpeakerButton({ text, apiUrl }) {
   const [ttsState, setTtsState] = useState('idle');
   const audioRef = useRef(null);
   const blobUrlRef = useRef(null);
+  const speakingRef = useRef(false);
+  const startTimerRef = useRef(null);
+
+  const stopBrowserSpeech = () => {
+    clearTimeout(startTimerRef.current);
+    if (speakingRef.current) {
+      speakingRef.current = false;
+      window.speechSynthesis.cancel();
+    }
+  };
 
   useEffect(() => {
     return () => {
@@ -66,14 +98,61 @@ function SpeakerButton({ text, apiUrl }) {
       if (blobUrlRef.current) {
         URL.revokeObjectURL(blobUrlRef.current);
       }
+      stopBrowserSpeech();
     };
   }, []);
 
+  // Fallback when ElevenLabs is unavailable: the browser's built-in voice.
+  const speakWithBrowser = (plainText) => {
+    const synth = window.speechSynthesis;
+    synth.cancel(); // stop any other answer being read
+    const utterance = new SpeechSynthesisUtterance(plainText);
+    utterance.lang = document.documentElement.lang || 'en-US';
+    // Only show "playing" once sound actually starts.
+    utterance.onstart = () => {
+      clearTimeout(startTimerRef.current);
+      if (speakingRef.current) setTtsState('playing');
+    };
+    utterance.onend = () => {
+      clearTimeout(startTimerRef.current);
+      if (!speakingRef.current) return; // already stopped
+      speakingRef.current = false;
+      setTtsState('idle');
+    };
+    utterance.onerror = (e) => {
+      clearTimeout(startTimerRef.current);
+      if (!speakingRef.current) return;
+      speakingRef.current = false;
+      // 'interrupted'/'canceled' mean playback was stopped, not a failure.
+      if (e.error === 'interrupted' || e.error === 'canceled') {
+        setTtsState('idle');
+        return;
+      }
+      console.error('Speech synthesis error:', e.error);
+      setTtsState('error');
+      setTimeout(() => setTtsState('idle'), 2000);
+    };
+    speakingRef.current = true;
+    setTtsState('loading');
+    clearTimeout(startTimerRef.current);
+    startTimerRef.current = setTimeout(() => {
+      if (!speakingRef.current) return;
+      console.error('Speech synthesis did not start');
+      stopBrowserSpeech();
+      setTtsState('error');
+      setTimeout(() => setTtsState('idle'), 2000);
+    }, SPEECH_START_TIMEOUT_MS);
+    synth.speak(utterance);
+  };
+
   const handleClick = async () => {
     // If playing, stop
-    if (ttsState === 'playing' && audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+    if (ttsState === 'playing') {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      stopBrowserSpeech();
       setTtsState('idle');
       return;
     }
@@ -81,15 +160,18 @@ function SpeakerButton({ text, apiUrl }) {
     // If loading, ignore
     if (ttsState === 'loading') return;
 
+    const plainText = stripMarkdown(text);
+    if (!plainText) return;
+
+    if (serverTtsUnavailable && canUseBrowserSpeech()) {
+      speakWithBrowser(plainText);
+      return;
+    }
+
+    if (canUseBrowserSpeech()) unlockBrowserSpeech();
     setTtsState('loading');
 
     try {
-      const plainText = stripMarkdown(text);
-      if (!plainText) {
-        setTtsState('idle');
-        return;
-      }
-
       const res = await fetch(`${apiUrl}/api/tts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -97,6 +179,7 @@ function SpeakerButton({ text, apiUrl }) {
       });
 
       if (!res.ok) {
+        if (res.status === 503) serverTtsUnavailable = true;
         throw new Error(`HTTP ${res.status}`);
       }
 
@@ -116,6 +199,12 @@ function SpeakerButton({ text, apiUrl }) {
       await audio.play();
       setTtsState('playing');
     } catch (err) {
+      if (canUseBrowserSpeech()) {
+        console.warn('Server TTS unavailable, using browser speech:', err.message);
+        audioRef.current = null;
+        speakWithBrowser(plainText);
+        return;
+      }
       console.error('TTS error:', err);
       setTtsState('error');
       setTimeout(() => setTtsState('idle'), 2000);
@@ -346,7 +435,18 @@ export default function AskAIWidget() {
       let assistantText = '';
       let buffer = '';
 
-      setMessages((prev) => [...prev, { role: 'assistant', content: '' }]);
+      // Add the answer bubble only when text arrives, so the typing indicator
+      // stays up while Gemini is thinking (that can take a while).
+      let bubbleAdded = false;
+      const showAnswer = (content) => {
+        const add = !bubbleAdded;
+        bubbleAdded = true;
+        setMessages((prev) =>
+          add
+            ? [...prev, { role: 'assistant', content }]
+            : [...prev.slice(0, -1), { role: 'assistant', content }]
+        );
+      };
 
       while (true) {
         const { done, value } = await reader.read();
@@ -363,24 +463,18 @@ export default function AskAIWidget() {
             const data = JSON.parse(line.slice(6));
             if (data.type === 'text') {
               assistantText += data.text;
-              setMessages((prev) => {
-                const updated = [...prev];
-                updated[updated.length - 1] = { role: 'assistant', content: assistantText };
-                return updated;
-              });
+              showAnswer(assistantText);
             } else if (data.type === 'error') {
               assistantText += '\n\nSorry, an error occurred.';
-              setMessages((prev) => {
-                const updated = [...prev];
-                updated[updated.length - 1] = { role: 'assistant', content: assistantText };
-                return updated;
-              });
+              showAnswer(assistantText);
             }
           } catch {
             // skip malformed SSE lines
           }
         }
       }
+
+      if (!assistantText) showAnswer('Sorry, no answer came back. Please try again.');
     } catch (err) {
       setMessages((prev) => [
         ...prev,

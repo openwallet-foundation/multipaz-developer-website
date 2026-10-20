@@ -1,30 +1,12 @@
 const http = require('http');
-const fs = require('fs');
 const path = require('path');
 const { GoogleGenAI } = require('@google/genai');
+const { loadIndex } = require('./docs-retrieval');
+const { buildChatRequest } = require('./chat-request');
+const { generateStreamWithRetry } = require('./gemini');
+const { checkRateLimit, takeDailyQuota } = require('./limits');
 
-const DOCS_CONTEXT_PATH = path.join(__dirname, 'docs-context.txt');
-let docsContext = '';
-try {
-  docsContext = fs.readFileSync(DOCS_CONTEXT_PATH, 'utf-8');
-} catch {
-  console.error('Warning: docs-context.txt not found. Run "node build-docs-context.js" first.');
-}
-
-const SYSTEM_PROMPT = `You are an AI assistant for the Multipaz documentation website. Multipaz is an identity framework designed to handle secure, real-world credential issuance and verification.
-
-Your role is to help developers understand and use the Multipaz SDK by answering questions based on the official documentation.
-
-Rules:
-- Only answer questions based on the documentation provided below.
-- If the answer is not in the documentation, say so honestly and suggest where the user might find help (e.g., GitHub issues, Discord).
-- When referencing docs pages, provide the relative URL path (e.g., /docs/getting-started).
-- Keep answers concise and include code examples from the docs when relevant.
-- Be friendly and helpful.
-
-Here is the full documentation:
-
-${docsContext}`;
+const docsIndex = loadIndex(path.join(__dirname, 'docs-context.txt'));
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -43,39 +25,6 @@ function getCorsHeaders(req) {
   };
 }
 
-// Per-IP rate limit: max requests per minute
-const rateLimitMap = new Map();
-const RATE_LIMIT_WINDOW = 60_000;
-const RATE_LIMIT_MAX = Number(process.env.RATE_LIMIT_PER_MIN) || 10;
-
-// Global daily cap: stop serving after this many requests per day
-const DAILY_MAX = Number(process.env.DAILY_REQUEST_LIMIT) || 300;
-let dailyCount = 0;
-let dailyResetTime = Date.now() + 86_400_000;
-
-function checkDailyLimit() {
-  const now = Date.now();
-  if (now > dailyResetTime) {
-    dailyCount = 0;
-    dailyResetTime = now + 86_400_000;
-  }
-  if (dailyCount >= DAILY_MAX) return false;
-  dailyCount++;
-  return true;
-}
-
-function checkRateLimit(ip) {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW) {
-    rateLimitMap.set(ip, { windowStart: now, count: 1 });
-    return true;
-  }
-  if (entry.count >= RATE_LIMIT_MAX) return false;
-  entry.count++;
-  return true;
-}
-
 function parseBody(req) {
   return new Promise((resolve, reject) => {
     let body = '';
@@ -86,14 +35,6 @@ function parseBody(req) {
     });
     req.on('error', reject);
   });
-}
-
-// Convert from {role, content} format to Gemini's {role, parts} format
-function toGeminiHistory(messages) {
-  return messages.map((msg) => ({
-    role: msg.role === 'assistant' ? 'model' : 'user',
-    parts: [{ text: msg.content }],
-  }));
 }
 
 const server = http.createServer(async (req, res) => {
@@ -109,17 +50,10 @@ const server = http.createServer(async (req, res) => {
     return res.end(JSON.stringify({ error: 'Not found' }));
   }
 
-  // Check per-IP rate limit first (don't consume daily quota for rejected requests)
-  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-  if (!checkRateLimit(ip)) {
-    res.writeHead(429, { 'Content-Type': 'application/json', ...cors });
-    return res.end(JSON.stringify({ error: 'Rate limit exceeded. Please wait a moment.' }));
-  }
-
-  // Check daily cap
-  if (!checkDailyLimit()) {
-    res.writeHead(429, { 'Content-Type': 'application/json', ...cors });
-    return res.end(JSON.stringify({ error: 'Daily limit reached. Please try again tomorrow.' }));
+  const rateLimited = await checkRateLimit(req);
+  if (rateLimited) {
+    res.writeHead(rateLimited.status, { 'Content-Type': 'application/json', ...cors });
+    return res.end(JSON.stringify({ error: rateLimited.error }));
   }
 
   // --- Feedback endpoint ---
@@ -246,17 +180,17 @@ const server = http.createServer(async (req, res) => {
   try {
     const { messages } = await parseBody(req);
 
-    if (!Array.isArray(messages) || messages.length === 0) {
+    const request = buildChatRequest(docsIndex, messages);
+    if (!request) {
       res.writeHead(400, { 'Content-Type': 'application/json', ...cors });
-      return res.end(JSON.stringify({ error: 'messages array is required' }));
+      return res.end(JSON.stringify({ error: 'messages must end with a non-empty user message' }));
     }
 
-    // Limit conversation history to last 10 messages to control token usage
-    const recentMessages = messages.slice(-10);
-
-    // Separate the last user message from history
-    const history = toGeminiHistory(recentMessages.slice(0, -1));
-    const lastMessage = recentMessages[recentMessages.length - 1].content;
+    const overQuota = await takeDailyQuota();
+    if (overQuota) {
+      res.writeHead(overQuota.status, { 'Content-Type': 'application/json', ...cors });
+      return res.end(JSON.stringify({ error: overQuota.error }));
+    }
 
     res.writeHead(200, {
       'Content-Type': 'text/event-stream',
@@ -265,15 +199,7 @@ const server = http.createServer(async (req, res) => {
       ...cors,
     });
 
-    const stream = await ai.models.generateContentStream({
-      model: 'gemini-2.5-flash',
-      config: {
-        systemInstruction: SYSTEM_PROMPT,
-        maxOutputTokens: 1024,
-      },
-      history,
-      contents: [{ role: 'user', parts: [{ text: lastMessage }] }],
-    });
+    const stream = await generateStreamWithRetry(ai, request);
 
     for await (const chunk of stream) {
       const text = chunk.text;
