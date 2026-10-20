@@ -1,31 +1,12 @@
 const http = require('http');
 const path = require('path');
 const { GoogleGenAI } = require('@google/genai');
-const { loadIndex, search, formatExcerpts, retrievalQuery } = require('./docs-retrieval');
+const { loadIndex } = require('./docs-retrieval');
+const { buildChatRequest } = require('./chat-request');
 const { generateStreamWithRetry } = require('./gemini');
-const { checkLimits } = require('./limits');
+const { checkRateLimit, takeDailyQuota } = require('./limits');
 
 const docsIndex = loadIndex(path.join(__dirname, 'docs-context.txt'));
-
-const SYSTEM_PROMPT = `You are an AI assistant for the Multipaz documentation website. Multipaz is an identity framework designed to handle secure, real-world credential issuance and verification.
-
-Your role is to help developers understand and use the Multipaz SDK by answering questions based on the official documentation.
-
-Rules:
-- Only answer questions based on the documentation excerpts provided below.
-- If the answer is not in the excerpts, say so honestly and suggest where the user might find help (e.g., GitHub issues, Discord).
-- When referencing docs pages, provide the relative URL path (e.g., /docs/getting-started).
-- Keep answers concise and include code examples from the docs when relevant.
-- Be friendly and helpful.
-
-Here are the documentation excerpts most relevant to the user's question:
-
-`;
-
-function buildSystemPrompt(messages) {
-  const excerpts = formatExcerpts(search(docsIndex, retrievalQuery(messages)));
-  return SYSTEM_PROMPT + (excerpts || '(No matching documentation found.)');
-}
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -56,14 +37,6 @@ function parseBody(req) {
   });
 }
 
-// Convert from {role, content} format to Gemini's {role, parts} format
-function toGeminiHistory(messages) {
-  return messages.map((msg) => ({
-    role: msg.role === 'assistant' ? 'model' : 'user',
-    parts: [{ text: msg.content }],
-  }));
-}
-
 const server = http.createServer(async (req, res) => {
   const cors = getCorsHeaders(req);
 
@@ -77,11 +50,10 @@ const server = http.createServer(async (req, res) => {
     return res.end(JSON.stringify({ error: 'Not found' }));
   }
 
-  // Per-IP and global daily limits
-  const limited = await checkLimits(req);
-  if (limited) {
-    res.writeHead(limited.status, { 'Content-Type': 'application/json', ...cors });
-    return res.end(JSON.stringify({ error: limited.error }));
+  const rateLimited = await checkRateLimit(req);
+  if (rateLimited) {
+    res.writeHead(rateLimited.status, { 'Content-Type': 'application/json', ...cors });
+    return res.end(JSON.stringify({ error: rateLimited.error }));
   }
 
   // --- Feedback endpoint ---
@@ -208,19 +180,17 @@ const server = http.createServer(async (req, res) => {
   try {
     const { messages } = await parseBody(req);
 
-    if (!Array.isArray(messages) || messages.length === 0) {
+    const request = buildChatRequest(docsIndex, messages);
+    if (!request) {
       res.writeHead(400, { 'Content-Type': 'application/json', ...cors });
-      return res.end(JSON.stringify({ error: 'messages array is required' }));
+      return res.end(JSON.stringify({ error: 'messages must end with a non-empty user message' }));
     }
 
-    // Limit conversation history to last 10 messages to control token usage
-    const recentMessages = messages.slice(-10);
-
-    // Separate the last user message from history
-    const history = toGeminiHistory(recentMessages.slice(0, -1));
-    // Gemini expects the conversation to open with a user turn.
-    while (history.length && history[0].role === 'model') history.shift();
-    const lastMessage = recentMessages[recentMessages.length - 1].content;
+    const overQuota = await takeDailyQuota();
+    if (overQuota) {
+      res.writeHead(overQuota.status, { 'Content-Type': 'application/json', ...cors });
+      return res.end(JSON.stringify({ error: overQuota.error }));
+    }
 
     res.writeHead(200, {
       'Content-Type': 'text/event-stream',
@@ -229,13 +199,7 @@ const server = http.createServer(async (req, res) => {
       ...cors,
     });
 
-    const stream = await generateStreamWithRetry(ai, {
-      config: {
-        systemInstruction: buildSystemPrompt(recentMessages),
-        maxOutputTokens: 1024,
-      },
-      contents: [...history, { role: 'user', parts: [{ text: lastMessage }] }],
-    });
+    const stream = await generateStreamWithRetry(ai, request);
 
     for await (const chunk of stream) {
       const text = chunk.text;

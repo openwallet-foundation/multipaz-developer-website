@@ -24,7 +24,9 @@ const SUFFIXES = /(ications?|ations?|ances?|ings?|iers?|ied|ers?|ed|es|s|e|y)$/;
 
 function stem(token) {
   const stemmed = token.replace(SUFFIXES, '');
-  return stemmed.length >= 4 ? stemmed : token;
+  if (stemmed.length >= 4) return stemmed;
+  // Short words: only drop a plural "s", so "keys" matches "key" and "apps" matches "app".
+  return /[^s]s$/.test(token) && token.length >= 4 ? token.slice(0, -1) : token;
 }
 
 function tokenize(text) {
@@ -49,7 +51,8 @@ function splitFiles(context) {
 }
 
 // Split one file into sections at markdown headings (ignoring "#" inside code fences),
-// merging tiny sections and breaking oversized ones on paragraph boundaries.
+// merging tiny sections and breaking oversized ones on paragraph boundaries
+// (never inside a code block).
 function splitSections(text) {
   const sections = [];
   let current = { heading: '', lines: [] };
@@ -70,7 +73,7 @@ function splitSections(text) {
   const chunks = [];
   for (const { heading, lines } of sections) {
     let buf = '';
-    for (const para of lines.join('\n').split(/\n\s*\n/)) {
+    for (const para of paragraphs(lines)) {
       if (buf && buf.length + para.length > MAX_CHUNK_CHARS) {
         chunks.push({ heading, text: buf.trim() });
         buf = '';
@@ -80,6 +83,24 @@ function splitSections(text) {
     if (buf.trim()) chunks.push({ heading, text: buf.trim() });
   }
   return chunks;
+}
+
+// Splits lines into paragraphs at blank lines, keeping each code block whole.
+function paragraphs(lines) {
+  const paras = [];
+  let current = [];
+  let inFence = false;
+  for (const line of lines) {
+    if (/^\s*(```|~~~)/.test(line)) inFence = !inFence;
+    if (!inFence && !line.trim()) {
+      if (current.length) paras.push(current.join('\n'));
+      current = [];
+    } else {
+      current.push(line);
+    }
+  }
+  if (current.length) paras.push(current.join('\n'));
+  return paras;
 }
 
 function buildIndex(context) {

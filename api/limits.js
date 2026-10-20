@@ -1,4 +1,4 @@
-// Per-IP and global daily request limits.
+// Per-IP rate limit and global daily cap on Gemini calls.
 // With Upstash Redis configured (Vercel's Upstash integration sets KV_REST_API_*),
 // counters are shared by every instance and the daily window is the UTC day.
 // Without it, or if Redis is slow or down, limits fall back to in-memory
@@ -35,17 +35,20 @@ const rateLimitMap = new Map();
 let dailyCount = 0;
 let dailyResetTime = Date.now() + 86_400_000;
 
-function checkMemory(ip) {
+function rateLimitMemory(ip) {
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
   if (!entry || now - entry.windowStart > 60_000) {
     rateLimitMap.set(ip, { windowStart: now, count: 1 });
-  } else if (entry.count >= RATE_LIMIT_MAX) {
-    return RATE_LIMITED;
-  } else {
-    entry.count++;
+    return null;
   }
+  if (entry.count >= RATE_LIMIT_MAX) return RATE_LIMITED;
+  entry.count++;
+  return null;
+}
 
+function dailyQuotaMemory() {
+  const now = Date.now();
   if (now > dailyResetTime) {
     dailyCount = 0;
     dailyResetTime = now + 86_400_000;
@@ -61,14 +64,28 @@ async function increment(key, ttlSeconds) {
   return count;
 }
 
-async function checkRedis(ip) {
-  const iso = new Date().toISOString();
-  // Per-IP first, so rejected requests don't use daily quota.
-  const perMinute = await increment(`askai:ip:${ip}:${iso.slice(0, 16)}`, 60);
-  if (perMinute > RATE_LIMIT_MAX) return RATE_LIMITED;
-  const today = await increment(`askai:daily:${iso.slice(0, 10)}`, 2 * 86_400);
-  if (today > DAILY_MAX) return DAILY_LIMITED;
-  return null;
+async function rateLimitRedis(ip) {
+  const minute = new Date().toISOString().slice(0, 16);
+  const count = await increment(`askai:ip:${ip}:${minute}`, 60);
+  return count > RATE_LIMIT_MAX ? RATE_LIMITED : null;
+}
+
+async function dailyQuotaRedis() {
+  const day = new Date().toISOString().slice(0, 10);
+  const count = await increment(`askai:daily:${day}`, 2 * 86_400);
+  return count > DAILY_MAX ? DAILY_LIMITED : null;
+}
+
+async function withFallback(shared, memory) {
+  if (redis && Date.now() >= redisDownUntil) {
+    try {
+      return await shared();
+    } catch (err) {
+      redisDownUntil = Date.now() + REDIS_COOLDOWN_MS;
+      console.warn(`Shared rate limit unavailable (${err.message}); using in-memory limits for 60s`);
+    }
+  }
+  return memory();
 }
 
 function clientIp(req) {
@@ -76,18 +93,18 @@ function clientIp(req) {
   return (forwarded ? String(forwarded).split(',')[0].trim() : req.socket && req.socket.remoteAddress) || 'unknown';
 }
 
-// Returns null if the request may proceed, else { status, error }.
-async function checkLimits(req) {
+// Per-IP rate limit; call on every request. Returns null if the request may
+// proceed, else { status, error }.
+function checkRateLimit(req) {
   const ip = clientIp(req);
-  if (redis && Date.now() >= redisDownUntil) {
-    try {
-      return await checkRedis(ip);
-    } catch (err) {
-      redisDownUntil = Date.now() + REDIS_COOLDOWN_MS;
-      console.warn(`Shared rate limit unavailable (${err.message}); using in-memory limits for 60s`);
-    }
-  }
-  return checkMemory(ip);
+  return withFallback(() => rateLimitRedis(ip), () => rateLimitMemory(ip));
 }
 
-module.exports = { checkLimits };
+// Global daily cap on Gemini calls; call only once a request is valid and about
+// to reach Gemini, so bad requests can't use up everyone's quota.
+// Returns null if the request may proceed, else { status, error }.
+function takeDailyQuota() {
+  return withFallback(dailyQuotaRedis, dailyQuotaMemory);
+}
+
+module.exports = { checkRateLimit, takeDailyQuota };
