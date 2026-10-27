@@ -32,7 +32,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization)
 }
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 
     androidLibrary {
 
@@ -40,7 +40,7 @@ kotlin {
         
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
+            jvmTarget.set(JvmTarget.JVM_21)
         }
     }
 
