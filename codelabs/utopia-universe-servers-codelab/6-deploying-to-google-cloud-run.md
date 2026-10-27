@@ -43,7 +43,7 @@ This page covers Cloud Run because that's the managed, URL-in-one-command path.
 - A Google Cloud project with **billing enabled** and the **Cloud Run** and **Artifact Registry** APIs
   enabled.
 - The **Google Cloud SDK** (`gcloud`) installed and authenticated (`gcloud auth login`).
-- **Podman or Docker** and **Java 17+** locally, to build the image (as in
+- **Podman or Docker** and **Java 21+** locally, to build the image (as in
   [Run the Bundle](./2-run-the-bundle.md)).
 
 ```bash

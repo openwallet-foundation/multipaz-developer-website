@@ -54,7 +54,7 @@ Already have Docker? You can skip Podman entirely — the Gradle build falls bac
 ## Verify your toolchain
 
 ```shell
-java -version       # should report 17 or higher
+java -version       # should report 21 or higher
 podman --version    # or: docker --version
 ```
 

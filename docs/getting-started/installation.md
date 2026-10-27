@@ -124,24 +124,24 @@ kotlin {
 }
 ```
 
-* Update the project to use Java 17 / JVM 17:
+* Update the project to use Java 21 / JVM 21:
 
 ```kotlin
 // composeApp/build.gradle.kts
 kotlin {
-   jvmToolchain(17)
+   jvmToolchain(21)
 
    androidTarget {
       @OptIn(ExperimentalKotlinGradlePluginApi::class)
       compilerOptions {
-         jvmTarget.set(JvmTarget.JVM_17)
+         jvmTarget.set(JvmTarget.JVM_21)
       }
    }
 
    android {
       compileOptions {
-         sourceCompatibility = JavaVersion.VERSION_17
-         targetCompatibility = JavaVersion.VERSION_17
+         sourceCompatibility = JavaVersion.VERSION_21
+         targetCompatibility = JavaVersion.VERSION_21
       }
    }
 }
@@ -154,14 +154,14 @@ plugins {
     alias(libs.plugins.composeCompiler)
 }
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 
     androidLibrary {
         androidResources.enable = true // to enable Res
 
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_17)
+            jvmTarget.set(JvmTarget.JVM_21)
         }
     }
 

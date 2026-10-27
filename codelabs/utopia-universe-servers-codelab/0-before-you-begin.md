@@ -48,7 +48,7 @@ flowchart LR;
 
 ## What you'll need
 
-- **Java 17+** (to build the bundle).
+- **Java 21+** (to build the bundle).
 - **Podman** (recommended) or **Docker** (to run it). Installation is covered in the next step.
 - A **Multipaz wallet** on a phone or emulator to obtain and present credentials. If you don't have
   one, the [Utopia Wholesale codelab](../utopia-wholesale-codelab/index.md) walks you through
