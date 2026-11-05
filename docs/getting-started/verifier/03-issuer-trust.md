@@ -16,7 +16,7 @@ authorization to the transaction ID, amount, currency, and payee—not merely to
 ## Reserve and bind the transaction
 
 <ThemedIframe
-  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/proximity/VerificationProximityTransferScreen.kt#L277-L328"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/proximity/VerificationProximityTransferScreen.kt#L277-L328"
 />
 
 Here, the following operations are performed:

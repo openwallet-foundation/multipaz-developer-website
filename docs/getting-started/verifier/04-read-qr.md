@@ -11,7 +11,7 @@ and starts the reader exchange.
 ## Model the reader lifecycle
 
 <ThemedIframe
-  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/proximity/ProximityReaderModel.kt#L76-L152"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/proximity/ProximityReaderModel.kt#L76-L152"
 />
 
 - `ProximityReaderModel` keeps the engagement, request, and result in a small state machine so the UI cannot start a transfer before it has both an endpoint and a request.
@@ -20,7 +20,7 @@ and starts the reader exchange.
 ## Send the request and receive the response
 
 <ThemedIframe
-  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/proximity/ProximityReaderFlow.kt#L15-L62"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/proximity/ProximityReaderFlow.kt#L15-L62"
 />
 
 The above code block: 

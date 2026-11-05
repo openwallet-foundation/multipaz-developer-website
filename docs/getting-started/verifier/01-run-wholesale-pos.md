@@ -2,7 +2,7 @@
 title: ▶️ Run the Wholesale POS Demo
 ---
 
-The [Multipaz Wholesale POS](https://github.com/openwallet-foundation/multipaz-samples/tree/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS) is the complete implementation behind this guide.
+The [Multipaz Wholesale POS](https://github.com/openwallet-foundation/multipaz-samples/tree/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS) is the complete implementation behind this guide.
 
 :::warning Demo, not a production deployment
 The sample uses development configuration, including local HTTP and a development attestation
@@ -105,4 +105,4 @@ only its enrolled issuer root, so a DPC issued under another root will be declin
 </div>
 
 For Utopia startup, Docker deployment, DPC issuance, configuration values, and troubleshooting, use
-the [POS README](https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/README.md).
+the [POS README](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/README.md).
