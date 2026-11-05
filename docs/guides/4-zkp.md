@@ -267,7 +267,7 @@ private suspend fun doDcRequestFlow(
         zkSystemSpecs = if (useZkp) zkSystemRepository.getAllZkSystemSpecs() else emptyList()
     )
 
-    // ... send via DigitalCredentials.getDefault().request(...), decrypt and dispatch
+    // ... send via getDigitalCredentials().request(...), decrypt and dispatch
     //     the response exactly as in the Native Verification guide
 }
 ```

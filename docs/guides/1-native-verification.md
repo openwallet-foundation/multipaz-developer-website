@@ -60,8 +60,13 @@ kotlin {
             implementation(libs.multipaz)
             implementation(libs.multipaz.compose)
             implementation(libs.multipaz.doctypes)
-            implementation(libs.multipaz.dcapi)
             implementation(compose.components.resources)
+       }
+       androidMain.dependencies {
+            implementation(libs.multipaz.dcapi.credman)
+       }
+       iosMain.dependencies {
+            implementation(libs.multipaz.dcapi.ios)
        }
    }
 }
@@ -87,29 +92,51 @@ Refer to **[this composeApp build.gradle.kts code](https://github.com/openwallet
 
 ## **2. Dependencies**
 
-The native credentials verification feature requires the Multipaz DC API library. Please make sure to add these to `libs.versions.toml` if not already present:
+The native credentials verification feature requires the platform-specific Multipaz DC API libraries. Please make sure to add these to `libs.versions.toml` if not already present:
 
 `gradle/libs.versions.toml`
 ```toml
-[versions]
-multipaz = "0.99.0" # latest version of Multipaz
-
 [libraries]
-multipaz-dcapi = { group = "org.multipaz", name = "multipaz-dcapi", version.ref = "multipaz" }
+multipaz-dcapi-credman = { group = "org.multipaz", name = "multipaz-dcapi-credman", version.ref = "multipaz" }
+multipaz-dcapi-ios = { group = "org.multipaz", name = "multipaz-dcapi-ios", version.ref = "multipaz" }
 ```
 
 Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/gradle/libs.versions.toml#L45)** for the complete example.
 
-* Add the dependency to the `:core` module's `build.gradle.kts` file:
+* Add the dependencies to the `composeApp` module's `build.gradle.kts` file:
+
+```kotlin
+// composeApp/build.gradle.kts
+kotlin {
+   sourceSets {
+       androidMain.dependencies {
+           // ... other dependencies
+          implementation(libs.multipaz.dcapi.credman)
+       }
+       iosMain.dependencies {
+           // ... other dependencies
+          implementation(libs.multipaz.dcapi.ios)
+       }
+   }
+}
+```
+
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/composeApp/build.gradle.kts#L44)** for the complete example.
+
+* Add the dependencies to the `core` module's `build.gradle.kts` file:
 
 ```kotlin
 // core/build.gradle.kts
 kotlin {
    sourceSets {
-       commonMain.dependencies {
-           // ... other dependencies 
-          implementation(libs.multipaz.dcapi)
-       }
+        androidMain.dependencies {
+            // ... other dependencies
+            implementation(libs.multipaz.dcapi.credman)
+        }
+        iosMain.dependencies {
+            // ... other dependencies
+            implementation(libs.multipaz.dcapi.ios)
+        }
    }
 }
 ```
@@ -185,7 +212,7 @@ private suspend fun doDcRequestFlow(
 
     // Step 6: Send request via W3C DC API and measure response time
     val t0 = Clock.System.now()
-    val dcResponseObject = DigitalCredentials.getDefault().request(dcRequestObject)
+    val dcResponseObject = getDigitalCredentials().request(dcRequestObject)
 
     // Step 7: Decrypt and parse response
     val dcResponse = VerificationUtil.decryptDcResponse(
@@ -405,10 +432,18 @@ The `getAppToAppOrigin()` function provides a unique identifier for the app as r
 
 On Android, the app origin combines the package name with the SHA-256 fingerprint of the app's signing certificate. This prevents package name spoofing - multiple apps can't share the same package + cert combination. This function can be implemented in the `Platform.kt` file in the `core` module (we are also adding another helper function here for convenience).
 
+Also add a `getDigitalCredentials()` expect/actual function which resolves the platform-appropriate Digital Credentials implementation:
+
 ```kotlin
 // core/src/commonMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+
 expect suspend fun getAppToAppOrigin(): String
+
+expect suspend fun getDigitalCredentials(): DigitalCredentials
+
 expect fun isAndroid(): Boolean
+
 expect val httpClientEngineFactory: HttpClientEngineFactory<*>
 ```
 
@@ -418,6 +453,9 @@ See the [**`commonMain/Platform.kt`**](https://github.com/openwallet-foundation/
 
 ```kotlin
 // core/src/androidMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+import org.multipaz.digitalcredentials.DigitalCredentialsCredman
+
 actual suspend fun getAppToAppOrigin(): String {
     val packageInfo = applicationContext.packageManager
         .getPackageInfo(applicationContext.packageName, PackageManager.GET_SIGNATURES)
@@ -427,6 +465,10 @@ actual suspend fun getAppToAppOrigin(): String {
         throw IllegalStateException("No signatures found for package ${applicationContext.packageName}")
     }
     return getAppOrigin(signatures[0].toByteArray())
+}
+
+actual suspend fun getDigitalCredentials(): DigitalCredentials {
+    return DigitalCredentialsCredman.create()
 }
 
 actual fun isAndroid(): Boolean = true
@@ -442,8 +484,15 @@ See the [**`androidMain/Platform.kt`**](https://github.com/openwallet-foundation
 
 ```kotlin
 // core/src/iosMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+import org.multipaz.digitalcredentials.DigitalCredentialsIos
+
 actual suspend fun getAppToAppOrigin(): String {
     return NSBundle.mainBundle.bundleIdentifier ?: "unknown.bundle.id"
+}
+
+actual suspend fun getDigitalCredentials(): DigitalCredentials {
+    return DigitalCredentialsIos.create()
 }
 
 actual fun isAndroid(): Boolean = false

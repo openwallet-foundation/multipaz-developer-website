@@ -476,14 +476,15 @@ Refer to **[this Android Manifest code](https://github.com/openwallet-foundation
 
 ### **NFC Engagement Service**
 
-The service registered in the manifest is a `CombinedNfcService`, which routes incoming APDUs to the appropriate `NfcApduService` based on the selected application. Register your `NdefService` against the NDEF application ID so it handles engagement requests.
+The service registered in the manifest is an `NfcApduRouter`, which routes incoming APDUs to the appropriate `NfcApduService` based on the selected application. Register `NdefService` against the NDEF application ID so it handles engagement requests, and `MdocNfcDataTransferService` against the ISO mdoc NFC data transfer application ID so mdoc data can also be transferred directly over NFC.
 
 ```kotlin
 // composeApp/../kotlin/GetStartedNfcService.kt
-class GetStartedNfcService : CombinedNfcService() {
+class GetStartedNfcService : NfcApduRouter() {
     override fun buildServices(): Map<ByteString, NfcApduService> {
         return mapOf(
-            Nfc.NDEF_APPLICATION_ID to NdefService(this, ::sendResponseApdu),
+            Nfc.NDEF_APPLICATION_ID to NdefService(),
+            Nfc.ISO_MDOC_NFC_DATA_TRANSFER_APPLICATION_ID to MdocNfcDataTransferService()
         )
     }
 }
@@ -491,19 +492,13 @@ class GetStartedNfcService : CombinedNfcService() {
 
 Refer to **[this GetStartedNfcService code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/androidMain/kotlin/org/multipaz/getstarted/GetStartedNfcService.kt#L8-L14)** for the complete example.
 
-To facilitate NFC engagement, extend `MdocNdefService` and configure the handover and transport preferences. The service receives the application `Context` and a `sendResponse` callback from the `CombinedNfcService` that hosts it. In this example, negotiated handover is enabled, with BLE selected as the preferred transport after initial NFC engagement.
+To facilitate NFC engagement, extend `MdocNdefService` and configure the handover and transport preferences. In this example, negotiated handover is enabled, with BLE selected as the preferred transport after initial NFC engagement.
 
 * With this setup, the NFC connection is used to negotiate the preferred transport. Since BLE is selected here, the actual credential data is transferred over BLE after initial NFC engagement.
 
 ```kotlin
 // composeApp/../kotlin/NdefService.kt
-class NdefService(
-    applicationContext: Context,
-    sendResponse: (ByteArray) -> Unit
-) : MdocNdefService(
-    applicationContext,
-    sendResponse
-) {
+class NdefService : MdocNdefService() {
     override suspend fun getSettings(): Settings {
         val container = AppContainer.getInstance()
         container.init()
@@ -517,7 +512,6 @@ class NdefService(
             source = container.presentmentSource,
             promptModel = PresentmentActivity.promptModel,
             presentmentModel = PresentmentActivity.presentmentModel,
-            activityClass = PresentmentActivity::class.java,
             transportOptions = MdocTransportOptions(bleUseL2CAP = true),
             sessionEncryptionCurve = EcCurve.P256,
             useNegotiatedHandover = true,

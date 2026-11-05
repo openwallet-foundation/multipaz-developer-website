@@ -45,26 +45,51 @@ The W3C DC API integration allows your app to interact with web-based verifiers 
 
 ### **1. Prerequisites**
 
-This guide builds on top of the completed [Getting Started](/docs/getting-started) app. Make sure you have followed the full Getting Started guide first. The Multipaz DC API library (`multipaz-dcapi`) is required for this feature.
+This guide builds on top of the completed [Getting Started](/docs/getting-started) app. Make sure you have followed the full Getting Started guide first. Support for the W3C Digital Credentials API is provided by platform-specific Multipaz DC API libraries — `multipaz-dcapi-credman` on Android and `multipaz-dcapi-ios` on iOS.
 
 `gradle/libs.versions.toml`
 ```toml
 [libraries]
-multipaz-dcapi = { group = "org.multipaz", name = "multipaz-dcapi", version.ref = "multipaz" }
+multipaz-dcapi-credman = { group = "org.multipaz", name = "multipaz-dcapi-credman", version.ref = "multipaz" }
+multipaz-dcapi-ios = { group = "org.multipaz", name = "multipaz-dcapi-ios", version.ref = "multipaz" }
 ```
 
 Refer to **[this libs.versions.toml code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/gradle/libs.versions.toml#L45)** for the complete example.
 
-* Add the dependency to the `:core` module's `build.gradle.kts` file:
+* Add the dependencies to the `composeApp` module's `build.gradle.kts` file:
+
+```kotlin
+// composeApp/build.gradle.kts
+kotlin {
+   sourceSets {
+       androidMain.dependencies {
+           // ... other dependencies
+          implementation(libs.multipaz.dcapi.credman)
+       }
+       iosMain.dependencies {
+           // ... other dependencies
+          implementation(libs.multipaz.dcapi.ios)
+       }
+   }
+}
+```
+
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/composeApp/build.gradle.kts#L44)** for the complete example.
+
+* Add the dependencies to the `core` module's `build.gradle.kts` file:
 
 ```kotlin
 // core/build.gradle.kts
 kotlin {
    sourceSets {
-       commonMain.dependencies {
-           // ... other dependencies 
-          implementation(libs.multipaz.dcapi)
-       }
+        androidMain.dependencies {
+            // ... other dependencies
+            implementation(libs.multipaz.dcapi.credman)
+        }
+        iosMain.dependencies {
+            // ... other dependencies
+            implementation(libs.multipaz.dcapi.ios)
+        }
    }
 }
 ```
@@ -154,6 +179,35 @@ Refer to [**the full `privilegedUserAgents.json` file**](https://github.com/open
 
 Modify your app's initialization to register credentials if Digital Credentials are available, and re-register when the document store changes.
 
+First, add a `getDigitalCredentials()` expect/actual function to the `Platform.kt` file in the `core` module, which resolves the platform-appropriate Digital Credentials implementation:
+
+```kotlin
+// core/src/commonMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+
+expect suspend fun getDigitalCredentials(): DigitalCredentials
+```
+
+```kotlin
+// core/src/androidMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+import org.multipaz.digitalcredentials.DigitalCredentialsCredman
+
+actual suspend fun getDigitalCredentials(): DigitalCredentials {
+    return DigitalCredentialsCredman.create()
+}
+```
+
+```kotlin
+// core/src/iosMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+import org.multipaz.digitalcredentials.DigitalCredentialsIos
+
+actual suspend fun getDigitalCredentials(): DigitalCredentials {
+    return DigitalCredentialsIos.create()
+}
+```
+
 In the modularized sample, digital credentials registration is handled inside `AppContainerImpl` in the `core` module:
 
 ```kotlin
@@ -165,7 +219,7 @@ class AppContainerImpl : AppContainer {
 
         // ... other initialization
 
-        val digitalCredentials = DigitalCredentials.getDefault()
+        val digitalCredentials = getDigitalCredentials()
         if (digitalCredentials.registerAvailable) {
             try {
                 digitalCredentials.register(
