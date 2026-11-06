@@ -29,6 +29,14 @@ function HomepageHeader() {
             Get Started
           </Link>
         </div>
+        <Link to="/docs/agentic/skills" className={styles.agenticBanner}>
+          <span className={styles.agenticBadge}>New</span>
+          <span className={styles.agenticText}>
+            <strong>Multipaz Skill:</strong> give your AI coding agent built-in
+            Multipaz expertise.
+          </span>
+          <span className={styles.agenticArrow} aria-hidden="true">→</span>
+        </Link>
       </div>
     </header>
   );

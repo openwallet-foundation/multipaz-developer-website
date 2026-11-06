@@ -93,6 +93,7 @@ const sidebars = {
         id: "agentic/agentic",
       },
       items: [
+        "agentic/skills",
         "agentic/credentagent",
         "agentic/human-present",
       ],
