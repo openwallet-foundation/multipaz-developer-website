@@ -41,6 +41,14 @@ payment is just one application* — age, membership, and payment are all just
 credentials in the same typed policy. It ships as two npm packages (a host-agnostic
 **Gate** and a ready-made **Storefront**) and runs across Claude, ChatGPT, and Goose.
 
+## Multipaz skill for coding agents
+
+Building an agentic app with Multipaz? Install the **Multipaz skill** so your AI
+coding agent understands the SDK instead of guessing at APIs. It covers ISO
+mdoc, OpenID4VCI, OpenID4VP, DCQL, wallet presentment, and platform boundaries,
+and resolves APIs against the current KDoc and your project. See
+[Agentic Skills](/docs/agentic/skills) to install it with `vercel-labs/skills`.
+
 ## Interaction models
 
 How a person participates in the flow defines the interaction model:

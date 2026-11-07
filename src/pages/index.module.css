@@ -21,3 +21,56 @@
   align-items: center;
   justify-content: center;
 }
+
+.agenticBanner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 640px;
+  margin-top: 1.5rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: left;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.agenticBanner:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-decoration: none;
+}
+
+.agenticBadge {
+  flex-shrink: 0;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: #e5484d;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.agenticText {
+  min-width: 0;
+}
+
+.agenticArrow {
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 480px) {
+  .agenticBanner {
+    align-items: flex-start;
+    font-size: 0.8rem;
+  }
+}
