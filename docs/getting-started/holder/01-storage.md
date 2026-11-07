@@ -54,7 +54,7 @@ interface AppContainer {
 }
 ```
 
-Refer to **[this AppContainer code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainer.kt#L17-L20)** for the complete example.
+Refer to **[this AppContainer code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainer.kt#L17-L20)** for the complete example.
 
 * Now, override them in the implementation class
 
@@ -114,4 +114,4 @@ object CredentialDomains {
 }
 ```
 
-Refer to **[this storage code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L67-L71)** for the complete example.
+Refer to **[this storage code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/AppContainerImpl.kt#L66-L70)** for the complete example.

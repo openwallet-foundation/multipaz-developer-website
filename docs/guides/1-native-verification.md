@@ -60,14 +60,19 @@ kotlin {
             implementation(libs.multipaz)
             implementation(libs.multipaz.compose)
             implementation(libs.multipaz.doctypes)
-            implementation(libs.multipaz.dcapi)
             implementation(compose.components.resources)
+       }
+       androidMain.dependencies {
+            implementation(libs.multipaz.dcapi.credman)
+       }
+       iosMain.dependencies {
+            implementation(libs.multipaz.dcapi.ios)
        }
    }
 }
 ```
 
-Refer to **[this verification build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/build.gradle.kts)** for the complete example.
+Refer to **[this verification build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/build.gradle.kts)** for the complete example.
 
 Also add the dependency in `composeApp/build.gradle.kts`:
 
@@ -83,38 +88,60 @@ kotlin {
 }
 ```
 
-Refer to **[this composeApp build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/build.gradle.kts#L48)** for the complete example.
+Refer to **[this composeApp build.gradle.kts code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/composeApp/build.gradle.kts#L50)** for the complete example.
 
 ## **2. Dependencies**
 
-The native credentials verification feature requires the Multipaz DC API library. Please make sure to add these to `libs.versions.toml` if not already present:
+The native credentials verification feature requires the platform-specific Multipaz DC API libraries. Please make sure to add these to `libs.versions.toml` if not already present:
 
 `gradle/libs.versions.toml`
 ```toml
-[versions]
-multipaz = "0.99.0" # latest version of Multipaz
-
 [libraries]
-multipaz-dcapi = { group = "org.multipaz", name = "multipaz-dcapi", version.ref = "multipaz" }
+multipaz-dcapi-credman = { group = "org.multipaz", name = "multipaz-dcapi-credman", version.ref = "multipaz" }
+multipaz-dcapi-ios = { group = "org.multipaz", name = "multipaz-dcapi-ios", version.ref = "multipaz" }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/gradle/libs.versions.toml#L45)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/gradle/libs.versions.toml#L45-L46)** for the complete example.
 
-* Add the dependency to the `:core` module's `build.gradle.kts` file:
+* Add the dependencies to the `composeApp` module's `build.gradle.kts` file:
 
 ```kotlin
-// core/build.gradle.kts
+// composeApp/build.gradle.kts
 kotlin {
    sourceSets {
-       commonMain.dependencies {
-           // ... other dependencies 
-          implementation(libs.multipaz.dcapi)
+       androidMain.dependencies {
+           // ... other dependencies
+          implementation(libs.multipaz.dcapi.credman)
+       }
+       iosMain.dependencies {
+           // ... other dependencies
+          implementation(libs.multipaz.dcapi.ios)
        }
    }
 }
 ```
 
-Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/build.gradle.kts#L37)** for the complete example.
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/composeApp/build.gradle.kts#L44)** for the complete example.
+
+* Add the dependencies to the `core` module's `build.gradle.kts` file:
+
+```kotlin
+// core/build.gradle.kts
+kotlin {
+   sourceSets {
+        androidMain.dependencies {
+            // ... other dependencies
+            implementation(libs.multipaz.dcapi.credman)
+        }
+        iosMain.dependencies {
+            // ... other dependencies
+            implementation(libs.multipaz.dcapi.ios)
+        }
+   }
+}
+```
+
+Refer to **[this code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/core/build.gradle.kts#L30)** for the complete example.
 
 ## **3. Implement Core W3C DC Request Flow**
 
@@ -185,7 +212,7 @@ private suspend fun doDcRequestFlow(
 
     // Step 6: Send request via W3C DC API and measure response time
     val t0 = Clock.System.now()
-    val dcResponseObject = DigitalCredentials.getDefault().request(dcRequestObject)
+    val dcResponseObject = getDigitalCredentials().request(dcRequestObject)
 
     // Step 7: Decrypt and parse response
     val dcResponse = VerificationUtil.decryptDcResponse(
@@ -250,7 +277,7 @@ private suspend fun doDcRequestFlow(
 * **Step 8**: Creates metadata for tracking request/response sizes and timing
 * **Step 9**: Handles the response based on format (mDoc API or OpenID4VP)
 
-See the **[DC Request Flow Function Code](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L266-L375)** for the complete implementation.
+See the **[DC Request Flow Function Code](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L266-L375)** for the complete implementation.
 
 ## **4. Define Constants and Model Classes**
 
@@ -269,7 +296,7 @@ class W3CDCConstants {
 }
 ```
 
-**Note:** Copy the entire **[`verification/W3CDCConstants.kt` file](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCConstants.kt)** to reference all constants used by this feature.
+**Note:** Copy the entire **[`verification/W3CDCConstants.kt` file](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCConstants.kt)** to reference all constants used by this feature.
 
 ### Model Classes
 
@@ -376,7 +403,7 @@ fun buildShowResponseDestination(
 - **`ShowResponseMetadata.toDataItem()`:** Converts a `ShowResponseMetadata` instance into a CBOR map (`DataItem`).
 - **`buildShowResponseDestination(...)`:** Constructs a fully-formed `ShowResponseDestination` instance, encoding all inputs into the formats required by the W3C DC Native Flow.
 
-You can refer to the **[`verification/W3CDCModels.kt` File](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCModels.kt)** for the complete implementation.
+You can refer to the **[`verification/W3CDCModels.kt` File](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCModels.kt)** for the complete implementation.
 
 ### Document Value Sealed Class
 
@@ -396,7 +423,7 @@ sealed class DocumentValue {
 }
 ```
 
-You can refer to the **[`verification/DocumentValue.kt` File](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/DocumentValue.kt)** for the complete implementation.
+You can refer to the **[`verification/DocumentValue.kt` File](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/DocumentValue.kt)** for the complete implementation.
 
 
 ## **5. Implement `getAppToAppOrigin()` Function**
@@ -405,19 +432,30 @@ The `getAppToAppOrigin()` function provides a unique identifier for the app as r
 
 On Android, the app origin combines the package name with the SHA-256 fingerprint of the app's signing certificate. This prevents package name spoofing - multiple apps can't share the same package + cert combination. This function can be implemented in the `Platform.kt` file in the `core` module (we are also adding another helper function here for convenience).
 
+Also add a `getDigitalCredentials()` expect/actual function which resolves the platform-appropriate Digital Credentials implementation:
+
 ```kotlin
 // core/src/commonMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+
 expect suspend fun getAppToAppOrigin(): String
+
+expect suspend fun getDigitalCredentials(): DigitalCredentials
+
 expect fun isAndroid(): Boolean
+
 expect val httpClientEngineFactory: HttpClientEngineFactory<*>
 ```
 
-See the [**`commonMain/Platform.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/Platform.kt) file for the complete implementation.
+See the [**`commonMain/Platform.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/core/src/commonMain/kotlin/org/multipaz/getstarted/core/Platform.kt) file for the complete implementation.
 
 #### Android Implementation
 
 ```kotlin
 // core/src/androidMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+import org.multipaz.digitalcredentials.DigitalCredentialsCredman
+
 actual suspend fun getAppToAppOrigin(): String {
     val packageInfo = applicationContext.packageManager
         .getPackageInfo(applicationContext.packageName, PackageManager.GET_SIGNATURES)
@@ -429,6 +467,10 @@ actual suspend fun getAppToAppOrigin(): String {
     return getAppOrigin(signatures[0].toByteArray())
 }
 
+actual suspend fun getDigitalCredentials(): DigitalCredentials {
+    return DigitalCredentialsCredman.create()
+}
+
 actual fun isAndroid(): Boolean = true
 
 actual val httpClientEngineFactory: HttpClientEngineFactory<*> by lazy {
@@ -436,14 +478,21 @@ actual val httpClientEngineFactory: HttpClientEngineFactory<*> by lazy {
 }
 ```
 
-See the [**`androidMain/Platform.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/androidMain/kotlin/org/multipaz/getstarted/core/Platform.kt) file for the complete implementation.
+See the [**`androidMain/Platform.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/core/src/androidMain/kotlin/org/multipaz/getstarted/core/Platform.kt) file for the complete implementation.
 
 #### iOS Implementation
 
 ```kotlin
 // core/src/iosMain/kotlin/.../core/Platform.kt
+import org.multipaz.digitalcredentials.DigitalCredentials
+import org.multipaz.digitalcredentials.DigitalCredentialsIos
+
 actual suspend fun getAppToAppOrigin(): String {
     return NSBundle.mainBundle.bundleIdentifier ?: "unknown.bundle.id"
+}
+
+actual suspend fun getDigitalCredentials(): DigitalCredentials {
+    return DigitalCredentialsIos.create()
 }
 
 actual fun isAndroid(): Boolean = false
@@ -457,7 +506,7 @@ actual val httpClientEngineFactory: HttpClientEngineFactory<*> by lazy {
 iOS support for `getAppToAppOrigin()` is not yet available but will be coming soon. This implementation is currently Android-only.
 :::
 
-See the [**`iosMain/Platform.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/core/src/iosMain/kotlin/org/multipaz/getstarted/core/Platform.kt) file for the complete implementation.
+See the [**`iosMain/Platform.kt`**](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/core/src/iosMain/kotlin/org/multipaz/getstarted/core/Platform.kt) file for the complete implementation.
 
 **How it works:**
 
@@ -579,7 +628,7 @@ and the resulting changes to render the new document type's claims
 (namespaces, data elements, and any images).
 :::
 
-You can refer to this [**`W3CDCCredentialsRequestButton` Composable Code**](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L74-L161) for the complete implementation.
+You can refer to this [**`W3CDCCredentialsRequestButton` Composable Code**](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L74-L161) for the complete implementation.
 
 ## **7. Set Up Reader Certificates**
 
@@ -661,10 +710,10 @@ private suspend fun loadBundledReaderRootKey(): EcPrivateKey {
 
 **Note:** Certificate files mentioned above can be downloaded from the following links. They should be placed inside `feature/verification/src/commonMain/composeResources/files`:
 
-* [**reader_root_key_public.pem**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/composeResources/files/reader_root_key_public.pem)
-* [**reader_root_key_private.pem**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/composeResources/files/reader_root_key_private.pem)
+* [**reader_root_key_public.pem**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/composeResources/files/reader_root_key_public.pem)
+* [**reader_root_key_private.pem**](https://raw.githubusercontent.com/openwallet-foundation/multipaz-samples/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/composeResources/files/reader_root_key_private.pem)
 
-You can refer to this [**Reader Root Initialization Code**](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L208-L264) for the complete implementation.
+You can refer to this [**Reader Root Initialization Code**](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L208-L264) for the complete implementation.
 
 ### **Initialize Reader Certificate and Key**
 
@@ -727,7 +776,7 @@ private suspend fun readerInit(
 }
 ```
 
-You can refer to this [**Reader Initialization Code**](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L164-L205) for the complete implementation.
+You can refer to this [**Reader Initialization Code**](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/W3CDCCredentialsRequestButton.kt#L164-L205) for the complete implementation.
 
 **What does this do?**
 
@@ -812,7 +861,7 @@ private fun PresentmentSection(
 }
 ```
 
-Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L225-L307)** for the full implementation
+Refer to **[this code from `HomeScreen.kt`](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/HomeScreen.kt#L225-L307)** for the full implementation
 
 ### Wire in the implementation in `App.kt` class
 
@@ -854,7 +903,7 @@ class App {
 }
 ```
 
-Refer to the [**updates to the Navigation code**](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L183-L195) for the complete example.
+Refer to the [**updates to the Navigation code**](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/composeApp/src/commonMain/kotlin/org/multipaz/getstarted/App.kt#L183-L195) for the complete example.
 
 ### Add the Response Display Screen
 
@@ -945,7 +994,7 @@ fun ShowResponseScreen(
 * **Type Safety**: Uses sealed classes to handle loading, success, and error states
 * **Error Handling**: Gracefully handles verification failures
 
-**Note:** You would want to copy-paste [**the ShowResponseScreen.kt** file](https://github.com/openwallet-foundation/multipaz-samples/blob/4dfbd40d4455db062c84288b336fa9b71b7486c8/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/ShowResponseScreen.kt) for the complete implementation.
+**Note:** You would want to copy-paste [**the ShowResponseScreen.kt** file](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazGettingStartedSample/feature/verification/src/commonMain/kotlin/org/multipaz/getstarted/verification/ShowResponseScreen.kt) for the complete implementation.
 
 #### **Demo Screenshots**
 

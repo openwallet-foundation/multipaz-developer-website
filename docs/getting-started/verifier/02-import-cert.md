@@ -26,11 +26,11 @@ establishes the authenticated app-to-backend connection. The backend validates t
 before it exposes the payment RPC interface.
 
 <ThemedIframe
-  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/payment/RpcPaymentSettler.kt#L22-L42"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/payment/RpcPaymentSettler.kt#L22-L42"
 />
 
 - Here we open an attested RPC session and retains the generated payment client only when registration succeeds. Put the backend URL and merchant account in configuration, rather than hard-coding them throughout UI code.
-- The configruration is kept in the [default-configuration.json](https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/terminalBackend/src/main/resources/resources/default_configuration.json) file
+- The configruration is kept in the [default-configuration.json](https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/terminalBackend/src/main/resources/resources/default_configuration.json) file
 
 ## Keep the payment key out of the app
 
@@ -38,7 +38,7 @@ The backend forwards approved calls to the records server, signing as the paymen
 is where the money-moving key belongs.
 
 <ThemedIframe
-  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/terminalBackend/src/main/kotlin/org/multipaz/pos/terminal/TerminalPaymentProcessor.kt#L23-L62"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/terminalBackend/src/main/kotlin/org/multipaz/pos/terminal/TerminalPaymentProcessor.kt#L23-L62"
 />
 
 - It accepts only calls authorized by the terminal backend, then forwards them to the records server using the backend's `PAYMENT_PROCESSOR` identity. The POS client never receives that identity's private key.

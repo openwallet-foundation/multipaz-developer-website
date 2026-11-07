@@ -16,7 +16,7 @@ The POS converts a successful reader outcome into a presentment record. A missin
 non-zero status becomes an error path instead.
 
 <ThemedIframe
-  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/proximity/VerificationProximityTransferScreen.kt#L331-L366"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/proximity/VerificationProximityTransferScreen.kt#L331-L366"
 />
 
 ## Treat settlement as the decision point
@@ -26,7 +26,7 @@ after the backend returns a transaction ID; transfer, cancellation, and settleme
 a declined sale with a reason the cashier can act on.
 
 <ThemedIframe
-  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/App.kt#L95-L134"
+  githubUrl="https://github.com/openwallet-foundation/multipaz-samples/blob/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS/shared/src/commonMain/kotlin/org/multipaz/pos/App.kt#L95-L134"
 />
 
 - This code block commits the record, creates an approved receipt state only from the server's transaction ID, and maps cancellation, transfer, and server errors to a declined state.

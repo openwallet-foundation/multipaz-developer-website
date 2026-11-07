@@ -7,7 +7,7 @@ import DocCardList from '@theme/DocCardList'
 ## **🕵️ Verifier**
 
 Learn how to build a verifier from the merchant's point of view. This guide follows the
-[Multipaz Wholesale POS](https://github.com/openwallet-foundation/multipaz-samples/tree/b68116fb8b8f6b3f0dc41b6a80efa2a9e4a5d8a5/MultipazWholesalePOS)
+[Multipaz Wholesale POS](https://github.com/openwallet-foundation/multipaz-samples/tree/37fda1b0342ac96afd4420c271556e8d248e37bf/MultipazWholesalePOS)
 reference app.
 
 Multipaz Wholesale POS is a point-of-sale terminal that accepts payments from a customer's Digital Payment Credential (DPC) presented over ISO 18013-5 proximity (NFC tap or QR + BLE), using Multipaz. It reads the customer's DPC, has the customer's device cryptographically authorize the exact amount (SCA payment transaction_data), and settles the payment on a ledger — moving funds from the customer's account to the merchant's account on a Multipaz records server (the "System of Record", or SoR). The POS app itself holds no signing key: it proves it is a genuine terminal build via device attestation to a small terminal backend, which holds the payment key.
