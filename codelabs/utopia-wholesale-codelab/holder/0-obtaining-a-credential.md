@@ -65,10 +65,11 @@ configuration for handling deep links and URL schemes during the credential prov
 
 #### **Step 1: Configure AndroidManifest.xml**
 
-First, set your project's `android:launchMode="singleInstance"` in `AndroidManifest.xml` to prevent
+The code-starter already sets `android:launchMode="singleInstance"` in `AndroidManifest.xml` to prevent
 unnecessary recompositions, which may otherwise break the issuance process.
 
-The Android app uses intent filters to handle deep links. Configure three types of URL schemes:
+The code-starter also includes the intent filters below for the supported URL scheme types. They are
+shown for reference; you do not need to add them:
 
 **1. Custom URI Scheme (Default - Enabled)**
 
@@ -155,28 +156,11 @@ fun handleUrl(url: String) {
 
 ### **iOS Setup**
 
-#### **Step 1: Configure Info.plist**
+#### **Step 1: Confirm the Info.plist URL schemes**
 
-The iOS app requires URL scheme configuration in `Info.plist` to handle deep links and custom URL schemes. `Info.plist` (Information Property List) is a configuration file that contains metadata about your iOS app, including supported URL schemes, app permissions, and other settings.
+`Info.plist` (Information Property List) contains metadata about your iOS app, including its supported URL schemes. The code-starter already declares the required schemes under `CFBundleURLTypes`.
 
-**Configuring URL Types in Xcode:**
-
-You can configure URL schemes directly in Xcode using the Info tab:
-
-1. Open your iOS app target in Xcode
-2. Select the **Info** tab in the project settings
-3. Expand the **URL Types** section
-4. Click the **+** button to add a new URL Type
-5. Configure each URL scheme with:
-   - **Identifier**: A reverse DNS identifier (e.g., `org.multipaz.samples.wallet`)
-   - **URL Schemes**: The custom scheme name (e.g., `wholesale-test-app`)
-   - **Role**: Typically set to "Viewer" for custom schemes
-
-![Xcode Info.plist URL Types Configuration](/img/info_plist.png)
-
-**Manual Configuration (Alternative):**
-
-If you prefer to edit the XML directly, add the following to your `Info.plist` file:
+The relevant entries are shown below for reference. The starter also includes `openid4vp` and `haip-vp` entries for URI-scheme presentment.
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -219,9 +203,9 @@ If you prefer to edit the XML directly, add the following to your `Info.plist` f
 </array>
 ```
 
-#### **Step 2: Configure ContentView.swift**
+#### **Step 2: Confirm the ContentView.swift URL handling**
 
-In `ContentView.swift`, add the `.onOpenURL` modifier to handle incoming URLs:
+The code-starter attaches `.onOpenURL` in `iosApp/iosApp/ContentView.swift`. It routes URI-scheme presentment requests through `ProcessIosUriSchemeRequest` and forwards all other URLs to `HandleUrl` for provisioning and app links. No action is required here.
 
 ```swift
 struct ContentView: View {
@@ -229,7 +213,25 @@ struct ContentView: View {
         ComposeView()
             .ignoresSafeArea()
             .onOpenURL(perform: { url in
-                MainViewControllerKt.HandleUrl(url: url.absoluteString)
+                let absoluteUrl = url.absoluteString
+                if MainViewControllerKt.IsIosUriSchemePresentmentUrl(url: absoluteUrl) {
+                    Task {
+                        do {
+                            let redirectUri = try await MainViewControllerKt.ProcessIosUriSchemeRequest(
+                                requestUrl: absoluteUrl
+                            )
+                            if let redirectUrl = URL(string: redirectUri) {
+                                await MainActor.run {
+                                    UIApplication.shared.open(redirectUrl)
+                                }
+                            }
+                        } catch {
+                            print("Error processing OpenID4VP URI scheme request: \(error)")
+                        }
+                    }
+                } else {
+                    MainViewControllerKt.HandleUrl(url: absoluteUrl)
+                }
             })
     }
 }
@@ -327,7 +329,7 @@ androidApp/src/main/
 │       ├── MainActivity.kt              # Main activity
 │       ├── CredmanActivity.kt           # Credential manager
 │       ├── NdefService.kt               # NDEF engagement service
-│       ├── UtopiaNfcService.kt          # Combined NFC service (registers NdefService)
+│       ├── UtopiaNfcService.kt          # NFC APDU router (NDEF + ISO mdoc transfer)
 │       └── UtopiaSampleApplication.kt   # Application class
 ├── res/                                 # Android resources
 │   ├── drawable/                        # Drawables
@@ -365,6 +367,8 @@ In `ProvisioningSupport.kt`:
 
 **processAppLinkInvocation**:
 
+Replace the TODO with:
+
 ```kotlin
 // TODO: process app link invocation
 
@@ -376,6 +380,8 @@ lock.withLock {
 In `OpenID4VCILocalBackend.kt`:
 
 **createJwtClientAssertion**:
+
+Replace both the TODO comment and the `TODO()` call with:
 
 ```kotlin
 // TODO: create and assign JWT client assertion string
@@ -409,22 +415,37 @@ fun handleUrl(
     // TODO: Implement URL handling and validation
     Logger.i(TAG, "handleUrl called with: $url")
     Logger.i(TAG, "handleUrl provisioningModel state: ${provisioningModel.state.value}")
-    
-    if (url.startsWith(OID4VCI_CREDENTIAL_OFFER_URL_SCHEME)
-        || url.startsWith(HAIP_URL_SCHEME)
+
+    if (url.startsWith(OID4VCI_CREDENTIAL_OFFER_URL_SCHEME) ||
+        url.startsWith(HAIP_URL_SCHEME)
     ) {
-        // Process credential offers
         val queryIndex = url.indexOf('?')
         if (queryIndex >= 0) {
+            Logger.i(TAG, "Starting OpenID4VCI provisioning with: $url")
+            Logger.i(
+                TAG,
+                "OID4VCI_CREDENTIAL_OFFER_URL_SCHEME provisioningModel: $provisioningModel",
+            )
+            Logger.i(TAG, "handleUrl: Sending credential offer to channel...")
             CoroutineScope(Dispatchers.Default).launch {
+                Logger.i(TAG, "handleUrl: About to send to credentialOffers channel")
                 credentialOffers.send(url)
+                Logger.i(TAG, "handleUrl: Successfully sent to credentialOffers channel")
             }
+            Logger.i(
+                TAG,
+                "handleUrl: Credential offer sent to channel, LaunchedEffect should process it",
+            )
         }
     } else if (url.startsWith(ProvisioningSupport.APP_LINK_BASE_URL)) {
-        // Process OAuth callbacks
+        Logger.i(TAG, "APP_LINK_BASE_URL provisioningModel: $provisioningModel")
+        Logger.i(TAG, "Processing app link invocation: $url")
+
         CoroutineScope(Dispatchers.Default).launch {
             try {
+                Logger.i(TAG, "handleUrl: About to process app link invocation")
                 provisioningSupport.processAppLinkInvocation(url)
+                Logger.i(TAG, "handleUrl: App link invocation processed successfully")
             } catch (e: Exception) {
                 Logger.e(TAG, "Error processing app link: ${e.message}", e)
             }
@@ -444,7 +465,7 @@ fun handleUrl(url: String) {
         url = url,
         credentialOffers = credentialOffers,
         provisioningModel = provisioningModel,
-        provisioningSupport = provisioningSupport
+        provisioningSupport = provisioningSupport,
     )
 }
 ```
@@ -454,19 +475,26 @@ fun handleUrl(url: String) {
 ```kotlin
 //TODO: implement HandleUrl for iOS
 fun HandleUrl(url: String) {
-    // Retrieve dependencies from Koin
-    val credentialOffers = globalCredentialOffers ?: return
-    val koinHelper = object : KoinComponent { }
-    val provisioningModel = koinHelper.get<ProvisioningModel>()
-    val provisioningSupport = koinHelper.get<ProvisioningSupport>()
-    
-    // Call common handler
-    org.multipaz.samples.wallet.cmp.util.handleUrl(
-        url = url,
-        credentialOffers = credentialOffers,
-        provisioningModel = provisioningModel,
-        provisioningSupport = provisioningSupport
-    )
+    val credentialOffers = globalCredentialOffers
+    if (credentialOffers == null) {
+        Logger.w(TAG, "HandleUrl: credentialOffers channel not yet initialized, URL will be ignored: $url")
+        return
+    }
+
+    try {
+        val koinHelper = object : KoinComponent { }
+        val provisioningModel = koinHelper.get<ProvisioningModel>()
+        val provisioningSupport = koinHelper.get<ProvisioningSupport>()
+
+        org.multipaz.samples.wallet.cmp.util.handleUrl(
+            url = url,
+            credentialOffers = credentialOffers,
+            provisioningModel = provisioningModel,
+            provisioningSupport = provisioningSupport,
+        )
+    } catch (e: Exception) {
+        Logger.e(TAG, "Error in HandleUrl: ${e.message}", e)
+    }
 }
 ```
 
@@ -546,7 +574,7 @@ After credentials are issued, the app needs to properly register them with the W
 In `UtopiaSampleApp.kt`, add the following `LaunchedEffect` blocks to refresh credential registration at key moments:
 
 ```kotlin
-// TODO: implement DC registration refreshing 
+// TODO: implement DC registration refreshing
 
 LaunchedEffect(Unit) {
     registrationManager.refresh("app start")
@@ -565,6 +593,8 @@ LaunchedEffect(provisioningModel) {
 - **Refresh on app start**: `LaunchedEffect(Unit)` runs once when the app starts
 - **Refresh when credentials are issued**: Monitor `provisioningModel.state` and refresh when state becomes `CredentialsIssued`
 - **Refresh when returning from provisioning**: Call `refresh()` before navigating back to main screen using `popBackStack()` instead of `navigate()` to properly manage the back stack (already implemented)
+
+The `refresh()` method delegates the actual registration to `DigitalCredentialsRegistrationManager`. See [W3C DC API Implementation](../advanced-features/w3c-dc-api-implementation) for the registration call and the platform-specific `DigitalCredentials` setup.
 
 ### **Step 6 (Optional): APP_LINK_SERVER Configuration and OAuth Callback Handling**
 

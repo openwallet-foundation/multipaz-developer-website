@@ -90,9 +90,9 @@ single<TrustManager> {
 
 **Key points:**
 
-* The `TrustManager` is created using `TrustManagerLocal` with the `Storage` instance injected via Koin's `get()`.
+* The `TrustManager` is created with the `Storage` instance injected via Koin's `get()`.
 * The helper function `addCertificateIfNotExists` handles certificate loading and error handling, preventing duplicate certificate errors.
-* All three certificates are added during the Koin module initialization.
+* All required certificates are added during the Koin module initialization.
 * The `TrustManager` instance is then available for injection throughout your app.
 
 
@@ -155,6 +155,7 @@ The `DigitalCredentialsRegistrationManager` is a centralized class that handles 
 
 * **Thread-safe**: Uses a `Mutex` to prevent concurrent registration attempts
 * **Conditional execution**: Only runs on Android (checked via `shouldRegisterDigitalCredentialsInCommonModule()`)
+* **Platform-specific implementation**: Obtains the appropriate `DigitalCredentials` instance through `getDigitalCredentials()`, which uses Credman on Android and the iOS DC API on iOS
 * **Error handling**: Catches and logs registration failures without crashing
 
 #### **1.2 Configure Components in Koin**
@@ -179,6 +180,7 @@ single<PresentmentSource> {
     val requireAuthentication = settingsModel.presentmentRequireAuthentication.value
     val documentStore: DocumentStore = get()
     val documentTypeRepository: DocumentTypeRepository = get()
+    val readerTrustManager: TrustManager = get()
 
     // Keep an initial eager refresh here so existing startup behavior is preserved.
     if (shouldRegisterDigitalCredentialsInCommonModule()) {
@@ -186,14 +188,48 @@ single<PresentmentSource> {
     }
 
     SimplePresentmentSource(
-        documentStore = get(),
-        documentTypeRepository = get(),
-        preferSignatureToKeyAgreement = true,
-        // Match domains used when storing credentials via OpenID4VCI
-        domainsMdocSignature = listOf(TestAppUtils.CREDENTIAL_DOMAIN_MDOC_USER_AUTH),
-        domainsMdocKeyAgreement = listOf(TestAppUtils.CREDENTIAL_DOMAIN_MDOC_MAC_USER_AUTH),
+        documentStore = documentStore,
+        documentTypeRepository = documentTypeRepository,
+        showConsentPromptFn =
+            if (settingsModel.presentmentShowConsentPrompt.value) {
+                ::promptModelRequestConsent
+            } else {
+                ::promptModelSilentConsent
+            },
+        resolveTrustFn = { requester ->
+            requester.requesterIdentities.firstNotNullOfOrNull { requesterIdentity ->
+                val trustResult =
+                    readerTrustManager.verify(requesterIdentity.certChain.certificates)
+                if (trustResult.isTrusted) {
+                    TrustedRequesterIdentity(
+                        requesterIdentity,
+                        trustResult.trustPoints.first().metadata,
+                    )
+                } else {
+                    null
+                }
+            }
+        },
+        preferSignatureToKeyAgreement = settingsModel.presentmentPreferSignatureToKeyAgreement.value,
+        domainsMdocSignature =
+            if (requireAuthentication) {
+                listOf(TestAppUtils.CREDENTIAL_DOMAIN_MDOC_USER_AUTH)
+            } else {
+                listOf(TestAppUtils.CREDENTIAL_DOMAIN_MDOC_NO_USER_AUTH)
+            },
+        domainsMdocKeyAgreement =
+            if (requireAuthentication) {
+                listOf(TestAppUtils.CREDENTIAL_DOMAIN_MDOC_MAC_USER_AUTH)
+            } else {
+                listOf(TestAppUtils.CREDENTIAL_DOMAIN_MDOC_MAC_NO_USER_AUTH)
+            },
         domainsKeylessSdJwt = listOf(TestAppUtils.CREDENTIAL_DOMAIN_SDJWT_KEYLESS),
-        domainsKeyBoundSdJwt = listOf(TestAppUtils.CREDENTIAL_DOMAIN_SDJWT_USER_AUTH),
+        domainsKeyBoundSdJwt =
+            if (requireAuthentication) {
+                listOf(TestAppUtils.CREDENTIAL_DOMAIN_SDJWT_USER_AUTH)
+            } else {
+                listOf(TestAppUtils.CREDENTIAL_DOMAIN_SDJWT_NO_USER_AUTH)
+            },
     )
 }
 ```
@@ -206,8 +242,11 @@ single<PresentmentSource> {
 * `SimplePresentmentSource` is created with all required dependencies injected via Koin's `get()` function:
   * `documentStore` - For accessing stored credentials
   * `documentTypeRepository` - For managing document types
-* `preferSignatureToKeyAgreement = true` prioritizes signature-based authentication over key agreement.
-* Domain configurations match those used during credential storage via OpenID4VCI to ensure proper credential binding:
+  * `readerTrustManager` - For verifying the certificates presented by the requester
+* `showConsentPromptFn` selects the consent prompt implementation based on the user's presentation setting.
+* `resolveTrustFn` checks the requester's certificate chain against the configured reader certificates and returns the trusted identity when verification succeeds.
+* `preferSignatureToKeyAgreement` is read from the app settings and selects signature-based authentication when enabled.
+* Domain configurations match those used during credential storage via OpenID4VCI to ensure proper credential binding. They are selected according to `presentmentRequireAuthentication`:
   * `domainsMdocSignature` - List of domains for mDoc signature-based credentials
   * `domainsMdocKeyAgreement` - List of domains for mDoc MAC/key agreement credentials
   * `domainsKeylessSdJwt` - List of domains for keyless SD-JWT credentials
@@ -340,45 +379,37 @@ In this section, you'll learn how to enable **NFC credential sharing** in your U
 These components live in the **`androidApp` module** (`androidApp/src/main/`):
 
 * `NdefService` – Implements the NDEF engagement settings (`MdocNdefService`).
-* `UtopiaNfcService` – A `CombinedNfcService` that the system binds to and that registers `NdefService` for the NDEF application.
+* `UtopiaNfcService` – An `NfcApduRouter` that the system binds to and that routes NDEF engagement and ISO mdoc NFC data transfer requests.
 * `AndroidManifest.xml` – Declares the NFC capabilities and configures the app’s NFC role.
 
-This activity wakes the device if necessary and securely presents credentials when the phone is tapped against a verifier.
+The starter already contains `NdefService.kt` and `UtopiaNfcService.kt`. This service wakes the device if necessary and securely presents credentials when the phone is tapped against a verifier. The snippets below explain how they work.
 
-#### 1. Define `NdefService.kt` (Engagement Settings)
+#### 1. Understand `NdefService.kt` (Engagement Settings)
 
-`NdefService` extends `MdocNdefService` (base class for implementing NFC engagement according to ISO/IEC 18013-5:2021).
+`NdefService` extends `MdocNdefService` (base class for implementing NFC engagement according to ISO/IEC 18013-5:2021). The NFC mdoc services are provided by the `multipaz` module in the `org.multipaz.mdoc.nfc` package.
 
-`MdocNdefService` receives the application context and a `sendResponse` callback through its constructor, so `NdefService` forwards both to the superclass. Because the instance is created by `UtopiaNfcService` (rather than instantiated by the Android framework as a bare `Service`), the Koin dependencies are resolved with `KoinJavaComponent.inject` instead of the Android component `inject` extension.
+`MdocNdefService` resolves the application context itself, and the `NfcApduRouter` that hosts it takes care of routing commands and delivering responses. Because the instance is created by `UtopiaNfcService` (rather than instantiated by the Android framework as a bare `Service`), the Koin dependencies are resolved with `KoinJavaComponent.inject` instead of the Android component `inject` extension.
 
 In this service, you load the user's NFC-related settings via `AppSettingsModel` and configure the engagement behavior:
 
 _`androidApp/src/main/.../NdefService.kt`_
 
 ```kotlin
-import android.content.Context
 import org.koin.java.KoinJavaComponent.inject
-import org.multipaz.compose.mdoc.MdocNdefService
 import org.multipaz.compose.prompt.PresentmentActivity
+import org.multipaz.mdoc.nfc.MdocNdefService
 import org.multipaz.mdoc.transport.MdocTransportOptions
 import org.multipaz.presentment.PresentmentSource
 import org.multipaz.samples.wallet.cmp.util.AppSettingsModel
 
-class NdefService(
-    applicationContext: Context,
-    sendResponse: (ByteArray) -> Unit,
-) : MdocNdefService(
-    applicationContext,
-    sendResponse,
-) {
+class NdefService : MdocNdefService() {
     private val presentmentSource: PresentmentSource by inject(PresentmentSource::class.java)
     private val settingsModel: AppSettingsModel by inject(AppSettingsModel::class.java)
 
     override suspend fun getSettings(): Settings {
         // Reset the presentment model with the source's document store and repository
         PresentmentActivity.presentmentModel.reset(
-            documentStore = presentmentSource.documentStore,
-            documentTypeRepository = presentmentSource.documentTypeRepository,
+            source = presentmentSource,
             preselectedDocuments = emptyList(),
         )
 
@@ -386,7 +417,6 @@ class NdefService(
             source = presentmentSource,
             promptModel = PresentmentActivity.promptModel,
             presentmentModel = PresentmentActivity.presentmentModel,
-            activityClass = PresentmentActivity::class.java,
             sessionEncryptionCurve = settingsModel.presentmentSessionEncryptionCurve.value,
             useNegotiatedHandover = settingsModel.presentmentUseNegotiatedHandover.value,
             negotiatedHandoverPreferredOrder = settingsModel.presentmentNegotiatedHandoverPreferredOrder.value,
@@ -406,9 +436,9 @@ class NdefService(
 
 `negotiatedHandoverPreferredOrder` is set to select BLE. In this case, NFC establishes the initial connection. No credential data is transferred at this stage. The NFC connection is used to negotiate which transport method to use. Since BLE is selected, a BLE connection is established, and credentials are shared over BLE.
 
-#### 2. Register `NdefService` via `UtopiaNfcService`
+#### 2. How `NdefService` is registered via `UtopiaNfcService`
 
-The service that Android binds to for host card emulation is a `CombinedNfcService`. It routes incoming APDUs to the right handler based on the selected AID. Here you register a single handler, `NdefService`, for the NDEF application, passing the service instance and its `sendResponseApdu` callback into the `NdefService` constructor:
+The service that Android binds to for host card emulation is an `NfcApduRouter`. It routes incoming APDUs to the right handler based on the selected AID. Register `NdefService` for the NDEF application and `MdocNfcDataTransferService` for the ISO mdoc NFC data transfer application. The router creates each service and delivers the responses:
 
 _`androidApp/src/main/.../UtopiaNfcService.kt`_
 
@@ -416,14 +446,16 @@ _`androidApp/src/main/.../UtopiaNfcService.kt`_
 package org.multipaz.samples.wallet.cmp
 
 import kotlinx.io.bytestring.ByteString
-import org.multipaz.compose.mdoc.CombinedNfcService
-import org.multipaz.compose.mdoc.NfcApduService
+import org.multipaz.mdoc.nfc.MdocNfcDataTransferService
 import org.multipaz.nfc.Nfc
+import org.multipaz.nfc.NfcApduRouter
+import org.multipaz.nfc.NfcApduService
 
-class UtopiaNfcService : CombinedNfcService() {
+class UtopiaNfcService : NfcApduRouter() {
     override fun buildServices(): Map<ByteString, NfcApduService> {
         return mapOf(
-            Nfc.NDEF_APPLICATION_ID to NdefService(this, ::sendResponseApdu),
+            Nfc.NDEF_APPLICATION_ID to NdefService(),
+            Nfc.ISO_MDOC_NFC_DATA_TRANSFER_APPLICATION_ID to MdocNfcDataTransferService(),
         )
     }
 }
