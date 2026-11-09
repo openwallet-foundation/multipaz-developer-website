@@ -24,12 +24,12 @@ We'll guide you through configuring these components in your Koin dependency inj
 
 ### **Step 1: Configure `Storage` in Koin**
 
-In your Koin module (`MultipazModule.kt`), define the `Storage` instance. This ensures that the data is not backed up (we do not want our database to be backed-up as it is useless without private keys in the secure area, which are not and cannot be backed-up). This function ensures the database file is excluded from Android's backup system:
+In your Koin module (`MultipazModule.kt`), define the `Storage` instance. This ensures that the data is not backed up (we do not want our database to be backed-up as it is useless without private keys in the secure area, which are not and cannot be backed-up). The `createWalletStorage()` helper selects the platform implementation: Android uses a storage location excluded from backup, while iOS stores the database in the shared App Group container configured during setup:
 
 ```kotlin
 //TODO: define Storage in Koin module
-single<Storage> { 
-    Platform.nonBackedUpStorage 
+single<Storage> {
+    createWalletStorage()
 }
 ```
 

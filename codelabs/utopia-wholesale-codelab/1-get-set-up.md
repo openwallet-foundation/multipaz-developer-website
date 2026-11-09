@@ -67,7 +67,7 @@ See the [starter configuration template](https://github.com/openwallet-foundatio
 
 ### 3. Use the configured App Group for iOS storage
 
-Update `composeApp/src/iosMain/kotlin/org/multipaz/samples/wallet/cmp/util/PlatformStorage.ios.kt` so storage reads the `AppGroupID` value supplied by the local Xcode configuration. Add the `NSBundle` import, remove the hard-coded `IOS_APP_GROUP_IDENTIFIER`, and use the following implementation:
+Update `composeApp/src/iosMain/kotlin/org/multipaz/samples/wallet/cmp/util/PlatformStorage.ios.kt` so storage reads the `AppGroupID` value supplied by the local Xcode configuration. Keep the existing `NSBundle` import, remove the hard-coded `IOS_APP_GROUP_IDENTIFIER`, and use the following implementation:
 
 ```kotlin
 import platform.Foundation.NSBundle

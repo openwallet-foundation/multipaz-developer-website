@@ -36,6 +36,7 @@ First, ensure your project has the necessary Android manifest configuration for 
 * CredmanActivity.kt - Core W3C DC API implementation  
 * privilegedUserAgents.json - Trusted browser/app allowlist  
 * AndroidManifest.xml - Intent filter configuration
+* PlatformDigitalCredentials.kt - Resolves the platform-specific Digital Credentials implementation
 
 #### **1.2 Understand the CredmanActivity Class**
 
@@ -43,38 +44,27 @@ First, ensure your project has the necessary Android manifest configuration for 
 
 ```kotlin
 class CredmanActivity : CredentialManagerPresentmentActivity() {
-
-    private val promptModel: PromptModel by inject()
-    private val documentTypeRepository: DocumentTypeRepository by inject()
     private val presentmentSource: PresentmentSource by inject()
 
     override suspend fun getSettings(): Settings {
         return Settings(
-            appName = APP_NAME,                           // Display name for the wallet
-            appIcon = appIcon,                            // Icon shown in credential requests
-            promptModel = promptModel,                    // User interaction handling
-            applicationTheme = @Composable { content -> MaterialTheme { content() } },
-            documentTypeRepository = documentTypeRepository,  // Supported credential types
-            presentmentSource = presentmentSource,            // Credential source
-            imageLoader = ImageLoader.Builder(applicationContext)
-                .components { /* network loader omitted */ }
-                .build(),
-            privilegedAllowList = Res.readBytes("files/privilegedUserAgents.json")
-                .decodeToString()
+            source = presentmentSource,
+            privilegedAllowList = Res.readBytes("files/privilegedUserAgents.json").decodeToString(),
         )
     }
 }
 ```
 
-`CredmanActivity` extends `CredentialManagerPresentmentActivity` from the Multipaz library, which provides the core W3C DC API functionality.  
+`CredmanActivity` extends `CredentialManagerPresentmentActivity` from `multipaz-dcapi-credman`. The base class receives the Android Credential Manager request, resolves the caller and its origin, asks the `PresentmentSource` which documents match the request, runs the consent and selection UI, and returns the response. The subclass supplies only the app-specific settings:
+
+* `source`: the `PresentmentSource` from Koin, which provides the document store, document types, trust decisions, and consent behavior.
+* `privilegedAllowList`: the JSON allowlist used to resolve the caller's web origin. The activity reads it from `privilegedUserAgents.json`.  
 
 ### **Step 2: Understanding Android Manifest Configuration**
 
 #### **2.1 Intent Filter Setup**
 
-In AndroidManifest.xml:
-
-//TODO: add CredmanActivity in AndroidManifest
+The starter already registers `CredmanActivity` in `AndroidManifest.xml`:
 
 ```xml
 <activity
@@ -92,11 +82,16 @@ In AndroidManifest.xml:
 </activity>
 ```
 
-**What this does**:
+**What each attribute does**:
 
-1. **Exports the Activity**: Makes it available to other apps and the system  
-2. **Handles Credential Requests**: Responds to GET_CREDENTIAL and GET_CREDENTIALS actions  
-3. **System Integration**: Allows Android to route W3C DC API requests to your wallet
+* `android:exported="true"` — allows the system and browser to launch the activity from outside the app.
+* `GET_CREDENTIAL` and `GET_CREDENTIALS` — the Credential Manager actions the activity responds to. `GET_CREDENTIAL` is used by the Android Credential Manager registry; `GET_CREDENTIALS` is used by Identity Credentials.
+* `android:configChanges` — prevents the activity from being recreated while a request is in progress when the device rotates or changes configuration.
+* `android:theme="@android:style/Theme.Translucent"` — renders the consent UI as a translucent overlay over the browser instead of a full-screen opaque activity.
+* `android:launchMode="singleInstance"` — prevents multiple instances of the activity from handling the same request.
+* `android:excludeFromRecents="true"` — keeps this short-lived provider activity out of the recents list.
+
+Without this entry, the system has no component to launch, so DC API requests never reach the wallet.
 
 ### **Step 3: Understanding Privileged User Agents**
 
@@ -139,25 +134,54 @@ The allowlist includes:
 * **Edge variants**: com.microsoft.emmx, com.microsoft.emmx.beta, com.microsoft.emmx.dev  
 * **Other browsers**: Brave, Vivaldi, Yandex, DuckDuckGo, Samsung Internet  
 * **System apps**: Google Play Services, Android Browser
-`
+
 ### **Step 4: Understanding W3C DC API Integration**
 
-#### **4.1 DigitalCredentials.Default Integration**
+Digital Credentials API support is provided by platform-specific Multipaz modules: `multipaz-dcapi-credman` on Android and `multipaz-dcapi-ios` on iOS. Shared code obtains the correct `DigitalCredentials` implementation through a small expect/actual function, and each platform creates its own instance.
 
-The core W3C DC API integration happens in your App.kt initialization:
+Steps 4.1 and 4.2 describe wiring that is already present in the starter. Only Step 4.3 contains a TODO.
 
-#### **4.1 W3C DC API Presentation Flow**
+#### **4.1 Platform DC API dependencies**
 
-1. **Web Verifier Request**: A web application requests credentials using W3C DC API  
-2. **Android System Routing**: Android routes the request to your CredmanActivity  
-3. **Credential Discovery**: The system discovers available credentials through the registered document store  
-4. **User Authorization**: User sees a prompt to authorize credential sharing  
-5. **Credential Selection**: User chooses which credentials to share  
-6. **Secure Presentation**: Credentials are securely presented to the verifier via W3C DC API
+The starter already declares the two platform artifacts and adds them where they are needed:
 
-#### **4.2 Integration with Document Store and Registration Manager**
+| File | What is already configured |
+| --- | --- |
+| `gradle/libs.versions.toml` | `multipaz-dcapi-credman` and `multipaz-dcapi-ios` aliases |
+| `androidApp/build.gradle.kts` | `implementation(libs.multipaz.dcapi.credman)` because `CredmanActivity` lives in `androidApp` |
+| `composeApp/build.gradle.kts` | `androidMain` uses `multipaz-dcapi-credman`; `iosMain` uses `multipaz-dcapi-ios` |
 
-The W3C DC API integration leverages your existing credential infrastructure with proper registration refresh to fix verification glitches.
+Both platforms implement the shared `DigitalCredentials` interface from `commonMain`, but the implementations are different:
+
+* **Android** registers credentials through the Android Credential Manager provider. `CredmanActivity` handles presentment requests.
+* **iOS** registers credentials through the Identity Document provider extension. Presentment is handled by the system, not by an Android-style activity.
+
+Keeping the platform artifacts in the matching source sets lets shared code depend on `DigitalCredentials` without depending on Android- or iOS-only classes.
+
+#### **4.2 Resolve the platform implementation**
+
+The starter already contains the resolver in `PlatformDigitalCredentials.kt`:
+
+```kotlin
+expect fun shouldRegisterDigitalCredentialsInCommonModule(): Boolean
+
+expect suspend fun getDigitalCredentials(): DigitalCredentials
+```
+
+The Android actual returns `true` and creates a `DigitalCredentialsCredman`; the iOS actual returns `false` and creates a `DigitalCredentialsIos`.
+
+`getDigitalCredentials()` keeps platform construction out of shared code. `shouldRegisterDigitalCredentialsInCommonModule()` gates the shared registration path:
+
+* On Android it returns `true`, so `DigitalCredentialsRegistrationManager.refresh()` runs the shared registration code.
+* On iOS it returns `false`, because the iOS Identity Document provider extension owns registration. The shared refresh must not run there.
+
+The starter already has the `expect` declaration and both `actual` implementations. You do not need to add them.
+
+#### **4.3 Register documents with Digital Credentials**
+
+`DigitalCredentialsRegistrationManager.refresh()` obtains the platform implementation with `getDigitalCredentials()` and checks `registerAvailable`. Replace the TODO inside its `try` block with the registration call:
+
+_`composeApp/src/commonMain/.../util/DigitalCredentialsRegistrationManager.kt`_
 
 ```kotlin
 // TODO: Register DC API with documents from document store
@@ -168,16 +192,29 @@ digitalCredentials.register(
 )
 ```
 
-**What this does:** Registers all documents in documentStore with the W3C Digital Credentials API provider for the platform.
+`register()` publishes every document in `documentStore` and removes registrations for documents that are no longer present. `documentTypeRepository` supplies the credential metadata, and `selectedProtocols` must be a subset of the provider's `supportedProtocols`. By default, the call is skipped when nothing changed.
 
-For credentials to be available via W3C DC API, they must be registered with the Android system. This is handled by the `DigitalCredentialsRegistrationManager`.
+The surrounding `try`/`catch` already logs successful refreshes and registration failures.
+
+**What this does:** Registers all documents in `documentStore` with the platform's W3C Digital Credentials provider.
+
+For credentials to be available via the W3C DC API, they must be registered with the platform. This is handled by the `DigitalCredentialsRegistrationManager`.
 
 The registration manager ensures credentials are refreshed:
 * When the app starts
 * After credential issuance
 * When returning from the provisioning screen
 
-### **Step 6: Testing the Implementation**
+#### **4.4 W3C DC API Presentation Flow**
+
+1. **Web Verifier Request**: A web application requests credentials using W3C DC API
+2. **Android System Routing**: Android routes the request to your CredmanActivity
+3. **Credential Discovery**: The system discovers available credentials through the registered document store
+4. **User Authorization**: User sees a prompt to authorize credential sharing
+5. **Credential Selection**: User chooses which credentials to share
+6. **Secure Presentation**: Credentials are securely presented to the verifier via W3C DC API
+
+### **Step 5: Testing the Implementation**
 
 To test your W3C DC API implementation:
 
