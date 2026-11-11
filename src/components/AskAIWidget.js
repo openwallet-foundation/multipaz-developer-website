@@ -23,6 +23,30 @@ function CodeBlock({ className, children }) {
   return <code className={className}>{children}</code>;
 }
 
+// Keep in sync with the top-level folders under docs/ (they're all served
+// under /docs/ by the Docusaurus docs plugin).
+const DOC_SECTIONS = ['getting-started', 'guides', 'agentic'];
+
+// Normalise markdown link targets to real site URLs before rendering.
+// Applied at render time, so it also covers links streamed in before
+// the answer completes.
+function fixAskAiLinks(text) {
+  return text.replace(/\]\(([^()\s]+)([^)]*)\)/g, (match, href, rest) => {
+    if (/^(https?:|mailto:|#|\/\/|\.\.?\/*)/i.test(href)) return match;
+    let fixed = href
+      .replace(/\.mdx?(?=$|[?#])/, '') // drop the .md/.mdx extension, keep any anchor
+      .split('/')
+      .map((seg) => seg.replace(/^\d{1,3}-/, '')) // strip ordering prefixes (03-issuer-trust -> issuer-trust)
+      .join('/');
+    if (!fixed.startsWith('/')) fixed = `/${fixed}`; // "docs/..." -> "/docs/..."
+    // "/getting-started/..." etc. are served under /docs/.
+    if (new RegExp(`^\\/(${DOC_SECTIONS.join('|')})(\\/|$)`).test(fixed)) {
+      fixed = `/docs${fixed}`;
+    }
+    return `](${fixed}${rest})`;
+  });
+}
+
 function extractFollowUps(text) {
   const lines = text.trimEnd().split('\n');
   const questions = [];
@@ -319,7 +343,7 @@ function MessageBubble({ role, content, question, showFollowUps, onFollowUp, bas
     <div className={`${styles.message} ${role === 'user' ? styles.userMessage : styles.assistantMessage}`}>
       <div className={styles.messageContent}>
         {role === 'assistant' ? (
-          <Markdown components={markdownComponents}>{content}</Markdown>
+          <Markdown components={markdownComponents}>{fixAskAiLinks(content)}</Markdown>
         ) : content}
       </div>
       {role === 'assistant' && content && (
