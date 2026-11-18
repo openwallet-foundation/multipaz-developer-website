@@ -130,6 +130,69 @@ const config = {
 
   ],
 
+  // Structured data for AI agents and search engines: what Multipaz is,
+  // where the source lives, and who maintains it. headTags is a top-level
+  // Docusaurus option (not nested in themeConfig) applied to every page.
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareSourceCode',
+        name: 'Multipaz',
+        description:
+          'Multipaz is an open-source identity framework designed to handle secure, real-world credential issuance and verification. A Kotlin Multiplatform SDK for digital credentials supporting ISO mdoc/mDL (ISO/IEC 18013-5), ISO/IEC 18013-7 and the W3C Digital Credentials API, OpenID4VCI, OpenID4VP, and SD-JWT VC.',
+        url: 'https://developer.multipaz.org/',
+        codeRepository: 'https://github.com/openwallet-foundation/multipaz',
+        subjectOf: {
+          '@type': 'WebPage',
+          url: 'https://developer.multipaz.org/docs/getting-started',
+          name: 'Multipaz developer documentation',
+        },
+        programmingLanguage: 'Kotlin',
+        runtimePlatform: ['Android', 'iOS', 'JVM', 'Linux', 'Web'],
+        license: 'https://github.com/openwallet-foundation/multipaz/blob/main/LICENSE',
+        author: {
+          '@type': 'Organization',
+          name: 'OpenWallet Foundation',
+          url: 'https://openwallet.foundation/',
+        },
+      }),
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'OpenWallet Foundation',
+        alternateName: 'OWF',
+        url: 'https://openwallet.foundation/',
+        logo:
+          'https://openwallet.foundation/wp-content/uploads/sites/11/2023/02/OpenWallet_Logo_Color-with-descriptor.svg',
+        description:
+          'The OpenWallet Foundation (OWF) is a collaborative open-source project hosted by the Linux Foundation, focused on building open-source software for digital wallets and verifiable credentials.',
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'community support',
+          // schema.org expects `email` to be an email address, so the Discord
+          // channel (the actual support venue) is referenced via `url`.
+          url: 'https://discord.com/channels/1022962884864643214/1179828955717574707',
+          availableLanguage: ['English'],
+        },
+        sameAs: [
+          'https://github.com/openwallet-foundation',
+          'https://www.linkedin.com/company/open-wallet-foundation/',
+        ],
+      }),
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -137,6 +200,10 @@ const config = {
         {
           name: "algolia-site-verification",
           content: "004D866D9F7AD1BD",
+        },
+        {
+          property: "og:type",
+          content: "website",
         },
       ],
 
