@@ -156,6 +156,16 @@ jobs:
           echo "Build date: $(date +'%Y-%m-%d %H:%M:%S')" > src/build-info.json
           npm run build
 
+      - name: Generate llms-full.txt for AI agents
+        # Reuses the Ask AI docs-context generator: the output is a full-text
+        # dump of all site docs (with rendered site URLs) plus markdown files
+        # from the multipaz repo. Must run AFTER the Docusaurus build, since
+        # `docusaurus build` wipes the build/ directory.
+        run: |
+          cd docusaurus-repo
+          node api/build-docs-context.js
+          cp api/docs-context.txt build/llms-full.txt
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

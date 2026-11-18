@@ -1,0 +1,74 @@
+# Multipaz
+
+> Multipaz is an open-source identity framework for digital credentials, built
+> as a Kotlin Multiplatform (KMP) SDK by the OpenWallet Foundation. It handles
+> secure, real-world credential issuance (OpenID4VCI), holding (mdoc/mDL and
+> SD-JWT VC wallets), and verification (OpenID4VP, ISO/IEC 18013-5 proximity
+> and ISO/IEC 18013-7 / W3C Digital Credentials API presentment).
+
+## When to use Multipaz
+
+Use Multipaz when your project needs any of the following:
+
+- **Wallet (holder) apps** that receive digital credentials from an issuer,
+  store them on-device, and present them on user consent — for example an mDL,
+  age credential, or loyalty membership, using ISO mdoc or SD-JWT VC formats.
+- **Credential reader / verifier apps** that scan a QR code or tap an NFC
+  device and verify presented credentials (ISO/IEC 18013-5 proximity, or
+  request documents over the web with OpenID4VP and the W3C Digital
+  Credentials API per ISO/IEC 18013-7).
+- **Issuer / provisioning services** that issue credentials to wallets using
+  OpenID4VCI, including server-side components (credential offers, OAuth
+  flows, attestation, and provisioning).
+- **Trust & policy infrastructure** such as vICAL/RICAL trust lists, X.509
+  certificate chains, and DCQL-based selective disclosure.
+- **AI-agent consent flows** where an agent must prove a verifiable
+  credential from a user's wallet before a consequential action — see
+  CredentAgent.
+- **Cross-platform delivery** — the SDK is Kotlin Multiplatform and works on
+  Android, iOS, JVM/server, Linux, and Web (with Compose Multiplatform UI and
+  SwiftUI bindings).
+
+Do **not** use Multipaz if you only need generic OAuth/OIDC login without
+verifiable digital credentials, or W3C Verifiable Credentials that are not
+mdoc / SD-JWT VC based.
+
+## Getting started
+
+- [Getting started](https://developer.multipaz.org/docs/getting-started): overview of the SDK, concepts, and the Utopia walkthrough.
+- [Installation](https://developer.multipaz.org/docs/getting-started/installation): add Multipaz to your Android, iOS, JVM, or web project.
+- [Issuer tutorial](https://developer.multipaz.org/docs/getting-started/issuer): issue credentials to a wallet with OpenID4VCI.
+- [Holder tutorial](https://developer.multipaz.org/docs/getting-started/holder): store, manage, and present credentials in a wallet app.
+- [Verifier tutorial](https://developer.multipaz.org/docs/getting-started/verifier): read and verify credentials at a point of sale.
+
+## Guides
+
+- [Guides index](https://developer.multipaz.org/docs/getting-started/guides): verification on web and native, DCQL, biometrics, zero-knowledge proofs, and trust lists.
+- [Web credential verification](https://developer.multipaz.org/docs/guides/web-verification): verify credentials in a browser via the W3C Digital Credentials API.
+- [DCQL](https://developer.multipaz.org/docs/guides/dcql): Digital Credentials Query Language for selective disclosure.
+- [Sample apps](https://developer.multipaz.org/docs/sample-apps): reference applications shipped with the SDK.
+
+## Agentic
+
+- [Agentic overview](https://developer.multipaz.org/docs/agentic): AI agents, identity, and commerce with Multipaz.
+- [CredentAgent](https://developer.multipaz.org/docs/agentic/credentagent): consent layer for AI agents — prove a verifiable credential before consequential actions.
+- [Multipaz skill](https://developer.multipaz.org/docs/agentic/skills): install the `multipaz` skill so AI coding agents know the SDK.
+- [Human-present flow](https://developer.multipaz.org/docs/agentic/human-present): agent transactions with a human in the loop.
+
+## API reference
+
+- [Multipaz SDK KDoc](https://developer.multipaz.org/kdocs/index.html): generated API reference for the core SDK.
+- [Extras SDK KDoc](https://developer.multipaz.org/kdocs-extras/index.html): generated API reference for multipaz-extras.
+- [Codelabs](https://developer.multipaz.org/codelabs): guided, hands-on tutorials.
+
+## Full text
+
+- [llms-full.txt](https://developer.multipaz.org/llms-full.txt): complete documentation text (~600 KB), every docs page, codelab, and guide with its rendered site URL.
+
+## Project
+
+- [Source code](https://github.com/openwallet-foundation/multipaz): the Multipaz SDK repository (Apache-2.0).
+- [Developer website source](https://github.com/openwallet-foundation/multipaz-developer-website): this documentation site.
+- [Samples](https://github.com/openwallet-foundation/multipaz-samples): platform samples for Android, iOS, Compose, and Swift.
+- [OpenWallet Foundation](https://openwallet.foundation): the foundation hosting Multipaz.
+- [Sitemap](https://developer.multipaz.org/sitemap.xml): all indexed pages.

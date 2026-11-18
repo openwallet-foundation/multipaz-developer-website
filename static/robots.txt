@@ -1,0 +1,68 @@
+# robots.txt for https://developer.multipaz.org
+
+# Default rules for all crawlers: everything is allowed.
+User-agent: *
+Allow: /
+Disallow: /kdocs/*/packages/*/images/
+Disallow: /*.webm$
+
+# Explicitly welcome AI assistants and agent user agents.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# AI agents fetching documentation: start here.
+# llms.txt: https://developer.multipaz.org/llms.txt
+# Sitemap: https://developer.multipaz.org/sitemap.xml
+
+Sitemap: https://developer.multipaz.org/sitemap.xml
