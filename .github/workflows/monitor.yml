@@ -1,0 +1,200 @@
+name: Monitor workflows
+
+on:
+  schedule:
+    - cron: '17 * * * *'   # hourly poll (minute 17, avoids the :00/:30 rush)
+    - cron: '3 4 1 * *'    # monthly heartbeat, 1st of the month 04:03 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+env:
+  MENTION: "@VishnuSanal @hanluOMH @TheBlackBit"
+  ISSUE: 118
+  GH_TOKEN: ${{ github.token }}
+  GH_REPO: ${{ github.repository }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Heartbeat
+        if: github.event.schedule == '3 4 1 * *' || github.event_name == 'workflow_dispatch'
+        run: gh issue comment "$ISSUE" --body "💚 Workflow monitor is alive ($(date -u +%F))"
+
+      - name: Poll watched repos
+        run: |
+          set -euo pipefail
+
+          # Validate the config's shape, not just that it is JSON: a missing or
+          # empty label, steps given as a string, or a stray key would
+          # otherwise silently break (or misroute) that workflow's alerts.
+          jq -e 'type=="array" and all(.[];
+            (.repo|type)=="string" and (.repo|length)>0
+            and ((.mention//"")|type)=="string"
+            and ((keys - ["repo","mention","workflows"])|length)==0
+            and all(.workflows[];
+              (.file|type)=="string" and (.file|length)>0
+              and (.label|type)=="string" and (.label|length)>0
+              and ((.steps//[])|type)=="array"
+              and ((keys - ["file","label","steps"])|length)==0))' monitor.json >/dev/null \
+          || { echo "::error::monitor.json: each repo has a repo (and optional mention); each workflow needs a non-empty file and label, a steps array, and no other keys"; exit 1; }
+
+          # Alerting model: all non-PR runs on any branch count. One alert when a
+          # workflow goes from passing to failing, one when it recovers. State is
+          # read from hidden markers in bot-authored comments on the tracking issue
+          # (<!-- down:... --> / <!-- up:... -->), so do not delete those comments.
+
+          FAIL='["failure","timed_out","startup_failure"]'
+          T='`'
+          week=$(date -u +%G-%V)
+          errf=$(mktemp)
+          checked=0
+          errors=0
+
+          # State + dedupe come ONLY from comments authored by github-actions[bot]
+          # (paginated, oldest first). Anything a human pastes is ignored.
+          seen=$(gh api --paginate "repos/$GH_REPO/issues/$ISSUE/comments" \
+            --jq '.[] | select(.user.login == "github-actions[bot]") | .body')
+
+          # $1 = marker, $2 = body. Posts only if the exact marker is not already present.
+          post_once() {
+            if grep -qF -- "<!-- $1 -->" <<<"$seen"; then
+              return 0
+            fi
+            gh issue comment "$ISSUE" --body "$2"$'\n\n'"<!-- $1 -->" </dev/null
+            seen+=$'\n'"<!-- $1 -->"
+          }
+
+          # Helpers below read the run's jobs JSON from $jobsjson (fetched once
+          # per filtered entry) and use global: wsteps.
+
+          # True if a watched step failed in that run.
+          watched_failed() {
+            [ "$wsteps" = "[]" ] && return 0
+            local hit
+            hit=$(jq --argjson want "$wsteps" \
+              '[.jobs[].steps[]
+                | select(.name as $n | $want | any(. as $w | $n == $w or ($n | startswith($w + " ("))))
+                | select(.conclusion == "failure")] | length' <<<"$jobsjson")
+            [ "$hit" -gt 0 ]
+          }
+
+          # True if every watched step name appears in that run.
+          steps_present() {
+            jq -e --argjson want "$wsteps" \
+              '[.jobs[].steps[].name] as $names
+               | $want | all(. as $w | $names | any(. == $w or startswith($w + " (")))' \
+              >/dev/null <<<"$jobsjson"
+          }
+
+          while read -r entry; do
+            repo=$(jq -r .repo <<<"$entry")
+            # Per-repo owners if configured, else the global fallback.
+            mention=$(jq -r '.mention // empty' <<<"$entry")
+            mention=${mention:-$MENTION}
+
+            while IFS=$'\t' read -r file label wsteps; do
+              checked=$((checked + 1))
+              name="${T}${label}${T}"
+
+              # --- Fetch runs; only report "missing" on a real 404 ---
+              if ! runs=$(gh run list --repo "$repo" --workflow "$file" --limit 30 \
+                    --json databaseId,attempt,url,conclusion,headBranch,event,createdAt \
+                    2>"$errf" </dev/null); then
+                if grep -qiE '404|could not find' "$errf"; then
+                  post_once "missing:$repo|$file|$week" \
+                    "$mention ⚠️ **$repo**: workflow file ${T}$file${T} not found (renamed or deleted?)"
+                else
+                  echo "::error::gh run list failed for $repo $file: $(cat "$errf")"
+                  errors=$((errors + 1))
+                fi
+                continue
+              fi
+
+              # --- Latest completed non-PR run on any branch (cancelled/skipped ignored) ---
+              latest=$(jq -c --argjson f "$FAIL" '[.[]
+                    | select(.event != "pull_request")
+                    | select(.conclusion | IN("success", $f[]))] | .[0] // empty' <<<"$runs")
+
+              if [ -n "$latest" ]; then
+                lid=$(jq -r .databaseId <<<"$latest")
+                lattempt=$(jq -r .attempt <<<"$latest")
+                lconc=$(jq -r .conclusion <<<"$latest")
+                lurl=$(jq -r .url <<<"$latest")
+                lbranch=$(jq -r .headBranch <<<"$latest")
+                lbranch=${lbranch//[\`@<>]/}   # untrusted: strip backticks, @, < and >
+                levent=$(jq -r .event <<<"$latest")
+
+                # Fetch the run's jobs once for every filtered entry; also used by
+                # the presence check. An API error must not be read as "not failed".
+                jobsjson=
+                if [ "$wsteps" != "[]" ]; then
+                  if ! jobsjson=$(gh run view "$lid" --repo "$repo" --json jobs </dev/null); then
+                    echo "::error::gh run view failed for $repo $file run $lid"
+                    errors=$((errors + 1))
+                    continue
+                  fi
+                fi
+
+                # Tri-state. "failing": the run failed and either there is no
+                # filter or the watched step failed. "passing": the run succeeded
+                # and the watched step is present. "unknown": the run failed but
+                # the filter cannot confirm the watched step failed (e.g. a
+                # skipped sentinel step), or the watched step is absent from the
+                # run — that is not evidence of recovery, so change nothing and
+                # let the presence warning below speak.
+                failing=unknown
+                if [ "$lconc" = "success" ]; then
+                  if [ "$wsteps" = "[]" ] || steps_present; then
+                    failing=passing
+                  fi
+                elif [ "$wsteps" = "[]" ] || watched_failed; then
+                  failing=failing
+                fi
+
+                # Current alert state = most recent down/up marker for this workflow
+                state=up
+                line=$(grep -F -e "<!-- down:$repo|$file|" -e "<!-- up:$repo|$file|" <<<"$seen" \
+                  | tail -1 || true)
+                case "$line" in *"<!-- down:"*) state=down ;; esac
+
+                # Markers are keyed by run id *and attempt*, so a re-run that
+                # fails again after passing is still reported.
+                if [ "$failing" = failing ] && [ "$state" = up ]; then
+                  post_once "down:$repo|$file|$lid.$lattempt" \
+                    "$mention ❌ **$repo**: $name started failing (on ${T}$lbranch${T}, $levent): $lurl"
+                elif [ "$failing" = passing ] && [ "$state" = down ]; then
+                  post_once "up:$repo|$file|$lid.$lattempt" \
+                    "$mention ✅ **$repo**: $name is passing again (on ${T}$lbranch${T}, $levent): $lurl"
+                fi
+
+                if [ "$wsteps" != "[]" ] && ! steps_present; then
+                  post_once "stepmissing:$repo|$file|$week" \
+                    "$mention ⚠️ **$repo**: $name: watched step(s) $wsteps not found in the latest run (renamed?)"
+                fi
+              fi
+
+            done < <(jq -r '.workflows[]
+                  | [.file, .label, (.steps // [] | tojson)] | @tsv' <<<"$entry")
+          done < <(jq -c '.[]' monitor.json)
+
+          rm -f "$errf"
+          echo "Checked $checked workflow(s), $errors error(s)"
+
+          if [ "$checked" -eq 0 ]; then
+            echo "::error::monitor.json yielded zero workflows"
+            exit 1
+          fi
+          if [ "$errors" -gt 0 ]; then
+            exit 1
+          fi
