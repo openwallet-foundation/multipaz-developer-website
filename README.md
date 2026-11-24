@@ -290,3 +290,131 @@ After configuration:
 
 ### Reference
 See GitHub's guide for more details: [Configuring a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
+
+## CI Monitoring
+
+The GitHub Actions workflows we maintain across the multipaz repos are monitored
+continuously by a scheduled workflow in this repo. It polls the recent runs of each
+watched workflow via the GitHub API and comments on the
+["CI alerts" tracking issue](https://github.com/openwallet-foundation/multipaz-developer-website/issues/118)
+when a workflow starts failing, @mentioning the owners, and posts a recovery comment
+when it passes again.
+
+This exists because built-in GitHub notifications only fire for the user who triggered
+a run, leaving scheduled, push, and bot-triggered failures silent. Past incidents sat
+unnoticed for days (e.g. Trigger Docs Update failing 12 runs in a row). This replaces
+manual per-repo notifications. The options considered were per-repo workflows, a
+dead-man's-switch service, and relying on GitHub's built-in notifications (which only
+notify the run's actor); the scheduled single-workflow design was the smallest one
+covering scheduled, push, and bot-triggered failures.
+
+### How it works
+
+| Piece | Location | Role |
+|---|---|---|
+| Watch list | `monitor.json` (repo root) | Repos and workflow files to watch, plus optional filters |
+| Monitor workflow | `.github/workflows/monitor.yml` | Hourly poll (minute 17), monthly heartbeat, posts alerts |
+| Tracking issue | ["CI alerts"](https://github.com/openwallet-foundation/multipaz-developer-website/issues/118) | Where alerts land; also the monitor's state store |
+
+**What counts as failing.** All non-PR runs on any branch count. A run whose
+conclusion is `failure`, `timed_out`, or `startup_failure` is failing; `cancelled` and
+`skipped` runs are ignored. By default a *whole-workflow* failure alerts — the
+optional `steps` filter narrows that to the part we maintain (see below).
+
+**Alerting model.** The monitor compares each workflow's latest completed run with
+that workflow's current alert state and posts:
+
+| Alert | Meaning |
+|---|---|
+| ❌ *started failing* | The run failed, and the `steps` filter (if any) matched |
+| ✅ *is passing again* | Posted only when a run concludes `success` after a ❌ |
+| ⚠️ *workflow file not found* | File renamed/deleted in the watched repo — or Actions disabled, e.g. on a fork |
+| ⚠️ *watched step(s) not found* | A `steps` filter no longer matches — update `monitor.json` |
+| 💚 *monitor is alive* | Monthly heartbeat (also posted on manual dispatch) proving the monitor itself runs |
+
+On a **filtered** entry, a failed run where the watched step did not fail (for
+example a sentinel step that was skipped because an earlier step failed) is treated
+as *unknown*: the monitor neither alerts nor posts a recovery, and recovery is only
+ever declared from an actual successful run in which the watched step is present.
+A missing watched step produces the ⚠️ warning instead of a recovery.
+
+State and dedupe live in hidden markers (`<!-- down:... -->` / `<!-- up:... -->`)
+inside comments authored by `github-actions[bot]` — **do not delete those comments**,
+or the same failure re-alerts.
+
+### Adding a workflow to the watch list
+
+Onboarding a repo is one line in `monitor.json` — no change to the watched repo:
+
+```json
+{ "file": "deploy.yml", "label": "Deploy to production" }
+```
+
+- `file` — the workflow **file name** in the watched repo, e.g. `deploy.yml`
+- `label` — a human-readable name used in alerts
+
+A failure of that whole workflow alerts by default. To watch only part of a workflow,
+add a `steps` filter:
+
+```json
+{ "file": "unit-test.yml", "label": "Run Unit Tests", "steps": ["Fail if Detekt failed"] }
+```
+
+- `steps` — alert only if one of these **step names** fails
+
+`steps` matches the `name:` values in the watched workflow file — the step names its
+Actions page lists for a run. It is optional; with no `steps` filter, any failure of
+the workflow alerts.
+
+Alerts go to the handles in `MENTION` at the top of `monitor.yml`. A repo entry can
+override that with its own `mention`, e.g.
+`{ "repo": "org/repo", "mention": "@owner-a @owner-b", "workflows": [ ... ] }`.
+
+### The detekt-only case
+
+For [multipaz](https://github.com/openwallet-foundation/multipaz)'s *Run Unit Tests*
+workflow we only maintain detekt (the KDoc-coverage check), not the unit tests.
+Detekt runs as a step with `continue-on-error: true` (so its API conclusion is
+unreliable), and the workflow converts a detekt failure into a hard failure via a
+sentinel step. We watch the sentinel:
+
+```json
+{ "file": "unit-test.yml", "label": "Run Unit Tests (detekt only)", "steps": ["Fail if Detekt failed"] }
+```
+
+The sentinel is skipped when the detekt step itself passes, and it used to be skipped
+whenever an earlier step failed. [multipaz#2210](https://github.com/openwallet-foundation/multipaz/pull/2210)
+fixed the second case: the sentinel now runs when an earlier step fails, using
+`if: ${{ !cancelled() && steps.detekt.outcome == 'failure' }}`. If the watched step is
+absent from a run, the monitor treats the run as *unknown* and posts the watched-step
+warning instead of a recovery.
+
+### Operating it
+
+- **First-time setup:** create the "CI alerts" issue, then set its number in `ISSUE`
+  and the default handles in `MENTION` in `monitor.yml`.
+- **Manual run:** Actions → *Monitor workflows* → *Run workflow*
+  (`workflow_dispatch`). It also posts the heartbeat, so it can be exercised by hand.
+- **Renames:** workflow files are matched by file name, so a rename triggers a
+  `not found` alert until `monitor.json` is updated.
+
+### Limitations
+
+- **Latency:** alerts normally arrive within an hour, but GitHub executes scheduled
+  cron runs on a best-effort basis. Delays of several hours are possible — a fork saw
+  6–8 hours between scheduled runs over a weekend — and runs can be skipped.
+- **Historical skipped sentinels:** runs from before
+  [multipaz#2210](https://github.com/openwallet-foundation/multipaz/pull/2210) merged can
+  have the detekt sentinel skipped; those runs are treated as *unknown* and do not
+  produce a false recovery.
+- **Not-found dedupe:** a missing workflow file alerts at most once per ISO week; a
+  file that is restored and goes missing again in the same week will not re-alert.
+- **Comments as a database:** dedupe uses bot-authored comments; deleting or editing
+  them can cause repeat alerts.
+- **Name coupling:** workflows and filters match by name; renames need a
+  `monitor.json` update (the monitor warns with a `not found` alert).
+- **No automatic monitor-of-the-monitor:** if this workflow stops running, alerts stop
+  silently — the monthly heartbeat only helps if someone notices it is missing. GitHub
+  also disables scheduled workflows after 60 days without repository activity, so the
+  schedule depends on this repo staying active. Revisit ownership during any LFDT
+  migration.
