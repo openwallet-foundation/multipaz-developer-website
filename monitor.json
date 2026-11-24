@@ -1,0 +1,34 @@
+[
+  {
+    "repo": "openwallet-foundation/multipaz-developer-website",
+    "workflows": [
+      { "file": "docs.yml", "label": "Build and Deploy Docusaurus with KDocs" }
+    ]
+  },
+  {
+    "repo": "openwallet-foundation/multipaz-utopia",
+    "workflows": [
+      { "file": "deploy-utopia.yml", "label": "Deploy Utopia to production" }
+    ]
+  },
+  {
+    "repo": "openwallet-foundation/multipaz-samples",
+    "workflows": [
+      { "file": "build-terminal-apps.yml", "label": "Build terminal apps" },
+      { "file": "deploy-terminal-backends.yml", "label": "Deploy terminal backends to production" }
+    ]
+  },
+  {
+    "repo": "openwallet-foundation/multipaz",
+    "workflows": [
+      { "file": "trigger-docusaurus-update.yml", "label": "Trigger Docs Update" },
+      { "file": "unit-test.yml", "label": "Run Unit Tests (detekt only)", "steps": ["Fail if Detekt failed"] }
+    ]
+  },
+  {
+    "repo": "openwallet-foundation/multipaz-extras",
+    "workflows": [
+      { "file": "trigger-docusaurus-update.yml", "label": "Trigger Docs Update" }
+    ]
+  }
+]
