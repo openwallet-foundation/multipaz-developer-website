@@ -185,6 +185,14 @@ const config = {
           url: 'https://discord.com/channels/1022962884864643214/1179828955717574707',
           availableLanguage: ['English'],
         },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '1 Letterman Drive, Building D, Suite D4700',
+          addressLocality: 'San Francisco',
+          addressRegion: 'CA',
+          postalCode: '94129',
+          addressCountry: 'US',
+        },
         sameAs: [
           'https://github.com/openwallet-foundation',
           'https://www.linkedin.com/company/open-wallet-foundation/',
@@ -330,6 +338,23 @@ const config = {
               {
                 label: 'Codelabs',
                 to: '/codelabs',
+              },
+            ],
+          },
+          {
+            title: 'Project',
+            items: [
+              {
+                label: 'About',
+                to: '/about',
+              },
+              {
+                label: 'Contact',
+                to: '/contact',
+              },
+              {
+                label: 'Privacy',
+                to: '/privacy',
               },
             ],
           },
